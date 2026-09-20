@@ -1,0 +1,8 @@
+# Local environment and secrets. Never commit a key.
+.env
+.env.*
+
+node_modules/
+out/
+*.log
+.DS_Store

@@ -1,0 +1,338 @@
+{
+  "draw": {
+    "country": "us",
+    "count": 100,
+    "seed": "nxk-readme-us-depth-2026-09-20",
+    "selected_position": 92,
+    "api_version": "3.0.0",
+    "generator_version": "v2",
+    "persona_id": "persona_i7bork389e3ctqi2",
+    "persona_seed": "nxk-readme-us-depth-2026-09-20_92",
+    "generated_at": "2026-09-20T14:58:59.518Z"
+  },
+  "persona": {
+    "name": {
+      "first_name": "Kenji",
+      "last_name": "Suzuki"
+    },
+    "description": {
+      "short": "Kenji is a 39-year-old man living in Montgomery County, Maryland. Kenji works full-time in healthcare, earns $75k-$100k, lives with a partner and has no children, and rents at market rate.",
+      "frame": [
+        {
+          "key": "age",
+          "label": "Age",
+          "value": "39"
+        },
+        {
+          "key": "gender",
+          "label": "Gender",
+          "value": "Male"
+        },
+        {
+          "key": "location",
+          "label": "Location",
+          "value": "Montgomery County, Maryland"
+        },
+        {
+          "key": "work",
+          "label": "Work",
+          "value": "works full-time in healthcare"
+        },
+        {
+          "key": "income",
+          "label": "Income",
+          "value": "$75k-$100k"
+        },
+        {
+          "key": "household",
+          "label": "Household",
+          "value": "Living with a partner with no children"
+        }
+      ]
+    },
+    "identity": {
+      "age": 39,
+      "birth_year": 1987,
+      "birthday": "1987-07-27",
+      "gender": "male",
+      "ethnicity": "east_asian",
+      "sexual_orientation": "heterosexual",
+      "religious_identity": "christian_catholic",
+      "religious_tradition": "christian",
+      "christian_tradition": "catholic",
+      "religion_salience": "low_salience",
+      "political_leaning": "liberal",
+      "political_orientation_group": "centre_left",
+      "political_alignment": "democratic_aligned"
+    },
+    "origin": {
+      "country_of_birth": "united_states",
+      "immigration_status": "us_born_third_generation_plus",
+      "migration_background_context": "native_born_non_migrant_background",
+      "region": "maryland",
+      "local_area": "montgomery_county",
+      "geographic_context": "major_metropolitan",
+      "languages": [
+        "english"
+      ],
+      "english_proficiency": "native_or_primary_english",
+      "language_use_context": "primary_english_context"
+    },
+    "background": {
+      "parental_education": "less_than_high_school",
+      "childhood_socioeconomic_status": "poverty",
+      "education": "master_degree"
+    },
+    "work": {
+      "occupation_domain": "healthcare_medical",
+      "occupation_title": "Therapeutic Recreation Specialist",
+      "occupation_code": "29-1125.00",
+      "canonical_role": "recreational_therapists",
+      "career_context": {
+        "status": "v3_default",
+        "scope": "current_role",
+        "occupation_code": "29-1125.00",
+        "canonical_role": "recreational_therapists",
+        "source_title": "Recreational Therapists",
+        "source_system": "us_onet",
+        "source_release": "30.2",
+        "career_seniority": "mid",
+        "management_scope": "individual_contributor",
+        "business_ownership_status": "not_owner",
+        "employer_type": "education_or_health_institution",
+        "company_size_band": "large",
+        "startup_stage_context": "none",
+        "decision_role": "influencer",
+        "employer_context_confidence": "medium",
+        "public_sector_context": "none",
+        "sector_tags": [
+          "healthcare"
+        ],
+        "prevalence_weight": 15060,
+        "weight_source": "official_employment_split",
+        "source_posture": "official_or_compiled",
+        "warnings": []
+      },
+      "employment_status": "employed_full_time",
+      "employment_flexibility": "shift_work",
+      "work_location_mode": "on_site",
+      "military_background": false,
+      "military_service_status": "none",
+      "public_sector_context": "none"
+    },
+    "economic": {
+      "personal_income_band": "75k_to_100k_usd",
+      "primary_personal_income_source": "employment_wages",
+      "current_earned_income_source": "employment_wages",
+      "household_support_model": "partner_supported_or_shared_costs",
+      "economic_dependency_role": "shared_household_earner",
+      "household_resource_context": "high_household_resources",
+      "household_income_band_estimate": "100k_to_150k_usd",
+      "financial_planning_style": "structured_budgeting",
+      "debt_load_context": "low_or_no_debt",
+      "financial_pressure_context": "financially_secure"
+    },
+    "household": {
+      "relationship_status": "cohabiting_partner",
+      "number_of_children": 0,
+      "has_children": false,
+      "dependent_children_count_band": "none",
+      "child_age_bands": [],
+      "parenting_stage": "no_children",
+      "child_household_presence": "no_children",
+      "family_lifecycle_stage": "dual_income_no_children",
+      "relationship_household_context": "partnered_without_current_children",
+      "current_partnership_state": "cohabiting_partnered",
+      "relationship_history_context": "currently_partnered_history_unobserved",
+      "partnership_household_role": "partnered_primary_or_shared_supporter",
+      "household_composition": "couple_no_children",
+      "life_stage_segment": "midlife",
+      "caregiving_role": "none",
+      "household_living_state": "living_with_partner",
+      "dependency_state": "independent",
+      "housing_tenure": "rent_market_rate",
+      "homeownership_pathway": "partnered_household_renter",
+      "housing_type": "single_family_house",
+      "garden_or_outdoor_space": "private_garden_or_yard",
+      "recent_mover": "moved_within_last_year",
+      "renovation_status": "not_renovating",
+      "debt_band": "under_5k_usd",
+      "debt_profile": "low_or_no_debt"
+    },
+    "behavior": {
+      "interests": [
+        "running",
+        "yoga",
+        "music_listening",
+        "art_collecting",
+        "travel",
+        "cooking",
+        "grilling",
+        "reading",
+        "podcast_listening"
+      ],
+      "has_pets": true,
+      "pet_types": [
+        "dog"
+      ],
+      "pet_owner_intensity": "routine_owner",
+      "physical_activity_level": "lightly_active_below_guidelines",
+      "activity_routine_context": "light_activity_routine",
+      "fitness_engagement_level": "casual",
+      "primary_transport_mode": "drive_alone",
+      "car_access": "personal_or_primary_car_access",
+      "commute_pattern": "regular_commuter",
+      "technology_confidence": "basic_functional_user",
+      "digital_engagement_level": "smartphone_dependent",
+      "social_media_usage": "former_user",
+      "digital_capability_level": "basic_digital_capability",
+      "digital_engagement_intensity": "essential_light",
+      "digital_privacy_posture": "privacy_selective",
+      "technology_adoption_orientation": "cautious_late_majority",
+      "price_sensitivity": "quality_led",
+      "purchase_channel_preference": "hybrid_shopper",
+      "brand_loyalty_orientation": "trusted_brand_preference",
+      "promotion_responsiveness": "loyalty_reward_responsive"
+    },
+    "psychology": {
+      "literacy_level": "proficient",
+      "numeracy_level": "advanced",
+      "problem_solving_style": "structured_analytical",
+      "cognitive_capability_band": "advanced",
+      "big_five_scores": {
+        "openness": 95,
+        "conscientiousness": 88,
+        "extraversion": 63,
+        "agreeableness": 52,
+        "neuroticism": 53
+      },
+      "big_five_openness": "very_high_openness",
+      "big_five_conscientiousness": "very_high_conscientiousness",
+      "big_five_extraversion": "high_extraversion",
+      "big_five_agreeableness": "average_agreeableness",
+      "big_five_neuroticism": "average_neuroticism"
+    },
+    "decisioning": {
+      "communication_preference": "evidence_data_led",
+      "message_processing_style": "analytical_deliberate",
+      "purchase_risk_tolerance": "risk_balanced",
+      "persuasion_susceptibility": "low_susceptibility",
+      "political_engagement_level": "low_engagement"
+    },
+    "health": {
+      "dietary_restrictions": [],
+      "health_conditions": [
+        "hypertension",
+        "mental_health_condition",
+        "sleep_disorder"
+      ],
+      "mobility_or_exertion_context": "mild_limitation"
+    },
+    "appearance": {
+      "skin_tone": "medium",
+      "body_build": "average",
+      "nose_shape": "straight",
+      "face_shape": "oval",
+      "skin": {
+        "tone": "medium",
+        "undertone_context": "golden",
+        "texture_context": "normal_texture",
+        "age_marker_context": "minimal_age_markers",
+        "visible_mark_contexts": [
+          "none"
+        ],
+        "sun_exposure_or_freckling_context": "minimal_visible_sun_exposure"
+      },
+      "face": {
+        "shape": "oval",
+        "proportion_context": "balanced",
+        "symmetry_context": "typical_asymmetry",
+        "facial_fullness_context": "average_fullness",
+        "cheekbone_context": "average_cheekbones",
+        "jawline_context": "average_jawline",
+        "chin_context": "average_chin",
+        "forehead_context": "average_forehead",
+        "facial_length_width_context": "balanced"
+      },
+      "nose": {
+        "shape": "straight",
+        "bridge_context": "average_bridge",
+        "width_context": "narrow_width",
+        "tip_context": "defined_tip",
+        "profile_context": "straight_profile"
+      },
+      "mouth": {
+        "lip_fullness_context": "average_lips",
+        "mouth_width_context": "wide_mouth",
+        "smile_context": "subtle_smile",
+        "teeth_visibility_context": "not_visible",
+        "facial_hair_interaction_context": "not_applicable"
+      },
+      "ears": {
+        "prominence_context": "slightly_prominent",
+        "lobe_context": "detached_lobes"
+      },
+      "vision": {
+        "glasses_context": "none",
+        "glasses_style_context": "not_applicable"
+      },
+      "distinctive_features": {
+        "feature_contexts": []
+      },
+      "body": {
+        "frame_context": "medium_frame",
+        "body_composition_context": "soft_average_composition",
+        "fat_distribution_context": "even_distribution",
+        "muscle_tone_context": "average_muscle_tone",
+        "shoulder_context": "average_shoulders",
+        "waist_hip_context": "moderate_waist_definition",
+        "posture_context": "relaxed_posture",
+        "mobility_visual_context": "no_visible_mobility_constraint",
+        "clothing_fit_context": "regular_fit"
+      },
+      "body_shape_context": "soft_average_body_shape",
+      "avatar_prompt_cues": "medium skin; balanced oval face; average cheekbones; average jawline; narrow eyes with present epicanthic fold; narrow width nose; average lips; minimal age markers; black high fade with scattered gray; light stubble",
+      "hair": {
+        "color": "black",
+        "natural_color": "black",
+        "visible_color": "black",
+        "gray_coverage_context": "scattered_gray",
+        "dyed_or_colored_context": "natural_or_untreated",
+        "texture": "type_1_straight",
+        "texture_pattern": "straight",
+        "length_context": "short",
+        "coverage_context": "full_hair",
+        "style_context": "high_fade",
+        "style_description": "high fade",
+        "facial_hair_context": "light_stubble"
+      },
+      "eyes": {
+        "color": "dark_brown",
+        "shape": "almond",
+        "aperture_shape_context": "narrow",
+        "eyelid_crease_context": "low_or_tapered_crease",
+        "epicanthic_fold_context": "present",
+        "canthal_tilt_context": "neutral",
+        "eye_spacing_context": "slightly_close_set",
+        "under_eye_context": "minimal_under_eye_shadow",
+        "brow_shape_context": "soft_arch",
+        "brow_density_context": "average_brows"
+      },
+      "height": {
+        "cm": 175,
+        "feet_and_inches": "5'9\""
+      },
+      "weight": {
+        "kg": 67,
+        "lbs": 148,
+        "bmi": 21.9
+      },
+      "clothing_sizes": {
+        "shirt_size": "M",
+        "waist_size": "30",
+        "shoe_size_local": "8.5"
+      },
+      "appearance_summary": "man with straight black hair in a high fade with scattered gray and light stubble, dark brown almond-shaped eyes with a present epicanthic fold, medium skin, oval face with narrow nose and average lips, and soft average build."
+    }
+  }
+}
