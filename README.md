@@ -1,5 +1,8 @@
 <h1 align="center">
-  <img src="assets/nxk-logo.png" alt="nxk branching mark" width="320">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/nxk-logo-dark.svg">
+    <img src="assets/nxk-logo.svg" alt="nxk branching mark" width="320">
+  </picture>
 </h1>
 
 <p align="center">
