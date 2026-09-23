@@ -64,7 +64,10 @@ the result brief.
 
 ## How it works
 
-[![A coding agent calls nxk, asks different people, compares their answers and changes the work](assets/diagrams/inside-the-task.webp)](assets/diagrams/inside-the-task.webp)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/inside-the-task-dark.webp">
+  <img src="assets/diagrams/inside-the-task.webp" alt="A coding agent calls nxk, asks different people, compares their answers and changes the work">
+</picture>
 
 **Hypothetical example:** The library and the numbers are made up. A local
 public library has the funding and staff to open for five more hours each week.
@@ -80,14 +83,20 @@ An agent could use nxk to decide when:
 For each person, the model gives every answer a probability. These are the
 model's answers, not real people's answers.
 
-[![nxk keeps every answer probability and compares how people with different lives respond](assets/diagrams/keep-the-whole-answer.webp)](assets/diagrams/keep-the-whole-answer.webp)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/keep-the-whole-answer-dark.webp">
+  <img src="assets/diagrams/keep-the-whole-answer.webp" alt="nxk keeps every answer probability and compares how people with different lives respond">
+</picture>
 
 nxk looks for what the people who answer differently have in common. In the
 example above, evening support was higher among people in full-time work. The
 agent can ask that group which evening they prefer, and use the answer to
 change the work.
 
-[![nxk compares PersonaGen dimensions and asks groups with different answers more questions](assets/diagrams/find-the-connection.webp)](assets/diagrams/find-the-connection.webp)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/find-the-connection-dark.webp">
+  <img src="assets/diagrams/find-the-connection.webp" alt="nxk compares PersonaGen dimensions and asks groups with different answers more questions">
+</picture>
 
 ## Why use it?
 
