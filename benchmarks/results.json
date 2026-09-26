@@ -1,0 +1,4773 @@
+{
+ "totals": {
+  "diagnostics": {
+   "gapSizeRatio": 0.3617063302279036,
+   "scaleEnds": {
+    "real": 35.349999999999994,
+    "nxk": 22.250166666666672
+   },
+   "scaleMiddle": {
+    "real": 23.67142857142857,
+    "nxk": 14.592857142857147
+   }
+  },
+  "headClear": 9,
+  "exact": 16,
+  "close": 6,
+  "npExact": 14,
+  "npClose": 7,
+  "agreed": 71,
+  "gaps": 103,
+  "headAgreed": 12,
+  "headlines": 16,
+  "distance": 23.309120346153843,
+  "differs": 0.2598846153846154,
+  "mae": 9.66554625374626,
+  "npMae": 14.035384615384617,
+  "rank": 0.7203499760807198,
+  "npRank": 0.5420622129036979,
+  "people": 26000,
+  "tokens": 72842943
+ },
+ "studies": [
+  {
+   "id": "fsa-food-price-concern",
+   "title": "Concern about food affordability",
+   "question": "Thinking about food in the UK today, how concerned, if at all, do you feel about affordability of food?",
+   "examples": [
+    {
+     "who": "Elena, 25, fitness trainer, south west england · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.06,
+      0.65,
+      0.29,
+      0
+     ]
+    },
+    {
+     "who": "Jonathan, 61, social worker, south east england · household £20–35k · financially constrained · private rent",
+     "p": [
+      0,
+      0.01,
+      0.89,
+      0.1
+     ]
+    },
+    {
+     "who": "Christine, 52, long term sick or disabled, london · household under £20k · high financial pressure · social housing rent",
+     "p": [
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "Adults in England, Wales and Northern Ireland",
+   "source": {
+    "name": "Food and You 2 Wave 8",
+    "organisation": "Food Standards Agency",
+    "url": "https://www.food.gov.uk/research/food-and-you-2/food-and-you-2-wave-8"
+   },
+   "surveyed": "November 2023",
+   "options": [
+    "Not concerned at all",
+    "Not very concerned",
+    "Somewhat concerned",
+    "Highly concerned"
+   ],
+   "orderedLevels": 4,
+   "people": 1000,
+   "real": [
+    2,
+    9.2,
+    38.8,
+    50
+   ],
+   "crowd": [
+    3.620000000000003,
+    24.93100000000002,
+    45.61800000000002,
+    25.821999999999967
+   ],
+   "noProfile": [
+    1,
+    1,
+    45,
+    53
+   ],
+   "leader": "close",
+   "noProfileLeader": "exact",
+   "mae": 12.08675000000002,
+   "noProfileMae": 4.6000000000000005,
+   "rankAgreement": 0.7999999999999998,
+   "noProfileRankAgreement": 0.9486832980505138,
+   "spread": {
+    "distance": 38.755012999999956,
+    "topDiffers": 0.505,
+    "distinctTops": 4,
+    "bins": [
+     498,
+     80,
+     77,
+     64,
+     56,
+     50,
+     37,
+     35,
+     31,
+     72
+    ],
+    "binsFor": "Highly concerned"
+   },
+   "inputTokens": 2773832,
+   "groups": [
+    {
+     "dimension": "Household income",
+     "headline": {
+      "a": "Less than £19,000",
+      "b": "More than £96,000",
+      "option": "Highly concerned",
+      "realGap": 21.9,
+      "nxkGap": 94.59420289855073,
+      "agrees": true
+     },
+     "clearGaps": 4,
+     "agreeing": 4,
+     "buckets": [
+      {
+       "label": "Less than £19,000",
+       "n": 69,
+       "real": [
+        2.1,
+        9.4,
+        30.2,
+        58.3
+       ],
+       "nxk": [
+        0.028985507246376812,
+        0.14492753623188406,
+        5.23188405797101,
+        94.59420289855073
+       ]
+      },
+      {
+       "label": "£32,000 - £63,999",
+       "n": 197,
+       "real": [
+        2,
+        8.2,
+        40.8,
+        49
+       ],
+       "nxk": [
+        1.8324873096446659,
+        21.309644670050783,
+        63.64974619289342,
+        13.197969543147211
+       ]
+      },
+      {
+       "label": "More than £96,000",
+       "n": 30,
+       "real": [
+        2,
+        15.2,
+        46.5,
+        36.4
+       ],
+       "nxk": [
+        30.83333333333334,
+        63.39999999999998,
+        5.7666666666666675,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Food security (PersonaGen: financial pressure)",
+     "headline": {
+      "a": "High food security",
+      "b": "Very low food security",
+      "option": "Highly concerned",
+      "realGap": -35.1,
+      "nxkGap": -76.75583864118894,
+      "agrees": true
+     },
+     "clearGaps": 10,
+     "agreeing": 8,
+     "buckets": [
+      {
+       "label": "High food security",
+       "n": 90,
+       "real": [
+        2,
+        10.1,
+        47.5,
+        40.4
+       ],
+       "nxk": [
+        13.733333333333334,
+        61.422222222222224,
+        23.499999999999993,
+        1.3333333333333337
+       ]
+      },
+      {
+       "label": "Marginal food security",
+       "n": 415,
+       "real": [
+        1,
+        8.1,
+        32.3,
+        58.6
+       ],
+       "nxk": [
+        5.419277108433738,
+        44.25060240963861,
+        47.57831325301206,
+        2.734939759036132
+       ]
+      },
+      {
+       "label": "Low food security",
+       "n": 338,
+       "real": [
+        1,
+        6.1,
+        30.6,
+        62.2
+       ],
+       "nxk": [
+        0.33431952662721914,
+        2.5857988165680412,
+        60.66568047337283,
+        36.41124260355028
+       ]
+      },
+      {
+       "label": "Very low food security",
+       "n": 157,
+       "real": [
+        1,
+        8.2,
+        15.3,
+        75.5
+       ],
+       "nxk": [
+        0.14012738853503187,
+        1.0509554140127393,
+        20.71974522292994,
+        78.08917197452227
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fsa-meat-alternatives-adoption",
+   "title": "Eating meat alternatives",
+   "question": "Have you ever eaten meat alternatives?",
+   "examples": [
+    {
+     "who": "Victoria, 57, life coach, north west england · household £35–50k · budget managed · private rent",
+     "p": [
+      0.95,
+      0.01,
+      0.04,
+      0
+     ]
+    },
+    {
+     "who": "Beverley, 27, local government administrative worker, london · household £35–50k · budget managed · private rent",
+     "p": [
+      0.35,
+      0.05,
+      0.59,
+      0.01
+     ]
+    },
+    {
+     "who": "Quang, 29, other economically inactive, wales · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.04,
+      0.03,
+      0.91,
+      0.02
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "Adults in England, Wales and Northern Ireland",
+   "source": {
+    "name": "Food and You 2 Wave 8",
+    "organisation": "Food Standards Agency",
+    "url": "https://www.food.gov.uk/research/food-and-you-2/food-and-you-2-wave-8"
+   },
+   "surveyed": "November 2023",
+   "options": [
+    "Yes, I currently eat meat alternatives",
+    "Yes, I used to eat meat alternatives but I don’t now",
+    "No, I have never eaten meat alternatives",
+    "I have never heard of meat alternatives"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    28.1,
+    22.9,
+    45.8,
+    3.1
+   ],
+   "crowd": [
+    37.657999999999994,
+    4.443000000000001,
+    54.7350000000001,
+    3.1400000000000072
+   ],
+   "noProfile": [
+    57.99999999999999,
+    1,
+    40,
+    1
+   ],
+   "leader": "exact",
+   "noProfileLeader": "close",
+   "mae": 9.247500000000024,
+   "noProfileMae": 14.924999999999997,
+   "rankAgreement": 0.9999999999999998,
+   "noProfileRankAgreement": 0.7378647873726218,
+   "spread": {
+    "distance": 19.5816110000001,
+    "topDiffers": 0.322,
+    "distinctTops": 2,
+    "bins": [
+     23,
+     56,
+     61,
+     91,
+     132,
+     155,
+     200,
+     176,
+     101,
+     5
+    ],
+    "binsFor": "No, I have never eaten meat alternatives"
+   },
+   "inputTokens": 2797832,
+   "groups": [
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "25-34",
+      "b": "75+",
+      "option": "No, I have never eaten meat alternatives",
+      "realGap": -34.7,
+      "nxkGap": -12.551209658908256,
+      "agrees": true
+     },
+     "clearGaps": 6,
+     "agreeing": 5,
+     "buckets": [
+      {
+       "label": "25-34",
+       "n": 159,
+       "real": [
+        35.5,
+        24.7,
+        35.5,
+        4.3
+       ],
+       "nxk": [
+        41.71698113207548,
+        4.037735849056602,
+        52.47798742138365,
+        1.735849056603772
+       ]
+      },
+      {
+       "label": "45-54",
+       "n": 169,
+       "real": [
+        29.2,
+        30.2,
+        37.5,
+        3.1
+       ],
+       "nxk": [
+        39.73964497041424,
+        4.946745562130169,
+        52.94082840236685,
+        2.3313609467455585
+       ]
+      },
+      {
+       "label": "75+",
+       "n": 137,
+       "real": [
+        16,
+        11.7,
+        70.2,
+        2.1
+       ],
+       "nxk": [
+        22.861313868613138,
+        4.598540145985399,
+        65.02919708029191,
+        7.503649635036494
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Household income",
+     "headline": {
+      "a": "Less than £19,000",
+      "b": "More than £96,000",
+      "option": "Yes, I currently eat meat alternatives",
+      "realGap": -22.799999999999997,
+      "nxkGap": -1.8289855072463652,
+      "agrees": true
+     },
+     "clearGaps": 4,
+     "agreeing": 4,
+     "buckets": [
+      {
+       "label": "Less than £19,000",
+       "n": 69,
+       "real": [
+        22.1,
+        22.1,
+        50.5,
+        5.3
+       ],
+       "nxk": [
+        38.304347826086975,
+        3.6231884057971007,
+        54.057971014492765,
+        3.971014492753624
+       ]
+      },
+      {
+       "label": "£32,000 - £63,999",
+       "n": 197,
+       "real": [
+        29.6,
+        25.5,
+        42.9,
+        2
+       ],
+       "nxk": [
+        38.41624365482236,
+        4.482233502538064,
+        54.75634517766497,
+        2.3299492385786724
+       ]
+      },
+      {
+       "label": "More than £96,000",
+       "n": 30,
+       "real": [
+        44.9,
+        26.5,
+        28.6,
+        0
+       ],
+       "nxk": [
+        40.13333333333334,
+        4.700000000000002,
+        53.56666666666666,
+        1.5333333333333337
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fsa-food-hygiene-rating-checks",
+   "title": "Checking food hygiene ratings",
+   "question": "In the last 12 months, have you checked the hygiene rating of a food business?",
+   "examples": [
+    {
+     "who": "Leah, 47, duty manager, london · household £35–50k · financially constrained · private rent",
+     "p": [
+      0.93,
+      0.07
+     ]
+    },
+    {
+     "who": "Sumaya, 18, teaching assistant, london · household £20–35k · financially constrained · private rent",
+     "p": [
+      0.62,
+      0.38
+     ]
+    },
+    {
+     "who": "Ewan, 75, office administrator, north east england · household £20–35k · financially constrained · own outright",
+     "p": [
+      0.15,
+      0.85
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "Adults in England, Wales and Northern Ireland",
+   "source": {
+    "name": "Food and You 2 Wave 8",
+    "organisation": "Food Standards Agency",
+    "url": "https://www.food.gov.uk/research/food-and-you-2/food-and-you-2-wave-8"
+   },
+   "surveyed": "November 2023",
+   "options": [
+    "Yes, I have checked the Food Hygiene Rating of a food business",
+    "No, I have not checked the Food Hygiene Rating of a food business"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    43.8,
+    56.2
+   ],
+   "crowd": [
+    60.906999999999975,
+    39.09299999999999
+   ],
+   "noProfile": [
+    32,
+    68
+   ],
+   "leader": "miss",
+   "noProfileLeader": "exact",
+   "mae": 17.106999999999996,
+   "noProfileMae": 11.799999999999997,
+   "rankAgreement": null,
+   "noProfileRankAgreement": null,
+   "spread": {
+    "distance": 9.957696000000007,
+    "topDiffers": 0.171,
+    "distinctTops": 2,
+    "bins": [
+     10,
+     46,
+     166,
+     314,
+     278,
+     116,
+     57,
+     11,
+     2,
+     0
+    ],
+    "binsFor": "No, I have not checked the Food Hygiene Rating of a food business"
+   },
+   "inputTokens": 2781832,
+   "groups": [
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "25-34",
+      "b": "75+",
+      "option": "No, I have not checked the Food Hygiene Rating of a food business",
+      "realGap": -27.500000000000007,
+      "nxkGap": -12.946839278336327,
+      "agrees": true
+     },
+     "clearGaps": 4,
+     "agreeing": 4,
+     "buckets": [
+      {
+       "label": "25-34",
+       "n": 159,
+       "real": [
+        54.6,
+        45.4
+       ],
+       "nxk": [
+        65.60377358490567,
+        34.39622641509432
+       ]
+      },
+      {
+       "label": "45-54",
+       "n": 169,
+       "real": [
+        45.4,
+        54.6
+       ],
+       "nxk": [
+        61.68639053254438,
+        38.31360946745561
+       ]
+      },
+      {
+       "label": "75+",
+       "n": 137,
+       "real": [
+        27.1,
+        72.9
+       ],
+       "nxk": [
+        52.65693430656936,
+        47.343065693430646
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Household income",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Less than £19,000",
+       "n": 69,
+       "real": [
+        42.3,
+        57.7
+       ],
+       "nxk": [
+        48.608695652173914,
+        51.391304347826086
+       ]
+      },
+      {
+       "label": "£32,000 - £63,999",
+       "n": 197,
+       "real": [
+        48,
+        52
+       ],
+       "nxk": [
+        62.553299492385804,
+        37.44670050761422
+       ]
+      },
+      {
+       "label": "More than £96,000",
+       "n": 30,
+       "real": [
+        39.4,
+        60.6
+       ],
+       "nxk": [
+        59.8,
+        40.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "desnz-air-source-heat-pump-install-likelihood",
+   "title": "Installing an air source heat pump",
+   "question": "How likely is it that you would install each of the following heating systems in your home when you next need to change your heating system or boiler: air source heat pumps?",
+   "examples": [
+    {
+     "who": "Curtis, 37, software developer, east midlands · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.61,
+      0.38,
+      0.01,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "who": "Marlena, 68, director of communications, south west england · household £100–150k · budget managed · own with mortgage",
+     "p": [
+      0.02,
+      0.7,
+      0.22,
+      0.02,
+      0.01,
+      0.03
+     ]
+    },
+    {
+     "who": "Laura, 78, head chef, east midlands · household £20–35k · financially constrained · own outright",
+     "p": [
+      0.01,
+      0.07,
+      0.84,
+      0.05,
+      0,
+      0.03
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK homeowners",
+   "source": {
+    "name": "DESNZ Public Attitudes Tracker Winter 2025",
+    "organisation": "Department for Energy Security and Net Zero",
+    "url": "https://www.gov.uk/government/statistics/desnz-public-attitudes-tracker-winter-2025"
+   },
+   "surveyed": "November 2025",
+   "options": [
+    "Very likely",
+    "Fairly likely",
+    "Not very likely",
+    "Not at all likely",
+    "Not applicable – I already have this installed in my home",
+    "Not applicable – not my decision"
+   ],
+   "orderedLevels": 4,
+   "people": 1000,
+   "real": [
+    8.3,
+    19.5,
+    29.6,
+    28.8,
+    3.7,
+    10
+   ],
+   "crowd": [
+    7.573000000000022,
+    54.69000000000002,
+    27.017000000000017,
+    4.022000000000011,
+    0.884999999999987,
+    5.797000000000018
+   ],
+   "noProfile": [
+    13,
+    60,
+    4,
+    3,
+    1,
+    19
+   ],
+   "leader": "miss",
+   "noProfileLeader": "miss",
+   "mae": 11.715999999999994,
+   "noProfileMae": 18.05,
+   "rankAgreement": 0.48571428571428577,
+   "noProfileRankAgreement": 0.14285714285714288,
+   "spread": {
+    "distance": 23.144212000000053,
+    "topDiffers": 0.245,
+    "distinctTops": 4,
+    "bins": [
+     198,
+     251,
+     178,
+     136,
+     73,
+     76,
+     59,
+     25,
+     4,
+     0
+    ],
+    "binsFor": "Not very likely"
+   },
+   "inputTokens": 2865908,
+   "groups": [
+    {
+     "dimension": "Gender",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Male",
+       "n": 489,
+       "real": [
+        9.3,
+        22.4,
+        30.4,
+        27.4,
+        3.2,
+        7.4
+       ],
+       "nxk": [
+        7.179959100204505,
+        53.92638036809814,
+        28.23926380368098,
+        4.2331288343558215,
+        0.9406952965235079,
+        5.45807770961145
+       ]
+      },
+      {
+       "label": "Female",
+       "n": 501,
+       "real": [
+        7.5,
+        16.7,
+        29,
+        29.8,
+        4.6,
+        12.4
+       ],
+       "nxk": [
+        7.900199600798412,
+        55.27345309381235,
+        26.009980039920144,
+        3.840319361277437,
+        0.8323353293413098,
+        6.133732534930144
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "25 to 34",
+      "b": "65+",
+      "option": "Not at all likely",
+      "realGap": -12.999999999999996,
+      "nxkGap": -3.6196994095544732,
+      "agrees": true
+     },
+     "clearGaps": 3,
+     "agreeing": 3,
+     "buckets": [
+      {
+       "label": "25 to 34",
+       "n": 92,
+       "real": [
+        4.9,
+        26.7,
+        29.7,
+        21.8,
+        5.2,
+        11.7
+       ],
+       "nxk": [
+        8.586956521739127,
+        63.55434782608695,
+        18.21739130434782,
+        2.6086956521739117,
+        0.8804347826086961,
+        6.141304347826083
+       ]
+      },
+      {
+       "label": "35 to 44",
+       "n": 152,
+       "real": [
+        11.8,
+        23.2,
+        27.8,
+        28.6,
+        4,
+        4.6
+       ],
+       "nxk": [
+        9.217105263157883,
+        62.059210526315766,
+        19.453947368421055,
+        2.559210526315786,
+        0.8289473684210532,
+        5.874999999999993
+       ]
+      },
+      {
+       "label": "45 to 54",
+       "n": 202,
+       "real": [
+        10.2,
+        22.3,
+        31.5,
+        25.5,
+        3.2,
+        7.3
+       ],
+       "nxk": [
+        8.831683168316825,
+        62.89108910891089,
+        18.737623762376234,
+        2.643564356435639,
+        0.752475247524753,
+        6.10396039603959
+       ]
+      },
+      {
+       "label": "55 to 64",
+       "n": 211,
+       "real": [
+        10,
+        17,
+        31.9,
+        34.6,
+        4.4,
+        2.1
+       ],
+       "nxk": [
+        7.388625592417053,
+        54.99999999999999,
+        27.213270142180107,
+        3.6682464454976214,
+        0.8815165876777258,
+        5.834123222748799
+       ]
+      },
+      {
+       "label": "65+",
+       "n": 324,
+       "real": [
+        6.5,
+        15.2,
+        34.1,
+        34.8,
+        3.3,
+        6.1
+       ],
+       "nxk": [
+        5.688271604938263,
+        43.30864197530864,
+        38.697530864197525,
+        6.228395061728385,
+        0.975308641975302,
+        5.092592592592578
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "desnz-low-carbon-heating-expensive",
+   "title": "Low-carbon heating is expensive to install",
+   "question": "Low-carbon heating systems are expensive to install.",
+   "examples": [
+    {
+     "who": "William, 63, logistics director, london · household over £150k · budget managed · own with mortgage",
+     "p": [
+      0.16,
+      0.56,
+      0.11,
+      0.13,
+      0.04
+     ]
+    },
+    {
+     "who": "William, 59, child carer, london · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.69,
+      0.26,
+      0.05,
+      0,
+      0
+     ]
+    },
+    {
+     "who": "Elle, 57, other economically inactive, east of england · household under £20k · high financial pressure · own with mortgage",
+     "p": [
+      0.98,
+      0.02,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK adults",
+   "source": {
+    "name": "DESNZ Public Attitudes Tracker Winter 2025",
+    "organisation": "Department for Energy Security and Net Zero",
+    "url": "https://www.gov.uk/government/statistics/desnz-public-attitudes-tracker-winter-2025"
+   },
+   "surveyed": "November 2025",
+   "options": [
+    "Strongly agree",
+    "Slightly agree",
+    "Neither agree nor disagree",
+    "Slightly disagree",
+    "Strongly disagree"
+   ],
+   "orderedLevels": 5,
+   "people": 1000,
+   "real": [
+    35.8,
+    29.2,
+    30.7,
+    2.8,
+    1.5
+   ],
+   "crowd": [
+    67.69899999999997,
+    27.170000000000037,
+    4.316000000000004,
+    0.5389999999999958,
+    0.24799999999999922
+   ],
+   "noProfile": [
+    34,
+    25,
+    39,
+    1,
+    1
+   ],
+   "leader": "exact",
+   "noProfileLeader": "miss",
+   "mae": 12.765199999999986,
+   "noProfileMae": 3.3199999999999994,
+   "rankAgreement": 0.8999999999999998,
+   "noProfileRankAgreement": 0.8720815992723809,
+   "spread": {
+    "distance": 17.230420000000017,
+    "topDiffers": 0.162,
+    "distinctTops": 2,
+    "bins": [
+     0,
+     2,
+     16,
+     75,
+     128,
+     140,
+     144,
+     139,
+     188,
+     168
+    ],
+    "binsFor": "Strongly agree"
+   },
+   "inputTokens": 2790217,
+   "groups": [
+    {
+     "dimension": "Gender",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Male",
+       "n": 486,
+       "real": [
+        34.5,
+        32.2,
+        28.7,
+        3,
+        1.6
+       ],
+       "nxk": [
+        67.26337448559678,
+        27.705761316872383,
+        4.242798353909462,
+        0.526748971193414,
+        0.22839506172839522
+       ]
+      },
+      {
+       "label": "Female",
+       "n": 495,
+       "real": [
+        35.8,
+        26,
+        34.1,
+        2.5,
+        1.5
+       ],
+       "nxk": [
+        68.33939393939391,
+        26.482828282828287,
+        4.339393939393934,
+        0.5454545454545437,
+        0.26868686868686886
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "35 to 44",
+      "b": "65+",
+      "option": "Strongly agree",
+      "realGap": -19.7,
+      "nxkGap": -15.315257841573654,
+      "agrees": true
+     },
+     "clearGaps": 13,
+     "agreeing": 9,
+     "buckets": [
+      {
+       "label": "16 to 24",
+       "n": 118,
+       "real": [
+        28.6,
+        21.6,
+        41.4,
+        5.5,
+        2.9
+       ],
+       "nxk": [
+        77.94067796610169,
+        18.127118644067806,
+        3.6271186440677923,
+        0.16949152542372883,
+        0.09322033898305083
+       ]
+      },
+      {
+       "label": "25 to 34",
+       "n": 163,
+       "real": [
+        28.1,
+        30.4,
+        36.5,
+        3.2,
+        1.8
+       ],
+       "nxk": [
+        62.214723926380366,
+        31.423312883435567,
+        5.361963190184041,
+        0.6503067484662579,
+        0.3128834355828222
+       ]
+      },
+      {
+       "label": "35 to 44",
+       "n": 171,
+       "real": [
+        27.7,
+        34.6,
+        32.4,
+        3.1,
+        2.3
+       ],
+       "nxk": [
+        59.83625730994149,
+        33.467836257309926,
+        5.385964912280696,
+        0.923976608187135,
+        0.3742690058479534
+       ]
+      },
+      {
+       "label": "45 to 54",
+       "n": 174,
+       "real": [
+        32.2,
+        34.2,
+        29.1,
+        3.3,
+        1.2
+       ],
+       "nxk": [
+        65.6264367816092,
+        29.080459770114935,
+        4.431034482758616,
+        0.5689655172413796,
+        0.2643678160919541
+       ]
+      },
+      {
+       "label": "55 to 64",
+       "n": 143,
+       "real": [
+        40.5,
+        27.2,
+        28.8,
+        2.6,
+        1
+       ],
+       "nxk": [
+        65.38461538461542,
+        29.314685314685306,
+        4.363636363636357,
+        0.6083916083916087,
+        0.30069930069930084
+       ]
+      },
+      {
+       "label": "65+",
+       "n": 231,
+       "real": [
+        47.4,
+        27.2,
+        23.9,
+        0.8,
+        0.7
+       ],
+       "nxk": [
+        75.15151515151514,
+        21.359307359307362,
+        3.021645021645012,
+        0.29870129870129886,
+        0.14285714285714293
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cma-loyalty-pricing-fairness",
+   "title": "Loyalty prices are unfair",
+   "question": "To what extent do you agree or disagree with the following statement: it’s unfair that lower prices are only available to members of loyalty schemes?",
+   "examples": [
+    {
+     "who": "Christine, 52, long term sick or disabled, london · household under £20k · high financial pressure · social housing rent",
+     "p": [
+      0.44,
+      0.47000000000000003,
+      0.02,
+      0.04,
+      0.03
+     ]
+    },
+    {
+     "who": "Jasper, 72, app developer, scotland · household £70–100k · stable with commitments · private rent",
+     "p": [
+      0.01,
+      0.04,
+      0.22,
+      0.52,
+      0.21
+     ]
+    },
+    {
+     "who": "Marilou, 19, academic tutor, london · household £35–50k · budget managed · private rent",
+     "p": [
+      0.01,
+      0.05,
+      0.49,
+      0.38,
+      0.07
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK adults who shop for groceries",
+   "source": {
+    "name": "Loyalty Pricing in the Groceries Sector",
+    "organisation": "Competition and Markets Authority / NatCen",
+    "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+   },
+   "surveyed": "July 2024",
+   "options": [
+    "Strongly agree",
+    "Agree",
+    "Neither agree nor disagree",
+    "Disagree",
+    "Strongly disagree"
+   ],
+   "orderedLevels": 5,
+   "people": 1000,
+   "real": [
+    19,
+    24,
+    27,
+    22,
+    7
+   ],
+   "crowd": [
+    8.150000000000034,
+    20.761000000000017,
+    21.753999999999955,
+    37.01799999999999,
+    12.312999999999983
+   ],
+   "noProfile": [
+    3,
+    7.000000000000001,
+    74,
+    12,
+    4
+   ],
+   "leader": "close",
+   "noProfileLeader": "exact",
+   "mae": 7.933199999999992,
+   "noProfileMae": 18.6,
+   "rankAgreement": 0.5999999999999999,
+   "noProfileRankAgreement": 0.7999999999999998,
+   "spread": {
+    "distance": 18.714757000000017,
+    "topDiffers": 0.329,
+    "distinctTops": 4,
+    "bins": [
+     73,
+     321,
+     434,
+     153,
+     19,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "binsFor": "Neither agree nor disagree"
+   },
+   "inputTokens": 2826217,
+   "groups": [
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "30-39",
+      "b": "70+",
+      "option": "Strongly agree",
+      "realGap": 12,
+      "nxkGap": -3.491220519882936,
+      "agrees": false
+     },
+     "clearGaps": 1,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "18-29",
+       "n": 190,
+       "real": [
+        20,
+        27,
+        23,
+        23,
+        7
+       ],
+       "nxk": [
+        9.794736842105257,
+        23.131578947368435,
+        21.242105263157907,
+        34.15789473684211,
+        11.66842105263158
+       ]
+      },
+      {
+       "label": "30-39",
+       "n": 148,
+       "real": [
+        26,
+        24,
+        24,
+        20,
+        6
+       ],
+       "nxk": [
+        6.986486486486478,
+        18.24999999999999,
+        23.39864864864864,
+        39.01351351351351,
+        12.344594594594597
+       ]
+      },
+      {
+       "label": "40-49",
+       "n": 182,
+       "real": [
+        18,
+        25,
+        25,
+        20,
+        11
+       ],
+       "nxk": [
+        6.406593406593395,
+        17.989010989010985,
+        23.93406593406594,
+        39.14835164835163,
+        12.516483516483506
+       ]
+      },
+      {
+       "label": "50-59",
+       "n": 169,
+       "real": [
+        19,
+        27,
+        26,
+        20,
+        8
+       ],
+       "nxk": [
+        8.07692307692307,
+        19.92307692307693,
+        22.130177514792905,
+        37.62130177514792,
+        12.248520710059168
+       ]
+      },
+      {
+       "label": "60-69",
+       "n": 154,
+       "real": [
+        18,
+        24,
+        31,
+        22,
+        6
+       ],
+       "nxk": [
+        7.006493506493497,
+        19.44805194805194,
+        21.00000000000001,
+        39.42207792207795,
+        13.116883116883113
+       ]
+      },
+      {
+       "label": "70+",
+       "n": 157,
+       "real": [
+        14,
+        19,
+        32,
+        27,
+        8
+       ],
+       "nxk": [
+        10.477707006369414,
+        25.662420382165603,
+        18.630573248407657,
+        33.121019108280265,
+        12.108280254777073
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Gender",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Female",
+       "n": 495,
+       "real": [
+        17,
+        25,
+        29,
+        21,
+        8
+       ],
+       "nxk": [
+        8.494949494949502,
+        21.26464646464646,
+        21.301010101010107,
+        36.551515151515154,
+        12.383838383838391
+       ]
+      },
+      {
+       "label": "Male",
+       "n": 486,
+       "real": [
+        22,
+        23,
+        25,
+        24,
+        7
+       ],
+       "nxk": [
+        7.825102880658442,
+        20.31275720164608,
+        22.13786008230452,
+        37.475308641975325,
+        12.244855967078175
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cma-loyalty-pricing-good-savings",
+   "title": "Loyalty prices give good savings",
+   "question": "To what extent do you agree or disagree with the following statement: supermarket loyalty prices provide good savings for members?",
+   "examples": [
+    {
+     "who": "William, 43, bank manager, northern ireland · household over £150k · financially secure · private rent",
+     "p": [
+      0.02,
+      0.17,
+      0.18,
+      0.47,
+      0.16
+     ]
+    },
+    {
+     "who": "Anastasia, 85, account handler, south east england · household £20–35k · financially constrained · own outright",
+     "p": [
+      0.26,
+      0.69,
+      0.02,
+      0.02,
+      0.01
+     ]
+    },
+    {
+     "who": "Sara, 54, club leader, south east england · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.05,
+      0.86,
+      0.07,
+      0.01,
+      0.01
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK adults who shop for groceries",
+   "source": {
+    "name": "Loyalty Pricing in the Groceries Sector",
+    "organisation": "Competition and Markets Authority / NatCen",
+    "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+   },
+   "surveyed": "July 2024",
+   "options": [
+    "Strongly agree",
+    "Agree",
+    "Neither agree nor disagree",
+    "Disagree",
+    "Strongly disagree"
+   ],
+   "orderedLevels": 5,
+   "people": 1000,
+   "real": [
+    17,
+    52,
+    21,
+    7,
+    3
+   ],
+   "crowd": [
+    18.114000000000008,
+    67.3059999999999,
+    8.743000000000006,
+    4.236000000000013,
+    1.570999999999979
+   ],
+   "noProfile": [
+    2,
+    16,
+    80,
+    1,
+    1
+   ],
+   "leader": "exact",
+   "noProfileLeader": "close",
+   "mae": 6.573999999999982,
+   "noProfileMae": 23.6,
+   "rankAgreement": 0.8999999999999998,
+   "noProfileRankAgreement": 0.8720815992723809,
+   "spread": {
+    "distance": 12.889630999999952,
+    "topDiffers": 0.047,
+    "distinctTops": 4,
+    "bins": [
+     0,
+     1,
+     5,
+     21,
+     55,
+     93,
+     347,
+     392,
+     86,
+     0
+    ],
+    "binsFor": "Agree"
+   },
+   "inputTokens": 2820217,
+   "groups": [
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "30-39",
+      "b": "70+",
+      "option": "Agree",
+      "realGap": -14,
+      "nxkGap": 3.1418488552247226,
+      "agrees": false
+     },
+     "clearGaps": 2,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "18-29",
+       "n": 190,
+       "real": [
+        20,
+        53,
+        18,
+        5,
+        3
+       ],
+       "nxk": [
+        20.373684210526328,
+        65.67894736842102,
+        8.584210526315779,
+        3.8526315789473653,
+        1.5052631578947326
+       ]
+      },
+      {
+       "label": "30-39",
+       "n": 148,
+       "real": [
+        18,
+        44,
+        22,
+        12,
+        3
+       ],
+       "nxk": [
+        15.783783783783786,
+        68.91891891891896,
+        9.952702702702702,
+        3.8986486486486447,
+        1.4121621621621623
+       ]
+      },
+      {
+       "label": "40-49",
+       "n": 182,
+       "real": [
+        17,
+        51,
+        21,
+        7,
+        4
+       ],
+       "nxk": [
+        14.313186813186821,
+        67.86263736263734,
+        10.802197802197792,
+        5.170329670329664,
+        1.8076923076923046
+       ]
+      },
+      {
+       "label": "50-59",
+       "n": 169,
+       "real": [
+        16,
+        56,
+        20,
+        6,
+        2
+       ],
+       "nxk": [
+        16.757396449704135,
+        67.01775147928996,
+        9.603550295857975,
+        4.822485207100586,
+        1.7633136094674515
+       ]
+      },
+      {
+       "label": "60-69",
+       "n": 154,
+       "real": [
+        16,
+        50,
+        27,
+        5,
+        2
+       ],
+       "nxk": [
+        17.56493506493507,
+        68.98051948051949,
+        7.948051948051943,
+        3.9740259740259707,
+        1.4740259740259731
+       ]
+      },
+      {
+       "label": "70+",
+       "n": 157,
+       "real": [
+        15,
+        58,
+        21,
+        3,
+        2
+       ],
+       "nxk": [
+        23.980891719745223,
+        65.77707006369424,
+        5.2611464968152815,
+        3.560509554140122,
+        1.4140127388535022
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Gender",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Female",
+       "n": 495,
+       "real": [
+        19,
+        55,
+        19,
+        5,
+        2
+       ],
+       "nxk": [
+        18.989898989898975,
+        67.01616161616163,
+        8.37575757575758,
+        4.024242424242409,
+        1.5515151515151364
+       ]
+      },
+      {
+       "label": "Male",
+       "n": 486,
+       "real": [
+        15,
+        49,
+        24,
+        9,
+        4
+       ],
+       "nxk": [
+        17.20987654320986,
+        67.57407407407405,
+        9.086419753086421,
+        4.497942386831266,
+        1.6131687242798218
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cma-loyalty-pricing-valued-customer",
+   "title": "Loyalty prices make me feel valued",
+   "question": "To what extent do you agree or disagree with the following statement: loyalty prices make me (or would make me) feel like a valued customer?",
+   "examples": [
+    {
+     "who": "Priyanka, 29, gate line assistant, yorkshire and the humber · household £20–35k · financially constrained · private rent",
+     "p": [
+      0.12,
+      0.75,
+      0.03,
+      0.08,
+      0.02
+     ]
+    },
+    {
+     "who": "Adel, 59, crane engineer, northern ireland · household £20–35k · financially constrained · own with mortgage",
+     "p": [
+      0.08,
+      0.61,
+      0.15,
+      0.14,
+      0.02
+     ]
+    },
+    {
+     "who": "Stephan, 41, hotel manager, scotland · household £35–50k · budget managed · private rent",
+     "p": [
+      0.03,
+      0.35,
+      0.47000000000000003,
+      0.13,
+      0.02
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK adults who shop for groceries",
+   "source": {
+    "name": "Loyalty Pricing in the Groceries Sector",
+    "organisation": "Competition and Markets Authority / NatCen",
+    "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+   },
+   "surveyed": "July 2024",
+   "options": [
+    "Strongly agree",
+    "Agree",
+    "Neither agree nor disagree",
+    "Disagree",
+    "Strongly disagree"
+   ],
+   "orderedLevels": 5,
+   "people": 1000,
+   "real": [
+    13,
+    28,
+    34,
+    16,
+    9
+   ],
+   "crowd": [
+    7.704000000000007,
+    56.33899999999996,
+    16.943000000000023,
+    15.912999999999991,
+    3.073
+   ],
+   "noProfile": [
+    1,
+    19,
+    75,
+    3,
+    2
+   ],
+   "leader": "close",
+   "noProfileLeader": "exact",
+   "mae": 11.34119999999999,
+   "noProfileMae": 16.4,
+   "rankAgreement": 0.8999999999999998,
+   "noProfileRankAgreement": 0.8999999999999998,
+   "spread": {
+    "distance": 14.548005999999965,
+    "topDiffers": 0.055,
+    "distinctTops": 3,
+    "bins": [
+     186,
+     483,
+     249,
+     76,
+     6,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "binsFor": "Neither agree nor disagree"
+   },
+   "inputTokens": 2827217,
+   "groups": [
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "18-29",
+      "b": "70+",
+      "option": "Neither agree nor disagree",
+      "realGap": -12,
+      "nxkGap": 3.39584311096211,
+      "agrees": false
+     },
+     "clearGaps": 5,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "18-29",
+       "n": 190,
+       "real": [
+        19,
+        30,
+        27,
+        14,
+        10
+       ],
+       "nxk": [
+        7.436842105263144,
+        54.07894736842106,
+        17.389473684210518,
+        17.789473684210535,
+        3.2842105263157846
+       ]
+      },
+      {
+       "label": "30-39",
+       "n": 148,
+       "real": [
+        15,
+        26,
+        32,
+        18,
+        9
+       ],
+       "nxk": [
+        7.229729729729721,
+        56.63513513513514,
+        18.500000000000007,
+        15.01351351351351,
+        2.5945945945945903
+       ]
+      },
+      {
+       "label": "40-49",
+       "n": 182,
+       "real": [
+        12,
+        32,
+        30,
+        16,
+        10
+       ],
+       "nxk": [
+        6.225274725274716,
+        55.87362637362639,
+        18.725274725274712,
+        16.071428571428584,
+        3.060439560439553
+       ]
+      },
+      {
+       "label": "50-59",
+       "n": 169,
+       "real": [
+        13,
+        23,
+        38,
+        18,
+        8
+       ],
+       "nxk": [
+        7.414201183431948,
+        55.579881656804744,
+        17.189349112426015,
+        16.621301775147927,
+        3.1834319526627173
+       ]
+      },
+      {
+       "label": "60-69",
+       "n": 154,
+       "real": [
+        8,
+        27,
+        38,
+        17,
+        9
+       ],
+       "nxk": [
+        8.603896103896103,
+        58.681818181818215,
+        15.525974025974017,
+        14.331168831168833,
+        2.8376623376623336
+       ]
+      },
+      {
+       "label": "70+",
+       "n": 157,
+       "real": [
+        9,
+        31,
+        39,
+        15,
+        6
+       ],
+       "nxk": [
+        9.617834394904458,
+        57.853503184713404,
+        13.993630573248408,
+        15.095541401273888,
+        3.394904458598722
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Gender",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Female",
+       "n": 495,
+       "real": [
+        14,
+        29,
+        36,
+        15,
+        7
+       ],
+       "nxk": [
+        7.993939393939398,
+        56.97575757575758,
+        16.468686868686866,
+        15.438383838383832,
+        3.09292929292927
+       ]
+      },
+      {
+       "label": "Male",
+       "n": 486,
+       "real": [
+        11,
+        27,
+        32,
+        18,
+        12
+       ],
+       "nxk": [
+        7.370370370370363,
+        55.58230452674897,
+        17.407407407407412,
+        16.528806584362147,
+        3.0843621399176735
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cma-loyalty-pricing-have-to-join",
+   "title": "I have to join loyalty schemes to save",
+   "question": "To what extent do you agree or disagree with the following statement: Lower loyalty prices make me feel like I have to join supermarket loyalty schemes to save money?",
+   "examples": [
+    {
+     "who": "Romeo, 42, plant manager, east midlands · household over £150k · financially secure · own outright",
+     "p": [
+      0.01,
+      0.05,
+      0.03,
+      0.48,
+      0.43
+     ]
+    },
+    {
+     "who": "Alfie, 53, heat treatment engineer, west midlands · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.1,
+      0.59,
+      0.13,
+      0.17,
+      0.01
+     ]
+    },
+    {
+     "who": "Jacob, 44, vehicle assembly worker, south east england · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.1,
+      0.83,
+      0.04,
+      0.02,
+      0.01
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK adults who shop for groceries",
+   "source": {
+    "name": "Loyalty Pricing in the Groceries Sector",
+    "organisation": "Competition and Markets Authority / NatCen",
+    "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+   },
+   "surveyed": "July 2024",
+   "options": [
+    "Strongly agree",
+    "Agree",
+    "Neither agree nor disagree",
+    "Disagree",
+    "Strongly disagree"
+   ],
+   "orderedLevels": 5,
+   "people": 1000,
+   "real": [
+    31,
+    41,
+    18,
+    8,
+    3
+   ],
+   "crowd": [
+    25.33100000000004,
+    56.77700000000003,
+    5.957000000000001,
+    9.252000000000034,
+    2.6630000000000145
+   ],
+   "noProfile": [
+    5,
+    28.999999999999996,
+    62,
+    2,
+    2
+   ],
+   "leader": "exact",
+   "noProfileLeader": "close",
+   "mae": 7.015600000000004,
+   "noProfileMae": 17.8,
+   "rankAgreement": 0.8999999999999998,
+   "noProfileRankAgreement": 0.6668859288553501,
+   "spread": {
+    "distance": 19.98051300000001,
+    "topDiffers": 0.161,
+    "distinctTops": 3,
+    "bins": [
+     11,
+     13,
+     33,
+     62,
+     125,
+     280,
+     286,
+     176,
+     14,
+     0
+    ],
+    "binsFor": "Agree"
+   },
+   "inputTokens": 2829217,
+   "groups": [
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "18-29",
+      "b": "70+",
+      "option": "Strongly agree",
+      "realGap": 27,
+      "nxkGap": 0.8187395239691533,
+      "agrees": true
+     },
+     "clearGaps": 14,
+     "agreeing": 6,
+     "buckets": [
+      {
+       "label": "18-29",
+       "n": 190,
+       "real": [
+        43,
+        40,
+        11,
+        5,
+        1
+       ],
+       "nxk": [
+        31.46842105263158,
+        55.93157894736842,
+        4.631578947368411,
+        6.247368421052618,
+        1.7210526315789418
+       ]
+      },
+      {
+       "label": "30-39",
+       "n": 148,
+       "real": [
+        39,
+        39,
+        13,
+        5,
+        4
+       ],
+       "nxk": [
+        23.020270270270267,
+        58.07432432432431,
+        6.810810810810805,
+        9.594594594594588,
+        2.472972972972968
+       ]
+      },
+      {
+       "label": "40-49",
+       "n": 182,
+       "real": [
+        30,
+        45,
+        14,
+        6,
+        6
+       ],
+       "nxk": [
+        20.51098901098901,
+        57.439560439560445,
+        7.708791208791199,
+        10.956043956043953,
+        3.3516483516483437
+       ]
+      },
+      {
+       "label": "50-59",
+       "n": 169,
+       "real": [
+        32,
+        41,
+        18,
+        7,
+        3
+       ],
+       "nxk": [
+        23.65680473372781,
+        55.66272189349111,
+        7.147928994082833,
+        10.591715976331354,
+        2.917159763313603
+       ]
+      },
+      {
+       "label": "60-69",
+       "n": 154,
+       "real": [
+        25,
+        38,
+        25,
+        10,
+        3
+       ],
+       "nxk": [
+        22.09090909090909,
+        57.9220779220779,
+        6.168831168831163,
+        10.928571428571425,
+        2.883116883116877
+       ]
+      },
+      {
+       "label": "70+",
+       "n": 157,
+       "real": [
+        16,
+        42,
+        26,
+        14,
+        2
+       ],
+       "nxk": [
+        30.649681528662427,
+        55.88535031847132,
+        3.235668789808912,
+        7.50318471337579,
+        2.694267515923561
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Gender",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Female",
+       "n": 495,
+       "real": [
+        29,
+        42,
+        17,
+        9,
+        2
+       ],
+       "nxk": [
+        26.52323232323233,
+        56.35757575757579,
+        5.646464646464657,
+        8.88484848484849,
+        2.573737373737356
+       ]
+      },
+      {
+       "label": "Male",
+       "n": 486,
+       "real": [
+        32,
+        39,
+        18,
+        7,
+        4
+       ],
+       "nxk": [
+        24.18312757201644,
+        57.2695473251029,
+        6.203703703703711,
+        9.555555555555568,
+        2.7613168724279644
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cma-loyalty-pricing-trust-genuine",
+   "title": "Trust that loyalty prices are genuine savings",
+   "question": "Thinking about a supermarket that is offering groceries at a lower ‘loyalty price’ for members and a higher price for non-members… How much do you trust that the loyalty price for members is a genuine saving on the usual price?",
+   "examples": [
+    {
+     "who": "Eimear, 57, quantity surveying technician, west midlands · household £50–70k · financially constrained · private rent",
+     "p": [
+      0.02,
+      0.27,
+      0.66,
+      0.05
+     ]
+    },
+    {
+     "who": "Rodney, 68, child care manager, east midlands · household £70–100k · stable with commitments · private rent",
+     "p": [
+      0.05,
+      0.7,
+      0.23,
+      0.02
+     ]
+    },
+    {
+     "who": "Sara, 54, club leader, south east england · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.05,
+      0.92,
+      0.03,
+      0
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK adults who shop for groceries",
+   "source": {
+    "name": "Loyalty Pricing in the Groceries Sector",
+    "organisation": "Competition and Markets Authority / NatCen",
+    "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+   },
+   "surveyed": "July 2024",
+   "options": [
+    "Very much so",
+    "To some extent",
+    "Not very much",
+    "Not at all"
+   ],
+   "orderedLevels": 4,
+   "people": 1000,
+   "real": [
+    8,
+    51,
+    28,
+    12
+   ],
+   "crowd": [
+    6.150000000000012,
+    68.64199999999994,
+    23.040999999999954,
+    2.1439999999999957
+   ],
+   "noProfile": [
+    1,
+    70,
+    24,
+    5
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 8.576749999999993,
+   "noProfileMae": 9.25,
+   "rankAgreement": 0.7999999999999998,
+   "noProfileRankAgreement": 0.9999999999999998,
+   "spread": {
+    "distance": 10.358309999999982,
+    "topDiffers": 0.018,
+    "distinctTops": 2,
+    "bins": [
+     0,
+     0,
+     1,
+     6,
+     45,
+     139,
+     297,
+     367,
+     144,
+     1
+    ],
+    "binsFor": "To some extent"
+   },
+   "inputTokens": 2829217,
+   "groups": [
+    {
+     "dimension": "Age",
+     "headline": {
+      "a": "30-39",
+      "b": "70+",
+      "option": "To some extent",
+      "realGap": -20,
+      "nxkGap": 5.955112756068203,
+      "agrees": false
+     },
+     "clearGaps": 11,
+     "agreeing": 2,
+     "buckets": [
+      {
+       "label": "18-29",
+       "n": 190,
+       "real": [
+        9,
+        44,
+        33,
+        14
+       ],
+       "nxk": [
+        5.821052631578938,
+        66.36842105263159,
+        25.415789473684203,
+        2.3842105263157833
+       ]
+      },
+      {
+       "label": "30-39",
+       "n": 148,
+       "real": [
+        4,
+        41,
+        32,
+        22
+       ],
+       "nxk": [
+        5.851351351351351,
+        71.43918918918921,
+        20.756756756756754,
+        1.9256756756756719
+       ]
+      },
+      {
+       "label": "40-49",
+       "n": 182,
+       "real": [
+        7,
+        52,
+        29,
+        12
+       ],
+       "nxk": [
+        5.967032967032959,
+        71.03846153846153,
+        20.934065934065938,
+        2.0549450549450503
+       ]
+      },
+      {
+       "label": "50-59",
+       "n": 169,
+       "real": [
+        9,
+        55,
+        25,
+        10
+       ],
+       "nxk": [
+        5.887573964497035,
+        69.01775147928997,
+        22.988165680473365,
+        2.0710059171597597
+       ]
+      },
+      {
+       "label": "60-69",
+       "n": 154,
+       "real": [
+        11,
+        55,
+        25,
+        9
+       ],
+       "nxk": [
+        6.272727272727269,
+        68.73376623376626,
+        22.954545454545457,
+        1.9935064935064906
+       ]
+      },
+      {
+       "label": "70+",
+       "n": 157,
+       "real": [
+        10,
+        61,
+        24,
+        5
+       ],
+       "nxk": [
+        7.203821656050949,
+        65.484076433121,
+        24.9044585987261,
+        2.3885350318471317
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Gender",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Female",
+       "n": 495,
+       "real": [
+        9,
+        53,
+        28,
+        10
+       ],
+       "nxk": [
+        6.145454545454538,
+        68.77575757575762,
+        22.913131313131306,
+        2.1454545454545273
+       ]
+      },
+      {
+       "label": "Male",
+       "n": 486,
+       "real": [
+        8,
+        49,
+        28,
+        15
+       ],
+       "nxk": [
+        6.133744855967072,
+        68.37242798353913,
+        23.310699588477373,
+        2.1563786008230257
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pensionbee-pot-for-life-consideration",
+   "title": "Considering a 'pot for life' pension",
+   "question": "If the Government was to introduce a 'pot for life' pension, would you consider opting for this?",
+   "examples": [
+    {
+     "who": "Hayden, 62, unemployed not seeking, north west england · household under £20k · high financial pressure · own outright",
+     "p": [
+      0.01,
+      0.02,
+      0.19,
+      0.53,
+      0.25
+     ]
+    },
+    {
+     "who": "Erica, 62, sales manager, south east england · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.09,
+      0.45,
+      0.3,
+      0.14,
+      0.02
+     ]
+    },
+    {
+     "who": "Kenny, 37, audit examiner, yorkshire and the humber · household £70–100k · financially secure · own outright",
+     "p": [
+      0.2,
+      0.66,
+      0.1,
+      0.03,
+      0.01
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK adults",
+   "source": {
+    "name": "PensionBee pot for life popularity",
+    "organisation": "PensionBee",
+    "url": "https://www.pensionbee.com/uk/press/pot-for-life-popularity"
+   },
+   "surveyed": "November 2023",
+   "options": [
+    "Definitely would consider",
+    "Probably would consider",
+    "Maybe / not sure",
+    "Probably would not consider",
+    "Definitely would not consider"
+   ],
+   "orderedLevels": 5,
+   "people": 1000,
+   "real": [
+    37,
+    38,
+    20,
+    4,
+    2
+   ],
+   "crowd": [
+    9.773999999999988,
+    37.38000000000004,
+    30.59700000000001,
+    15.624000000000017,
+    6.612000000000011
+   ],
+   "noProfile": [
+    4,
+    8,
+    87,
+    1,
+    0
+   ],
+   "leader": "exact",
+   "noProfileLeader": "close",
+   "mae": 10.935800000000002,
+   "noProfileMae": 27,
+   "rankAgreement": 0.6999999999999998,
+   "noProfileRankAgreement": 0.6999999999999998,
+   "spread": {
+    "distance": 26.14970499999987,
+    "topDiffers": 0.358,
+    "distinctTops": 4,
+    "bins": [
+     193,
+     95,
+     14,
+     74,
+     245,
+     318,
+     61,
+     0,
+     0,
+     0
+    ],
+    "binsFor": "Probably would consider"
+   },
+   "inputTokens": 2827217,
+   "groups": []
+  },
+  {
+   "id": "pensionbee-pot-for-life-preference",
+   "title": "Where employers should pay pension contributions",
+   "question": "Which of these two solutions would you prefer when managing your workplace pension savings?",
+   "examples": [
+    {
+     "who": "Georgiana, 47, other economically inactive, london · household £20–35k · financially constrained · social housing rent",
+     "p": [
+      0.04,
+      0.08,
+      0.88
+     ]
+    },
+    {
+     "who": "Louise, 42, stock control assistant, north west england · household £35–50k · budget managed · private rent",
+     "p": [
+      0.62,
+      0.31,
+      0.07
+     ]
+    },
+    {
+     "who": "William, 43, bank manager, northern ireland · household over £150k · financially secure · private rent",
+     "p": [
+      0.93,
+      0.04,
+      0.03
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK adults",
+   "source": {
+    "name": "PensionBee pot for life popularity",
+    "organisation": "PensionBee",
+    "url": "https://www.pensionbee.com/uk/press/pot-for-life-popularity"
+   },
+   "surveyed": "February 2024",
+   "options": [
+    "Employers pay workplace pension contributions into the pension of your choice",
+    "Employers pay workplace pension contributions into your first pension (typically the default fund from your first job) unless you say otherwise",
+    "None of the above"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    73,
+    22,
+    5
+   ],
+   "crowd": [
+    56.574000000000005,
+    19.50399999999998,
+    23.9150000000001
+   ],
+   "noProfile": [
+    35,
+    23,
+    42
+   ],
+   "leader": "exact",
+   "noProfileLeader": "miss",
+   "mae": 12.612333333333373,
+   "noProfileMae": 25.333333333333332,
+   "rankAgreement": null,
+   "noProfileRankAgreement": null,
+   "spread": {
+    "distance": 24.575577000000084,
+    "topDiffers": 0.289,
+    "distinctTops": 3,
+    "bins": [
+     16,
+     62,
+     84,
+     90,
+     88,
+     118,
+     179,
+     214,
+     136,
+     13
+    ],
+    "binsFor": "Employers pay workplace pension contributions into the pension of your choice"
+   },
+   "inputTokens": 2811217,
+   "groups": []
+  },
+  {
+   "id": "eurobarometer-privacy-statement-reading-uk",
+   "title": "Reading online privacy statements",
+   "question": "Thinking about privacy statements on the Internet, which of the following sentences best describes what you usually do?",
+   "examples": [
+    {
+     "who": "Ayanna, 35, homemaker or carer, south east england · household under £20k · high financial pressure · own with mortgage",
+     "p": [
+      0,
+      0.23,
+      0.77
+     ]
+    },
+    {
+     "who": "Sophie, 27, dispensing optician, north west england · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.1,
+      0.71,
+      0.19
+     ]
+    },
+    {
+     "who": "Aileen, 39, branch librarian, east midlands · household £70–100k · budget managed · own with mortgage",
+     "p": [
+      0.01,
+      0.96,
+      0.03
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "UK internet users",
+   "source": {
+    "name": "Special Eurobarometer 487a: GDPR",
+    "organisation": "European Commission",
+    "url": "https://op.europa.eu/en/publication-detail/-/publication/87d359d4-a83c-11e9-9d01-01aa75ed71a1/language-en"
+   },
+   "surveyed": "March 2019",
+   "options": [
+    "You read them fully",
+    "You read them partially",
+    "You do not read them at all"
+   ],
+   "orderedLevels": 3,
+   "people": 1000,
+   "real": [
+    13.3,
+    53.1,
+    33.7
+   ],
+   "crowd": [
+    7.439000000000015,
+    71.0229999999999,
+    21.53000000000005
+   ],
+   "noProfile": [
+    2,
+    52,
+    46
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 11.984666666666612,
+   "noProfileMae": 8.233333333333333,
+   "rankAgreement": null,
+   "noProfileRankAgreement": null,
+   "spread": {
+    "distance": 17.570693000000066,
+    "topDiffers": 0.078,
+    "distinctTops": 2,
+    "bins": [
+     0,
+     0,
+     7,
+     25,
+     60,
+     174,
+     210,
+     130,
+     248,
+     146
+    ],
+    "binsFor": "You read them partially"
+   },
+   "inputTokens": 2777170,
+   "groups": []
+  },
+  {
+   "id": "yougov-gb-costofliving-cancellation-2022",
+   "title": "Cancelling subscriptions over the cost of living",
+   "question": "In the last few months, have you cancelled anything (subscription or membership) due to concerns about the cost of living, or because you've had less income?",
+   "examples": [
+    {
+     "who": "David, 41, unemployed seeking, east of england · household under £20k · high financial pressure · private rent",
+     "p": [
+      0.97,
+      0,
+      0.03
+     ]
+    },
+    {
+     "who": "Rebeka, 44, engineering examiner, south west england · household £70–100k · budget managed · private rent",
+     "p": [
+      0.22,
+      0.04,
+      0.74
+     ]
+    },
+    {
+     "who": "Malachi, 27, agile coach, scotland · household £70–100k · financially secure · own outright",
+     "p": [
+      0,
+      0.01,
+      0.99
+     ]
+    }
+   ],
+   "country": "uk",
+   "population": "GB adults",
+   "source": {
+    "name": "YouGov GB cost-of-living cancellation daily result",
+    "organisation": "YouGov UK",
+    "url": "https://yougov.com/en-gb/daily-results/20220421-70e0d-2"
+   },
+   "surveyed": "April 2022",
+   "options": [
+    "I have cancelled something, for these reasons",
+    "I have cancelled something, for other reasons",
+    "I have not"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    26.3,
+    7.4,
+    66.3
+   ],
+   "crowd": [
+    30.101000000000038,
+    2.9379999999999975,
+    66.95300000000003
+   ],
+   "noProfile": [
+    18,
+    1,
+    81
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 2.972000000000025,
+   "noProfileMae": 9.800000000000002,
+   "rankAgreement": null,
+   "noProfileRankAgreement": null,
+   "spread": {
+    "distance": 23.370093999999934,
+    "topDiffers": 0.269,
+    "distinctTops": 2,
+    "bins": [
+     12,
+     41,
+     78,
+     73,
+     70,
+     88,
+     97,
+     80,
+     199,
+     262
+    ],
+    "binsFor": "I have not"
+   },
+   "inputTokens": 2782217,
+   "groups": []
+  },
+  {
+   "id": "eia-recs-main-heating-fuel",
+   "title": "Main home heating fuel",
+   "question": "What is the fuel used by your home's main heating equipment?",
+   "examples": [
+    {
+     "who": "Rosa, 23, tour guide, puerto rico · household $25–50k · financially constrained · rent market rate",
+     "p": [
+      0.21,
+      0,
+      0.04,
+      0.02,
+      0,
+      0.01,
+      0.72
+     ]
+    },
+    {
+     "who": "Jaquelin, 34, police, north carolina · household $100–150k · budget managed · own with mortgage",
+     "p": [
+      0.31,
+      0.59,
+      0.02,
+      0.01,
+      0,
+      0.05,
+      0.02
+     ]
+    },
+    {
+     "who": "Maximilian, 32, financial analyst, illinois · household $100–150k · stable with commitments · own outright",
+     "p": [
+      0.01,
+      0.99,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US households",
+   "source": {
+    "name": "Residential Energy Consumption Survey 2020",
+    "organisation": "U.S. Energy Information Administration",
+    "url": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=microdata"
+   },
+   "surveyed": "2020",
+   "options": [
+    "Electricity",
+    "Natural gas from underground pipes",
+    "Propane (bottled gas)",
+    "Fuel oil",
+    "Wood or pellets",
+    "Other",
+    "Not applicable / home is not heated during the winter"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    34.5,
+    50.8,
+    4.2,
+    4,
+    1.8,
+    0,
+    4.7
+   ],
+   "crowd": [
+    22.598999999999997,
+    55.41299999999999,
+    5.3919999999999995,
+    6.400999999999986,
+    0.901999999999997,
+    4.412000000000008,
+    4.832000000000001
+   ],
+   "noProfile": [
+    8,
+    69,
+    0,
+    1,
+    0,
+    21,
+    1
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 3.6498571428571425,
+   "noProfileMae": 11.200000000000001,
+   "rankAgreement": 0.8214285714285714,
+   "noProfileRankAgreement": 0.363696483726654,
+   "spread": {
+    "distance": 32.70514199999994,
+    "topDiffers": 0.297,
+    "distinctTops": 6,
+    "bins": [
+     65,
+     72,
+     76,
+     83,
+     86,
+     119,
+     129,
+     147,
+     139,
+     84
+    ],
+    "binsFor": "Natural gas from underground pipes"
+   },
+   "inputTokens": 2778618,
+   "groups": [
+    {
+     "dimension": "Region",
+     "headline": {
+      "a": "Northeast",
+      "b": "South",
+      "option": "Electricity",
+      "realGap": -36.8,
+      "nxkGap": -23.831100478468926,
+      "agrees": true
+     },
+     "clearGaps": 11,
+     "agreeing": 11,
+     "buckets": [
+      {
+       "label": "Northeast",
+       "n": 176,
+       "real": [
+        18.2,
+        55.8,
+        4.5,
+        18.6,
+        2.1,
+        0.2,
+        0.6
+       ],
+       "nxk": [
+        9.86363636363635,
+        51.67045454545455,
+        2.613636363636357,
+        30.125000000000014,
+        0.7500000000000001,
+        4.659090909090905,
+        0.27272727272727293
+       ]
+      },
+      {
+       "label": "Midwest",
+       "n": 216,
+       "real": [
+        19.2,
+        69.6,
+        7.8,
+        1,
+        1.9,
+        0,
+        0.5
+       ],
+       "nxk": [
+        13.050925925925924,
+        69.06944444444447,
+        8.421296296296287,
+        2.342592592592586,
+        0.8796296296296299,
+        5.935185185185177,
+        0.25462962962962976
+       ]
+      },
+      {
+       "label": "South",
+       "n": 380,
+       "real": [
+        55,
+        33.2,
+        3,
+        1,
+        1.3,
+        0,
+        6.6
+       ],
+       "nxk": [
+        33.69473684210528,
+        48.45526315789478,
+        5.492105263157896,
+        1.386842105263152,
+        0.5736842105263157,
+        4.115789473684197,
+        6.226315789473693
+       ]
+      },
+      {
+       "label": "West",
+       "n": 220,
+       "real": [
+        27.5,
+        58.2,
+        2.6,
+        0.4,
+        2.4,
+        0,
+        8.9
+       ],
+       "nxk": [
+        22.86363636363637,
+        59.00909090909092,
+        4.581818181818174,
+        0.21818181818181823,
+        1.6454545454545448,
+        3.354545454545446,
+        8.281818181818178
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Housing tenure",
+     "headline": {
+      "a": "Owned by you or someone in your household",
+      "b": "Rented",
+      "option": "Electricity",
+      "realGap": -20.200000000000003,
+      "nxkGap": -12.476205923094472,
+      "agrees": true
+     },
+     "clearGaps": 3,
+     "agreeing": 3,
+     "buckets": [
+      {
+       "label": "Owned by you or someone in your household",
+       "n": 533,
+       "real": [
+        28,
+        56.4,
+        5.5,
+        4.6,
+        2.4,
+        0.1,
+        3.1
+       ],
+       "nxk": [
+        16.86491557223265,
+        60.26078799249524,
+        5.960600375234539,
+        7.238273921200762,
+        1.0919324577861136,
+        3.7598499061913695,
+        4.774859287054416
+       ]
+      },
+      {
+       "label": "Rented",
+       "n": 428,
+       "real": [
+        48.2,
+        39.1,
+        1.5,
+        2.7,
+        0.5,
+        0,
+        8.1
+       ],
+       "nxk": [
+        29.341121495327123,
+        50.47897196261684,
+        4.518691588785048,
+        5.404205607476649,
+        0.609813084112149,
+        4.679906542056073,
+        4.915887850467292
+       ]
+      },
+      {
+       "label": "Occupied without payment of rent",
+       "n": 36,
+       "real": [
+        32.8,
+        48.5,
+        6.3,
+        5.8,
+        4.2,
+        0,
+        2.4
+       ],
+       "nxk": [
+        25.91666666666667,
+        44.88888888888888,
+        7.666666666666662,
+        6.2222222222222205,
+        1.6111111111111114,
+        9.444444444444443,
+        4.222222222222223
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eia-recs-main-heating-equipment",
+   "title": "Main home heating equipment",
+   "question": "What is the main type of heating equipment used to provide heat for your home?",
+   "examples": [
+    {
+     "who": "Maylin, 27, marketing coordinator, hawaii · household $25–50k · financially constrained · rent market rate",
+     "p": [
+      0.02,
+      0,
+      0.26,
+      0.1,
+      0.04,
+      0.01,
+      0,
+      0.01,
+      0.01,
+      0.55
+     ]
+    },
+    {
+     "who": "Samir, 85, construction manager, pennsylvania · household $25–50k · financially constrained · own with mortgage",
+     "p": [
+      0.71,
+      0.25,
+      0.02,
+      0,
+      0.01,
+      0,
+      0,
+      0,
+      0.01,
+      0
+     ]
+    },
+    {
+     "who": "Clay, 43, project management technician, kansas · household $50–75k · high financial pressure · rent market rate",
+     "p": [
+      0.99,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.01,
+      0
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US households",
+   "source": {
+    "name": "Residential Energy Consumption Survey 2020",
+    "organisation": "U.S. Energy Information Administration",
+    "url": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=microdata"
+   },
+   "surveyed": "2020",
+   "options": [
+    "Central furnace",
+    "Steam or hot water system with radiators or pipes",
+    "Central heat pump",
+    "Ductless heat pump, also known as a mini-split",
+    "Built-in electric units installed in walls, ceilings, baseboards, or floors",
+    "Built-in room heater burning gas or oil",
+    "Wood or pellet stove",
+    "Portable electric heaters",
+    "Other",
+    "Not applicable / home is not heated during the winter"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    60.2,
+    7.5,
+    13.1,
+    0.9,
+    6.2,
+    2.8,
+    1.6,
+    2.5,
+    0.6,
+    4.7
+   ],
+   "crowd": [
+    66.00499999999994,
+    4.181000000000005,
+    16.613000000000024,
+    0.8039999999999957,
+    5.743999999999999,
+    0.39599999999999685,
+    0.3389999999999994,
+    0.5979999999999972,
+    2.5720000000000045,
+    2.693
+   ],
+   "noProfile": [
+    74,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    24,
+    1
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 2.273499999999997,
+   "noProfileMae": 7.45,
+   "rankAgreement": 0.7818181818181819,
+   "noProfileRankAgreement": 0.28102634139382715,
+   "spread": {
+    "distance": 27.753685999999895,
+    "topDiffers": 0.156,
+    "distinctTops": 7,
+    "bins": [
+     40,
+     27,
+     47,
+     47,
+     79,
+     99,
+     124,
+     159,
+     185,
+     193
+    ],
+    "binsFor": "Central furnace"
+   },
+   "inputTokens": 2881618,
+   "groups": [
+    {
+     "dimension": "Region",
+     "headline": {
+      "a": "Northeast",
+      "b": "Midwest",
+      "option": "Central furnace",
+      "realGap": -26.299999999999997,
+      "nxkGap": -24.182239057239045,
+      "agrees": true
+     },
+     "clearGaps": 9,
+     "agreeing": 9,
+     "buckets": [
+      {
+       "label": "Northeast",
+       "n": 176,
+       "real": [
+        52.2,
+        27.4,
+        3.6,
+        1.1,
+        8.6,
+        3.2,
+        1.9,
+        0.9,
+        0.5,
+        0.6
+       ],
+       "nxk": [
+        61.21590909090908,
+        18.295454545454557,
+        4.801136363636355,
+        1.0965909090909098,
+        9.60227272727272,
+        0.852272727272728,
+        0.4090909090909091,
+        0.44318181818181845,
+        3.2386363636363575,
+        0.005681818181818182
+       ]
+      },
+      {
+       "label": "Midwest",
+       "n": 216,
+       "real": [
+        78.5,
+        7.3,
+        4,
+        0.3,
+        6,
+        1.4,
+        1.4,
+        0.5,
+        0.3,
+        0.5
+       ],
+       "nxk": [
+        85.39814814814812,
+        2.638888888888884,
+        3.453703703703696,
+        0.20370370370370378,
+        4.58333333333333,
+        0.18518518518518526,
+        0.14351851851851855,
+        0.5787037037037039,
+        2.76388888888888,
+        0.013888888888888888
+       ]
+      },
+      {
+       "label": "South",
+       "n": 380,
+       "real": [
+        52.9,
+        1.3,
+        26.7,
+        0.8,
+        4.2,
+        2,
+        1.1,
+        3.3,
+        1,
+        6.6
+       ],
+       "nxk": [
+        59.73157894736847,
+        0.5842105263157894,
+        29.813157894736865,
+        0.5736842105263159,
+        3.652631578947358,
+        0.21578947368421064,
+        0.17368421052631583,
+        0.5657894736842104,
+        2.126315789473675,
+        2.49473684210526
+       ]
+      },
+      {
+       "label": "West",
+       "n": 220,
+       "real": [
+        61.1,
+        2.5,
+        6.3,
+        1.3,
+        7.8,
+        5.2,
+        2.4,
+        4.1,
+        0.4,
+        8.9
+       ],
+       "nxk": [
+        63.84090909090907,
+        0.7636363636363639,
+        16.213636363636372,
+        1.2772727272727258,
+        7.318181818181807,
+        0.5454545454545459,
+        0.772727272727273,
+        0.7500000000000004,
+        2.6499999999999915,
+        5.80454545454545
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Housing tenure",
+     "headline": {
+      "a": "Owned by you or someone in your household",
+      "b": "Rented",
+      "option": "Central furnace",
+      "realGap": 20.60000000000001,
+      "nxkGap": 6.263523346951686,
+      "agrees": true
+     },
+     "clearGaps": 3,
+     "agreeing": 3,
+     "buckets": [
+      {
+       "label": "Owned by you or someone in your household",
+       "n": 533,
+       "real": [
+        66.9,
+        6.6,
+        13.4,
+        0.8,
+        2.5,
+        2.1,
+        2,
+        1.8,
+        0.6,
+        3.1
+       ],
+       "nxk": [
+        68.99249530956854,
+        3.463414634146339,
+        17.772983114446543,
+        0.6585365853658524,
+        3.358348968105059,
+        0.31707317073170754,
+        0.36772983114446545,
+        0.14071294559099445,
+        2.2457786116322582,
+        2.632270168855532
+       ]
+      },
+      {
+       "label": "Rented",
+       "n": 428,
+       "real": [
+        46.3,
+        9.4,
+        12.3,
+        0.9,
+        13.9,
+        4.2,
+        0.5,
+        3.8,
+        0.6,
+        8.1
+       ],
+       "nxk": [
+        62.72897196261685,
+        4.976635514018695,
+        15.661214953271049,
+        1.00934579439252,
+        8.507009345794401,
+        0.4766355140186919,
+        0.29906542056074775,
+        0.9485981308411192,
+        2.5233644859812947,
+        2.808411214953269
+       ]
+      },
+      {
+       "label": "Occupied without payment of rent",
+       "n": 36,
+       "real": [
+        55.4,
+        11.3,
+        10.8,
+        0.4,
+        7,
+        5.5,
+        3.5,
+        2.8,
+        0.9,
+        2.4
+       ],
+       "nxk": [
+        63.05555555555553,
+        4.972222222222222,
+        11.972222222222216,
+        0.5000000000000001,
+        7.80555555555555,
+        0.5833333333333334,
+        0.4166666666666667,
+        1.5000000000000002,
+        6.777777777777779,
+        2.3611111111111116
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ny-fed-bnpl-demand-drivers",
+   "title": "Using buy now, pay later",
+   "question": "In the past year, have you purchased anything using a “buy now, pay later” option?",
+   "examples": [
+    {
+     "who": "Cathy, 24, file clerk, california · household $50–75k · high financial pressure · rent market rate",
+     "p": [
+      0.77,
+      0.23
+     ]
+    },
+    {
+     "who": "Amador, 78, art educator, delaware · household $100–150k · budget managed · rent market rate",
+     "p": [
+      0.1,
+      0.9
+     ]
+    },
+    {
+     "who": "Meryl, 78, media specialist, idaho · household $25–50k · financially constrained · own outright",
+     "p": [
+      0,
+      1
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US household heads",
+   "source": {
+    "name": "BNPL consumer demand drivers",
+    "organisation": "Federal Reserve Bank of New York",
+    "url": "https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr1167.pdf"
+   },
+   "surveyed": "2024",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    20.1,
+    79.9
+   ],
+   "crowd": [
+    15.57100000000003,
+    84.42900000000022
+   ],
+   "noProfile": [
+    6,
+    94
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 4.5290000000000905,
+   "noProfileMae": 14.099999999999998,
+   "rankAgreement": null,
+   "noProfileRankAgreement": null,
+   "spread": {
+    "distance": 12.31628199999997,
+    "topDiffers": 0.069,
+    "distinctTops": 2,
+    "bins": [
+     0,
+     0,
+     9,
+     20,
+     37,
+     35,
+     60,
+     83,
+     221,
+     535
+    ],
+    "binsFor": "No"
+   },
+   "inputTokens": 2748618,
+   "groups": [
+    {
+     "dimension": "Age",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "18 to 39",
+       "n": 371,
+       "real": [
+        23.4,
+        76.6
+       ],
+       "nxk": [
+        24.940700808625323,
+        75.05929919137468
+       ]
+      },
+      {
+       "label": "40 to 59",
+       "n": 310,
+       "real": [
+        19.2,
+        80.8
+       ],
+       "nxk": [
+        15.006451612903222,
+        84.99354838709682
+       ]
+      },
+      {
+       "label": "60 and older",
+       "n": 319,
+       "real": [
+        18.2,
+        81.8
+       ],
+       "nxk": [
+        5.222570532915353,
+        94.7774294670848
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Gender",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "Female",
+       "n": 498,
+       "real": [
+        23.5,
+        76.5
+       ],
+       "nxk": [
+        16.130522088353413,
+        83.86947791164663
+       ]
+      },
+      {
+       "label": "Male",
+       "n": 493,
+       "real": [
+        16.5,
+        83.5
+       ],
+       "nxk": [
+        14.890466531440167,
+        85.10953346856003
+       ]
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "headline": null,
+     "clearGaps": 0,
+     "agreeing": 0,
+     "buckets": [
+      {
+       "label": "College",
+       "n": 414,
+       "real": [
+        15.8,
+        84.2
+       ],
+       "nxk": [
+        15.036231884057976,
+        84.96376811594214
+       ]
+      },
+      {
+       "label": "No College",
+       "n": 586,
+       "real": [
+        22.4,
+        77.6
+       ],
+       "nxk": [
+        15.948805460750856,
+        84.05119453924925
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fed-dcpc-bill-payment-preference",
+   "title": "Preferred way to pay bills",
+   "question": "Please tell us the payment method you most prefer to use for making bill payments.",
+   "examples": [
+    {
+     "who": "Tamela, 82, campus wellness coordinator, oklahoma · household $25–50k · financially constrained · own outright",
+     "p": [
+      0.03,
+      0.84,
+      0,
+      0.04,
+      0,
+      0.060000000000000005,
+      0.01,
+      0.02,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "who": "Brittani, 32, construction manager, florida · household over $200k · budget managed · own with mortgage",
+     "p": [
+      0,
+      0,
+      0.08,
+      0,
+      0,
+      0.02,
+      0.88,
+      0,
+      0.01,
+      0.01,
+      0
+     ]
+    },
+    {
+     "who": "Aniyah, 41, benefits outreach specialist, pennsylvania · household $100–150k · budget managed · own with mortgage",
+     "p": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults",
+   "source": {
+    "name": "Survey and Diary of Consumer Payment Choice 2024",
+    "organisation": "Federal Reserve Bank of Atlanta / Federal Reserve Bank of Boston / Federal Reserve Financial Services",
+    "url": "https://www.atlantafed.org/banking-and-payments/consumer-payments/survey-and-diary-of-consumer-payment-choice/2024-survey-and-diary"
+   },
+   "surveyed": "October 2024",
+   "options": [
+    "Cash",
+    "Check",
+    "Credit card",
+    "Debit card",
+    "Prepaid/Gift/EBT card",
+    "Bank account number payment",
+    "Online banking bill payment",
+    "Money order",
+    "Mobile payment apps such as PayPal, Zelle, Venmo, etc.",
+    "Account-to-account transfer",
+    "Other payment method"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    4.8,
+    6.3,
+    18.8,
+    25.2,
+    0.5,
+    13.6,
+    26.6,
+    0.9,
+    1.6,
+    0.9,
+    0.8
+   ],
+   "crowd": [
+    0.27599999999999936,
+    3.9940000000000033,
+    2.227999999999998,
+    3.481000000000002,
+    2.8500000000000036,
+    3.085000000000012,
+    78.41800000000013,
+    0.6339999999999975,
+    4.2079999999999975,
+    0.621999999999993,
+    0.1460000000000001
+   ],
+   "noProfile": [
+    0,
+    0,
+    4,
+    1,
+    0,
+    0,
+    74,
+    0,
+    3,
+    0,
+    18.000000000000004
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 10.32818181818183,
+   "noProfileMae": 12,
+   "rankAgreement": 0.5785892004243205,
+   "noProfileRankAgreement": 0.3726090009709788,
+   "spread": {
+    "distance": 21.889591000000046,
+    "topDiffers": 0.074,
+    "distinctTops": 6,
+    "bins": [
+     6,
+     22,
+     29,
+     35,
+     44,
+     49,
+     64,
+     102,
+     188,
+     461
+    ],
+    "binsFor": "Online banking bill payment"
+   },
+   "inputTokens": 2846618,
+   "groups": []
+  },
+  {
+   "id": "fed-dcpc-in-person-payment-preference",
+   "title": "Preferred way to pay in person",
+   "question": "Please tell us the payment method you most prefer to use for making in person payments.",
+   "examples": [
+    {
+     "who": "Salome, 25, administrative services manager, california · household over $200k · financially secure · rent market rate",
+     "p": [
+      0,
+      0,
+      0.79,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.21,
+      0,
+      0
+     ]
+    },
+    {
+     "who": "Melina, 20, paralegal, washington · household $25–50k · financially constrained · rent market rate",
+     "p": [
+      0,
+      0,
+      0.24,
+      0.46,
+      0,
+      0,
+      0,
+      0,
+      0.3,
+      0,
+      0
+     ]
+    },
+    {
+     "who": "Serina, 42, prepress specialist, mississippi · household $25–50k · financially constrained · own with mortgage",
+     "p": [
+      0.02,
+      0,
+      0,
+      0.95,
+      0.02,
+      0,
+      0,
+      0,
+      0.01,
+      0,
+      0
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults",
+   "source": {
+    "name": "Survey and Diary of Consumer Payment Choice 2024",
+    "organisation": "Federal Reserve Bank of Atlanta / Federal Reserve Bank of Boston / Federal Reserve Financial Services",
+    "url": "https://www.atlantafed.org/banking-and-payments/consumer-payments/survey-and-diary-of-consumer-payment-choice/2024-survey-and-diary"
+   },
+   "surveyed": "October 2024",
+   "options": [
+    "Cash",
+    "Check",
+    "Credit card",
+    "Debit card",
+    "Prepaid/Gift/EBT card",
+    "Bank account number payment",
+    "Online banking bill payment",
+    "Money order",
+    "Mobile payment apps such as PayPal, Zelle, Venmo, etc.",
+    "Account-to-account transfer",
+    "Other payment method"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    17.2,
+    1.5,
+    38,
+    39.7,
+    0.5,
+    0.2,
+    0.4,
+    0.2,
+    1.5,
+    0,
+    0.8
+   ],
+   "crowd": [
+    6.441,
+    1.4279999999999962,
+    23.549999999999997,
+    45.98000000000009,
+    4.769000000000003,
+    0.022000000000000006,
+    0.0029999999999999996,
+    0.16100000000000012,
+    17.425000000000036,
+    0.03600000000000001,
+    0.10500000000000008
+   ],
+   "noProfile": [
+    3,
+    0,
+    38,
+    32,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    7.000000000000001
+   ],
+   "leader": "exact",
+   "noProfileLeader": "close",
+   "mae": 4.827272727272739,
+   "noProfileMae": 4.490909090909091,
+   "rankAgreement": 0.849323922857635,
+   "noProfileRankAgreement": 0.8091690337422519,
+   "spread": {
+    "distance": 35.19493500000018,
+    "topDiffers": 0.429,
+    "distinctTops": 5,
+    "bins": [
+     65,
+     88,
+     117,
+     135,
+     137,
+     138,
+     138,
+     106,
+     66,
+     10
+    ],
+    "binsFor": "Debit card"
+   },
+   "inputTokens": 2847618,
+   "groups": []
+  },
+  {
+   "id": "fed-dcpc-online-payment-preference",
+   "title": "Preferred way to pay online",
+   "question": "Please tell us the payment method you most prefer to use for making online purchases (using a computer, mobile phone, or tablet) to buy goods and services (not to pay bills). Examples include purchases made on websites or apps such as Amazon, Walmart, etc.",
+   "examples": [
+    {
+     "who": "Emiliana, 27, unemployed looking, illinois · household under $25k · high financial pressure · rent subsidized",
+     "p": [
+      0,
+      0,
+      0,
+      0.11,
+      0.84,
+      0,
+      0,
+      0,
+      0.05,
+      0,
+      0
+     ]
+    },
+    {
+     "who": "Guadalupe, 55, construction trades and extraction supervisor, illinois · household $50–75k · budget managed · rent market rate",
+     "p": [
+      0,
+      0,
+      0.6799999999999999,
+      0.29,
+      0,
+      0.01,
+      0,
+      0,
+      0.02,
+      0,
+      0
+     ]
+    },
+    {
+     "who": "Miriam, 32, commodity manager, georgia · household over $200k · budget managed · own with mortgage",
+     "p": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults",
+   "source": {
+    "name": "Survey and Diary of Consumer Payment Choice 2024",
+    "organisation": "Federal Reserve Bank of Atlanta / Federal Reserve Bank of Boston / Federal Reserve Financial Services",
+    "url": "https://www.atlantafed.org/banking-and-payments/consumer-payments/survey-and-diary-of-consumer-payment-choice/2024-survey-and-diary"
+   },
+   "surveyed": "October 2024",
+   "options": [
+    "Cash",
+    "Check",
+    "Credit card",
+    "Debit card",
+    "Prepaid/Gift/EBT card",
+    "Bank account number payment",
+    "Online banking bill payment",
+    "Money order",
+    "Mobile payment apps such as PayPal, Zelle, Venmo, etc.",
+    "Account-to-account transfer",
+    "Other payment method"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    0.2,
+    0,
+    56.2,
+    35.9,
+    1.4,
+    0.8,
+    1,
+    0.1,
+    3.9,
+    0,
+    0.5
+   ],
+   "crowd": [
+    0.07200000000000002,
+    0.14500000000000005,
+    59.402000000000044,
+    28.201999999999998,
+    6.645999999999998,
+    0.5019999999999951,
+    0.017,
+    0.008,
+    4.795000000000007,
+    0.008,
+    0.13100000000000006
+   ],
+   "noProfile": [
+    0,
+    0,
+    93,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    5
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 1.7330909090909137,
+   "noProfileMae": 7.50909090909091,
+   "rankAgreement": 0.8105022831050228,
+   "noProfileRankAgreement": 0.6404268193254253,
+   "spread": {
+    "distance": 33.427092000000194,
+    "topDiffers": 0.358,
+    "distinctTops": 4,
+    "bins": [
+     109,
+     74,
+     72,
+     63,
+     72,
+     55,
+     65,
+     84,
+     139,
+     267
+    ],
+    "binsFor": "Credit card"
+   },
+   "inputTokens": 2883618,
+   "groups": []
+  },
+  {
+   "id": "pew-evcar2-ev-purchase-intent",
+   "title": "Considering an electric car next time",
+   "question": "The next time you purchase a vehicle, how likely are you to seriously consider purchasing an electric vehicle?",
+   "examples": [
+    {
+     "who": "Landen, 39, software quality assurance specialist, minnesota · household $50–75k · budget managed · rent market rate",
+     "p": [
+      0.37,
+      0.61,
+      0.01,
+      0,
+      0.01
+     ]
+    },
+    {
+     "who": "Rana, 59, hair stylist, pennsylvania · household $25–50k · financially constrained · rent market rate",
+     "p": [
+      0.01,
+      0.53,
+      0.34,
+      0.06,
+      0.05
+     ]
+    },
+    {
+     "who": "Darold, 44, unemployed looking, oklahoma · household under $25k · high financial pressure · rent market rate",
+     "p": [
+      0,
+      0.01,
+      0.34,
+      0.45,
+      0.2
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults",
+   "source": {
+    "name": "Pew EV and hybrid next-purchase consideration",
+    "organisation": "Pew Research Center",
+    "url": "https://www.pewresearch.org/science/2026/04/03/how-appealing-are-electric-vehicles-and-hybrids-to-americans/"
+   },
+   "surveyed": "March 2026",
+   "options": [
+    "Very likely",
+    "Somewhat likely",
+    "Not too likely",
+    "Not at all likely",
+    "I do not expect to purchase a vehicle"
+   ],
+   "orderedLevels": 4,
+   "people": 1000,
+   "real": [
+    12.1,
+    19.2,
+    21.2,
+    32.3,
+    15.2
+   ],
+   "crowd": [
+    3.3640000000000163,
+    31.257999999999942,
+    39.696999999999974,
+    7.703000000000005,
+    17.952000000000012
+   ],
+   "noProfile": [
+    6,
+    66,
+    2,
+    2,
+    24
+   ],
+   "leader": "close",
+   "noProfileLeader": "miss",
+   "mae": 13.32799999999998,
+   "noProfileMae": 22.24,
+   "rankAgreement": 0.3999999999999999,
+   "noProfileRankAgreement": -0.5642880936468347,
+   "spread": {
+    "distance": 34.81130699999991,
+    "topDiffers": 0.564,
+    "distinctTops": 5,
+    "bins": [
+     732,
+     201,
+     53,
+     11,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "binsFor": "Not at all likely"
+   },
+   "inputTokens": 2748618,
+   "groups": []
+  },
+  {
+   "id": "pew-driverless-ride",
+   "title": "Wanting to ride in a driverless car",
+   "question": "Would you personally want to ride in a driverless passenger vehicle, if you had the opportunity?",
+   "examples": [
+    {
+     "who": "Landen, 39, software quality assurance specialist, minnesota · household $50–75k · budget managed · rent market rate",
+     "p": [
+      0.13,
+      0.86,
+      0.01,
+      0
+     ]
+    },
+    {
+     "who": "Dalia, 41, food service specialist, connecticut · household $25–50k · high financial pressure · rent market rate",
+     "p": [
+      0.01,
+      0.61,
+      0.36,
+      0.02
+     ]
+    },
+    {
+     "who": "Sompong, 68, marble carver, oklahoma · household $50–75k · high financial pressure · own with mortgage",
+     "p": [
+      0,
+      0.01,
+      0.95,
+      0.04
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults",
+   "source": {
+    "name": "Pew AI and human enhancement",
+    "organisation": "Pew Research Center",
+    "url": "https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2022/03/PS_2022.03.17_AI-HE_REPORT.pdf"
+   },
+   "surveyed": "November 2021",
+   "options": [
+    "Definitely want",
+    "Probably want",
+    "Probably NOT want",
+    "Definitely NOT want"
+   ],
+   "orderedLevels": 4,
+   "people": 1000,
+   "real": [
+    14.1,
+    23.2,
+    32.3,
+    30.3
+   ],
+   "crowd": [
+    2.9370000000000154,
+    53.960999999999984,
+    41.066000000000024,
+    2.0139999999999953
+   ],
+   "noProfile": [
+    4,
+    82,
+    13,
+    1
+   ],
+   "leader": "miss",
+   "noProfileLeader": "miss",
+   "mae": 19.744,
+   "noProfileMae": 29.374999999999996,
+   "rankAgreement": 0,
+   "noProfileRankAgreement": 0,
+   "spread": {
+    "distance": 24.71051899999994,
+    "topDiffers": 0.38,
+    "distinctTops": 2,
+    "bins": [
+     122,
+     159,
+     140,
+     118,
+     94,
+     75,
+     82,
+     92,
+     76,
+     42
+    ],
+    "binsFor": "Probably NOT want"
+   },
+   "inputTokens": 2726618,
+   "groups": []
+  },
+  {
+   "id": "yougov-streaming-commercials-tolerance",
+   "title": "Enjoying TV with commercials",
+   "question": "Do you enjoy watching TV more or less when there are commercials?",
+   "examples": [
+    {
+     "who": "Rina, 61, homemaker, west virginia · household under $25k · high financial pressure · rent subsidized",
+     "p": [
+      0.1,
+      0.37,
+      0.53
+     ]
+    },
+    {
+     "who": "Brodie, 25, tax examiner, kentucky · household $100–150k · budget managed · rent market rate",
+     "p": [
+      0.01,
+      0.16,
+      0.83
+     ]
+    },
+    {
+     "who": "Sakura, 31, media director, nevada · household $150–200k · budget managed · own with mortgage",
+     "p": [
+      0,
+      0.01,
+      0.99
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults who watch TV",
+   "source": {
+    "name": "YouGov opinions on TV and streaming",
+    "organisation": "YouGov US",
+    "url": "https://docs.cdn.yougov.com/6t4me9x2sz/toplines_Opinions%20on%20TV%20and%20streaming.pdf"
+   },
+   "surveyed": "April 2022",
+   "options": [
+    "More",
+    "The same",
+    "Less"
+   ],
+   "orderedLevels": 3,
+   "people": 1000,
+   "real": [
+    8.3,
+    27.1,
+    64.6
+   ],
+   "crowd": [
+    1.936999999999998,
+    15.540999999999991,
+    82.51600000000006
+   ],
+   "noProfile": [
+    0,
+    13,
+    87
+   ],
+   "leader": "exact",
+   "noProfileLeader": "exact",
+   "mae": 11.946000000000026,
+   "noProfileMae": 14.933333333333337,
+   "rankAgreement": null,
+   "noProfileRankAgreement": null,
+   "spread": {
+    "distance": 5.719887999999981,
+    "topDiffers": 0,
+    "distinctTops": 1,
+    "bins": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     5,
+     42,
+     248,
+     570,
+     135
+    ],
+    "binsFor": "Less"
+   },
+   "inputTokens": 2691618,
+   "groups": []
+  },
+  {
+   "id": "motleyfool-streaming-wtp-buckets",
+   "title": "Monthly budget for streaming",
+   "question": "How much would you personally be willing to pay per month for streaming services?",
+   "examples": [
+    {
+     "who": "Stephen, 44, game developer, georgia · household over $200k · financially secure · rent market rate",
+     "p": [
+      0,
+      0.04,
+      0.15,
+      0.35,
+      0.46
+     ]
+    },
+    {
+     "who": "Chioma, 21, corrections specialist, virginia · household $50–75k · financially constrained · rent market rate",
+     "p": [
+      0.22,
+      0.67,
+      0.1,
+      0.01,
+      0
+     ]
+    },
+    {
+     "who": "Kenzo, 20, grounds and nursery specialist, arkansas · household under $25k · high financial pressure · occupancy no rent",
+     "p": [
+      0.99,
+      0.01,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults",
+   "source": {
+    "name": "The Motley Fool State of Streaming 2024",
+    "organisation": "The Motley Fool / Pollfish",
+    "url": "https://www.fool.com/research/state-of-streaming/"
+   },
+   "surveyed": "January 2024",
+   "options": [
+    "$15 or less",
+    "$16-$30",
+    "$31-$45",
+    "$46-$60",
+    "Over $60"
+   ],
+   "orderedLevels": 5,
+   "people": 1000,
+   "real": [
+    40,
+    25,
+    15,
+    10,
+    8
+   ],
+   "crowd": [
+    34.88699999999996,
+    41.358000000000025,
+    13.840000000000027,
+    6.385000000000001,
+    3.5140000000000096
+   ],
+   "noProfile": [
+    16,
+    55.00000000000001,
+    21,
+    6,
+    2
+   ],
+   "leader": "close",
+   "noProfileLeader": "close",
+   "mae": 6.146400000000006,
+   "noProfileMae": 14,
+   "rankAgreement": 0.8999999999999998,
+   "noProfileRankAgreement": 0.6999999999999998,
+   "spread": {
+    "distance": 36.215867999999936,
+    "topDiffers": 0.464,
+    "distinctTops": 5,
+    "bins": [
+     360,
+     115,
+     78,
+     66,
+     51,
+     54,
+     52,
+     66,
+     66,
+     92
+    ],
+    "binsFor": "$15 or less"
+   },
+   "inputTokens": 2767618,
+   "groups": []
+  },
+  {
+   "id": "pew-streaming-worth-the-cost",
+   "title": "Streaming services are worth the cost",
+   "question": "Thinking about all of the streaming services you currently subscribe to or use, do you think they are worth the cost?",
+   "examples": [
+    {
+     "who": "Tamela, 82, campus wellness coordinator, oklahoma · household $25–50k · financially constrained · own outright",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "who": "Hao, 35, family service assistant, texas · household $25–50k · financially constrained · rent market rate",
+     "p": [
+      0.27,
+      0.73
+     ]
+    },
+    {
+     "who": "Hao, 45, data engineer, new hampshire · household $150–200k · financially secure · rent market rate",
+     "p": [
+      0.95,
+      0.05
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults who use streaming services",
+   "source": {
+    "name": "Pew Research Center streaming questionnaire, April 2025",
+    "organisation": "Pew Research Center",
+    "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/SR_25.07.01_streaming_questionnaire.pdf"
+   },
+   "surveyed": "April 2025",
+   "options": [
+    "Worth the cost",
+    "Not worth the cost"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    58.7,
+    41.3
+   ],
+   "crowd": [
+    34.720999999999925,
+    65.27900000000004
+   ],
+   "noProfile": [
+    65,
+    35
+   ],
+   "leader": "miss",
+   "noProfileLeader": "exact",
+   "mae": 23.97900000000006,
+   "noProfileMae": 6.299999999999997,
+   "rankAgreement": null,
+   "noProfileRankAgreement": null,
+   "spread": {
+    "distance": 25.63063600000006,
+    "topDiffers": 0.335,
+    "distinctTops": 2,
+    "bins": [
+     287,
+     147,
+     85,
+     76,
+     70,
+     79,
+     74,
+     90,
+     71,
+     21
+    ],
+    "binsFor": "Worth the cost"
+   },
+   "inputTokens": 2701618,
+   "groups": []
+  },
+  {
+   "id": "bankrate-checking-stay-reasons-2025",
+   "title": "Why people stay with their bank",
+   "question": "Why have you stayed with the same bank for your checking account?",
+   "examples": [
+    {
+     "who": "Halona, 37, unable to work, texas · household under $25k · high financial pressure · rent market rate",
+     "p": [
+      0.01,
+      0.01,
+      0.1,
+      0.02,
+      0.85,
+      0,
+      0,
+      0.01,
+      0,
+      0
+     ]
+    },
+    {
+     "who": "Elena, 52, renewable energy system finance specialist, california · household over $200k · budget managed · own with mortgage",
+     "p": [
+      0.17,
+      0.31,
+      0.3,
+      0.02,
+      0.01,
+      0.04,
+      0.08,
+      0.01,
+      0.05,
+      0.01
+     ]
+    },
+    {
+     "who": "Kiersten, 78, sous chef, illinois · household $50–75k · stable with commitments · own outright",
+     "p": [
+      0.82,
+      0.05,
+      0.09,
+      0,
+      0.01,
+      0.02,
+      0.01,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "country": "us",
+   "population": "US adults with a checking account",
+   "source": {
+    "name": "Bankrate checking-account stay reasons",
+    "organisation": "Bankrate / YouGov",
+    "url": "https://www.bankrate.com/banking/checking-fees-survey/"
+   },
+   "surveyed": "January 2025",
+   "options": [
+    "It's the account I've always had",
+    "They have convenient branch/ATM locations",
+    "It would be too much of a hassle to switch",
+    "I don't have the time to research/shop around for other options",
+    "They have no/low monthly fees",
+    "I am happy with the customer service",
+    "Their reputation",
+    "Their online or mobile tools",
+    "They have good interest rates",
+    "Other"
+   ],
+   "orderedLevels": 0,
+   "people": 1000,
+   "real": [
+    18.7,
+    13.5,
+    9.7,
+    1.9,
+    18.7,
+    16.7,
+    7,
+    5.8,
+    4.4,
+    3.5
+   ],
+   "crowd": [
+    20.931000000000022,
+    8.359000000000025,
+    17.538,
+    2.8420000000000076,
+    29.922999999999984,
+    1.2469999999999881,
+    2.693000000000011,
+    13.352000000000022,
+    0.5819999999999966,
+    2.4860000000000078
+   ],
+   "noProfile": [
+    26,
+    2,
+    11,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    57.99999999999999
+   ],
+   "leader": "close",
+   "noProfileLeader": "close",
+   "mae": 5.9519,
+   "noProfileMae": 12.61,
+   "rankAgreement": 0.5592731001856595,
+   "noProfileRankAgreement": 0.05608810397756965,
+   "spread": {
+    "distance": 38.83594500000006,
+    "topDiffers": 0.622,
+    "distinctTops": 7,
+    "bins": [
+     311,
+     244,
+     177,
+     124,
+     77,
+     44,
+     15,
+     7,
+     1,
+     0
+    ],
+    "binsFor": "It's the account I've always had"
+   },
+   "inputTokens": 2880618,
+   "groups": []
+  }
+ ]
+}

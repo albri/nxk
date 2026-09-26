@@ -17,6 +17,7 @@ separate comparisons in separate requests.
 | What puts people off | Find obstacles |
 | What to say | Compare wording |
 | Who to focus on | Follow an audience difference |
+| How people who already own or use something respond | Fill in a missing fact (experimental) |
 
 ## Compare ideas
 
@@ -25,8 +26,8 @@ Use the same saved profiles for each idea, evaluating each in its own request.
 
 Ask about the next action the real situation permits. Include keeping the
 current approach or doing nothing. Compare support and relevant audience
-differences. Ask about existing habits only when the profile contains them;
-otherwise make the situation hypothetical.
+differences. Ask about existing habits only when the profile contains them or
+you have filled them in; otherwise make the situation hypothetical.
 
 Continue with the idea whose results suggest a useful next decision. Every
 additional idea resends the profile, so include those calls in the estimate.
@@ -54,12 +55,12 @@ comparisons do not tell you how support will divide across the full set.
 
 ## Find obstacles
 
-For the biggest obstacle, use a Choice with clear alternatives and “nothing”
-or “I don't need this” where appropriate. For obstacles that can coexist, ask
+For the biggest obstacle, use a Choice with clear alternatives and "nothing"
+or "I don't need this" where appropriate. For obstacles that can coexist, ask
 one Noul per obstacle and average each independently.
 
-A later question can compare ways to address an obstacle, including “none of
-these would help”. Keep the proposed solution concrete: a lower price, a smaller
+A later question can compare ways to address an obstacle, including "none of
+these would help". Keep the proposed solution concrete: a lower price, a smaller
 order, or a preview before paying. A separate obstacle question does not explain
 an earlier individual choice unless that choice is supplied in the next request.
 
@@ -78,8 +79,8 @@ not proof that it will change behaviour.
 Start with profile details that could change the work. Compare the same
 measure within each group and retain group sizes. Then inspect other well-sized
 groups when the full probability sets suggest a connection worth following. A
-group difference that merely restates the question adds little: “parents prefer
-the parenting product” is rarely a discovery.
+group difference that merely restates the question adds little: "parents prefer
+the parenting product" is rarely a discovery.
 
 Before acting on a group difference, check that the group is likely to use,
 need or encounter the thing. If that is unknown, measure relevance first and
@@ -92,3 +93,35 @@ Avoid hunting through ever-smaller groups for a striking percentage.
 When profiles barely change the answer, a small no-profile or contrasting-profile
 check can help diagnose why. Use the result to choose the next question or
 continue the work; a longer study is optional.
+
+## Fill in a missing fact (experimental)
+
+Use this when the answer depends on something people already own, use, spend or
+have done, and the profile does not say: how their home is heated, which app
+they use now, how many subscriptions they pay for.
+
+1. Ask the model, as a Choice, which value is most likely for each person.
+2. Find a published figure for how common each value is, dated before the
+   decision. Multiply each person's probabilities by the target share divided
+   by the crowd's current average, renormalise each person, and repeat until
+   the crowd matches the figure. The model's own guesses are often skewed.
+3. Give each person one value with a seeded draw from their rescaled
+   probabilities (see [probabilities.md](probabilities.md)). Save it, and send
+   it with every later question as a sentence in `respondent.knownFacts`. Add
+   "Treat `respondent.knownFacts` as true about this person." to the
+   instruction.
+
+This puts your own assumptions into every answer, and it can steer them too
+far:
+
+- A highlighted fact can become the whole answer. If one option jumps to
+  dominate once the fact is added, compare with a run without it before
+  trusting the result.
+- Never fill in a fact that restates an answer option, such as current
+  spending when you are asking what people would pay.
+- A wrong figure is copied into every person. Use a source you trust and
+  report it alongside the result.
+- It supplies missing facts, not attitudes or opinions.
+
+Say in the result which facts were filled in and where each figure came from.
+The tests behind this step are in [experiments.md](../experiments.md).

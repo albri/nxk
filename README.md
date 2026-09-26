@@ -15,6 +15,7 @@
   <a href="#why-use-it">Why use it</a> ·
   <a href="#who-are-the-people-and-what-is-personagen">PersonaGen and the "people"</a> ·
   <a href="#what-it-costs">Cost</a> ·
+  <a href="methodology.md">Does it work?</a> ·
   <a href="#faq">FAQ</a> ·
   <a href="#skill-and-api-references">References</a>
 </p>
@@ -80,8 +81,7 @@ An agent could use nxk to decide when:
 | Looks for groups that answer differently | Evening support among likely visitors in full-time work is 66%, 27 percentage points above all likely visitors | Do not put all five hours in the morning |
 | Asks which days help each group | Retired people prefer weekday mornings · people in full-time work prefer Thursday evening | Put three hours across weekday mornings and two on Thursday evening |
 
-For each person, the model gives every answer a probability. These are the
-model's answers, not real people's answers.
+For each person, the model gives every answer a probability.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/keep-the-whole-answer-dark.webp">
@@ -105,11 +105,10 @@ want.
 
 Your agent often has to guess how people will react to its work. nxk replaces
 that guess with answers from a crowd. The differences in those answers show who
-to build for, and what to change.
+to build for, and what to change. nxk keeps every answer, so your agent can
+show how it reached its conclusion.
 
-PersonaGen creates detailed UK or US profiles. Each life fits together, and a
-large crowd broadly matches national population data. nxk keeps every answer
-so your agent can compare them and show how it reached its conclusion.
+[How nxk compares with 26 published surveys →](methodology.md)
 
 ## What you can use nxk for
 
@@ -194,6 +193,52 @@ so extra questions mainly add the cost of their wording.
 ## FAQ
 
 <details>
+<summary>Can an LLM pretending to be a person tell me anything useful about real people?</summary>
+
+Yes. I put nxk through 26 questions from 15 published UK and US surveys, with
+1,000 people per question. People answered differently, and their answers
+followed their lives. Where a survey showed a gap between groups, like young
+and old or renters and owners, nxk's gap pointed the same way on 12 of the 16
+biggest. It also found the survey's leading answer, or the one next to it, on
+22 of 26 questions. [Charts and every comparison](methodology.md).
+
+It's best at everyday choices people make from their own circumstances. Like
+most language models, it makes people a bit more sensible than they really are.
+They say they check food hygiene ratings more often than real people do, and
+they rarely feel strongly either way. A few quirks, like a soft spot for new
+technology, are harder to iron out. [More on where to be careful](methodology.md#where-to-be-careful).
+
+I don't expect it to match a survey to the decimal point. You can't recreate
+the setting of a real survey, and making each person tick one box throws away
+how sure they were. nxk keeps the probability of every answer and looks for
+where people differ, which is the useful bit.
+
+</details>
+
+<details>
+<summary>How seriously should I take the results?</summary>
+
+Seriously enough to change what you build. Read them for direction: which
+option leads and who answers differently. A 61% is a clear lean, not a forecast
+that 61% of real people will choose it, and gaps between groups tend to come
+out smaller than in real surveys. [How nxk compares with real surveys](methodology.md).
+
+</details>
+
+<details>
+<summary>Why is nxk a skill rather than an app?</summary>
+
+Because the useful bit happens inside the work. Your coding agent knows what
+you're building, can ask another question when an answer is interesting, and
+can change the work when it learns something. I started out building a full
+app for this. The more workflow I built, the clearer it became that these
+decisions belong with the agent doing the work, not in fixed screens. nxk gives
+the agent the people and the method, then lets it adapt the research to the
+task.
+
+</details>
+
+<details>
 <summary>Why not just ask a model to invent its own personas?</summary>
 
 You can. But a pile of model-generated stereotypes won't represent the UK or
@@ -202,29 +247,6 @@ over.
 
 PersonaGen is built to make each person plausible and a large crowd resemble
 the UK or US population. You need both.
-
-</details>
-
-<details>
-<summary>Can I use nxk for B2B questions?</summary>
-
-Yes. Describe the people clearly. Ask for a specific role, level of
-seniority and type of employer. PersonaGen cannot know a company's real
-budget, software or buying process, so add those facts to the question when
-they matter.
-
-</details>
-
-<details>
-<summary>Can you add Canada, Australia, Germany or another country?</summary>
-
-Realistically, not any time soon. The UK and US took me a long time to research
-and optimise. PersonaGen is a bit of fun for me, and I do not have enough spare
-time to add more countries properly.
-
-I am more interested in generating other kinds of populations: companies that
-make sense individually and resemble the real business population at scale,
-complete with org charts; or whole households whose members fit together.
 
 </details>
 
@@ -239,43 +261,31 @@ they improve the answers enough to justify it.
 </details>
 
 <details>
+<summary>Can I use nxk for B2B questions?</summary>
+
+Yes, with a bit of help. nxk is at its best with consumer questions, because
+PersonaGen generates people, not companies. For work questions, ask for a
+specific role, seniority and type of employer. A profile can't know a
+company's budget, software or buying process, so add those to the question when
+they matter.
+
+I'd like to build a company generator for this: companies that make sense on
+their own, match the real business population at scale and come with org
+charts. Then B2B questions could get the same treatment as consumer ones.
+
+</details>
+
+<details>
 <summary>Can nxk collect written answers or quotes?</summary>
 
-It can, but I would not present generated prose as quotes from real people.
-Models still struggle to give different people genuinely different voices and
-natural writing habits. I tried making the model return several possible
-replies and choosing one based on their probabilities. It helped, but not
-enough to make it part of nxk's normal workflow. Written answers also need a
-generative model, so they cost more.
+Not with Jev. Jev picks between answers and gives each a probability; it
+doesn't write prose. For written answers you'd need a traditional LLM, which
+is slower and costs more per person.
 
-</details>
-
-<details>
-<summary>How seriously should I take the results?</summary>
-
-Use the results to guide a decision. Do not treat the percentages as exact
-predictions of what real people will do. Models often make people behave too
-sensibly and consistently. Prompt changes can reduce this, but cannot remove
-it.
-
-</details>
-
-<details>
-<summary>Can I turn this into some SaaS rubbish?</summary>
-
-No, and it defeats the point. A fancy UI isn't needed here. Your agent already
-knows what you're building. It can ask the next question when the last answer
-is interesting, ask one group more questions, change the wording, and write the
-result up however you want.
-
-</details>
-
-<details>
-<summary>So is it just an LLM in a trench coat?</summary>
-
-The answers still come from a model, yes. nxk asks the model to answer
-separately for each detailed persona. Your agent keeps the probabilities,
-compares how they change and can ask the same people another question.
+Even then, I wouldn't present generated prose as quotes from real people.
+Models still struggle to give different people genuinely different voices. I
+tried having the model write several possible replies and picking one by
+probability. It helped, but not enough to make it part of nxk.
 
 </details>
 
@@ -288,6 +298,18 @@ result. The maths is in the references if you ever want it.
 
 </details>
 
+<details>
+<summary>Can you add Canada, Australia, Germany or another country?</summary>
+
+Realistically, not any time soon. The UK and US took me a long time to research
+and optimise. PersonaGen is a bit of fun for me, and I do not have enough spare
+time to add more countries properly.
+
+I'd rather spend that time on other kinds of populations, like companies or
+whole households whose members fit together.
+
+</details>
+
 ## Skill and API references
 
 | File | What it is |
@@ -297,6 +319,7 @@ result. The maths is in the references if you ever want it.
 | [Using the probabilities](references/probabilities.md) | How to keep and compare the answers |
 | [Filters](references/filters.md) | The complete country-specific filter catalogue |
 | [Question recipes](references/instruments.md) | Ways to ask about prices, trade-offs and follow-up questions |
+| [Methodology](methodology.md) | How nxk compares with published surveys |
 | [Experiments](experiments.md) | Ideas tried, rejected and still open |
 
 ## Contributing

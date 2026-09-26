@@ -20,8 +20,8 @@ constraints and what different answers would change. If demand, cost, access
 or another goal could point in different directions, name the trade-off. Pick
 a simple decision rule before seeing the result; do not invent one afterwards.
 
-Ask about the nearest real action. “What would they do next?” is stronger than
-“Would they consider it?” Include what they already do and the real cost or
+Ask about the nearest real action. "What would they do next?" is stronger than
+"Would they consider it?" Include what they already do and the real cost or
 inconvenience of every option. If one option has upside with no believable
 downside, skip the question or restore the missing trade-off.
 
@@ -82,6 +82,11 @@ further. Employer context is inferred; a profile does not contain a company's
 budget, software stack or buying committee. Supply any needed company facts as
 an explicit situation.
 
+When an answer depends on something people already own, use or spend that the
+profile does not include, the experimental "Fill in a missing fact" recipe in
+[references/instruments.md](references/instruments.md) can add it. It can
+steer answers too far, so use it only when that fact decides the answer.
+
 Keep the full saved profile. Start with its household, money, work and habits
 together when evaluating; the reference omits appearance and API metadata.
 
@@ -93,10 +98,13 @@ part instead of silently widening it.
 ## Ask
 
 Give the person a concrete situation and credible options, including the choice
-to do nothing when appropriate. Put the question and complete options together
-in `state`. Ask for that person's response using the profile and situation.
-Use the request pattern in the reference. Keep hypothetical circumstances
-separate from profile facts. Give trade-offs concrete prices, times and terms.
+to do nothing when appropriate. Leave out "don't know" and "not sure": each
+person's probabilities already show how sure they are, and a catch-all option
+hides where that uncertainty lies. Put the question and complete options
+together in `state`. Ask for that person's response using the profile and
+situation. Use the request pattern in the reference. Keep hypothetical
+circumstances separate from profile facts. Give trade-offs concrete prices,
+times and terms.
 To test one change, reuse the situation and question. Change only that factor.
 
 Choose possible blockers from the real journey. Look at what the person must
@@ -114,6 +122,11 @@ frame or default can change the answer.
 | Check a particular obstacle | Noul, one yes/no question per obstacle |
 | Rate strength or choose a price band | Score with clearly described levels |
 | Find what would change their mind | Choice, including nothing |
+
+Prefer a choice between concrete options to an agreement or strength scale.
+Answering models rarely pick the ends or the middle of a scale, so a scale
+shows direction and differences between groups more reliably than strength of
+feeling.
 
 Jev returns typed answers and probabilities. Use the full response text as
 Choice labels and rotate option order consistently in `state` and `criteria`.
@@ -174,6 +187,10 @@ well-sized combinations. Express gaps in percentage points, or relative
 percentages with a clear comparison group. Use standard deviation only when
 calculated, stating what varies, such as results across seeds. Treat newly
 found connections as leads: a group difference does not explain its cause.
+
+Gaps between groups usually come out smaller than they would among real
+people, though money pressure can exaggerate them. Read a gap for its
+direction.
 
 Agreement can be real. Check whether the full probability sets vary between
 people before claiming a difference between groups. If the result does not

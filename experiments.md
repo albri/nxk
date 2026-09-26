@@ -20,30 +20,42 @@ use. First estimate who is likely to encounter, need or consider it. Use that
 probability when reading the later answers. Choosing the right people has been
 more useful than making the prompt cleverer.
 
-## Add domain-specific details to a profile
+## Fill in a missing fact
 
-**Status:** Idea.
+**Status:** In the skill as an experimental recipe.
 
-Take shampoo brand as a deliberately contrived example. An agent could add it
-as a new dimension, but assigning each person a brand with a separate model
-call would probably produce the wrong market share and weak links to the rest
-of their life.
+Some answers hang on a fact the profile doesn't have, like how someone's home
+is heated or what their credit score is. So before asking the real question, I
+asked Jev to guess that fact for each person, nudged the guesses to match a
+published figure I found with Exa, and gave each person one value.
 
-For the new dimension to work, the agent would probably need many maps rather
-than one:
+On nine benchmark questions, same 300 people each time:
 
-1. Find the relevant brands and an overall distribution for the market.
-2. Identify the existing dimensions most likely to affect the choice. For
-   shampoo, that might include age, income, gender and hair type.
-3. Generate conditional maps for those dimensions, plus bridge maps for useful
-   joins between them, such as age × hair type.
-4. Combine the maps into a probability distribution for each persona, then
-   assign a plausible brand from it.
-5. Save the enriched personas and use them in the actual experiment.
+| Question | Fact filled in | Without | With |
+| --- | --- | ---: | ---: |
+| Streaming is worth the cost | Paid services | 23.1 pts, wrong leader | **4.4 pts, right leader** |
+| Buy now, pay later | Credit score | 6.1 pts | **1.5 pts** |
+| Considering a pot-for-life pension | Pension pots | 11.0 pts | **6.7 pts** |
+| Considering an electric car | Home charging | 13.6 pts | **8.7 pts** |
+| Checked a food hygiene rating | Eating out | 17.5 pts | **15.3 pts** |
+| Would install a heat pump | Heating | wrong leader | **right leader** |
+| Why people stay with their bank | Years with bank | **5.7 pts** | 9.4 pts |
+| Trust loyalty prices | Scheme member | **8.4 pts** | 10.4 pts |
+| Monthly streaming budget | Current spend | **6.6 pts** | 14.2 pts |
 
-An agent could probably use Jev to generate these maps cheaply enough to make
-this practical. The enrichment would happen before the experiment starts, so
-every later question sees the same assigned value.
+The average miss dropped from 11.6 to 9.2 points, and nxk found the real
+leading answer on six questions instead of three. The credit score also gave
+nxk a gap the survey found: people below 720 were 24 points more likely to use
+buy now, pay later than people above 760. The survey says 20.
+
+The published figure does most of the work. Jev's own guesses put 95% of homes
+on gas and 98% of shoppers in a loyalty scheme, and without the correction a
+few questions got worse.
+
+It can also steer too hard. Tell people how long they've banked somewhere and
+"it's the account I've always had" triples. Tell them they spend $60 a month on
+streaming and they'll happily pay $60. So only fill in facts that shape the
+answer, never one that is the answer, and compare with a run without it.
 
 ## Send the full persona
 
@@ -120,3 +132,22 @@ that improves every kind of question.
 Option order can affect an answer. Rotate the order across people or repeat a
 small run with the order reversed. A result that disappears is not strong
 enough to build on.
+
+## Leave out "don't know"
+
+**Status:** Keep.
+
+Given a "don't know" option, people grabbed it far more than real respondents,
+even about their own habits. 32% didn't know whether they'd checked a food
+hygiene rating. In the survey, 3% said that. The model was handing its own
+uncertainty to the person. The probabilities already show how sure each person
+is, so nxk leaves the option out.
+
+## Extra answering rules
+
+**Status:** Didn't help.
+
+I tried adding a few broad rules to every question, like "weigh all of this
+person's circumstances" and "hold views as firmly as they would". Results got
+slightly worse and age differences barely moved. Earlier tests with other
+models went the same way, so the default instruction stays short.

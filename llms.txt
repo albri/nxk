@@ -30,6 +30,8 @@ Credential storage is the user's choice. Jev needs its own key and credit.
   prices, trade-offs, blockers and further exploration.
 - [references/probabilities.md](references/probabilities.md): native probability
   averages, normalised per-option weights, optional sampling and collapse checks.
+- [methodology.md](methodology.md): how nxk's crowd compares with 26 published
+  UK and US survey questions; read for its known limits.
 
 PersonaGen samples related traits from country-specific distributions, using
 official sources where available alongside modelled and derived context. It

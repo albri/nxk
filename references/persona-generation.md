@@ -163,6 +163,10 @@ if (Math.abs(total - 1) > 0.03) throw new Error("Invalid probability total");
 // Save the complete response alongside a stable ID for this saved profile.
 ```
 
+Jev tends to make people keener on new technology than surveys find. When
+asking about adopting something new, put its real cost, effort and risk in the
+situation.
+
 Send the full profile rather than `description.short` or a selected field map.
 The example excludes appearance and request metadata; keep the other groups.
 Set `country` to the draw's country. Keep full option text unique and preserve

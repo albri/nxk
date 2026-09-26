@@ -1,0 +1,2605 @@
+{
+  "studies": [
+    {
+      "id": "fsa-food-price-concern",
+      "title": "Concern about food affordability",
+      "source": {
+        "name": "Food and You 2 Wave 8",
+        "organisation": "Food Standards Agency",
+        "url": "https://www.food.gov.uk/research/food-and-you-2/food-and-you-2-wave-8"
+      },
+      "country": "uk",
+      "population": "Adults in England, Wales and Northern Ireland",
+      "draw": "uk-adults-ewni",
+      "surveyed": "November 2023",
+      "context": "",
+      "question": "Thinking about food in the UK today, how concerned, if at all, do you feel about affordability of food?",
+      "options": [
+        "Not concerned at all",
+        "Not very concerned",
+        "Somewhat concerned",
+        "Highly concerned"
+      ],
+      "orderedLevels": 4,
+      "observed": [
+        2.0,
+        9.2,
+        38.8,
+        50.0
+      ],
+      "excluded": [
+        "Don’t know"
+      ],
+      "groups": [
+        {
+          "dimension": "Household income",
+          "buckets": [
+            {
+              "label": "Less than £19,000",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "under_20k_gbp"
+                ]
+              },
+              "observed": [
+                2.1,
+                9.4,
+                30.2,
+                58.3
+              ]
+            },
+            {
+              "label": "£32,000 - £63,999",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "35k_to_50k_gbp",
+                  "50k_to_70k_gbp"
+                ]
+              },
+              "observed": [
+                2.0,
+                8.2,
+                40.8,
+                49.0
+              ]
+            },
+            {
+              "label": "More than £96,000",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "100k_to_150k_gbp",
+                  "over_150k_gbp"
+                ]
+              },
+              "observed": [
+                2.0,
+                15.2,
+                46.5,
+                36.4
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Food security (PersonaGen: financial pressure)",
+          "buckets": [
+            {
+              "label": "High food security",
+              "match": {
+                "field": "economic.financial_pressure_context",
+                "in": [
+                  "financially_secure",
+                  "stable_with_commitments"
+                ]
+              },
+              "observed": [
+                2.0,
+                10.1,
+                47.5,
+                40.4
+              ]
+            },
+            {
+              "label": "Marginal food security",
+              "match": {
+                "field": "economic.financial_pressure_context",
+                "in": [
+                  "budget_managed"
+                ]
+              },
+              "observed": [
+                1.0,
+                8.1,
+                32.3,
+                58.6
+              ]
+            },
+            {
+              "label": "Low food security",
+              "match": {
+                "field": "economic.financial_pressure_context",
+                "in": [
+                  "financially_constrained"
+                ]
+              },
+              "observed": [
+                1.0,
+                6.1,
+                30.6,
+                62.2
+              ]
+            },
+            {
+              "label": "Very low food security",
+              "match": {
+                "field": "economic.financial_pressure_context",
+                "in": [
+                  "high_financial_pressure"
+                ]
+              },
+              "observed": [
+                1.0,
+                8.2,
+                15.3,
+                75.5
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fsa-meat-alternatives-adoption",
+      "title": "Eating meat alternatives",
+      "source": {
+        "name": "Food and You 2 Wave 8",
+        "organisation": "Food Standards Agency",
+        "url": "https://www.food.gov.uk/research/food-and-you-2/food-and-you-2-wave-8"
+      },
+      "country": "uk",
+      "population": "Adults in England, Wales and Northern Ireland",
+      "draw": "uk-adults-ewni",
+      "surveyed": "November 2023",
+      "context": "",
+      "question": "Have you ever eaten meat alternatives?",
+      "options": [
+        "Yes, I currently eat meat alternatives",
+        "Yes, I used to eat meat alternatives but I don’t now",
+        "No, I have never eaten meat alternatives",
+        "I have never heard of meat alternatives"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        28.1,
+        22.9,
+        45.8,
+        3.1
+      ],
+      "excluded": [
+        "Don’t know"
+      ],
+      "groups": [
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "25-34",
+              "match": {
+                "field": "identity.age",
+                "min": 25,
+                "max": 34
+              },
+              "observed": [
+                35.5,
+                24.7,
+                35.5,
+                4.3
+              ]
+            },
+            {
+              "label": "45-54",
+              "match": {
+                "field": "identity.age",
+                "min": 45,
+                "max": 54
+              },
+              "observed": [
+                29.2,
+                30.2,
+                37.5,
+                3.1
+              ]
+            },
+            {
+              "label": "75+",
+              "match": {
+                "field": "identity.age",
+                "min": 75,
+                "max": 120
+              },
+              "observed": [
+                16.0,
+                11.7,
+                70.2,
+                2.1
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Household income",
+          "buckets": [
+            {
+              "label": "Less than £19,000",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "under_20k_gbp"
+                ]
+              },
+              "observed": [
+                22.1,
+                22.1,
+                50.5,
+                5.3
+              ]
+            },
+            {
+              "label": "£32,000 - £63,999",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "35k_to_50k_gbp",
+                  "50k_to_70k_gbp"
+                ]
+              },
+              "observed": [
+                29.6,
+                25.5,
+                42.9,
+                2.0
+              ]
+            },
+            {
+              "label": "More than £96,000",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "100k_to_150k_gbp",
+                  "over_150k_gbp"
+                ]
+              },
+              "observed": [
+                44.9,
+                26.5,
+                28.6,
+                0.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fsa-food-hygiene-rating-checks",
+      "title": "Checking food hygiene ratings",
+      "source": {
+        "name": "Food and You 2 Wave 8",
+        "organisation": "Food Standards Agency",
+        "url": "https://www.food.gov.uk/research/food-and-you-2/food-and-you-2-wave-8"
+      },
+      "country": "uk",
+      "population": "Adults in England, Wales and Northern Ireland",
+      "draw": "uk-adults-ewni",
+      "surveyed": "November 2023",
+      "context": "",
+      "question": "In the last 12 months, have you checked the hygiene rating of a food business?",
+      "options": [
+        "Yes, I have checked the Food Hygiene Rating of a food business",
+        "No, I have not checked the Food Hygiene Rating of a food business"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        43.8,
+        56.2
+      ],
+      "excluded": [
+        "Don't know"
+      ],
+      "groups": [
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "25-34",
+              "match": {
+                "field": "identity.age",
+                "min": 25,
+                "max": 34
+              },
+              "observed": [
+                54.6,
+                45.4
+              ]
+            },
+            {
+              "label": "45-54",
+              "match": {
+                "field": "identity.age",
+                "min": 45,
+                "max": 54
+              },
+              "observed": [
+                45.4,
+                54.6
+              ]
+            },
+            {
+              "label": "75+",
+              "match": {
+                "field": "identity.age",
+                "min": 75,
+                "max": 120
+              },
+              "observed": [
+                27.1,
+                72.9
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Household income",
+          "buckets": [
+            {
+              "label": "Less than £19,000",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "under_20k_gbp"
+                ]
+              },
+              "observed": [
+                42.3,
+                57.7
+              ]
+            },
+            {
+              "label": "£32,000 - £63,999",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "35k_to_50k_gbp",
+                  "50k_to_70k_gbp"
+                ]
+              },
+              "observed": [
+                48.0,
+                52.0
+              ]
+            },
+            {
+              "label": "More than £96,000",
+              "match": {
+                "field": "economic.household_income_band_estimate",
+                "in": [
+                  "100k_to_150k_gbp",
+                  "over_150k_gbp"
+                ]
+              },
+              "observed": [
+                39.4,
+                60.6
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desnz-air-source-heat-pump-install-likelihood",
+      "title": "Installing an air source heat pump",
+      "source": {
+        "name": "DESNZ Public Attitudes Tracker Winter 2025",
+        "organisation": "Department for Energy Security and Net Zero",
+        "url": "https://www.gov.uk/government/statistics/desnz-public-attitudes-tracker-winter-2025"
+      },
+      "country": "uk",
+      "population": "UK homeowners",
+      "draw": "uk-homeowners",
+      "surveyed": "November 2025",
+      "context": "Air source heat pumps extract heat from the outside air to heat your home and water.",
+      "question": "How likely is it that you would install each of the following heating systems in your home when you next need to change your heating system or boiler: air source heat pumps?",
+      "options": [
+        "Very likely",
+        "Fairly likely",
+        "Not very likely",
+        "Not at all likely",
+        "Not applicable – I already have this installed in my home",
+        "Not applicable – not my decision"
+      ],
+      "orderedLevels": 4,
+      "observed": [
+        8.3,
+        19.5,
+        29.6,
+        28.8,
+        3.7,
+        10.0
+      ],
+      "excluded": [
+        "I don’t know enough about this heating system to decide"
+      ],
+      "groups": [
+        {
+          "dimension": "Gender",
+          "buckets": [
+            {
+              "label": "Male",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "male"
+                ]
+              },
+              "observed": [
+                9.3,
+                22.4,
+                30.4,
+                27.4,
+                3.2,
+                7.4
+              ]
+            },
+            {
+              "label": "Female",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "female"
+                ]
+              },
+              "observed": [
+                7.5,
+                16.7,
+                29.0,
+                29.8,
+                4.6,
+                12.4
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "25 to 34",
+              "match": {
+                "field": "identity.age",
+                "min": 25,
+                "max": 34
+              },
+              "observed": [
+                4.9,
+                26.7,
+                29.7,
+                21.8,
+                5.2,
+                11.7
+              ]
+            },
+            {
+              "label": "35 to 44",
+              "match": {
+                "field": "identity.age",
+                "min": 35,
+                "max": 44
+              },
+              "observed": [
+                11.8,
+                23.2,
+                27.8,
+                28.6,
+                4.0,
+                4.6
+              ]
+            },
+            {
+              "label": "45 to 54",
+              "match": {
+                "field": "identity.age",
+                "min": 45,
+                "max": 54
+              },
+              "observed": [
+                10.2,
+                22.3,
+                31.5,
+                25.5,
+                3.2,
+                7.3
+              ]
+            },
+            {
+              "label": "55 to 64",
+              "match": {
+                "field": "identity.age",
+                "min": 55,
+                "max": 64
+              },
+              "observed": [
+                10.0,
+                17.0,
+                31.9,
+                34.6,
+                4.4,
+                2.1
+              ]
+            },
+            {
+              "label": "65+",
+              "match": {
+                "field": "identity.age",
+                "min": 65,
+                "max": 120
+              },
+              "observed": [
+                6.5,
+                15.2,
+                34.1,
+                34.8,
+                3.3,
+                6.1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desnz-low-carbon-heating-expensive",
+      "title": "Low-carbon heating is expensive to install",
+      "source": {
+        "name": "DESNZ Public Attitudes Tracker Winter 2025",
+        "organisation": "Department for Energy Security and Net Zero",
+        "url": "https://www.gov.uk/government/statistics/desnz-public-attitudes-tracker-winter-2025"
+      },
+      "country": "uk",
+      "population": "UK adults",
+      "draw": "uk-adults",
+      "surveyed": "November 2025",
+      "context": "How much do you agree or disagree with the following statement?",
+      "question": "Low-carbon heating systems are expensive to install.",
+      "options": [
+        "Strongly agree",
+        "Slightly agree",
+        "Neither agree nor disagree",
+        "Slightly disagree",
+        "Strongly disagree"
+      ],
+      "orderedLevels": 5,
+      "observed": [
+        35.8,
+        29.2,
+        30.7,
+        2.8,
+        1.5
+      ],
+      "excluded": [
+        "Don’t know/don’t have enough information"
+      ],
+      "groups": [
+        {
+          "dimension": "Gender",
+          "buckets": [
+            {
+              "label": "Male",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "male"
+                ]
+              },
+              "observed": [
+                34.5,
+                32.2,
+                28.7,
+                3.0,
+                1.6
+              ]
+            },
+            {
+              "label": "Female",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "female"
+                ]
+              },
+              "observed": [
+                35.8,
+                26.0,
+                34.1,
+                2.5,
+                1.5
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "16 to 24",
+              "match": {
+                "field": "identity.age",
+                "min": 18,
+                "max": 24
+              },
+              "observed": [
+                28.6,
+                21.6,
+                41.4,
+                5.5,
+                2.9
+              ]
+            },
+            {
+              "label": "25 to 34",
+              "match": {
+                "field": "identity.age",
+                "min": 25,
+                "max": 34
+              },
+              "observed": [
+                28.1,
+                30.4,
+                36.5,
+                3.2,
+                1.8
+              ]
+            },
+            {
+              "label": "35 to 44",
+              "match": {
+                "field": "identity.age",
+                "min": 35,
+                "max": 44
+              },
+              "observed": [
+                27.7,
+                34.6,
+                32.4,
+                3.1,
+                2.3
+              ]
+            },
+            {
+              "label": "45 to 54",
+              "match": {
+                "field": "identity.age",
+                "min": 45,
+                "max": 54
+              },
+              "observed": [
+                32.2,
+                34.2,
+                29.1,
+                3.3,
+                1.2
+              ]
+            },
+            {
+              "label": "55 to 64",
+              "match": {
+                "field": "identity.age",
+                "min": 55,
+                "max": 64
+              },
+              "observed": [
+                40.5,
+                27.2,
+                28.8,
+                2.6,
+                1.0
+              ]
+            },
+            {
+              "label": "65+",
+              "match": {
+                "field": "identity.age",
+                "min": 65,
+                "max": 120
+              },
+              "observed": [
+                47.4,
+                27.2,
+                23.9,
+                0.8,
+                0.7
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cma-loyalty-pricing-fairness",
+      "title": "Loyalty prices are unfair",
+      "source": {
+        "name": "Loyalty Pricing in the Groceries Sector",
+        "organisation": "Competition and Markets Authority / NatCen",
+        "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+      },
+      "country": "uk",
+      "population": "UK adults who shop for groceries",
+      "draw": "uk-adults",
+      "surveyed": "July 2024",
+      "context": "Some supermarkets operate loyalty schemes that offer grocery products at lower prices for members and a higher price for non-members. These lower prices for members of loyalty schemes are called ‘loyalty prices’.",
+      "question": "To what extent do you agree or disagree with the following statement: it’s unfair that lower prices are only available to members of loyalty schemes?",
+      "options": [
+        "Strongly agree",
+        "Agree",
+        "Neither agree nor disagree",
+        "Disagree",
+        "Strongly disagree"
+      ],
+      "orderedLevels": 5,
+      "observed": [
+        19,
+        24,
+        27,
+        22,
+        7
+      ],
+      "excluded": [],
+      "groups": [
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "18-29",
+              "match": {
+                "field": "identity.age",
+                "min": 18,
+                "max": 29
+              },
+              "observed": [
+                20,
+                27,
+                23,
+                23,
+                7
+              ]
+            },
+            {
+              "label": "30-39",
+              "match": {
+                "field": "identity.age",
+                "min": 30,
+                "max": 39
+              },
+              "observed": [
+                26,
+                24,
+                24,
+                20,
+                6
+              ]
+            },
+            {
+              "label": "40-49",
+              "match": {
+                "field": "identity.age",
+                "min": 40,
+                "max": 49
+              },
+              "observed": [
+                18,
+                25,
+                25,
+                20,
+                11
+              ]
+            },
+            {
+              "label": "50-59",
+              "match": {
+                "field": "identity.age",
+                "min": 50,
+                "max": 59
+              },
+              "observed": [
+                19,
+                27,
+                26,
+                20,
+                8
+              ]
+            },
+            {
+              "label": "60-69",
+              "match": {
+                "field": "identity.age",
+                "min": 60,
+                "max": 69
+              },
+              "observed": [
+                18,
+                24,
+                31,
+                22,
+                6
+              ]
+            },
+            {
+              "label": "70+",
+              "match": {
+                "field": "identity.age",
+                "min": 70,
+                "max": 120
+              },
+              "observed": [
+                14,
+                19,
+                32,
+                27,
+                8
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Gender",
+          "buckets": [
+            {
+              "label": "Female",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "female"
+                ]
+              },
+              "observed": [
+                17,
+                25,
+                29,
+                21,
+                8
+              ]
+            },
+            {
+              "label": "Male",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "male"
+                ]
+              },
+              "observed": [
+                22,
+                23,
+                25,
+                24,
+                7
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cma-loyalty-pricing-good-savings",
+      "title": "Loyalty prices give good savings",
+      "source": {
+        "name": "Loyalty Pricing in the Groceries Sector",
+        "organisation": "Competition and Markets Authority / NatCen",
+        "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+      },
+      "country": "uk",
+      "population": "UK adults who shop for groceries",
+      "draw": "uk-adults",
+      "surveyed": "July 2024",
+      "context": "Some supermarkets operate loyalty schemes that offer grocery products at lower prices for members and a higher price for non-members. These lower prices for members of loyalty schemes are called ‘loyalty prices’.",
+      "question": "To what extent do you agree or disagree with the following statement: supermarket loyalty prices provide good savings for members?",
+      "options": [
+        "Strongly agree",
+        "Agree",
+        "Neither agree nor disagree",
+        "Disagree",
+        "Strongly disagree"
+      ],
+      "orderedLevels": 5,
+      "observed": [
+        17,
+        52,
+        21,
+        7,
+        3
+      ],
+      "excluded": [],
+      "groups": [
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "18-29",
+              "match": {
+                "field": "identity.age",
+                "min": 18,
+                "max": 29
+              },
+              "observed": [
+                20,
+                53,
+                18,
+                5,
+                3
+              ]
+            },
+            {
+              "label": "30-39",
+              "match": {
+                "field": "identity.age",
+                "min": 30,
+                "max": 39
+              },
+              "observed": [
+                18,
+                44,
+                22,
+                12,
+                3
+              ]
+            },
+            {
+              "label": "40-49",
+              "match": {
+                "field": "identity.age",
+                "min": 40,
+                "max": 49
+              },
+              "observed": [
+                17,
+                51,
+                21,
+                7,
+                4
+              ]
+            },
+            {
+              "label": "50-59",
+              "match": {
+                "field": "identity.age",
+                "min": 50,
+                "max": 59
+              },
+              "observed": [
+                16,
+                56,
+                20,
+                6,
+                2
+              ]
+            },
+            {
+              "label": "60-69",
+              "match": {
+                "field": "identity.age",
+                "min": 60,
+                "max": 69
+              },
+              "observed": [
+                16,
+                50,
+                27,
+                5,
+                2
+              ]
+            },
+            {
+              "label": "70+",
+              "match": {
+                "field": "identity.age",
+                "min": 70,
+                "max": 120
+              },
+              "observed": [
+                15,
+                58,
+                21,
+                3,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Gender",
+          "buckets": [
+            {
+              "label": "Female",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "female"
+                ]
+              },
+              "observed": [
+                19,
+                55,
+                19,
+                5,
+                2
+              ]
+            },
+            {
+              "label": "Male",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "male"
+                ]
+              },
+              "observed": [
+                15,
+                49,
+                24,
+                9,
+                4
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cma-loyalty-pricing-valued-customer",
+      "title": "Loyalty prices make me feel valued",
+      "source": {
+        "name": "Loyalty Pricing in the Groceries Sector",
+        "organisation": "Competition and Markets Authority / NatCen",
+        "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+      },
+      "country": "uk",
+      "population": "UK adults who shop for groceries",
+      "draw": "uk-adults",
+      "surveyed": "July 2024",
+      "context": "Some supermarkets operate loyalty schemes that offer grocery products at lower prices for members and a higher price for non-members. These lower prices for members of loyalty schemes are called ‘loyalty prices’.",
+      "question": "To what extent do you agree or disagree with the following statement: loyalty prices make me (or would make me) feel like a valued customer?",
+      "options": [
+        "Strongly agree",
+        "Agree",
+        "Neither agree nor disagree",
+        "Disagree",
+        "Strongly disagree"
+      ],
+      "orderedLevels": 5,
+      "observed": [
+        13,
+        28,
+        34,
+        16,
+        9
+      ],
+      "excluded": [],
+      "groups": [
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "18-29",
+              "match": {
+                "field": "identity.age",
+                "min": 18,
+                "max": 29
+              },
+              "observed": [
+                19,
+                30,
+                27,
+                14,
+                10
+              ]
+            },
+            {
+              "label": "30-39",
+              "match": {
+                "field": "identity.age",
+                "min": 30,
+                "max": 39
+              },
+              "observed": [
+                15,
+                26,
+                32,
+                18,
+                9
+              ]
+            },
+            {
+              "label": "40-49",
+              "match": {
+                "field": "identity.age",
+                "min": 40,
+                "max": 49
+              },
+              "observed": [
+                12,
+                32,
+                30,
+                16,
+                10
+              ]
+            },
+            {
+              "label": "50-59",
+              "match": {
+                "field": "identity.age",
+                "min": 50,
+                "max": 59
+              },
+              "observed": [
+                13,
+                23,
+                38,
+                18,
+                8
+              ]
+            },
+            {
+              "label": "60-69",
+              "match": {
+                "field": "identity.age",
+                "min": 60,
+                "max": 69
+              },
+              "observed": [
+                8,
+                27,
+                38,
+                17,
+                9
+              ]
+            },
+            {
+              "label": "70+",
+              "match": {
+                "field": "identity.age",
+                "min": 70,
+                "max": 120
+              },
+              "observed": [
+                9,
+                31,
+                39,
+                15,
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Gender",
+          "buckets": [
+            {
+              "label": "Female",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "female"
+                ]
+              },
+              "observed": [
+                14,
+                29,
+                36,
+                15,
+                7
+              ]
+            },
+            {
+              "label": "Male",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "male"
+                ]
+              },
+              "observed": [
+                11,
+                27,
+                32,
+                18,
+                12
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cma-loyalty-pricing-have-to-join",
+      "title": "I have to join loyalty schemes to save",
+      "source": {
+        "name": "Loyalty Pricing in the Groceries Sector",
+        "organisation": "Competition and Markets Authority / NatCen",
+        "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+      },
+      "country": "uk",
+      "population": "UK adults who shop for groceries",
+      "draw": "uk-adults",
+      "surveyed": "July 2024",
+      "context": "Some supermarkets operate loyalty schemes that offer grocery products at lower prices for members and a higher price for non-members. These lower prices for members of loyalty schemes are called ‘loyalty prices’.",
+      "question": "To what extent do you agree or disagree with the following statement: Lower loyalty prices make me feel like I have to join supermarket loyalty schemes to save money?",
+      "options": [
+        "Strongly agree",
+        "Agree",
+        "Neither agree nor disagree",
+        "Disagree",
+        "Strongly disagree"
+      ],
+      "orderedLevels": 5,
+      "observed": [
+        31,
+        41,
+        18,
+        8,
+        3
+      ],
+      "excluded": [],
+      "groups": [
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "18-29",
+              "match": {
+                "field": "identity.age",
+                "min": 18,
+                "max": 29
+              },
+              "observed": [
+                43,
+                40,
+                11,
+                5,
+                1
+              ]
+            },
+            {
+              "label": "30-39",
+              "match": {
+                "field": "identity.age",
+                "min": 30,
+                "max": 39
+              },
+              "observed": [
+                39,
+                39,
+                13,
+                5,
+                4
+              ]
+            },
+            {
+              "label": "40-49",
+              "match": {
+                "field": "identity.age",
+                "min": 40,
+                "max": 49
+              },
+              "observed": [
+                30,
+                45,
+                14,
+                6,
+                6
+              ]
+            },
+            {
+              "label": "50-59",
+              "match": {
+                "field": "identity.age",
+                "min": 50,
+                "max": 59
+              },
+              "observed": [
+                32,
+                41,
+                18,
+                7,
+                3
+              ]
+            },
+            {
+              "label": "60-69",
+              "match": {
+                "field": "identity.age",
+                "min": 60,
+                "max": 69
+              },
+              "observed": [
+                25,
+                38,
+                25,
+                10,
+                3
+              ]
+            },
+            {
+              "label": "70+",
+              "match": {
+                "field": "identity.age",
+                "min": 70,
+                "max": 120
+              },
+              "observed": [
+                16,
+                42,
+                26,
+                14,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Gender",
+          "buckets": [
+            {
+              "label": "Female",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "female"
+                ]
+              },
+              "observed": [
+                29,
+                42,
+                17,
+                9,
+                2
+              ]
+            },
+            {
+              "label": "Male",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "male"
+                ]
+              },
+              "observed": [
+                32,
+                39,
+                18,
+                7,
+                4
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cma-loyalty-pricing-trust-genuine",
+      "title": "Trust that loyalty prices are genuine savings",
+      "source": {
+        "name": "Loyalty Pricing in the Groceries Sector",
+        "organisation": "Competition and Markets Authority / NatCen",
+        "url": "https://assets.publishing.service.gov.uk/media/6749f2a7ebabe47136b3a2c0/_____Findings_report___2.pdf"
+      },
+      "country": "uk",
+      "population": "UK adults who shop for groceries",
+      "draw": "uk-adults",
+      "surveyed": "July 2024",
+      "context": "Some supermarkets operate loyalty schemes that offer grocery products at lower prices for members and a higher price for non-members. These lower prices for members of loyalty schemes are called ‘loyalty prices’.",
+      "question": "Thinking about a supermarket that is offering groceries at a lower ‘loyalty price’ for members and a higher price for non-members… How much do you trust that the loyalty price for members is a genuine saving on the usual price?",
+      "options": [
+        "Very much so",
+        "To some extent",
+        "Not very much",
+        "Not at all"
+      ],
+      "orderedLevels": 4,
+      "observed": [
+        8,
+        51,
+        28,
+        12
+      ],
+      "excluded": [],
+      "groups": [
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "18-29",
+              "match": {
+                "field": "identity.age",
+                "min": 18,
+                "max": 29
+              },
+              "observed": [
+                9,
+                44,
+                33,
+                14
+              ]
+            },
+            {
+              "label": "30-39",
+              "match": {
+                "field": "identity.age",
+                "min": 30,
+                "max": 39
+              },
+              "observed": [
+                4,
+                41,
+                32,
+                22
+              ]
+            },
+            {
+              "label": "40-49",
+              "match": {
+                "field": "identity.age",
+                "min": 40,
+                "max": 49
+              },
+              "observed": [
+                7,
+                52,
+                29,
+                12
+              ]
+            },
+            {
+              "label": "50-59",
+              "match": {
+                "field": "identity.age",
+                "min": 50,
+                "max": 59
+              },
+              "observed": [
+                9,
+                55,
+                25,
+                10
+              ]
+            },
+            {
+              "label": "60-69",
+              "match": {
+                "field": "identity.age",
+                "min": 60,
+                "max": 69
+              },
+              "observed": [
+                11,
+                55,
+                25,
+                9
+              ]
+            },
+            {
+              "label": "70+",
+              "match": {
+                "field": "identity.age",
+                "min": 70,
+                "max": 120
+              },
+              "observed": [
+                10,
+                61,
+                24,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Gender",
+          "buckets": [
+            {
+              "label": "Female",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "female"
+                ]
+              },
+              "observed": [
+                9,
+                53,
+                28,
+                10
+              ]
+            },
+            {
+              "label": "Male",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "male"
+                ]
+              },
+              "observed": [
+                8,
+                49,
+                28,
+                15
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pensionbee-pot-for-life-consideration",
+      "title": "Considering a 'pot for life' pension",
+      "source": {
+        "name": "PensionBee pot for life popularity",
+        "organisation": "PensionBee",
+        "url": "https://www.pensionbee.com/uk/press/pot-for-life-popularity"
+      },
+      "country": "uk",
+      "population": "UK adults",
+      "draw": "uk-adults",
+      "surveyed": "November 2023",
+      "context": "A 'pot for life' pension would allow savers to choose one pension that follows them through their working life, instead of accumulating multiple workplace pension pots with different employers.",
+      "question": "If the Government was to introduce a 'pot for life' pension, would you consider opting for this?",
+      "options": [
+        "Definitely would consider",
+        "Probably would consider",
+        "Maybe / not sure",
+        "Probably would not consider",
+        "Definitely would not consider"
+      ],
+      "orderedLevels": 5,
+      "observed": [
+        37,
+        38,
+        20,
+        4,
+        2
+      ],
+      "excluded": [],
+      "groups": []
+    },
+    {
+      "id": "pensionbee-pot-for-life-preference",
+      "title": "Where employers should pay pension contributions",
+      "source": {
+        "name": "PensionBee pot for life popularity",
+        "organisation": "PensionBee",
+        "url": "https://www.pensionbee.com/uk/press/pot-for-life-popularity"
+      },
+      "country": "uk",
+      "population": "UK adults",
+      "draw": "uk-adults",
+      "surveyed": "February 2024",
+      "context": "",
+      "question": "Which of these two solutions would you prefer when managing your workplace pension savings?",
+      "options": [
+        "Employers pay workplace pension contributions into the pension of your choice",
+        "Employers pay workplace pension contributions into your first pension (typically the default fund from your first job) unless you say otherwise",
+        "None of the above"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        73,
+        22,
+        5
+      ],
+      "excluded": [],
+      "groups": []
+    },
+    {
+      "id": "eurobarometer-privacy-statement-reading-uk",
+      "title": "Reading online privacy statements",
+      "source": {
+        "name": "Special Eurobarometer 487a: GDPR",
+        "organisation": "European Commission",
+        "url": "https://op.europa.eu/en/publication-detail/-/publication/87d359d4-a83c-11e9-9d01-01aa75ed71a1/language-en"
+      },
+      "country": "uk",
+      "population": "UK internet users",
+      "draw": "uk-internet-users",
+      "surveyed": "March 2019",
+      "context": "On the Internet, privacy statements explain how the personal information users provide will be used and accessed.",
+      "question": "Thinking about privacy statements on the Internet, which of the following sentences best describes what you usually do?",
+      "options": [
+        "You read them fully",
+        "You read them partially",
+        "You do not read them at all"
+      ],
+      "orderedLevels": 3,
+      "observed": [
+        13.3,
+        53.1,
+        33.7
+      ],
+      "excluded": [
+        "Don't know"
+      ],
+      "groups": []
+    },
+    {
+      "id": "yougov-gb-costofliving-cancellation-2022",
+      "title": "Cancelling subscriptions over the cost of living",
+      "source": {
+        "name": "YouGov GB cost-of-living cancellation daily result",
+        "organisation": "YouGov UK",
+        "url": "https://yougov.com/en-gb/daily-results/20220421-70e0d-2"
+      },
+      "country": "uk",
+      "population": "GB adults",
+      "draw": "uk-adults",
+      "surveyed": "April 2022",
+      "context": "",
+      "question": "In the last few months, have you cancelled anything (subscription or membership) due to concerns about the cost of living, or because you've had less income?",
+      "options": [
+        "I have cancelled something, for these reasons",
+        "I have cancelled something, for other reasons",
+        "I have not"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        26.3,
+        7.4,
+        66.3
+      ],
+      "excluded": [
+        "Don't know"
+      ],
+      "groups": []
+    },
+    {
+      "id": "eia-recs-main-heating-fuel",
+      "title": "Main home heating fuel",
+      "source": {
+        "name": "Residential Energy Consumption Survey 2020",
+        "organisation": "U.S. Energy Information Administration",
+        "url": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=microdata"
+      },
+      "country": "us",
+      "population": "US households",
+      "draw": "us-adults",
+      "surveyed": "2020",
+      "context": "",
+      "question": "What is the fuel used by your home's main heating equipment?",
+      "options": [
+        "Electricity",
+        "Natural gas from underground pipes",
+        "Propane (bottled gas)",
+        "Fuel oil",
+        "Wood or pellets",
+        "Other",
+        "Not applicable / home is not heated during the winter"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        34.5,
+        50.8,
+        4.2,
+        4,
+        1.8,
+        0,
+        4.7
+      ],
+      "excluded": [],
+      "groups": [
+        {
+          "dimension": "Region",
+          "buckets": [
+            {
+              "label": "Northeast",
+              "match": {
+                "field": "origin.region",
+                "in": [
+                  "connecticut",
+                  "maine",
+                  "massachusetts",
+                  "new_hampshire",
+                  "rhode_island",
+                  "vermont",
+                  "new_jersey",
+                  "new_york",
+                  "pennsylvania"
+                ]
+              },
+              "observed": [
+                18.2,
+                55.8,
+                4.5,
+                18.6,
+                2.1,
+                0.2,
+                0.6
+              ]
+            },
+            {
+              "label": "Midwest",
+              "match": {
+                "field": "origin.region",
+                "in": [
+                  "illinois",
+                  "indiana",
+                  "michigan",
+                  "ohio",
+                  "wisconsin",
+                  "iowa",
+                  "kansas",
+                  "minnesota",
+                  "missouri",
+                  "nebraska",
+                  "north_dakota",
+                  "south_dakota"
+                ]
+              },
+              "observed": [
+                19.2,
+                69.6,
+                7.8,
+                1,
+                1.9,
+                0,
+                0.5
+              ]
+            },
+            {
+              "label": "South",
+              "match": {
+                "field": "origin.region",
+                "in": [
+                  "delaware",
+                  "florida",
+                  "georgia",
+                  "maryland",
+                  "north_carolina",
+                  "south_carolina",
+                  "virginia",
+                  "district_of_columbia",
+                  "west_virginia",
+                  "alabama",
+                  "kentucky",
+                  "mississippi",
+                  "tennessee",
+                  "arkansas",
+                  "louisiana",
+                  "oklahoma",
+                  "texas"
+                ]
+              },
+              "observed": [
+                55,
+                33.2,
+                3,
+                1,
+                1.3,
+                0,
+                6.6
+              ]
+            },
+            {
+              "label": "West",
+              "match": {
+                "field": "origin.region",
+                "in": [
+                  "arizona",
+                  "colorado",
+                  "idaho",
+                  "montana",
+                  "nevada",
+                  "new_mexico",
+                  "utah",
+                  "wyoming",
+                  "alaska",
+                  "california",
+                  "hawaii",
+                  "oregon",
+                  "washington"
+                ]
+              },
+              "observed": [
+                27.5,
+                58.2,
+                2.6,
+                0.4,
+                2.4,
+                0,
+                8.9
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Housing tenure",
+          "buckets": [
+            {
+              "label": "Owned by you or someone in your household",
+              "match": {
+                "field": "household.housing_tenure",
+                "in": [
+                  "own_with_mortgage",
+                  "own_outright"
+                ]
+              },
+              "observed": [
+                28,
+                56.4,
+                5.5,
+                4.6,
+                2.4,
+                0.1,
+                3.1
+              ]
+            },
+            {
+              "label": "Rented",
+              "match": {
+                "field": "household.housing_tenure",
+                "in": [
+                  "rent_market_rate",
+                  "rent_subsidized"
+                ]
+              },
+              "observed": [
+                48.2,
+                39.1,
+                1.5,
+                2.7,
+                0.5,
+                0,
+                8.1
+              ]
+            },
+            {
+              "label": "Occupied without payment of rent",
+              "match": {
+                "field": "household.housing_tenure",
+                "in": [
+                  "occupancy_no_rent"
+                ]
+              },
+              "observed": [
+                32.8,
+                48.5,
+                6.3,
+                5.8,
+                4.2,
+                0,
+                2.4
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eia-recs-main-heating-equipment",
+      "title": "Main home heating equipment",
+      "source": {
+        "name": "Residential Energy Consumption Survey 2020",
+        "organisation": "U.S. Energy Information Administration",
+        "url": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=microdata"
+      },
+      "country": "us",
+      "population": "US households",
+      "draw": "us-adults",
+      "surveyed": "2020",
+      "context": "",
+      "question": "What is the main type of heating equipment used to provide heat for your home?",
+      "options": [
+        "Central furnace",
+        "Steam or hot water system with radiators or pipes",
+        "Central heat pump",
+        "Ductless heat pump, also known as a mini-split",
+        "Built-in electric units installed in walls, ceilings, baseboards, or floors",
+        "Built-in room heater burning gas or oil",
+        "Wood or pellet stove",
+        "Portable electric heaters",
+        "Other",
+        "Not applicable / home is not heated during the winter"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        60.2,
+        7.5,
+        13.1,
+        0.9,
+        6.2,
+        2.8,
+        1.6,
+        2.5,
+        0.6,
+        4.7
+      ],
+      "excluded": [],
+      "groups": [
+        {
+          "dimension": "Region",
+          "buckets": [
+            {
+              "label": "Northeast",
+              "match": {
+                "field": "origin.region",
+                "in": [
+                  "connecticut",
+                  "maine",
+                  "massachusetts",
+                  "new_hampshire",
+                  "rhode_island",
+                  "vermont",
+                  "new_jersey",
+                  "new_york",
+                  "pennsylvania"
+                ]
+              },
+              "observed": [
+                52.2,
+                27.4,
+                3.6,
+                1.1,
+                8.6,
+                3.2,
+                1.9,
+                0.9,
+                0.5,
+                0.6
+              ]
+            },
+            {
+              "label": "Midwest",
+              "match": {
+                "field": "origin.region",
+                "in": [
+                  "illinois",
+                  "indiana",
+                  "michigan",
+                  "ohio",
+                  "wisconsin",
+                  "iowa",
+                  "kansas",
+                  "minnesota",
+                  "missouri",
+                  "nebraska",
+                  "north_dakota",
+                  "south_dakota"
+                ]
+              },
+              "observed": [
+                78.5,
+                7.3,
+                4,
+                0.3,
+                6,
+                1.4,
+                1.4,
+                0.5,
+                0.3,
+                0.5
+              ]
+            },
+            {
+              "label": "South",
+              "match": {
+                "field": "origin.region",
+                "in": [
+                  "delaware",
+                  "florida",
+                  "georgia",
+                  "maryland",
+                  "north_carolina",
+                  "south_carolina",
+                  "virginia",
+                  "district_of_columbia",
+                  "west_virginia",
+                  "alabama",
+                  "kentucky",
+                  "mississippi",
+                  "tennessee",
+                  "arkansas",
+                  "louisiana",
+                  "oklahoma",
+                  "texas"
+                ]
+              },
+              "observed": [
+                52.9,
+                1.3,
+                26.7,
+                0.8,
+                4.2,
+                2,
+                1.1,
+                3.3,
+                1,
+                6.6
+              ]
+            },
+            {
+              "label": "West",
+              "match": {
+                "field": "origin.region",
+                "in": [
+                  "arizona",
+                  "colorado",
+                  "idaho",
+                  "montana",
+                  "nevada",
+                  "new_mexico",
+                  "utah",
+                  "wyoming",
+                  "alaska",
+                  "california",
+                  "hawaii",
+                  "oregon",
+                  "washington"
+                ]
+              },
+              "observed": [
+                61.1,
+                2.5,
+                6.3,
+                1.3,
+                7.8,
+                5.2,
+                2.4,
+                4.1,
+                0.4,
+                8.9
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Housing tenure",
+          "buckets": [
+            {
+              "label": "Owned by you or someone in your household",
+              "match": {
+                "field": "household.housing_tenure",
+                "in": [
+                  "own_with_mortgage",
+                  "own_outright"
+                ]
+              },
+              "observed": [
+                66.9,
+                6.6,
+                13.4,
+                0.8,
+                2.5,
+                2.1,
+                2,
+                1.8,
+                0.6,
+                3.1
+              ]
+            },
+            {
+              "label": "Rented",
+              "match": {
+                "field": "household.housing_tenure",
+                "in": [
+                  "rent_market_rate",
+                  "rent_subsidized"
+                ]
+              },
+              "observed": [
+                46.3,
+                9.4,
+                12.3,
+                0.9,
+                13.9,
+                4.2,
+                0.5,
+                3.8,
+                0.6,
+                8.1
+              ]
+            },
+            {
+              "label": "Occupied without payment of rent",
+              "match": {
+                "field": "household.housing_tenure",
+                "in": [
+                  "occupancy_no_rent"
+                ]
+              },
+              "observed": [
+                55.4,
+                11.3,
+                10.8,
+                0.4,
+                7,
+                5.5,
+                3.5,
+                2.8,
+                0.9,
+                2.4
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ny-fed-bnpl-demand-drivers",
+      "title": "Using buy now, pay later",
+      "source": {
+        "name": "BNPL consumer demand drivers",
+        "organisation": "Federal Reserve Bank of New York",
+        "url": "https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr1167.pdf"
+      },
+      "country": "us",
+      "population": "US household heads",
+      "draw": "us-adults",
+      "surveyed": "2024",
+      "context": "Some stores offer payment plans with a “buy now, pay later” option, whereby customers do not pay for the full price at the time of purchase, but rather pay in several installments. (These payment plans are often offered through companies such as Affirm, Afterpay, and Klarna.)",
+      "question": "In the past year, have you purchased anything using a “buy now, pay later” option?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        20.1,
+        79.9
+      ],
+      "excluded": [],
+      "groups": [
+        {
+          "dimension": "Age",
+          "buckets": [
+            {
+              "label": "18 to 39",
+              "match": {
+                "field": "identity.age",
+                "min": 18,
+                "max": 39
+              },
+              "observed": [
+                23.4,
+                76.6
+              ]
+            },
+            {
+              "label": "40 to 59",
+              "match": {
+                "field": "identity.age",
+                "min": 40,
+                "max": 59
+              },
+              "observed": [
+                19.2,
+                80.8
+              ]
+            },
+            {
+              "label": "60 and older",
+              "match": {
+                "field": "identity.age",
+                "min": 60,
+                "max": 120
+              },
+              "observed": [
+                18.2,
+                81.8
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Gender",
+          "buckets": [
+            {
+              "label": "Female",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "female"
+                ]
+              },
+              "observed": [
+                23.5,
+                76.5
+              ]
+            },
+            {
+              "label": "Male",
+              "match": {
+                "field": "identity.gender",
+                "in": [
+                  "male"
+                ]
+              },
+              "observed": [
+                16.5,
+                83.5
+              ]
+            }
+          ]
+        },
+        {
+          "dimension": "Education",
+          "buckets": [
+            {
+              "label": "College",
+              "match": {
+                "field": "background.education",
+                "in": [
+                  "bachelor_degree",
+                  "master_degree",
+                  "professional_degree",
+                  "doctoral_degree"
+                ]
+              },
+              "observed": [
+                15.8,
+                84.2
+              ]
+            },
+            {
+              "label": "No College",
+              "match": {
+                "field": "background.education",
+                "in": [
+                  "less_than_high_school",
+                  "high_school_graduate",
+                  "some_college_no_degree",
+                  "associate_degree"
+                ]
+              },
+              "observed": [
+                22.4,
+                77.6
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fed-dcpc-bill-payment-preference",
+      "title": "Preferred way to pay bills",
+      "source": {
+        "name": "Survey and Diary of Consumer Payment Choice 2024",
+        "organisation": "Federal Reserve Bank of Atlanta / Federal Reserve Bank of Boston / Federal Reserve Financial Services",
+        "url": "https://www.atlantafed.org/banking-and-payments/consumer-payments/survey-and-diary-of-consumer-payment-choice/2024-survey-and-diary"
+      },
+      "country": "us",
+      "population": "US adults",
+      "draw": "us-adults",
+      "surveyed": "October 2024",
+      "context": "",
+      "question": "Please tell us the payment method you most prefer to use for making bill payments.",
+      "options": [
+        "Cash",
+        "Check",
+        "Credit card",
+        "Debit card",
+        "Prepaid/Gift/EBT card",
+        "Bank account number payment",
+        "Online banking bill payment",
+        "Money order",
+        "Mobile payment apps such as PayPal, Zelle, Venmo, etc.",
+        "Account-to-account transfer",
+        "Other payment method"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        4.8,
+        6.3,
+        18.8,
+        25.2,
+        0.5,
+        13.6,
+        26.6,
+        0.9,
+        1.6,
+        0.9,
+        0.8
+      ],
+      "excluded": [],
+      "groups": []
+    },
+    {
+      "id": "fed-dcpc-in-person-payment-preference",
+      "title": "Preferred way to pay in person",
+      "source": {
+        "name": "Survey and Diary of Consumer Payment Choice 2024",
+        "organisation": "Federal Reserve Bank of Atlanta / Federal Reserve Bank of Boston / Federal Reserve Financial Services",
+        "url": "https://www.atlantafed.org/banking-and-payments/consumer-payments/survey-and-diary-of-consumer-payment-choice/2024-survey-and-diary"
+      },
+      "country": "us",
+      "population": "US adults",
+      "draw": "us-adults",
+      "surveyed": "October 2024",
+      "context": "",
+      "question": "Please tell us the payment method you most prefer to use for making in person payments.",
+      "options": [
+        "Cash",
+        "Check",
+        "Credit card",
+        "Debit card",
+        "Prepaid/Gift/EBT card",
+        "Bank account number payment",
+        "Online banking bill payment",
+        "Money order",
+        "Mobile payment apps such as PayPal, Zelle, Venmo, etc.",
+        "Account-to-account transfer",
+        "Other payment method"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        17.2,
+        1.5,
+        38,
+        39.7,
+        0.5,
+        0.2,
+        0.4,
+        0.2,
+        1.5,
+        0,
+        0.8
+      ],
+      "excluded": [],
+      "groups": []
+    },
+    {
+      "id": "fed-dcpc-online-payment-preference",
+      "title": "Preferred way to pay online",
+      "source": {
+        "name": "Survey and Diary of Consumer Payment Choice 2024",
+        "organisation": "Federal Reserve Bank of Atlanta / Federal Reserve Bank of Boston / Federal Reserve Financial Services",
+        "url": "https://www.atlantafed.org/banking-and-payments/consumer-payments/survey-and-diary-of-consumer-payment-choice/2024-survey-and-diary"
+      },
+      "country": "us",
+      "population": "US adults",
+      "draw": "us-adults",
+      "surveyed": "October 2024",
+      "context": "",
+      "question": "Please tell us the payment method you most prefer to use for making online purchases (using a computer, mobile phone, or tablet) to buy goods and services (not to pay bills). Examples include purchases made on websites or apps such as Amazon, Walmart, etc.",
+      "options": [
+        "Cash",
+        "Check",
+        "Credit card",
+        "Debit card",
+        "Prepaid/Gift/EBT card",
+        "Bank account number payment",
+        "Online banking bill payment",
+        "Money order",
+        "Mobile payment apps such as PayPal, Zelle, Venmo, etc.",
+        "Account-to-account transfer",
+        "Other payment method"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        0.2,
+        0,
+        56.2,
+        35.9,
+        1.4,
+        0.8,
+        1,
+        0.1,
+        3.9,
+        0,
+        0.5
+      ],
+      "excluded": [],
+      "groups": []
+    },
+    {
+      "id": "pew-evcar2-ev-purchase-intent",
+      "title": "Considering an electric car next time",
+      "source": {
+        "name": "Pew EV and hybrid next-purchase consideration",
+        "organisation": "Pew Research Center",
+        "url": "https://www.pewresearch.org/science/2026/04/03/how-appealing-are-electric-vehicles-and-hybrids-to-americans/"
+      },
+      "country": "us",
+      "population": "US adults",
+      "draw": "us-adults",
+      "surveyed": "March 2026",
+      "context": "",
+      "question": "The next time you purchase a vehicle, how likely are you to seriously consider purchasing an electric vehicle?",
+      "options": [
+        "Very likely",
+        "Somewhat likely",
+        "Not too likely",
+        "Not at all likely",
+        "I do not expect to purchase a vehicle"
+      ],
+      "orderedLevels": 4,
+      "observed": [
+        12.1,
+        19.2,
+        21.2,
+        32.3,
+        15.2
+      ],
+      "excluded": [
+        "No answer"
+      ],
+      "groups": []
+    },
+    {
+      "id": "pew-driverless-ride",
+      "title": "Wanting to ride in a driverless car",
+      "source": {
+        "name": "Pew AI and human enhancement",
+        "organisation": "Pew Research Center",
+        "url": "https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2022/03/PS_2022.03.17_AI-HE_REPORT.pdf"
+      },
+      "country": "us",
+      "population": "US adults",
+      "draw": "us-adults",
+      "surveyed": "November 2021",
+      "context": "",
+      "question": "Would you personally want to ride in a driverless passenger vehicle, if you had the opportunity?",
+      "options": [
+        "Definitely want",
+        "Probably want",
+        "Probably NOT want",
+        "Definitely NOT want"
+      ],
+      "orderedLevels": 4,
+      "observed": [
+        14.1,
+        23.2,
+        32.3,
+        30.3
+      ],
+      "excluded": [
+        "No answer"
+      ],
+      "groups": []
+    },
+    {
+      "id": "yougov-streaming-commercials-tolerance",
+      "title": "Enjoying TV with commercials",
+      "source": {
+        "name": "YouGov opinions on TV and streaming",
+        "organisation": "YouGov US",
+        "url": "https://docs.cdn.yougov.com/6t4me9x2sz/toplines_Opinions%20on%20TV%20and%20streaming.pdf"
+      },
+      "country": "us",
+      "population": "US adults who watch TV",
+      "draw": "us-adults",
+      "surveyed": "April 2022",
+      "context": "",
+      "question": "Do you enjoy watching TV more or less when there are commercials?",
+      "options": [
+        "More",
+        "The same",
+        "Less"
+      ],
+      "orderedLevels": 3,
+      "observed": [
+        8.3,
+        27.1,
+        64.6
+      ],
+      "excluded": [
+        "Not sure"
+      ],
+      "groups": []
+    },
+    {
+      "id": "motleyfool-streaming-wtp-buckets",
+      "title": "Monthly budget for streaming",
+      "source": {
+        "name": "The Motley Fool State of Streaming 2024",
+        "organisation": "The Motley Fool / Pollfish",
+        "url": "https://www.fool.com/research/state-of-streaming/"
+      },
+      "country": "us",
+      "population": "US adults",
+      "draw": "us-adults",
+      "surveyed": "January 2024",
+      "context": "Think about the streaming services you use or would consider using.",
+      "question": "How much would you personally be willing to pay per month for streaming services?",
+      "options": [
+        "$15 or less",
+        "$16-$30",
+        "$31-$45",
+        "$46-$60",
+        "Over $60"
+      ],
+      "orderedLevels": 5,
+      "observed": [
+        40,
+        25,
+        15,
+        10,
+        8
+      ],
+      "excluded": [],
+      "groups": []
+    },
+    {
+      "id": "pew-streaming-worth-the-cost",
+      "title": "Streaming services are worth the cost",
+      "source": {
+        "name": "Pew Research Center streaming questionnaire, April 2025",
+        "organisation": "Pew Research Center",
+        "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/SR_25.07.01_streaming_questionnaire.pdf"
+      },
+      "country": "us",
+      "population": "US adults who use streaming services",
+      "draw": "us-adults",
+      "surveyed": "April 2025",
+      "context": "",
+      "question": "Thinking about all of the streaming services you currently subscribe to or use, do you think they are worth the cost?",
+      "options": [
+        "Worth the cost",
+        "Not worth the cost"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        58.7,
+        41.3
+      ],
+      "excluded": [
+        "Not sure"
+      ],
+      "groups": []
+    },
+    {
+      "id": "bankrate-checking-stay-reasons-2025",
+      "title": "Why people stay with their bank",
+      "source": {
+        "name": "Bankrate checking-account stay reasons",
+        "organisation": "Bankrate / YouGov",
+        "url": "https://www.bankrate.com/banking/checking-fees-survey/"
+      },
+      "country": "us",
+      "population": "US adults with a checking account",
+      "draw": "us-adults",
+      "surveyed": "January 2025",
+      "context": "Think about the bank where you have your checking account.",
+      "question": "Why have you stayed with the same bank for your checking account?",
+      "options": [
+        "It's the account I've always had",
+        "They have convenient branch/ATM locations",
+        "It would be too much of a hassle to switch",
+        "I don't have the time to research/shop around for other options",
+        "They have no/low monthly fees",
+        "I am happy with the customer service",
+        "Their reputation",
+        "Their online or mobile tools",
+        "They have good interest rates",
+        "Other"
+      ],
+      "orderedLevels": 0,
+      "observed": [
+        18.7,
+        13.5,
+        9.7,
+        1.9,
+        18.7,
+        16.7,
+        7.0,
+        5.8,
+        4.4,
+        3.5
+      ],
+      "excluded": [
+        "Don't know"
+      ],
+      "groups": []
+    }
+  ]
+}
