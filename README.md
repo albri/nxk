@@ -9,11 +9,7 @@
   Give your agent a crowd. Make something more people want.
 </p>
 
-<p align="center">
-  <a href="assets/nxk-launch.mp4">
-    <img src="assets/nxk-launch-poster.webp" alt="Play the nxk film: an agent asks 100 simulated people about library opening hours, then checks nxk against real surveys" width="800">
-  </a>
-</p>
+https://github.com/user-attachments/assets/b7409ffd-ae7b-4f51-830f-cda31fbf352b
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
