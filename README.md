@@ -19,9 +19,9 @@
   <a href="#quick-start">Quick start</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#why-use-it">Why use it</a> ·
+  <a href="#does-it-work">Does it work?</a> ·
   <a href="#who-are-the-people-and-what-is-personagen">PersonaGen and the "people"</a> ·
   <a href="#what-it-costs">Cost</a> ·
-  <a href="methodology.md">Does it work?</a> ·
   <a href="#faq">FAQ</a> ·
   <a href="#skill-and-api-references">References</a>
 </p>
@@ -76,9 +76,10 @@ the result brief.
   <img src="assets/diagrams/inside-the-task.webp" alt="A coding agent calls nxk, asks different people, compares their answers and changes the work">
 </picture>
 
-**Hypothetical example:** The library and the numbers are made up. A local
-public library has the funding and staff to open for five more hours each week.
-An agent could use nxk to decide when:
+**Hypothetical example:** The library and the numbers are made up. A town's
+public library can fund five more opening hours a week, and you ask your agent
+to add them where they'll help the most residents. The answer depends on who
+would use them, so the agent calls nxk:
 
 | What the agent does | What nxk finds | What changes |
 | --- | --- | --- |
@@ -87,7 +88,8 @@ An agent could use nxk to decide when:
 | Looks for groups that answer differently | Evening support among likely visitors in full-time work is 66%, 27 percentage points above all likely visitors | Do not put all five hours in the morning |
 | Asks which days help each group | Retired people prefer weekday mornings · people in full-time work prefer Thursday evening | Put three hours across weekday mornings and two on Thursday evening |
 
-For each person, the model gives every answer a probability.
+The model reads one person's profile and the question, then gives every option
+a probability, as that person would answer.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/keep-the-whole-answer-dark.webp">
@@ -114,7 +116,19 @@ that guess with answers from a crowd. The differences in those answers show who
 to build for, and what to change. nxk keeps every answer, so your agent can
 show how it reached its conclusion.
 
-[How nxk compares with 26 published surveys →](methodology.md)
+## Does it work?
+
+I checked nxk against 26 questions from 15 published UK and US surveys, with
+1,000 simulated people per question.
+
+| Check | Result |
+| --- | --- |
+| Was nxk's most popular answer the survey's, or the one next to it? | 22 of 26 questions |
+| Did the biggest gaps between groups, like young and old, point the same way? | 12 of 16 |
+| Do the people answer differently from each other? | 26% pick a different top answer from the crowd |
+
+Read the results for direction, not decimals.
+[Charts and every comparison →](methodology.md)
 
 ## What you can use nxk for
 
@@ -152,7 +166,8 @@ harder to do both at the same time. PersonaGen uses official sources such as
 ONS and US Census data where available, then models details the public data
 does not cover.
 
-Each person can include:
+Each person comes with more than 100 details across ten areas of life,
+including:
 
 | Part of someone's life | Examples |
 | --- | --- |
@@ -201,12 +216,9 @@ so extra questions mainly add the cost of their wording.
 <details>
 <summary>Can an LLM pretending to be a person tell me anything useful about real people?</summary>
 
-Yes. I put nxk through 26 questions from 15 published UK and US surveys, with
-1,000 people per question. People answered differently, and their answers
-followed their lives. Where a survey showed a gap between groups, like young
-and old or renters and owners, nxk's gap pointed the same way on 12 of the 16
-biggest. It also found the survey's leading answer, or the one next to it, on
-22 of 26 questions. [Charts and every comparison](methodology.md).
+Yes. When I tested it against published surveys, the simulated people answered
+differently from each other, and their answers followed their lives.
+[Does it work?](#does-it-work) has the numbers.
 
 It's best at everyday choices people make from their own circumstances. Like
 most language models, it makes people a bit more sensible than they really are.
