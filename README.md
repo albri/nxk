@@ -10,6 +10,12 @@
 </p>
 
 <p align="center">
+  <a href="assets/nxk-launch.mp4">
+    <img src="assets/nxk-launch-poster.webp" alt="Play the nxk film: an agent asks 100 simulated people about library opening hours, then checks nxk against real surveys" width="800">
+  </a>
+</p>
+
+<p align="center">
   <a href="#quick-start">Quick start</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#why-use-it">Why use it</a> ·
