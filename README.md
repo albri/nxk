@@ -84,6 +84,8 @@ would use them, so the agent calls nxk:
 | Looks for groups that answer differently | Evening support among likely visitors in full-time work is 66%, 27 percentage points above all likely visitors | Do not put all five hours in the morning |
 | Asks which days help each group | Retired people prefer weekday mornings · people in full-time work prefer Thursday evening | Put three hours across weekday mornings and two on Thursday evening |
 
+**A real run:** [an agent takes a generic landing page and finds the headline, features and price people pick →](examples/budgeting-app.md)
+
 The model reads one person's profile and the question, then gives every option
 a probability, as that person would answer.
 

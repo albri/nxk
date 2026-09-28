@@ -1,0 +1,252 @@
+{
+  "about": "nxk dogfood run: a made-up budgeting app called Tally. Values are average model support (%) from Jev (jev-latest) over PersonaGen UK profiles. Option order was rotated between people.",
+  "run_date": "2026-09-28",
+  "answering_model": "jev-latest",
+  "draws": {
+    "broad": {
+      "country": "uk",
+      "count": 200,
+      "seed": "nxk-dogfood-budget-app-1",
+      "filters": null
+    },
+    "pressure_1": {
+      "country": "uk",
+      "count": 160,
+      "seed": "nxk-dogfood-budget-app-pressure-1",
+      "filters": {
+        "financial_pressure_context": [
+          "high_financial_pressure"
+        ]
+      }
+    },
+    "pressure_2": {
+      "country": "uk",
+      "count": 160,
+      "seed": "nxk-dogfood-budget-app-pressure-2",
+      "filters": {
+        "financial_pressure_context": [
+          "high_financial_pressure"
+        ]
+      }
+    }
+  },
+  "rounds": [
+    {
+      "step": "Broad need",
+      "context": "Think about how you keep track of your money from day to day: what you spend, what's coming out and what's left until you're next paid.",
+      "question": "Over the next three months, what are you most likely to do about keeping track of your spending?",
+      "draw": "broad",
+      "n": 200,
+      "average_model_support": {
+        "Keep doing what I do now, such as my banking app, a spreadsheet, notes or keeping it in my head": 83.2,
+        "Try a new app to track my spending and stick to a budget": 13.6,
+        "Nothing in particular; I don't feel I need to track it more closely": 3.2
+      }
+    },
+    {
+      "step": "Generic page",
+      "context": "You come across the website of a new budgeting app called Tally and read the whole page. The headline says: 'Take control of your finances with AI-powered insights.' Below it are three points: 'Smart categorisation', 'Personalised insights' and 'Bank-level security'. The button says 'Start your free trial'. The small print says: '30 days free, then £4.99 a month. Connect your bank with Open Banking.' The page says nothing else.",
+      "question": "Having read the page, what would you do?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "Not start it, and look at a different budgeting app instead": 19.2,
+        "Not start it, and carry on managing my money as I do now": 57.5,
+        "Start the free trial": 23.2
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "Start the free trial": 18.4,
+          "Not start it, and look at a different budgeting app instead": 16.9,
+          "Not start it, and carry on managing my money as I do now": 64.7
+        }
+      }
+    },
+    {
+      "step": "Generic page: blocker",
+      "context": "You come across the website of a new budgeting app called Tally and read the whole page. The headline says: 'Take control of your finances with AI-powered insights.' Below it are three points: 'Smart categorisation', 'Personalised insights' and 'Bank-level security'. The button says 'Start your free trial'. The small print says: '30 days free, then £4.99 a month. Connect your bank with Open Banking.' The page says nothing else.",
+      "question": "What, if anything, would most put you off starting the free trial?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "Paying £4.99 a month when money is already tight": 78.0,
+        "I don't trust 'AI' to tell me what to do with my money": 0.8,
+        "My banking app already shows me my spending": 0.4,
+        "Connecting my bank account to an app I've never heard of": 11.2,
+        "Nothing; I'd be happy to try it": 0.2,
+        "It doesn't say what it would actually do for someone in my situation": 9.3
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "It doesn't say what it would actually do for someone in my situation": 9.4,
+          "Connecting my bank account to an app I've never heard of": 11.2,
+          "My banking app already shows me my spending": 0.5,
+          "Nothing; I'd be happy to try it": 0.2,
+          "I don't trust 'AI' to tell me what to do with my money": 0.9,
+          "Paying £4.99 a month when money is already tight": 77.8
+        }
+      }
+    },
+    {
+      "step": "Most useful feature",
+      "context": "A budgeting app connects to your bank account through Open Banking so it can see your balance, incoming pay, bills and spending. It can only offer one of the features below to start with.",
+      "question": "Which one feature would be most useful to you?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "It gives me AI-generated tips on where to cut back": 1.9,
+        "It finds subscriptions and direct debits I've forgotten about and helps me cancel them": 16.6,
+        "It warns me a few days before a payment would take me overdrawn or bounce": 33.2,
+        "It tells me how much I can safely spend each day until payday, after my bills are covered": 41.5,
+        "It sorts my spending into categories with charts each month": 4.4,
+        "None of these would be useful to me": 1.2,
+        "It moves small amounts into savings automatically when I can afford it": 1.2
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "None of these would be useful to me": 1.9,
+          "It moves small amounts into savings automatically when I can afford it": 1.5,
+          "It sorts my spending into categories with charts each month": 4.9,
+          "It tells me how much I can safely spend each day until payday, after my bills are covered": 36.0,
+          "It gives me AI-generated tips on where to cut back": 2.1,
+          "It warns me a few days before a payment would take me overdrawn or bounce": 32.6,
+          "It finds subscriptions and direct debits I've forgotten about and helps me cancel them": 21.1
+        }
+      }
+    },
+    {
+      "step": "Price",
+      "context": "A new budgeting app connects to your bank account through Open Banking (read-only; it cannot move your money). Every morning it tells you how much you can safely spend that day until payday, after your bills are covered, and it warns you a few days before a payment would take you overdrawn or bounce. It comes in the versions below.",
+      "question": "Which version, if any, would you start using?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "£4.99 a month after a 30-day free trial": 1.2,
+        "None of these; I'd keep managing my money as I do now": 14.7,
+        "£4.99 a month, refunded for any month it doesn't save you at least £4.99 in avoided overdraft or late-payment charges": 29.1,
+        "Free daily safe-to-spend figure, with overdraft and bill warnings in a £2.99 a month upgrade": 42.8,
+        "£1.99 a month after a 30-day free trial": 12.2
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "£4.99 a month after a 30-day free trial": 1.1,
+          "£1.99 a month after a 30-day free trial": 11.9,
+          "None of these; I'd keep managing my money as I do now": 18.9,
+          "Free daily safe-to-spend figure, with overdraft and bill warnings in a £2.99 a month upgrade": 40.2,
+          "£4.99 a month, refunded for any month it doesn't save you at least £4.99 in avoided overdraft or late-payment charges": 27.9
+        }
+      }
+    },
+    {
+      "step": "Upgrade, no guarantee",
+      "context": "You've been using the free version of a budgeting app for a month. Every morning it tells you how much you can safely spend that day until payday, after your bills are covered. It connects to your bank read-only and cannot move your money. The app offers an upgrade that warns you a few days before a payment would take you overdrawn or bounce, and flags forgotten subscriptions. The upgrade costs £2.99 a month, cancel any time.",
+      "question": "What would you do about the upgrade?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "Pay for the upgrade": 52.7,
+        "Stay on the free version": 47.3
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "Pay for the upgrade": 51.7,
+          "Stay on the free version": 48.3
+        }
+      }
+    },
+    {
+      "step": "Upgrade, with guarantee",
+      "context": "You've been using the free version of a budgeting app for a month. Every morning it tells you how much you can safely spend that day until payday, after your bills are covered. It connects to your bank read-only and cannot move your money. The app offers an upgrade that warns you a few days before a payment would take you overdrawn or bounce, and flags forgotten subscriptions. The upgrade costs £2.99 a month, cancel any time. Any month it doesn't save you at least £2.99 in avoided overdraft, late-payment or forgotten subscription charges, you get that month's £2.99 back automatically.",
+      "question": "What would you do about the upgrade?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "Stay on the free version": 38.0,
+        "Pay for the upgrade": 62.0
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "Stay on the free version": 39.9,
+          "Pay for the upgrade": 60.1
+        }
+      }
+    },
+    {
+      "step": "Headline",
+      "context": "You see the website for a new budgeting app. Under the headline, the page says: 'Every morning, Tally checks your balance, bills and payday, and tells you what's safe to spend. It warns you before a payment would take you overdrawn. Free to use. Read-only: it can't move your money.' The only difference between versions of the page is the headline.",
+      "question": "Which headline would make you most likely to try the app?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "A heads-up before a bill takes you overdrawn.": 37.6,
+        "Get to payday without the overdraft.": 25.2,
+        "Take control of your finances with AI-powered insights.": 0.3,
+        "See what's safe to spend until payday.": 23.6,
+        "None of these would make me want to try it": 2.0,
+        "Know what you can spend today, before you spend it.": 11.4
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "Know what you can spend today, before you spend it.": 12.4,
+          "Get to payday without the overdraft.": 21.0,
+          "Take control of your finances with AI-powered insights.": 0.3,
+          "See what's safe to spend until payday.": 21.2,
+          "A heads-up before a bill takes you overdrawn.": 42.5,
+          "None of these would make me want to try it": 2.6
+        }
+      }
+    },
+    {
+      "step": "Split A: warnings in upgrade",
+      "context": "You see the website for a new budgeting app called Tally. It connects to your bank read-only and cannot move your money. Free: every morning it tells you how much you can safely spend that day until payday, after your bills are covered. Upgrade, £2.99 a month: it warns you a few days before a payment would take you overdrawn or bounce, and finds subscriptions you've forgotten about. Any month the upgrade doesn't save you at least £2.99 in avoided overdraft, late-payment or forgotten subscription charges, you get that month's £2.99 back automatically. Cancel any time.",
+      "question": "Imagine you have used the free version for a month. Would you pay for the upgrade?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "Pay for the upgrade": 57.5,
+        "Stay on the free version": 42.5
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "Stay on the free version": 45.7,
+          "Pay for the upgrade": 54.3
+        }
+      }
+    },
+    {
+      "step": "Split B: warnings free",
+      "context": "You see the website for a new budgeting app called Tally. It connects to your bank read-only and cannot move your money. Free: every morning it tells you how much you can safely spend that day until payday, and it warns you a few days before a payment would take you overdrawn or bounce. Upgrade, £2.99 a month: it finds subscriptions and direct debits you've forgotten about, cancels them for you, and alerts you before any price rise or free trial turns into a charge. Any month the upgrade doesn't save you at least £2.99 in avoided overdraft, late-payment or forgotten subscription charges, you get that month's £2.99 back automatically. Cancel any time.",
+      "question": "Imagine you have used the free version for a month. Would you pay for the upgrade?",
+      "draw": "pressure_1",
+      "n": 160,
+      "average_model_support": {
+        "Pay for the upgrade": 56.2,
+        "Stay on the free version": 43.8
+      },
+      "repeat": {
+        "draw": "pressure_2",
+        "n": 160,
+        "average_model_support": {
+          "Stay on the free version": 45.6,
+          "Pay for the upgrade": 54.4
+        }
+      }
+    }
+  ]
+}
