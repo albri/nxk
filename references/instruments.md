@@ -29,6 +29,11 @@ current approach or doing nothing. Compare support and relevant audience
 differences. Ask about existing habits only when the profile contains them or
 you have filled them in; otherwise make the situation hypothetical.
 
+When an idea is a new supplier or product entering an existing relationship,
+add a version in which the supplier the person already uses offers the same
+thing on the same terms. If support for the idea collapses, its appeal belongs
+to whoever already serves the person, not to the idea.
+
 Continue with the idea whose results suggest a useful next decision. Every
 additional idea resends the profile, so include those calls in the estimate.
 

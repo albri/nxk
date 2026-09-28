@@ -106,6 +106,16 @@ situation. Use the request pattern in the reference. Keep hypothetical
 circumstances separate from profile facts. Give trade-offs concrete prices,
 times and terms.
 To test one change, reuse the situation and question. Change only that factor.
+Compare each version with a control built the same way: the same situation,
+the same questions and the same batch, differing only in that factor. Do not
+compare a version with a baseline request that carries extra questions or
+extra material; the difference in structure can move the answer on its own.
+
+When a change could work through its framing rather than its substance, such
+as an endorsement, urgency or a deadline, add a version it should not help:
+the same recommendation from an unknown source, or the endorsed option at a
+clearly worse price. Trust the effect only if this version moves the answer
+much less.
 
 Choose possible blockers from the real journey. Look at what the person must
 spend, do, risk or give up, and what they already do instead. Turn only
@@ -134,7 +144,10 @@ For an ordered Score, keep the levels in their meaningful order.
 
 Batch independent questions about the same situation for one person. Put
 separate comparisons in separate requests: every question sees the whole
-state, though it cannot see another question's answer. If a follow-up depends
+state, though it cannot see another question's answer. This includes material
+added for one question only. Describing an offer so obstacle or price questions
+can refer to it draws attention to that offer in every choice in the same
+request, so ask such questions in their own request. If a follow-up depends
 on an earlier answer, send that answer in a new request.
 
 Use the model available to the agent. Jev is recommended because it returns
