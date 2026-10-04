@@ -160,9 +160,7 @@ PersonaGen does two things at the same time:
 - **The crowd resembles the country.** In a large draw, ages, households and other traits follow UK or US population data.
 
 It's pretty easy to create personas that do *one* of these things; it is much
-harder to do both at the same time. PersonaGen uses official sources such as
-ONS and US Census data where available, then models details the public data
-does not cover.
+harder to do both at the same time.
 
 Each person comes with more than 100 details across ten areas of life,
 including:

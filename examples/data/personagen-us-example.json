@@ -89,13 +89,9 @@
       "occupation_code": "29-1125.00",
       "canonical_role": "recreational_therapists",
       "career_context": {
-        "status": "v3_default",
         "scope": "current_role",
         "occupation_code": "29-1125.00",
         "canonical_role": "recreational_therapists",
-        "source_title": "Recreational Therapists",
-        "source_system": "us_onet",
-        "source_release": "30.2",
         "career_seniority": "mid",
         "management_scope": "individual_contributor",
         "business_ownership_status": "not_owner",
@@ -103,15 +99,10 @@
         "company_size_band": "large",
         "startup_stage_context": "none",
         "decision_role": "influencer",
-        "employer_context_confidence": "medium",
         "public_sector_context": "none",
         "sector_tags": [
           "healthcare"
-        ],
-        "prevalence_weight": 15060,
-        "weight_source": "official_employment_split",
-        "source_posture": "official_or_compiled",
-        "warnings": []
+        ]
       },
       "employment_status": "employed_full_time",
       "employment_flexibility": "shift_work",

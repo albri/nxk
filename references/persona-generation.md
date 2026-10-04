@@ -36,10 +36,10 @@ Batch size is 1–1,000. The response is `{ success: true, data: [...], metadata
 `data` is the array, not `data.personas`. The singular `/persona` route returns
 one object in `data`.
 
-Read `metadata.filtering.warnings` and verify count and relevant emitted fields.
-A narrow combination can be unsupported or exhaust the generator's attempts;
-fix the requested combination rather than retrying it unchanged. Do not
-silently drop a constraint to fill the sample.
+Verify the returned count and relevant emitted fields. A narrow combination
+can be unsupported or exhaust the generator's attempts; fix the requested
+combination rather than retrying it unchanged. Do not silently drop a
+constraint to fill the sample.
 
 Save the draw and its metadata. Within the same generator contract, seed,
 country and filters repeat the people. Changing the generator may change the
@@ -70,8 +70,9 @@ For occupations, call
 `GET /{country}/facets/occupations/search?q=<encoded phrase>&limit=5`.
 Read `data.results`, choose a relevant candidate and pass its `occupation_code`
 or `canonical_role` as a structured filter. Search is broad: "product manager"
-can return manufacturing managers first. Inspect the title, generation status
-and warnings; rank alone is not a match. Prefer `generated_safe` candidates.
+can return manufacturing managers first. Check the title and domain fit; rank
+alone is not a match. Choose a plausible candidate and pass its code or
+canonical role as a structured filter.
 
 For current professionals, combine a suitable employment state with
 `career_context_scope: ["current_role"]`. A retired person can still have a
