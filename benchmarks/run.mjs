@@ -13,6 +13,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildPersonaRequest, DEFAULT_INSTRUCTION } from "./public-persona.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const cacheDir = join(here, ".cache");
@@ -32,11 +33,9 @@ for (const file of [join(here, "..", ".env.local"), join(here, "..", ".env")]) {
 export const PEOPLE_PER_STUDY = 1000;
 const CONCURRENCY = Number(args.concurrency ?? 5);
 const JEV_URL = "https://api.typesafe.ai/v1/systemone";
-const JEV_MODEL = "jev-latest";
-
 // The published instruction, from references/persona-generation.md. Variants
 // append one general sentence each and are only for testing changes to it.
-export const INSTRUCTION = "Based on `respondent.profile`, which answer would this person give to `survey.questions.q.text` in the situation described in `survey.context`? The available answers are in `survey.questions.q.options`. Apply the person's stated circumstances; predict their response rather than recommending the best option in general.";
+export const INSTRUCTION = DEFAULT_INSTRUCTION;
 const VARIANTS = {
   principles: `
 
@@ -126,32 +125,13 @@ export function orderFor(study, index) {
   return [...order, ...tail];
 }
 
-function situation(study) {
-  return [`It is ${study.surveyed}.`, study.context].filter(Boolean).join(" ");
-}
-
 export function request(study, person, order) {
-  const options = order.map(i => study.options[i]);
-  const respondent = person
-    ? (() => {
-        const { appearance, metadata, name, id, ...profile } = person;
-        return { firstName: name.first_name, profile: { country: study.country, ...profile } };
-      })()
-    : { profile: { country: study.country } };
-  return {
-    model: JEV_MODEL,
-    state: {
-      respondent,
-      survey: { context: situation(study), questions: { q: { text: study.question, options } } },
-    },
-    questions: {
-      q: {
-        type: "choice",
-        instructions: INSTRUCTION + (variant ? VARIANTS[variant] : ""),
-        criteria: Object.fromEntries(options.map(text => [text, null])),
-      },
-    },
-  };
+  return buildPersonaRequest(
+    study,
+    person,
+    order,
+    INSTRUCTION + (variant ? VARIANTS[variant] : ""),
+  );
 }
 
 class Stop extends Error {}

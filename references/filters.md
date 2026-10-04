@@ -1,14 +1,16 @@
 # PersonaGen filters
 
-Package/schema contract `3.0.0`; generator `v2`.
-78 UK fields; 77 US fields. Read the group relevant to the task.
+Persona API/schema contract `3.0.0`; generator `v2`.
+79 UK fields; 78 US fields. Read the group relevant to the task.
 
-This catalogue comes from the complete PersonaGen capability manifest.
-The live `GET /{country}/capabilities` response carries the same fields in
+This catalogue mirrors PersonaGen's public filter discovery. The live
+`GET /{country}/capabilities` response carries the same fields in
 `filter_catalogue`. If the two disagree, use the response.
 Use the values below, then check a small draw when using a new combination.
 Occupation titles and codes use the live facet search described in
 [persona-generation.md](persona-generation.md#find-the-right-filters).
+For employer industry codes, use the accepted values in the live capabilities
+response; the counts and code systems are summarized below.
 
 Pass categorical values as arrays of strings, including `has_children: ["true"]`.
 Values within a field are OR; fields are AND. `age` takes `{min, max}`.
@@ -51,9 +53,10 @@ decision depends on. `social_grade` is UK-only.
 | `business_ownership_status` | UK: `executive_owner_possible`, `freelancer`, `not_owner`, `owner_operator`<br>US: `executive_owner_possible`, `freelancer`, `not_owner` |
 | `employer_type` | `education_or_health_institution`, `household_or_private_client`, `nonprofit_or_community`, `private_company`, `public_sector`, `self_employed_or_own_business` |
 | `company_size_band` | `enterprise`, `large`, `medium`, `micro`, `public_sector_or_institutional`, `small`, `solo` |
+| `employer_industry` | UK: 904 SIC 2007 codes; US: 408 NAICS 2022 codes. A code prefix matches its subcodes. |
+| `employer_sector` | `agriculture`, `automotive`, `construction`, `education`, `energy_utilities`, `financial_services`, `fmcg`, `food_drink_manufacturing`, `food_grocery_wholesale`, `grocery_retail`, `healthcare_provider`, `hospitality`, `household_personal_care_manufacturing`, `logistics_transport`, `manufacturing`, `marketing_advertising`, `media_telecoms`, `pharmaceuticals`, `professional_services`, `public_sector`, `real_estate`, `retail`, `saas_software`, `social_care`, `wholesale` |
 | `startup_stage_context` | `growth_company_possible`, `none`, `startup_possible` |
 | `decision_role` | `budget_owner`, `decision_maker`, `influencer`, `low` |
-| `employer_context_confidence` | `high`, `medium` |
 | `sector_tags` | UK: `construction`, `education`, `finance`, `food_service`, `healthcare`, `legal`, `marketing`, `production_transport`, `retail`, `sales_retail`, `skilled_trades`, `software`, `technology`<br>US: `agriculture`, `children_family`, `construction`, `data`, `education`, `finance`, `food_service`, `healthcare`, `hospitality`, `legal`, `manufacturing`, `marketing`, `retail`, `sales_retail`, `software`, `technology`, `transportation_logistics` |
 
 ## Money and resources

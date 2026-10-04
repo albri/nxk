@@ -177,8 +177,9 @@ including:
 
 [Open one actual PersonaGen profile →](examples/personagen.md)
 
-There are 78 filters for the UK and 77 for the US. The
-[filter reference](references/filters.md) has the full list.
+There are 79 filters for the UK and 78 for the US. The
+[filter reference](references/filters.md) groups the accepted fields and
+common values.
 
 ## What it costs
 

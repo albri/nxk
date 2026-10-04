@@ -24,7 +24,7 @@ work, shared household income, recent move, dog, cautious use of technology and
 preference for evidence when they matter. Different questions can draw on
 different parts of the same life.
 
-[View the exact generated JSON →](data/personagen-us-example.json)
+[View the saved profile JSON →](data/personagen-us-example.json)
 
 The JSON also contains identity, personality, health and appearance fields.
 nxk normally sends the person's first name and non-appearance profile to the

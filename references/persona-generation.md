@@ -49,10 +49,9 @@ draw into batches, give each batch a different seed to avoid duplicates.
 ### Find the right filters
 
 Call `GET /{country}/capabilities` before you choose filters. The response
-contains `filter_catalogue`. This catalogue lists every field that the
-generation routes accept for that country. The fields are grouped for reading,
-and each field has its accepted values or a note that the values come from
-facet search.
+contains `filter_catalogue`, which lists the public filter fields for that
+country. The fields are grouped for reading, and each field has its accepted
+values or a note that the values come from facet search.
 
 If the response has no `filter_catalogue`, the API is out of date. Use
 [filters.md](filters.md) and tell the user that the API is out of date.
@@ -78,6 +77,9 @@ For current professionals, combine a suitable employment state with
 `career_context_scope: ["current_role"]`. A retired person can still have a
 valid occupational background. Verify `work.occupation_code`,
 `work.occupation_title` and `work.career_context.scope` in the returned people.
+If purchase authority is present, it describes prior involvement in a product
+area; it does not set the budget or decision authority for a hypothetical
+choice. Put situation-specific constraints in the survey context.
 
 Useful path differences:
 
@@ -110,38 +112,30 @@ burn through a user's 100,000-persona monthly allowance to retain 100 people.
 
 ## Evaluate
 
-This JavaScript builds one complete Jev request from a drawn persona. `jevKey`
-is the credential supplied by the environment. Substitute the situation and
-options for the user's decision.
+This JavaScript builds one Jev request from a saved persona. It uses the same
+tested public-field projection as the benchmark, keeping ordinary profile facts
+while limiting work context to public career and employer fields. `persona` is
+one saved `data` object from a single or batch response. `jevKey` is the
+credential supplied by the environment. Substitute the situation and options
+for the user's decision.
 
 ```js
-const { appearance, metadata, name, id, ...profile } = persona;
-const firstName = name.first_name;
+import { buildPersonaRequest } from "../benchmarks/public-persona.mjs";
+
 const options = [
   "Two-day battery; standard camera.",
   "One-day battery; better camera.",
   "Neither; look for a different phone."
-]; // Rotate this array between people; use the same order below.
-
-const body = {
-  model: "jev-latest",
-  state: {
-    respondent: { firstName, profile: { country: "uk", ...profile } },
-    survey: {
-      context: "Imagine replacing your phone. Both models cost £300, with the same screen, storage, speed, size, warranty and software support. One lasts two days, with good daylight photos but weaker low-light and moving-subject photos. The other lasts one day, with clearer low-light photos and sharper pictures of moving people or pets. Both recharge at the same speed. You can choose a different phone.",
-      questions: {
-        phone: { text: "Which phone would you choose?", options }
-      }
-    }
-  },
-  questions: {
-    phone: {
-      type: "choice",
-      instructions: "Based on `respondent.profile`, which answer would this person give to `survey.questions.phone.text` in the situation described in `survey.context`? The available answers are in `survey.questions.phone.options`. Apply the person's stated circumstances; predict their response rather than recommending the best option in general.",
-      criteria: Object.fromEntries(options.map(text => [text, null]))
-    }
-  }
+];
+const study = {
+  country: "uk",
+  surveyed: "October 2026",
+  context: "Imagine replacing your phone. Both models cost £300, with the same screen, storage, speed, size, warranty and software support. One lasts two days, with good daylight photos but weaker low-light and moving-subject photos. The other lasts one day, with clearer low-light photos and sharper pictures of moving people or pets. Both recharge at the same speed. You can choose a different phone.",
+  question: "Which phone would you choose?",
+  options
 };
+const order = [0, 1, 2]; // Rotate between people; use the returned order below.
+const body = buildPersonaRequest(study, persona, order);
 const response = await fetch("https://api.typesafe.ai/v1/systemone", {
   method: "POST",
   headers: {
@@ -153,13 +147,14 @@ const response = await fetch("https://api.typesafe.ai/v1/systemone", {
 });
 if (!response.ok) throw new Error(`Jev HTTP ${response.status}`);
 const result = await response.json();
-const answer = result.answers?.phone;
-if (!answer || !options.includes(answer.choice) ||
-    options.some(key => !Number.isFinite(answer.probabilities?.[key]) ||
+const orderedOptions = body.state.survey.questions.q.options;
+const answer = result.answers?.q;
+if (!answer || !orderedOptions.includes(answer.choice) ||
+    orderedOptions.some(key => !Number.isFinite(answer.probabilities?.[key]) ||
       answer.probabilities[key] < 0 || answer.probabilities[key] > 1)) {
   throw new Error("Invalid answer");
 }
-const total = options.reduce((sum, key) => sum + answer.probabilities[key], 0);
+const total = orderedOptions.reduce((sum, key) => sum + answer.probabilities[key], 0);
 if (Math.abs(total - 1) > 0.03) throw new Error("Invalid probability total");
 // Save the complete response alongside a stable ID for this saved profile.
 ```
@@ -168,12 +163,13 @@ Jev tends to make people keener on new technology than surveys find. When
 asking about adopting something new, put its real cost, effort and risk in the
 situation.
 
-Send the full profile rather than `description.short` or a selected field map.
-The example excludes appearance and request metadata; keep the other groups.
+Keep the full profile rather than reducing it to `description.short`. The helper
+excludes appearance and request metadata and copies only the public person shape.
 Set `country` to the draw's country. Keep full option text unique and preserve
 the mapping back to your own IDs in code. For each question, update the state
-path in the instruction. For a Score, ask for the rating and give concrete
-ordered levels. See [Score](https://docs.typesafe.ai/primitives/score.md)
+path in the instruction. For a Score,
+ask for the rating and give concrete ordered levels. See
+[Score](https://docs.typesafe.ai/primitives/score.md)
 and [Noul](https://docs.typesafe.ai/primitives/noul.md) for their request shapes.
 
 Several independent questions about the same situation can share one request.
