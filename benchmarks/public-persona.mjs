@@ -148,7 +148,7 @@ const PURCHASE_LEVELS = new Set([
   "org_does_not_buy", "no_role", "uses_or_requests", "recommends_or_evaluates",
   "approves_within_budget", "final_signoff",
 ]);
-const PRIVATE_PROFILE_ID = /\b(?:v\d+_\d+_)?[a-z0-9]+(?:_[a-z0-9]+)*_candidate_\d{4}_\d{2}_\d{2}\b/i;
+const PRIVATE_PROFILE_ID = /\bprivate_profile_[a-z0-9_]+\b|\b(?:v\d+_\d+_)?[a-z0-9]+(?:_[a-z0-9]+)*_candidate_\d{4}_\d{2}_\d{2}\b/i;
 export const DEFAULT_INSTRUCTION = "Based on `respondent.profile`, which answer would this person give to `survey.questions.q.text` in the situation described in `survey.context`? The available answers are in `survey.questions.q.options`. Apply the person's stated circumstances; predict their response rather than recommending the best option in general.";
 
 function isRecord(value) {

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { buildPersonaRequest, projectPersonaForModel } from "./public-persona.mjs";
 
-const INTERNAL_ID = "v8_9_fixture_projection_candidate_2026_10_04";
+const INTERNAL_ID = "private_profile_sentinel";
 
 function study() {
   return {

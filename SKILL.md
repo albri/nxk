@@ -56,6 +56,18 @@ When you choose filters, use the live `filter_catalogue` in
 [references/filters.md](references/filters.md). If the two disagree, use the
 response.
 
+For a code-driven workflow, request `GET /{country}/capabilities?compact=true`
+and follow its `operation_links`. Compact discovery omits inline value arrays;
+use the paginated filter-values operation for a dimension and continue from
+`next_offset` when needed. If `validate_personas` is advertised, POST the exact
+`{count, seed, filters}` body to it before generation. A 200 means the request
+passed static validation; `generation_guaranteed` remains false. A 400 needs a
+filter correction. A 422 identifies a statically unsupported combination.
+Do not silently remove a constraint or repeat an unchanged request. Then send
+the same body to the advertised generation operation. See
+[persona-generation.md](references/persona-generation.md#discover-validate-and-draw)
+for a runnable HTTP-only client example.
+
 ## Choose the people
 
 Consumer questions are the easiest fit: money, households, shopping, pets,
