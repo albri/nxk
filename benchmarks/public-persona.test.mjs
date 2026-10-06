@@ -108,6 +108,21 @@ function savedPerson() {
         company_size_band: "large",
         source_posture: "private-employer-status",
         industry: { code: "54161", label: "Management consulting services", source: "private" },
+        activity: {
+          category: "professional_services",
+          offerings: ["consulting", INTERNAL_ID],
+          products_or_services: ["strategy advice"],
+          source_posture: "private-employer-activity-status",
+          profile_id: INTERNAL_ID,
+        },
+        decision_setting: {
+          decision_centralization: "department_led",
+          procurement_maturity: "formal_procurement",
+          buying_center_complexity: "multi_stakeholder_buying_center",
+          budget_authority_model: "departmental_budget_cycle",
+          source_posture: "private-employer-decision-status",
+          profile_id: INTERNAL_ID,
+        },
         synthetic_operating_context: {
           sales_channels: ["direct_sales"],
           organisation_complexity_band: "layered",
@@ -159,6 +174,17 @@ test("legacy source-bearing person is projected before building the external-mod
   assert.deepEqual(work.employer_context.operating_context, {
     sales_channels: ["direct_sales"],
     organisation_complexity_band: "layered",
+  });
+  assert.deepEqual(work.employer_context.activity, {
+    category: "professional_services",
+    offerings: ["consulting"],
+    products_or_services: ["strategy advice"],
+  });
+  assert.deepEqual(work.employer_context.decision_setting, {
+    decision_centralization: "department_led",
+    procurement_maturity: "formal_procurement",
+    buying_center_complexity: "multi_stakeholder_buying_center",
+    budget_authority_model: "departmental_budget_cycle",
   });
   assert.equal(work.career_context.industry.source, undefined);
   assert.equal(work.employer_context.industry.source, undefined);

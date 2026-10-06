@@ -1,6 +1,6 @@
 # PersonaGen filters
 
-Persona API/schema contract `3.0.0`; generator `v2`.
+Persona API/schema contract `3.1.0`; generator `v2`.
 79 UK fields; 78 US fields. Read the group relevant to the task.
 
 This catalogue mirrors PersonaGen's public filter discovery. The live

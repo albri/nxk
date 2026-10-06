@@ -261,6 +261,23 @@ function projectCareerContext(value) {
   return output;
 }
 
+function projectEmployerActivity(value) {
+  if (!isRecord(value)) return undefined;
+  const output = pickStrings(value, ["category"]);
+  for (const key of ["offerings", "products_or_services"]) {
+    if (Array.isArray(value[key])) {
+      output[key] = value[key].map(publicString).filter((item) => item !== undefined);
+    }
+  }
+  return Object.keys(output).length ? output : undefined;
+}
+
+function projectEmployerDecisionSetting(value) {
+  return pickStrings(value, [
+    "decision_centralization", "procurement_maturity", "buying_center_complexity", "budget_authority_model",
+  ]);
+}
+
 function projectEmployerContext(value) {
   const output = pickStrings(value, [
     "context_kind", "employer_type", "business_ownership_status", "company_size_band",
@@ -272,12 +289,16 @@ function projectEmployerContext(value) {
     : undefined;
   if (sectors) output.sector_tags = sectors;
   const industry = projectIndustry(value.industry);
+  const activity = projectEmployerActivity(value.activity);
+  const decisionSetting = projectEmployerDecisionSetting(value.decision_setting);
   const operatingInput = isRecord(value.operating_context)
     ? value.operating_context
     : value.synthetic_operating_context;
   const operating = projectOperatingContext(operatingInput);
   if (industry) output.industry = industry;
   if (operating) output.operating_context = operating;
+  if (activity) output.activity = activity;
+  if (decisionSetting && Object.keys(decisionSetting).length) output.decision_setting = decisionSetting;
   return output;
 }
 
