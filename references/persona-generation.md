@@ -63,62 +63,19 @@ Compare the contract versions in the response with the versions at the top of
 filters.md. If the versions changed, read the fields from the response. Report
 the version that you used.
 
-## Discover, validate and draw
+### Discover, validate and draw
 
-Use advertised operation links so clients can follow the country contract. The
-compact capability response contains no inline filter-value arrays; look up a
-dimension in pages. A successful validation is static preflight only: it does
-not initialize the generator or guarantee that a later draw will return the
-requested count. Send the same deterministic request body to generation, and
-keep any 400 or 422 result as a failure rather than widening filters silently.
-The helper client requires the corresponding operation link; if an older API
-does not advertise one, do not guess the newer route.
+Request `GET /{country}/capabilities?compact=true` and follow its
+`data.operation_links`. For accepted values, use `filter_values`, substituting
+an encoded dimension name, with optional `q` and `offset=0&limit=25`. Continue
+from `data.next_offset` until it is null when more values are needed.
 
-```js
-import { createPersonaGenClient } from "./personagen-client.mjs";
-
-const client = createPersonaGenClient({
-  headers: process.env.PERSONAGEN_API_KEY
-    ? { "X-API-Key": process.env.PERSONAGEN_API_KEY }
-    : { "X-Demo": "true" }
-});
-const country = "us";
-const discovery = await client.capabilities(country, { compact: true });
-if (discovery.status !== 200 || discovery.body.success !== true) {
-  throw new Error(`Capability lookup failed with HTTP ${discovery.status}`);
-}
-const sectorPage = await client.filterValues(country, "employer_sector", {
-  q: "software",
-  offset: 0,
-  limit: 25
-});
-if (sectorPage.status !== 200) throw new Error("Filter value lookup failed");
-
-const request = {
-  count: 100,
-  seed: "b2b-workplace-pilot-01",
-  filters: {
-    career_context_scope: ["current_role"],
-    employer_sector: ["saas_software", "professional_services"]
-  }
-};
-const result = await client.validateThenGenerate(country, request);
-if (!result.validation.accepted) {
-  // Keep the returned 400/422 details and revise the audience deliberately.
-  throw new Error(`Audience validation returned HTTP ${result.validation.status}`);
-}
-if (!result.generated || result.generation.status !== 200 || result.generation.body.success !== true) {
-  throw new Error("Generation did not return the validated audience");
-}
-const people = result.generation.body.data;
-if (!Array.isArray(people) || people.length !== request.count) {
-  throw new Error("Generation returned a different count than requested");
-}
-```
-
-For a comparison, reuse the same saved generated people and scenario, changing
-only the treatment being compared. Static validation does not replace checking
-the emitted fields or recording generation failures.
+If `validate_personas` is advertised, POST the proposed `{count, seed, filters}`
+body to it. A 200 is static acceptance, not guaranteed generation;
+`generation_guaranteed` remains false. For 400 or 422, revise the audience
+explicitly rather than dropping constraints or repeating the unchanged request.
+Then POST the same body to `generate_personas` and check the returned count and
+emitted fields. Use direct HTTP requests with the authentication above.
 
 Probe a new filter combination with a small draw before a full batch.
 
