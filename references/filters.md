@@ -1,11 +1,13 @@
 # PersonaGen filters
 
-Persona API/schema contract `3.0.0`; generator `v2`.
+Persona API/schema contract `3.1.0`; generator `v2`.
 79 UK fields; 78 US fields. Read the group relevant to the task.
 
 This catalogue mirrors PersonaGen's public filter discovery. The live
 `GET /{country}/capabilities` response carries the same fields in
 `filter_catalogue`. If the two disagree, use the response.
+For compact discovery, value lookup and request validation, follow
+[the HTTP workflow](persona-generation.md#discover-validate-and-draw).
 Use the values below, then check a small draw when using a new combination.
 Occupation titles and codes use the live facet search described in
 [persona-generation.md](persona-generation.md#find-the-right-filters).

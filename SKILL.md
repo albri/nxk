@@ -56,6 +56,10 @@ When you choose filters, use the live `filter_catalogue` in
 [references/filters.md](references/filters.md). If the two disagree, use the
 response.
 
+For audience discovery and validation, follow
+[Discover, validate and draw](references/persona-generation.md#discover-validate-and-draw).
+Use the accepted count, seed and filters unchanged when generating.
+
 ## Choose the people
 
 Consumer questions are the easiest fit: money, households, shopping, pets,

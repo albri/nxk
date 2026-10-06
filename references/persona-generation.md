@@ -63,6 +63,20 @@ Compare the contract versions in the response with the versions at the top of
 filters.md. If the versions changed, read the fields from the response. Report
 the version that you used.
 
+### Discover, validate and draw
+
+Request `GET /{country}/capabilities?compact=true` and follow its
+`data.operation_links`. For accepted values, use `filter_values`, substituting
+an encoded dimension name, with optional `q` and `offset=0&limit=25`. Continue
+from `data.next_offset` until it is null when more values are needed.
+
+If `validate_personas` is advertised, POST the proposed `{count, seed, filters}`
+body to it. A 200 is static acceptance, not guaranteed generation;
+`generation_guaranteed` remains false. For 400 or 422, revise the audience
+explicitly rather than dropping constraints or repeating the unchanged request.
+Then POST the same body to `generate_personas` and check the returned count and
+emitted fields. Use direct HTTP requests with the authentication above.
+
 Probe a new filter combination with a small draw before a full batch.
 
 For occupations, call
