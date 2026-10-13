@@ -162,24 +162,28 @@ PersonaGen does two things at the same time:
 It's pretty easy to create personas that do *one* of these things; it is much
 harder to do both at the same time.
 
-Each person comes with more than 100 details across ten areas of life,
+Each person comes with more than 200 details across 16 sections of life,
 including:
 
 | Part of someone's life | Examples |
 | --- | --- |
 | People and place | Adult age, education, region, city or rural life |
-| Work | Occupation, seniority, employer size, ownership, remote or on-site work |
-| Money | Personal income, household resources, financial pressure |
+| Work | Occupation, industry, job level, employer size, remote or on-site work, purchasing roles |
+| Money | Personal and household income, debt, how they are managing financially |
 | Family and home | Children and their life stages, caregiving, renting, moving, outdoor space |
-| Pets and travel | Dogs, cats, other pets, car access, commuting |
-| Shopping and technology | Price sensitivity, shopping channels, digital confidence, privacy |
-| Personal context | Interests, language, personality, communication style, activity |
+| Pets and travel | Dogs, cats, other pets, vehicles, commuting |
+| Shopping and technology | Price comparison, shopping channels, brand choice, digital skills, privacy |
+| Personal context | Interests, language, personality, health, activity |
 
 [Open one actual PersonaGen profile →](examples/personagen.md)
 
-There are 79 filters for the UK and 78 for the US. The
-[filter reference](references/filters.md) groups the accepted fields and
-common values.
+Around 170 fields can be filtered in both countries. nxk reads them from
+PersonaGen's live catalogue (cached, so it costs one call a release), finds
+values with search, and asks the API how rare an audience is before drawing it.
+A targeting task takes four or five small calls and no trial draws. The
+[filter guide](references/filters.md) says how to read the catalogue.
+
+nxk targets **PersonaGen 4.0** (API and schema `4.0.0`).
 
 ## What it costs
 
@@ -330,9 +334,10 @@ whole households whose members fit together.
 | File | What it is |
 | --- | --- |
 | [SKILL.md](SKILL.md) | The agent's instructions |
-| [Drawing and evaluating](references/persona-generation.md) | API calls, full profiles, answers and limits |
+| [Drawing and evaluating](references/persona-generation.md) | Targeting, drawing, answers and limits |
 | [Using the probabilities](references/probabilities.md) | How to keep and compare the answers |
-| [Filters](references/filters.md) | The complete country-specific filter catalogue |
+| [Filters](references/filters.md) | How to read the live catalogue and write a filter |
+| [Catalogue helper](scripts/catalogue.mjs) | Cached reads of the live catalogue, by section, word or field |
 | [Question recipes](references/instruments.md) | Ways to ask about prices, trade-offs and follow-up questions |
 | [Methodology](methodology.md) | How nxk compares with published surveys |
 | [Experiments](experiments.md) | Ideas tried, rejected and still open |

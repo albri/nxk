@@ -20,12 +20,11 @@ Credential storage is the user's choice. Jev needs its own key and credit.
 
 - [SKILL.md](SKILL.md): read when using nxk; keep quick checks bounded.
 - [references/persona-generation.md](references/persona-generation.md): read
-  before the first API call; endpoints, full-profile state, response shapes,
-  accounting, reuse and failure handling.
-- [references/filters.md](references/filters.md): a readable copy of the
-  complete 78 UK and 77 US filter surface. `GET /{country}/capabilities`
-  serves the same catalogue as `filter_catalogue`. If the file and the
-  response disagree, use the response.
+  before the first API call; the discover, search, validate, draw workflow,
+  paging, streaming, sections, response shapes, accounting and failure handling.
+- [references/filters.md](references/filters.md): how to read PersonaGen's live
+  catalogue and write a filter. The catalogue is the only complete list of
+  fields; `scripts/catalogue.mjs` reads it with a cache.
 - [references/instruments.md](references/instruments.md): optional recipes for
   prices, trade-offs, blockers and further exploration.
 - [references/probabilities.md](references/probabilities.md): native probability
@@ -35,5 +34,6 @@ Credential storage is the user's choice. Jev needs its own key and credit.
 
 PersonaGen samples related traits from country-specific distributions, using
 official sources where available alongside modelled and derived context. It
-generates adults in the UK and US. Employer context is inferred; company-level
-generation is not part of this skill's current workflow.
+generates adults in the UK and US. nxk targets PersonaGen 4.0 (API and schema
+`4.0.0`). Employer context is inferred; company-level generation is not part
+of this skill's current workflow.

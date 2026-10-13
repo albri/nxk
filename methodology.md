@@ -24,6 +24,9 @@ Leading answer exact or close   ████████████████
 | Cost | 72.8M input tokens, about $3.06 for the whole run |
 <!-- /generated:setup -->
 
+These results were recorded on PersonaGen 3.x. nxk now targets PersonaGen 4.0, which renamed the fields and
+recoded their values and has not been run against these 26 questions; treat the figures as the 3.x baseline.
+
 I chose the questions before running anything. Each one is an everyday
 consumer or household question, like food prices, heating or paying bills,
 where the survey publishes the exact wording, the answer options and the

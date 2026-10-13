@@ -9,6 +9,11 @@
 //
 // Needs JEV_API_KEY (or TYPESAFE_API_KEY). PERSONAGEN_API_KEY is optional; without
 // it the PersonaGen demo route is used.
+//
+// This harness reproduces the recorded runs in results.json, which were drawn from PersonaGen 3.x. studies.json
+// names 3.1 filters and 3.1 payload paths, which 4.0 renamed (docs/migration-4.0.md in the PersonaGen repository
+// maps them), so it stops when the API answers with 4.x. Port studies.json to 4.0 field names and values before
+// recording new benchmark runs.
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -80,11 +85,14 @@ async function personagen(country, body) {
   const headers = { "Content-Type": "application/json" };
   if (process.env.PERSONAGEN_API_KEY) headers["X-API-Key"] = process.env.PERSONAGEN_API_KEY;
   else headers["X-Demo"] = "true";
-  const res = await fetch(`https://api.personagen.dev/${country}/personas`, {
+  const res = await fetch(`${process.env.PERSONAGEN_URL ?? "https://api.personagen.dev"}/${country}/personas`, {
     method: "POST", headers, body: JSON.stringify(body), signal: AbortSignal.timeout(120000),
   });
   const json = await res.json();
   if (!res.ok || !json.success) throw new Error(`PersonaGen ${res.status}: ${JSON.stringify(json).slice(0, 300)}`);
+  if (!String(json.metadata?.api_version ?? "").startsWith("3.")) {
+    throw new Error(`PersonaGen answered with API ${json.metadata?.api_version}. This harness reproduces the 3.x runs; port studies.json to 4.0 fields first.`);
+  }
   if (json.metadata?.filtering?.warnings?.length) console.warn("PersonaGen warnings:", json.metadata.filtering.warnings);
   return json;
 }

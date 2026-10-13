@@ -50,11 +50,12 @@ when another answer could change the work. Do not turn the run into a generic
 questionnaire.
 
 Before the first API call, read [references/persona-generation.md](references/persona-generation.md)
-for connections, full-profile requests, answer shapes and failure handling.
-When you choose filters, use the live `filter_catalogue` in
-`GET /{country}/capabilities`, or the groups in
-[references/filters.md](references/filters.md). If the two disagree, use the
-response.
+for the targeting workflow, drawing, answer shapes and failure handling. nxk
+targets PersonaGen 4.0. Choose filters from the live catalogue, read through
+`node scripts/catalogue.mjs` (cached; see
+[references/filters.md](references/filters.md) for how to read it), and never
+from memory: field names and value codes are specific to the country and the
+release.
 
 ## Choose the people
 
@@ -68,31 +69,43 @@ exposure within a stated period. Keep that relevance probability and use it
 as a weight when comparing later answers. Do not act on a strong difference
 between groups until those people are relevant to the decision.
 
-Apply supported filters server-side first. For a more specific group, filter
-the returned profiles locally only for conditions the API cannot express. Start
-with a small draw to check how many qualify, then cap any further draws against
-the user's remaining allowance. Do not spend thousands of profiles chasing a
-tiny group; explain the constraint and offer a smaller sample or broader group.
+Target the audience in this order and stop as soon as you have it: read the
+catalogue once (cached); look up values with `GET /{country}/search?q=`;
+`POST /{country}/personas/validate` the filter set once and read its estimated
+share, its range and the filter that narrows most; then draw. Filters apply when
+each person is drawn, so every returned person matches them and no probe draw is
+needed. Filter locally only for conditions the API cannot express (interests,
+lists, the purchasing roles) and size that draw by the share that qualifies. A
+refusal is information: change the audience on purpose, never retry it
+unchanged. Do not spend thousands of profiles chasing a tiny group; explain the
+constraint and offer a smaller sample or broader group.
 
-For work-related questions, resolve the occupation through the occupation
-search endpoint and check the returned role. Specify current employment and
-`career_context_scope` when the decision concerns someone doing that job today.
-Seniority, ownership, employer size and decision role can narrow the group
-further. Employer context is inferred; a profile does not contain a company's
-budget, software stack or buying committee. Supply any needed company facts as
-an explicit situation.
+Ask the draw for only the sections the questions need (`sections`). Draw a
+panel with one `seed` and page it with `start` instead of redrawing; stream
+(`Accept: application/x-ndjson`) when it is large.
+
+For work-related questions, resolve the occupation with `search` and check the
+returned title. Filter on `economic_activity_status` when the decision concerns
+someone doing that job today. Seniority (`job_level`), employer size
+(`organisation_size`) and sector can narrow the group further. The
+`purchasing_role_*` fields describe a person's role in an area of their
+organisation's purchases but cannot be filtered; filter them locally. Employer
+context is inferred; a profile does not contain a company's budget, software
+stack or buying committee. Supply any needed company facts as an explicit
+situation.
 
 When an answer depends on something people already own, use or spend that the
 profile does not include, the experimental "Fill in a missing fact" recipe in
 [references/instruments.md](references/instruments.md) can add it. It can
 steer answers too far, so use it only when that fact decides the answer.
 
-Keep the full saved profile. Start with its household, money, work and habits
-together when evaluating; the reference omits appearance and API metadata.
+Keep the saved profile. Start with its household, money, work and habits
+together when evaluating; the reference omits appearance (`body_and_appearance`)
+and API metadata.
 
 Verify the relevant fields in the draw before evaluating it. Keep the country,
-seed, filters, generator version and profiles so a later comparison can reuse
-the same people. If the requested group cannot be drawn, explain the missing
+seed, `start`, filters, sections, generator version and profiles so a later
+comparison can reuse the same people. If the requested group cannot be drawn, explain the missing
 part instead of silently widening it.
 
 ## Ask

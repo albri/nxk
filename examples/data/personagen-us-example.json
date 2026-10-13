@@ -1,329 +1,306 @@
 {
-  "draw": {
-    "country": "us",
-    "count": 100,
-    "seed": "nxk-readme-us-depth-2026-09-20",
-    "selected_position": 92,
-    "api_version": "3.0.0",
-    "generator_version": "v2",
-    "persona_id": "persona_i7bork389e3ctqi2",
-    "persona_seed": "nxk-readme-us-depth-2026-09-20_92",
-    "generated_at": "2026-09-20T14:58:59.518Z"
-  },
-  "persona": {
-    "name": {
-      "first_name": "Kenji",
-      "last_name": "Suzuki"
-    },
-    "description": {
-      "short": "Kenji is a 39-year-old man living in Montgomery County, Maryland. Kenji works full-time in healthcare, earns $75k-$100k, lives with a partner and has no children, and rents at market rate.",
-      "frame": [
-        {
-          "key": "age",
-          "label": "Age",
-          "value": "39"
-        },
-        {
-          "key": "gender",
-          "label": "Gender",
-          "value": "Male"
-        },
-        {
-          "key": "location",
-          "label": "Location",
-          "value": "Montgomery County, Maryland"
-        },
-        {
-          "key": "work",
-          "label": "Work",
-          "value": "works full-time in healthcare"
-        },
-        {
-          "key": "income",
-          "label": "Income",
-          "value": "$75k-$100k"
-        },
-        {
-          "key": "household",
-          "label": "Household",
-          "value": "Living with a partner with no children"
-        }
-      ]
+  "note": "One persona from GET /us/persona?seed=nxk-example-us-28 on PersonaGen 4.0. A seeded request returns the same person for the same generator_version.",
+  "country": "us",
+  "seed": "nxk-example-us-28",
+  "api_version": "4.0.0",
+  "persona_schema_version": "4.0.0",
+  "generator_version": "4.0.0+eb02bb5b1179",
+  "data": {
+    "name_and_summary": {
+      "first_name": "Duwayne",
+      "last_name": "Wallace"
     },
     "identity": {
-      "age": 39,
-      "birth_year": 1987,
-      "birthday": "1987-07-27",
-      "gender": "male",
-      "ethnicity": "east_asian",
-      "sexual_orientation": "heterosexual",
-      "religious_identity": "christian_catholic",
-      "religious_tradition": "christian",
-      "christian_tradition": "catholic",
-      "religion_salience": "low_salience",
-      "political_leaning": "liberal",
-      "political_orientation_group": "centre_left",
-      "political_alignment": "democratic_aligned"
+      "age_years": 39,
+      "date_of_birth": "1987-03-23",
+      "sex_at_birth": "male",
+      "gender_identity": "gender_same_as_sex_at_birth",
+      "sexual_orientation": "straight_or_heterosexual",
+      "ethnic_group": "black_or_african_american_not_hispanic",
+      "ethnic_origin_detailed": "other_black"
     },
-    "origin": {
+    "origin_and_language": {
       "country_of_birth": "united_states",
-      "immigration_status": "us_born_third_generation_plus",
-      "migration_background_context": "native_born_non_migrant_background",
-      "region": "maryland",
-      "local_area": "montgomery_county",
-      "geographic_context": "major_metropolitan",
-      "languages": [
-        "english"
+      "citizenship": "us_citizen_born_in_the_us",
+      "migrant_generation": "second_generation_parent_born_abroad",
+      "years_living_in_the_country": "born_in_the_country",
+      "immigration_permission": "not_applicable_citizen",
+      "main_language": "english_only",
+      "english_speaking_ability": "speaks_only_english_at_home",
+      "other_languages_spoken": [
+        "spanish"
       ],
-      "english_proficiency": "native_or_primary_english",
-      "language_use_context": "primary_english_context"
+      "languages_spoken_count": 1
     },
-    "background": {
-      "parental_education": "less_than_high_school",
-      "childhood_socioeconomic_status": "poverty",
-      "education": "master_degree"
+    "place": {
+      "region": "virginia",
+      "county_or_local_authority": {
+        "code": "51730",
+        "title": "Petersburg city, Virginia"
+      },
+      "settlement_size": "urban_area_of_1_million_or_more_people",
+      "settlement_name": {
+        "code": "5161832",
+        "title": "Petersburg city, Virginia"
+      },
+      "neighborhood_type": "suburban_area",
+      "county_urbanization_class_nchs": "large_fringe_metro"
+    },
+    "household_and_family": {
+      "legal_marital_status": "married",
+      "couple_status": "living_with_a_spouse_or_civil_partner",
+      "household_type": "couple_household_with_dependent_children",
+      "position_in_household": "householder_or_partner_of_householder",
+      "people_in_household": "3",
+      "adults_in_paid_work_in_household": "1",
+      "children_ever_had": "5",
+      "own_dependent_children_at_home": "2",
+      "youngest_dependent_child_age": "5_to_11_years",
+      "oldest_dependent_child_age": "5_to_11_years",
+      "own_adult_children_at_home": "0",
+      "unpaid_care_hours_per_week": "no_unpaid_care",
+      "life_stage": "parent_of_a_school_age_child"
+    },
+    "home_and_travel": {
+      "home_tenure": "owned_with_a_mortgage_or_loan",
+      "accommodation_type": "single_family_detached_house",
+      "outdoor_space_at_home": "private_garden_or_yard",
+      "years_at_current_address": "3_to_4_years",
+      "home_improvement_work_last_2_years": "major_improvement_work",
+      "pets_in_household": "dogs_or_cats_and_other_pets",
+      "pets_in_household_count": "3",
+      "other_pet_types": [
+        "fish"
+      ],
+      "has_full_driving_licence": "yes",
+      "vehicles_in_household": "2",
+      "usual_travel_to_work_mode": "drives_alone_in_a_car_truck_or_van",
+      "main_travel_mode_for_everyday_trips": "car_or_van_as_driver"
+    },
+    "education": {
+      "highest_qualification": "some_college_no_degree",
+      "current_education_enrolment": "not_in_education",
+      "parents_highest_qualification": "some_college_no_degree",
+      "family_income_at_age_16": "average"
     },
     "work": {
-      "occupation_domain": "healthcare_medical",
-      "occupation_title": "Therapeutic Recreation Specialist",
-      "occupation_code": "29-1125.00",
-      "canonical_role": "recreational_therapists",
-      "career_context": {
-        "scope": "current_role",
-        "occupation_code": "29-1125.00",
-        "canonical_role": "recreational_therapists",
-        "career_seniority": "mid",
-        "management_scope": "individual_contributor",
-        "business_ownership_status": "not_owner",
-        "employer_type": "education_or_health_institution",
-        "company_size_band": "large",
-        "startup_stage_context": "none",
-        "decision_role": "influencer",
-        "public_sector_context": "none",
-        "sector_tags": [
-          "healthcare"
-        ]
+      "economic_activity_status": "in_employment",
+      "employment_type": "employee",
+      "employer_sector": "private_for_profit_company",
+      "usual_weekly_hours_worked": "35_to_48_hours",
+      "current_occupation_major_group": "transportation_and_material_moving_occupations",
+      "current_occupation": {
+        "code": "53-3032",
+        "title": "Heavy And Tractor-trailer Truck Drivers"
       },
-      "employment_status": "employed_full_time",
-      "employment_flexibility": "shift_work",
-      "work_location_mode": "on_site",
-      "military_background": false,
-      "military_service_status": "none",
-      "public_sector_context": "none"
-    },
-    "economic": {
-      "personal_income_band": "75k_to_100k_usd",
-      "primary_personal_income_source": "employment_wages",
-      "current_earned_income_source": "employment_wages",
-      "household_support_model": "partner_supported_or_shared_costs",
-      "economic_dependency_role": "shared_household_earner",
-      "household_resource_context": "high_household_resources",
-      "household_income_band_estimate": "100k_to_150k_usd",
-      "financial_planning_style": "structured_budgeting",
-      "debt_load_context": "low_or_no_debt",
-      "financial_pressure_context": "financially_secure"
-    },
-    "household": {
-      "relationship_status": "cohabiting_partner",
-      "number_of_children": 0,
-      "has_children": false,
-      "dependent_children_count_band": "none",
-      "child_age_bands": [],
-      "parenting_stage": "no_children",
-      "child_household_presence": "no_children",
-      "family_lifecycle_stage": "dual_income_no_children",
-      "relationship_household_context": "partnered_without_current_children",
-      "current_partnership_state": "cohabiting_partnered",
-      "relationship_history_context": "currently_partnered_history_unobserved",
-      "partnership_household_role": "partnered_primary_or_shared_supporter",
-      "household_composition": "couple_no_children",
-      "life_stage_segment": "midlife",
-      "caregiving_role": "none",
-      "household_living_state": "living_with_partner",
-      "dependency_state": "independent",
-      "housing_tenure": "rent_market_rate",
-      "homeownership_pathway": "partnered_household_renter",
-      "housing_type": "single_family_house",
-      "garden_or_outdoor_space": "private_garden_or_yard",
-      "recent_mover": "moved_within_last_year",
-      "renovation_status": "not_renovating",
-      "debt_band": "under_5k_usd",
-      "debt_profile": "low_or_no_debt"
-    },
-    "behavior": {
-      "interests": [
-        "running",
-        "yoga",
-        "music_listening",
-        "art_collecting",
-        "travel",
-        "cooking",
-        "grilling",
-        "reading",
-        "podcast_listening"
-      ],
-      "has_pets": true,
-      "pet_types": [
-        "dog"
-      ],
-      "pet_owner_intensity": "routine_owner",
-      "physical_activity_level": "lightly_active_below_guidelines",
-      "activity_routine_context": "light_activity_routine",
-      "fitness_engagement_level": "casual",
-      "primary_transport_mode": "drive_alone",
-      "car_access": "personal_or_primary_car_access",
-      "commute_pattern": "regular_commuter",
-      "technology_confidence": "basic_functional_user",
-      "digital_engagement_level": "smartphone_dependent",
-      "social_media_usage": "former_user",
-      "digital_capability_level": "basic_digital_capability",
-      "digital_engagement_intensity": "essential_light",
-      "digital_privacy_posture": "privacy_selective",
-      "technology_adoption_orientation": "cautious_late_majority",
-      "price_sensitivity": "quality_led",
-      "purchase_channel_preference": "hybrid_shopper",
-      "brand_loyalty_orientation": "trusted_brand_preference",
-      "promotion_responsiveness": "loyalty_reward_responsive"
-    },
-    "psychology": {
-      "literacy_level": "proficient",
-      "numeracy_level": "advanced",
-      "problem_solving_style": "structured_analytical",
-      "cognitive_capability_band": "advanced",
-      "big_five_scores": {
-        "openness": 95,
-        "conscientiousness": 88,
-        "extraversion": 63,
-        "agreeableness": 52,
-        "neuroticism": 53
+      "job_title": "Semi-truck Driver",
+      "when_last_worked": "in_employment_now",
+      "employer_industry_section": {
+        "code": "48-49",
+        "title": "Transportation and warehousing"
       },
-      "big_five_openness": "very_high_openness",
-      "big_five_conscientiousness": "very_high_conscientiousness",
-      "big_five_extraversion": "high_extraversion",
-      "big_five_agreeableness": "average_agreeableness",
-      "big_five_neuroticism": "average_neuroticism"
+      "employer_industry": {
+        "code": "488",
+        "title": "Support Activities For Transportation"
+      },
+      "employer_main_products_or_services": "Support Activities For Transportation",
+      "organisation_size": "100_to_499_employees",
+      "usual_work_location": "works_only_away_from_home",
+      "workplace_fixed_or_mobile": "no_fixed_place_of_work",
+      "shift_work": "regular_daytime_schedule",
+      "employment_contract_type": "traditional_employee",
+      "management_responsibility": "no_supervisory_duties",
+      "job_level": "experienced",
+      "years_with_current_employer": "1_to_4_years",
+      "armed_forces_service": "has_not_served_in_the_military",
+      "purchasing_role_software_and_saas": "no_involvement_in_buying_this",
+      "purchasing_role_it_hardware": "no_involvement_in_buying_this",
+      "purchasing_role_marketing_and_advertising": "no_involvement_in_buying_this",
+      "purchasing_role_professional_services": "no_involvement_in_buying_this",
+      "purchasing_role_recruitment_and_staffing": "no_involvement_in_buying_this",
+      "purchasing_role_facilities_and_office": "no_involvement_in_buying_this",
+      "purchasing_role_raw_materials_and_inventory": "no_involvement_in_buying_this",
+      "purchasing_role_equipment_and_machinery": "uses_or_requests_this",
+      "purchasing_role_travel_and_fleet": "no_involvement_in_buying_this",
+      "purchasing_role_insurance": "no_involvement_in_buying_this",
+      "purchasing_role_utilities_and_energy": "no_involvement_in_buying_this",
+      "purchasing_role_food_and_hospitality_supplies": "no_involvement_in_buying_this",
+      "organisation_purchasing_process": "public_tender_or_framework_agreement",
+      "organisation_sales_channels": [],
+      "commute_pattern": "travels_to_varying_places_of_work"
     },
-    "decisioning": {
-      "communication_preference": "evidence_data_led",
-      "message_processing_style": "analytical_deliberate",
-      "purchase_risk_tolerance": "risk_balanced",
-      "persuasion_susceptibility": "low_susceptibility",
-      "political_engagement_level": "low_engagement"
+    "money": {
+      "personal_income_before_tax_per_year": "100000_to_149999_usd",
+      "main_source_of_personal_income": "wages_or_salary",
+      "household_income_before_tax_per_year": "100000_to_149999_usd",
+      "mortgage_balance_outstanding": "300000_to_499999_usd",
+      "unsecured_debt_excluding_student_loans": "5000_to_9999_usd",
+      "student_loan_balance": "25000_to_49999_usd",
+      "could_cover_an_unexpected_expense": "would_borrow_sell_something_or_not_pay_an_unexpected_400_usd_expense",
+      "managing_financially": "doing_okay"
     },
     "health": {
-      "dietary_restrictions": [],
-      "health_conditions": [
-        "hypertension",
-        "mental_health_condition",
-        "sleep_disorder"
-      ],
-      "mobility_or_exertion_context": "mild_limitation"
+      "general_health": "good_health",
+      "day_to_day_activities_limited_by_health": "no_long_term_condition",
+      "serious_functional_difficulties": [],
+      "long_term_health_conditions": [],
+      "long_term_health_condition_count": 0,
+      "physical_activity_per_week": "under_30_minutes_per_week",
+      "hours_sitting_on_a_usual_day": "under_4_hours",
+      "smoking_status": "never_smoked",
+      "dietary_practices": [],
+      "dietary_practice_count": 0
     },
-    "appearance": {
-      "skin_tone": "medium",
-      "body_build": "average",
-      "nose_shape": "straight",
-      "face_shape": "oval",
-      "skin": {
-        "tone": "medium",
-        "undertone_context": "golden",
-        "texture_context": "normal_texture",
-        "age_marker_context": "minimal_age_markers",
-        "visible_mark_contexts": [
-          "none"
-        ],
-        "sun_exposure_or_freckling_context": "minimal_visible_sun_exposure"
-      },
-      "face": {
-        "shape": "oval",
-        "proportion_context": "balanced",
-        "symmetry_context": "typical_asymmetry",
-        "facial_fullness_context": "average_fullness",
-        "cheekbone_context": "average_cheekbones",
-        "jawline_context": "average_jawline",
-        "chin_context": "average_chin",
-        "forehead_context": "average_forehead",
-        "facial_length_width_context": "balanced"
-      },
-      "nose": {
-        "shape": "straight",
-        "bridge_context": "average_bridge",
-        "width_context": "narrow_width",
-        "tip_context": "defined_tip",
-        "profile_context": "straight_profile"
-      },
-      "mouth": {
-        "lip_fullness_context": "average_lips",
-        "mouth_width_context": "wide_mouth",
-        "smile_context": "subtle_smile",
-        "teeth_visibility_context": "not_visible",
-        "facial_hair_interaction_context": "not_applicable"
-      },
-      "ears": {
-        "prominence_context": "slightly_prominent",
-        "lobe_context": "detached_lobes"
-      },
-      "vision": {
-        "glasses_context": "none",
-        "glasses_style_context": "not_applicable"
-      },
-      "distinctive_features": {
-        "feature_contexts": []
-      },
-      "body": {
-        "frame_context": "medium_frame",
-        "body_composition_context": "soft_average_composition",
-        "fat_distribution_context": "even_distribution",
-        "muscle_tone_context": "average_muscle_tone",
-        "shoulder_context": "average_shoulders",
-        "waist_hip_context": "moderate_waist_definition",
-        "posture_context": "relaxed_posture",
-        "mobility_visual_context": "no_visible_mobility_constraint",
-        "clothing_fit_context": "regular_fit"
-      },
-      "body_shape_context": "soft_average_body_shape",
-      "avatar_prompt_cues": "medium skin; balanced oval face; average cheekbones; average jawline; narrow eyes with present epicanthic fold; narrow width nose; average lips; minimal age markers; black high fade with scattered gray; light stubble",
-      "hair": {
-        "color": "black",
-        "natural_color": "black",
-        "visible_color": "black",
-        "gray_coverage_context": "scattered_gray",
-        "dyed_or_colored_context": "natural_or_untreated",
-        "texture": "type_1_straight",
-        "texture_pattern": "straight",
-        "length_context": "short",
-        "coverage_context": "full_hair",
-        "style_context": "high_fade",
-        "style_description": "high fade",
-        "facial_hair_context": "light_stubble"
-      },
-      "eyes": {
-        "color": "dark_brown",
-        "shape": "almond",
-        "aperture_shape_context": "narrow",
-        "eyelid_crease_context": "low_or_tapered_crease",
-        "epicanthic_fold_context": "present",
-        "canthal_tilt_context": "neutral",
-        "eye_spacing_context": "slightly_close_set",
-        "under_eye_context": "minimal_under_eye_shadow",
-        "brow_shape_context": "soft_arch",
-        "brow_density_context": "average_brows"
-      },
-      "height": {
-        "cm": 175,
-        "feet_and_inches": "5'9\""
-      },
-      "weight": {
-        "kg": 67,
-        "lbs": 148,
-        "bmi": 21.9
-      },
-      "clothing_sizes": {
-        "shirt_size": "M",
-        "waist_size": "30",
-        "shoe_size_local": "8.5"
-      },
-      "appearance_summary": "man with straight black hair in a high fade with scattered gray and light stubble, dark brown almond-shaped eyes with a present epicanthic fold, medium skin, oval face with narrow nose and average lips, and soft average build."
+    "body_and_appearance": {
+      "height_cm": 184,
+      "bmi_category": "obese_class_2_bmi_35_to_39_9",
+      "bmi": 35.8,
+      "weight_kg": 121.2,
+      "height_feet_and_inches": "6'0\"",
+      "weight_pounds": 267.2,
+      "body_build": "broad_or_stocky",
+      "body_shape_summary": "broad_or_stocky_body_shape",
+      "frame_size": "very_large_frame",
+      "visible_body_fat": "higher_body_fat",
+      "body_fat_distribution": "even_distribution",
+      "muscle_tone": "average_muscle_tone",
+      "shoulder_width": "narrow_shoulders",
+      "waist_to_hip_silhouette": "straight_silhouette",
+      "posture": "relaxed_posture",
+      "visible_mobility": "no_visible_mobility_constraint",
+      "clothing_fit": "roomier_fit",
+      "top_size": "xxl",
+      "trouser_waist_inches": 50,
+      "dress_size": null,
+      "shoe_size": 11.5,
+      "skin_tone": "medium_deep",
+      "skin_undertone": "golden",
+      "skin_texture": "normal_texture",
+      "skin_age_signs": "early_expression_lines",
+      "freckling_and_sun_marks": "light_freckling_or_sun_marks",
+      "facial_marks": [],
+      "distinctive_facial_features": [
+        "dimples"
+      ],
+      "natural_hair_color": "dark_brown",
+      "hair_greying_share": "under_10_percent_grey",
+      "hair_dye_or_treatment": "dyed_a_fashion_colour",
+      "visible_hair_color": "fashion_colour",
+      "hair_texture": "type_4_coily",
+      "hair_texture_pattern": "coily",
+      "hair_length": "very_short",
+      "hair_loss_pattern": "mature_hairline",
+      "hair_style": "high_and_tight",
+      "hair_style_description": "high and tight",
+      "facial_hair": "full_beard",
+      "facial_hair_around_the_mouth": "frames_the_mouth",
+      "eye_color": "medium_brown",
+      "eye_opening_shape": "round",
+      "eye_depth": "prominent",
+      "eyelid_type": "visible_double_crease",
+      "eye_outer_corner_tilt": "neutral",
+      "epicanthic_fold": "none",
+      "eye_spacing": "average_spacing",
+      "under_eye_appearance": "visible_under_eye_lines",
+      "eyebrow_shape": "straight_brows",
+      "eyebrow_density": "light_brows",
+      "face_shape": "heart",
+      "face_length_to_width": "balanced",
+      "face_angularity": "angular_features",
+      "cheekbones": "subtle_cheekbones",
+      "chin_shape": "average_chin",
+      "facial_fullness": "soft_fullness",
+      "forehead": "average_forehead",
+      "jawline": "average_jawline",
+      "face_symmetry": "typical_asymmetry",
+      "nose_shape": "broad",
+      "nose_bridge": "average_bridge",
+      "nose_width": "broad_width",
+      "nose_tip": "downturned_tip",
+      "nose_profile": "soft_profile",
+      "lip_fullness": "full_lips",
+      "mouth_width": "wide_mouth",
+      "usual_facial_expression": "broad_smile",
+      "teeth_shown_when_smiling": "upper_teeth_slightly_shown",
+      "ear_prominence": "slightly_prominent",
+      "earlobe_type": "detached_lobes",
+      "vision_correction": "distance_glasses",
+      "glasses_style": "thin_metal_frames",
+      "appearance_description": "Medium to deep skin, dark brown hair worn as high and tight, medium brown eyes, a heart face and a broad or stocky build.",
+      "avatar_prompt_cues": "medium to deep skin; dark brown hair; high and tight hairstyle; medium brown eyes; heart face; broad or stocky build"
+    },
+    "digital_and_media": {
+      "internet_use_frequency": "daily_or_almost_daily",
+      "devices_used_to_go_online": [
+        "smartphone",
+        "laptop_or_desktop_computer",
+        "tablet",
+        "smart_tv",
+        "games_console"
+      ],
+      "online_activities_last_3_months": [
+        "online_banking",
+        "video_or_voice_calls",
+        "streaming_video",
+        "streaming_music_or_podcasts",
+        "online_gaming",
+        "email"
+      ],
+      "digital_skill_level": "above_basic_digital_skills",
+      "social_media_use_frequency": "several_times_a_day",
+      "social_media_platforms_used_count": "3",
+      "social_media_posting": "sometimes_posts_or_comments",
+      "confidence_using_digital_devices_and_apps": "very_confident",
+      "changes_online_privacy_settings": "does_not_know_how_to_change_them",
+      "new_technology_adoption": "when_most_people_have_it"
+    },
+    "shopping_and_decisions": {
+      "compares_prices_before_buying": "usually_compares_prices",
+      "usual_channel_for_non_food_shopping": "about_half_in_shops_and_half_online",
+      "brand_choice_when_shopping": "switches_to_whichever_is_on_offer",
+      "buys_more_when_items_are_on_promotion": "never",
+      "reads_product_details_before_buying": "reads_the_details_carefully",
+      "says_advertising_influences_what_they_buy": "advertising_does_not_influence_what_they_buy",
+      "preferred_way_for_companies_to_contact_them": "email",
+      "financial_risk_tolerance": "willing_to_take_average_financial_risk",
+      "financial_planning_horizon": "next_2_to_5_years",
+      "fitness_or_sports_club_membership": "member_of_neither"
+    },
+    "beliefs_and_politics": {
+      "religion": "christian",
+      "christian_denomination": "historically_black_protestant",
+      "importance_of_religion": "very_important",
+      "party_identification": "democrat",
+      "political_ideology": "moderate",
+      "interest_in_politics": "not_very_interested",
+      "political_activities_last_12_months": [
+        "shared_political_content_online"
+      ],
+      "vote_in_the_most_recent_national_election": "voted_for_harris"
+    },
+    "personality_and_skills": {
+      "big_five_openness_quintile": "middle_fifth",
+      "big_five_openness_percentile": 44,
+      "big_five_conscientiousness_quintile": "lowest_fifth",
+      "big_five_conscientiousness_percentile": 4,
+      "big_five_extraversion_quintile": "fourth_fifth",
+      "big_five_extraversion_percentile": 71,
+      "big_five_agreeableness_quintile": "lowest_fifth",
+      "big_five_agreeableness_percentile": 2,
+      "big_five_neuroticism_quintile": "middle_fifth",
+      "big_five_neuroticism_percentile": 51,
+      "literacy_proficiency": "level_3",
+      "numeracy_proficiency": "level_2",
+      "adaptive_problem_solving_proficiency": "level_3"
+    },
+    "interests": {
+      "interests": [
+        "hiking",
+        "swimming",
+        "scuba_and_snorkelling",
+        "archery"
+      ],
+      "interest_count": 3
     }
   }
 }
