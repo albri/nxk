@@ -1,13 +1,6 @@
 <h1 align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/nxk-logo-dark.svg">
-    <img src="assets/nxk-logo.svg" alt="nxk branching mark" width="320">
-  </picture>
+  <img src="assets/readme/banner.webp" alt="nxk. Give your agent a crowd. A skill for coding agents: it asks simulated people, drawn from real statistics, and shows who answers differently. Install with npx skills add albri/nxk.">
 </h1>
-
-<p align="center">
-  Give your agent a crowd. Make something more people want.
-</p>
 
 https://github.com/user-attachments/assets/b7409ffd-ae7b-4f51-830f-cda31fbf352b
 
@@ -24,22 +17,23 @@ https://github.com/user-attachments/assets/b7409ffd-ae7b-4f51-830f-cda31fbf352b
 
 ---
 
-nxk is a skill for coding agents. When your agent needs to know how people
-might respond to its work, nxk gives it a crowd to ask. The crowd is a set of
-simulated people, not real ones.
+nxk is a skill for coding agents. Agents make lots of small choices that depend
+on people: a default, a price, a headline, an opening time. Usually they guess.
+nxk gives your agent a crowd to ask first. The crowd is a set of simulated
+people, not real ones.
 
 [PersonaGen](https://personagen.dev) gives each one a detailed profile, with a
 job, a home, and habits that fit together. Your agent sends each profile to a
 model (I recommend [Jev](https://typesafe.ai)) and asks the model to answer as
 that person. With Jev, each answer costs a fraction of a cent, so 100 people can
-answer a question for about a cent. These people do not all answer in the same
-way, because the answer depends on the life in the profile.
+answer a question for about a cent.
 
-nxk shows you which people answer differently and what they have in common, so
-your agent can work out who cares and who it is building for. It can ask those
-people more questions and follow the differences that look interesting. It
-keeps what works and drops what does not. That way, the agent makes something
-people are more likely to want.
+These people don't all answer in the same way, because the answer depends on
+the life in the profile. That's the useful bit. An average answer can hide the
+people a change is for, so nxk shows your agent who answers differently and
+what they have in common. The agent can ask those people more questions, follow
+the differences that matter and drop the ones that don't. That way, it makes
+something more people want.
 
 ## Quick start
 
@@ -68,8 +62,8 @@ the result brief.
 ## How it works
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/inside-the-task-dark.webp">
-  <img src="assets/diagrams/inside-the-task.webp" alt="A coding agent calls nxk, asks different people, compares their answers and changes the work">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/how-it-works-dark.webp">
+  <img src="assets/readme/how-it-works.webp" alt="How nxk works, in a made-up example. One: the agent has to decide where five more library opening hours go. Two: it asks 100 likely visitors, and weighted by who is likely to visit, mornings lead 61% to 39%. Three: split by work, the answers cross. Retired people lean to mornings, 74%, and people in full-time work lean to evenings, 66%. Four: after a follow-up question, the agent adds three morning hours and two on Thursday evening.">
 </picture>
 
 **Hypothetical example:** The library and the numbers are made up. A town's
@@ -84,25 +78,32 @@ would use them, so the agent calls nxk:
 | Looks for groups that answer differently | Evening support among likely visitors in full-time work is 66%, 27 percentage points above all likely visitors | Do not put all five hours in the morning |
 | Asks which days help each group | Retired people prefer weekday mornings · people in full-time work prefer Thursday evening | Put three hours across weekday mornings and two on Thursday evening |
 
+On average, mornings won. Split by work, the answers crossed: the people the
+average would have left out wanted evenings, and one more question told the
+agent which evening.
+
 **A real run:** [an agent takes a generic landing page and finds the headline, features and price people pick →](examples/budgeting-app.md)
 
+### Each person answers with probabilities
+
 The model reads one person's profile and the question, then gives every option
-a probability, as that person would answer.
+a probability, as that person would answer. Here are three people from the same
+crowd, answering a real survey question:
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/keep-the-whole-answer-dark.webp">
-  <img src="assets/diagrams/keep-the-whole-answer.webp" alt="nxk keeps every answer probability and compares how people with different lives respond">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/every-answer-dark.webp">
+  <img src="assets/readme/every-answer.webp" alt="Three simulated people answer the same question about the affordability of food. Elena, 25, a fitness trainer with a household income of £70,000 to £100,000, is most likely not very concerned, 65%. Jonathan, 61, a social worker who rents privately, is most likely somewhat concerned, 89%. Christine, 52, long-term sick or disabled and in social housing, is highly concerned, 100%.">
 </picture>
+
+nxk keeps every probability rather than counting each person's top answer, then
+compares groups of people.
+
+### Each answer decides the next question
 
 nxk looks for what the people who answer differently have in common. In the
-example above, evening support was higher among people in full-time work. The
-agent can ask that group which evening they prefer, and use the answer to
-change the work.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/find-the-connection-dark.webp">
-  <img src="assets/diagrams/find-the-connection.webp" alt="nxk compares PersonaGen dimensions and asks groups with different answers more questions">
-</picture>
+library example, evening support was higher among people in full-time work, so
+the agent asked that group which evening they'd use. It drops splits with no
+real gap, and it stops when another answer wouldn't change the work.
 
 ## Why use it?
 
@@ -117,15 +118,25 @@ show how it reached its conclusion.
 ## Does it work?
 
 I checked nxk against 26 questions from 15 published UK and US surveys, with
-1,000 simulated people per question.
+1,000 simulated people per question. I also asked the model each question with
+no person attached, to see what the crowd adds.
 
-| Check | Result |
-| --- | --- |
-| Was nxk's most popular answer the survey's, or the one next to it? | 22 of 26 questions |
-| Did the biggest gaps between groups, like young and old, point the same way? | 12 of 16 |
-| Do the people answer differently from each other? | 26% pick a different top answer from the crowd |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/does-it-work-dark.webp">
+  <img src="assets/readme/does-it-work.webp" alt="nxk against 26 published survey questions. Leading answer exact or one step off: the model alone gets 21 of 26, 14 exact; nxk on PersonaGen 3.x gets 22 of 26, 16 exact. Biggest gaps between groups pointing the same way: the model alone has no groups to compare; nxk gets 12 of 16, 9 clearly. Average distance from the survey per answer: 14.0 points for the model alone, 9.7 for nxk. Results on PersonaGen 4.0 are still to come.">
+</picture>
 
-Read the results for direction, not decimals.
+| Check | Model alone | nxk |
+| --- | --- | --- |
+| Was the most popular answer the survey's, or the one next to it? | 21 of 26 questions | 22 of 26 questions |
+| Did the biggest gaps between groups, like young and old, point the same way? | No groups to compare | 12 of 16 |
+| How far was each answer from the survey, on average? | 14.0 points | 9.7 points |
+| Do the people answer differently from each other? | One answer for everyone | 26% pick a different top answer from the crowd |
+
+<!-- PersonaGen 4.0: when the 4.0 run is recorded, update this table and the
+numbers in assets/readme/src/figures.mjs, then run render.mjs. -->
+These results were recorded on PersonaGen 3.x. The PersonaGen 4.0 run is still
+to come. Read the results for direction, not decimals.
 [Charts and every comparison →](methodology.md)
 
 ## What you can use nxk for
@@ -162,7 +173,7 @@ PersonaGen does two things at the same time:
 It's pretty easy to create personas that do *one* of these things; it is much
 harder to do both at the same time.
 
-Each person comes with more than 200 details across 16 sections of life,
+Each person comes with about 230 details across 16 sections of life,
 including:
 
 | Part of someone's life | Examples |
@@ -177,7 +188,7 @@ including:
 
 [Open one actual PersonaGen profile →](examples/personagen.md)
 
-Around 170 fields can be filtered in both countries. nxk reads them from
+About 200 fields can be filtered in each country. nxk reads them from
 PersonaGen's live catalogue (cached, so it costs one call a release), finds
 values with search, and asks the API how rare an audience is before drawing it.
 A targeting task takes four or five small calls and no trial draws. The
