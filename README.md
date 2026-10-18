@@ -17,10 +17,13 @@ https://github.com/user-attachments/assets/b7409ffd-ae7b-4f51-830f-cda31fbf352b
 
 ---
 
-nxk is a skill for coding agents. Agents make lots of small choices that depend
-on people: a default, a price, a headline, an opening time. Usually they guess.
-nxk gives your agent a crowd to ask first. The crowd is a set of simulated
-people, not real ones.
+nxk is a skill for coding agents: the AI assistants that write and run code for
+you, such as Claude Code, Codex or Cursor. A skill is a set of instructions an
+agent can load to do one job well.
+
+Agents make lots of small choices that depend on people: a default, a price, a
+headline, an opening time. Usually they guess. nxk gives your agent a crowd to
+ask first. The crowd is a set of simulated people, not real ones.
 
 [PersonaGen](https://personagen.dev) gives each one a detailed profile, with a
 job, a home, and habits that fit together. Your agent sends each profile to a
