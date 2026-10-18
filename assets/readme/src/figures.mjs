@@ -1,4 +1,5 @@
-// What the README figures say. render.mjs draws them; change a number here and run it again.
+// What the README figures and the launch video say. render.mjs draws the figures and video.mjs the video; change a
+// number here and run them again.
 
 // The worked example in "How it works". It's hypothetical: the library and the numbers are made up.
 export const library = {
@@ -49,6 +50,13 @@ export const benchmark = {
   note: 'Recorded with Jev. Read the results for direction, not decimals.',
   questions: 26,
   gapsCompared: 16,
+  // The three checks, each with its key: two shades of hit and an outline for a miss.
+  checks: {
+    leading: { title: 'Is the leading answer the survey’s, or the one next to it?', key: ['Exact', 'One step off', 'Missed'] },
+    gaps: { title: 'Do the biggest gaps between groups point the same way?', key: ['Clearly', 'Faintly', 'The other way'], none: 'No gaps to compare: with no person attached, everyone gets the same answer' },
+    avgGap: { title: 'How far is each answer from the survey, on average?', key: 'Shorter is better', unit: 'points' },
+  },
+  toCome: 'Results to come',
   runs: [
     { label: 'Model alone', leading: { exact: 14, close: 7 }, gaps: null, avgGap: 14.0 },
     { label: 'nxk on PersonaGen 3.x', leading: { exact: 16, close: 6 }, gaps: { clearly: 9, faintly: 3 }, avgGap: 9.7 },

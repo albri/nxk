@@ -145,25 +145,26 @@ function units(parts, total) {
 }
 
 function doesItWork(t) {
-  const d = benchmark, max = 16;
-  const pending = '<span class="chip">Results to come</span>';
+  const d = benchmark, c = d.checks, max = 16;
+  const pending = `<span class="chip">${esc(d.toCome)}</span>`;
   const placeholder = (n) => `<div class="units">${'<i class="u p"></i>'.repeat(n)}</div>`;
   const key = (items) => `<span class="key">${items.map(([cls, text]) => `<span><i class="u ${cls}"></i>${text}</span>`).join('')}</span>`;
   const block = (title, legend, row) => `<section class="check"><h2><span>${title}</span>${legend}</h2><div class="rows">${d.runs.map((run) => `<div class="r${run.pending ? ' pending' : ''}"><span class="label">${esc(run.label)}</span>${row(run)}</div>`).join('')}</div></section>`;
 
-  const leading = block('Is the leading answer the survey’s, or the one next to it?', key([['a', 'Exact'], ['b', 'One step off'], ['c', 'Missed']]), (run) => run.pending
+  const swatches = (names) => key(names.map((name, i) => ['abc'[i], esc(name)]));
+  const leading = block(esc(c.leading.title), swatches(c.leading.key), (run) => run.pending
     ? `${placeholder(d.questions)}<span class="value">${pending}</span>`
     : `${units([['a', run.leading.exact], ['b', run.leading.close]], d.questions)}<span class="value num"><b>${run.leading.exact + run.leading.close} of ${d.questions}</b> · ${run.leading.exact} exact</span>`);
 
-  const gaps = block('Do the biggest gaps between groups point the same way?', key([['a', 'Clearly'], ['b', 'Faintly'], ['c', 'The other way']]), (run) => {
+  const gaps = block(esc(c.gaps.title), swatches(c.gaps.key), (run) => {
     if (run.pending) return `${placeholder(d.gapsCompared)}<span class="value">${pending}</span>`;
-    if (!run.gaps) return '<span class="none">No gaps to compare: with no person attached, everyone gets the same answer</span><span class="value">–</span>';
+    if (!run.gaps) return `<span class="none">${esc(c.gaps.none)}</span><span class="value">–</span>`;
     return `${units([['a', run.gaps.clearly], ['b', run.gaps.faintly]], d.gapsCompared)}<span class="value num"><b>${run.gaps.clearly + run.gaps.faintly} of ${d.gapsCompared}</b> · ${run.gaps.clearly} clearly</span>`;
   });
 
-  const off = block('How far is each answer from the survey, on average?', '<span class="key">Shorter is better</span>', (run) => run.pending
+  const off = block(esc(c.avgGap.title), `<span class="key">${esc(c.avgGap.key)}</span>`, (run) => run.pending
     ? `<div class="gauge"><i class="p"></i></div><span class="value">${pending}</span>`
-    : `<div class="gauge"><i style="width:${(run.avgGap / max) * 100}%"></i></div><span class="value"><b>${run.avgGap.toFixed(1)}</b> points</span>`);
+    : `<div class="gauge"><i style="width:${(run.avgGap / max) * 100}%"></i></div><span class="value"><b>${run.avgGap.toFixed(1)}</b> ${esc(c.avgGap.unit)}</span>`);
 
   return frame(t, `<header><h1>${esc(d.title)}</h1><p>${esc(d.lead)}</p></header><div class="checks">${leading}${gaps}${off}</div>`, d.note);
 }
