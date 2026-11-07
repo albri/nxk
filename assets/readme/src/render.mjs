@@ -179,7 +179,7 @@ function doesItWork(t) {
 function bannerFig() {
   const t = THEMES.pine, W = 600, H = 420;
   const { dots } = markField({
-    w: W, h: H, pitch: 12, fadeLeft: 0.55, fadeBottom: 0.3, markSize: 292, markCentre: [W - 208, 176],
+    w: W, h: H, pitch: 12, fadeLeft: 0.55, markSize: 292, markCentre: [W - 208, 206],
     colours: { bg: t.bg, fall: t.nxB, cross: t.nxX, lit: t.nxLit },
   });
   const circles = dots.map((d) => `<circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${d.r.toFixed(2)}" fill="${d.fill}"/>`).join('');
@@ -192,7 +192,6 @@ function bannerFig() {
       <p>${esc(d.lead)}</p>
       <code>${esc(d.install)}</code>
     </div>
-    <p class="cap">${esc(d.caption)}</p>
   </div>`;
 }
 
@@ -274,7 +273,6 @@ b{font-weight:600;color:var(--ink)}
 .banner code{display:inline-block;margin-top:24px;padding:11px 14px;border-radius:10px;background:rgb(255 255 255 / .07);border:1px solid rgb(255 255 255 / .14);font:400 14.5px/1 var(--mono);color:#e7f6ef}
 .banner .field{position:absolute;right:0;top:0}
 .banner .copy{position:relative}
-.banner .cap{position:absolute;right:48px;bottom:30px;max-width:300px;margin:0;font-size:13px;line-height:1.4;color:rgb(231 246 239 / .62);text-align:right}
 `;
 
 function fonts() {

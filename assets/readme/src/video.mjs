@@ -78,7 +78,7 @@ const lockup = (t, size) => `<span class="lock" style="font-size:${size}px;color
 function openScene() {
   const t = PINE, out = exit('open'), fw = 1180, fh = H;
   const { dots, r0 } = markField({
-    w: fw, h: fh, pitch: 22, fadeLeft: 0.5, fadeBottom: 0.24, markSize: 610, markCentre: [fw - 430, 470],
+    w: fw, h: fh, pitch: 22, fadeLeft: 0.5, markSize: 610, markCentre: [fw - 430, 470],
     colours: { bg: t.bg, fall: t.b, cross: t.x, lit: t.lit },
   });
   const cx = fw - 430, cy = 470, far = Math.hypot(fw, fh);
@@ -95,7 +95,6 @@ function openScene() {
     <div class="abs" style="left:${M}px;top:104px">${lockup(t, 46)}</div>
     <h1 class="abs o-h1" style="left:${M}px;top:348px">${banner.title.map(esc).join('<br>')}</h1>
     <p class="abs o-lead" style="left:${M}px;top:618px;width:760px" ${fade(at('open', 1.5))}>${esc(banner.lead)}</p>
-    <p class="abs o-cap" style="right:${M}px;bottom:96px;width:520px;text-align:right" ${fade(at('open', 2.3), Infinity, 0)}>${esc(banner.caption)}</p>
   </section>`;
 }
 
@@ -288,7 +287,6 @@ p{text-wrap:pretty}
 .pine{color:#fff}
 .o-h1{font-size:118px;line-height:1.02;letter-spacing:-0.034em}
 .o-lead{font-size:36px;line-height:1.5;color:rgb(231 246 239 / .8)}
-.o-cap{font-size:28px;line-height:1.4;color:rgb(231 246 239 / .62);text-align:right}
 
 .i-h1{font-size:84px;line-height:1.08;letter-spacing:-0.03em;color:var(--ink)}
 .i-lead{font-size:40px;line-height:1.45;color:var(--ink2)}
