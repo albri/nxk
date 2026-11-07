@@ -68,5 +68,5 @@ export const banner = {
   title: ['Give your agent', 'a crowd.'],
   lead: 'A skill for coding agents. It asks simulated people, drawn from real statistics, and shows who answers differently.',
   install: 'npx skills add albri/nxk',
-  caption: 'Each dot is a person. As lives change, two answers cross.',
+  caption: 'Each dot is a person. The mark is two answers crossing as lives change.',
 };

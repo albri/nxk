@@ -14,6 +14,7 @@ import { createRequire } from 'node:module';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { markField } from './field.mjs';
 import { answers, banner, benchmark, library } from './figures.mjs';
 
 const OUT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -86,9 +87,13 @@ function crossover(t, rows) {
 }
 
 function crowd(t, n, overall) {
-  // One dot a person, then the crowd's answer, weighted by each person's chance of visiting.
-  const cols = 20, pitch = 8.9, r = 3.3, w = cols * pitch;
-  const dots = Array.from({ length: n }, (_, i) => `<circle cx="${(i % cols) * pitch + pitch / 2}" cy="${Math.floor(i / cols) * pitch + pitch / 2}" r="${r}" fill="${t.crowd}"/>`).join('');
+  // One dot a person, coloured by their answer, then the crowd's answer, weighted by each person's chance of visiting.
+  const cols = 20, pitch = 8.9, r = 3.3, w = cols * pitch, morning = Math.round((n * overall.morning) / 100);
+  const dots = Array.from({ length: n }, (_, i) => {
+    // Fill column by column, so the morning answers sit on the left above their bar.
+    const c = Math.floor(i / Math.ceil(n / cols)), row = i % Math.ceil(n / cols);
+    return `<circle cx="${c * pitch + pitch / 2}" cy="${row * pitch + pitch / 2}" r="${r}" fill="${i < morning ? t.mid : t.hero}"/>`;
+  }).join('');
   const rows = Math.ceil(n / cols);
   const split = (w * overall.morning) / 100;
   return `<div class="crowd">
@@ -128,7 +133,7 @@ function everyAnswer(t) {
         <div class="row"><span>${esc(o)}</span><span class="num">${p.p[i]}%</span></div>
         <div class="track"><div class="fill" style="width:${p.p[i]}%"></div></div>
       </div>`).join('');
-    return `<section class="person"><h2>${esc(p.name)}</h2><p class="role">${esc(p.role)}</p>
+    return `<section class="person"><div class="who"><span class="av" aria-hidden="true">${esc(p.name[0])}</span><div><h2>${esc(p.name)}</h2><p class="role">${esc(p.role)}</p></div></div>
       <p class="facts">${p.facts.map(esc).join(' · ')}</p><div class="bars">${bars}</div></section>`;
   }).join('');
   return frame(t, `<header><h1>${esc(d.title)}</h1><p>Three people from the same crowd, asked: “${esc(d.question)}” (${esc(d.source)})</p></header>
@@ -169,39 +174,25 @@ function doesItWork(t) {
   return frame(t, `<header><h1>${esc(d.title)}</h1><p>${esc(d.lead)}</p></header><div class="checks">${leading}${gaps}${off}</div>`, d.note);
 }
 
-// ---------- Banner: the mark made of people. Two answers cross as lives change ----------
-
-function rng(seed) {
-  return () => {
-    seed = (seed + 0x6d2b79f5) | 0;
-    let x = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
-    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
-  };
-}
+// ---------- Banner: a crowd, one dot a person, with the mark lit up in it ----------
 
 function bannerFig() {
-  const t = THEMES.pine, r = rng(7), W = 360, H = 286, n = 60;
-  const gauss = () => Math.sqrt(-2 * Math.log(r() || 1e-9)) * Math.cos(2 * Math.PI * r());
-  const S = (v) => 1 / (1 + Math.exp(-8.5 * (v - 0.5)));
-  const clamp = (v) => Math.min(0.985, Math.max(0.015, v));
-  const px = (v) => 14 + v * (W - 28), py = (p) => 14 + (1 - p) * (H - 28);
-  const mix = (a, b, k) => '#' + [0, 2, 4].map((o) => Math.round(parseInt(a.slice(1 + o, 3 + o), 16) * (1 - k) + parseInt(b.slice(1 + o, 3 + o), 16) * k).toString(16).padStart(2, '0')).join('');
-  const morning = [], evening = [];
-  for (let i = 0; i < n; i++) {
-    const v = (i + 0.5 + (r() - 0.5) * 0.9) / n;
-    const e = clamp(0.04 + 0.92 * S(v) + 0.045 * gauss());
-    const m = clamp(0.04 + 0.92 * (1 - S(v)) + 0.045 * gauss());
-    morning.push(`<circle cx="${px(v + (r() - 0.5) * 0.012).toFixed(1)}" cy="${py(m).toFixed(1)}" r="4.4" fill="${t.nxB}"/>`);
-    evening.push(`<circle cx="${px(v).toFixed(1)}" cy="${py(e).toFixed(1)}" r="4.4" fill="${mix(t.nxLit[1], t.nxLit[0], e)}"/>`);
-  }
+  const t = THEMES.pine, W = 600, H = 420;
+  const { dots } = markField({
+    w: W, h: H, pitch: 12, fadeLeft: 0.55, fadeBottom: 0.3, markSize: 292, markCentre: [W - 208, 176],
+    colours: { bg: t.bg, fall: t.nxB, cross: t.nxX, lit: t.nxLit },
+  });
+  const circles = dots.map((d) => `<circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${d.r.toFixed(2)}" fill="${d.fill}"/>`).join('');
   const d = banner;
   return `<div class="banner" style="background:${t.bg}">
-    ${lockup(t, 28)}
-    <h1>${d.title.map(esc).join('<br>')}</h1>
-    <p>${esc(d.lead)}</p>
-    <code>${esc(d.install)}</code>
-    <figure class="dots"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true">${morning.join('')}${evening.join('')}</svg><figcaption>${esc(d.caption)}</figcaption></figure>
+    <svg class="field" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true">${circles}</svg>
+    <div class="copy">
+      ${lockup(t, 28)}
+      <h1>${d.title.map(esc).join('<br>')}</h1>
+      <p>${esc(d.lead)}</p>
+      <code>${esc(d.install)}</code>
+    </div>
+    <p class="cap">${esc(d.caption)}</p>
   </div>`;
 }
 
@@ -244,9 +235,11 @@ b{font-weight:600;color:var(--ink)}
 
 .people{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
 .person{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+.person .who{display:flex;gap:12px;align-items:flex-start}
+.person .av{flex:none;display:grid;place-items:center;width:34px;height:34px;margin-top:1px;border-radius:50%;background:var(--hero);color:var(--card);font-size:15px;font-weight:650}
 .person h2{font-size:17px;line-height:1.25;font-weight:600;letter-spacing:-0.015em}
 .person .role{margin-top:2px;font-size:14px;color:var(--ink2)}
-.person .facts{margin-top:8px;font-size:13px;line-height:1.45;color:var(--ink3);min-height:38px}
+.person .facts{margin-top:10px;font-size:13px;line-height:1.45;color:var(--ink3);min-height:38px}
 .bars{display:grid;gap:11px;margin-top:14px;padding-top:15px;border-top:1px solid var(--line)}
 .bar .row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink2)}
 .bar.top .row{color:var(--ink);font-weight:600}
@@ -279,8 +272,9 @@ b{font-weight:600;color:var(--ink)}
 .banner h1{margin-top:38px;max-width:440px;font-size:54px;line-height:1.02;font-weight:650;letter-spacing:-0.034em}
 .banner p{margin-top:18px;max-width:440px;font-size:16.5px;line-height:1.5;color:rgb(231 246 239 / .8)}
 .banner code{display:inline-block;margin-top:24px;padding:11px 14px;border-radius:10px;background:rgb(255 255 255 / .07);border:1px solid rgb(255 255 255 / .14);font:400 14.5px/1 var(--mono);color:#e7f6ef}
-.banner .dots{position:absolute;right:46px;top:44px;margin:0}
-.banner figcaption{margin-top:10px;font-size:13px;line-height:1.4;color:rgb(231 246 239 / .62);text-align:right}
+.banner .field{position:absolute;right:0;top:0}
+.banner .copy{position:relative}
+.banner .cap{position:absolute;right:48px;bottom:30px;max-width:300px;margin:0;font-size:13px;line-height:1.4;color:rgb(231 246 239 / .62);text-align:right}
 `;
 
 function fonts() {

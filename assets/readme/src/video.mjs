@@ -16,6 +16,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { markField } from './field.mjs';
 import { banner, benchmark, library } from './figures.mjs';
 
 const ASSETS = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -72,48 +73,29 @@ function mark(t, size, draw) {
 // The family lockup: the mark at 1.3 times the name, a third of an em apart.
 const lockup = (t, size) => `<span class="lock" style="font-size:${size}px;color:${t.word}">${mark(t, size * 1.3)}<span>nxk</span></span>`;
 
-// ---------- opening: the banner, coming alive. Each person's two answers start level, then cross ----------
-
-function rng(seed) {
-  return () => {
-    seed = (seed + 0x6d2b79f5) | 0;
-    let x = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
-    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-// The banner's 60 people, drawn exactly as render.mjs draws them (same seed, same order of draws).
-function bannerPeople() {
-  const r = rng(7), n = 60, out = [];
-  const gauss = () => Math.sqrt(-2 * Math.log(r() || 1e-9)) * Math.cos(2 * Math.PI * r());
-  const S = (v) => 1 / (1 + Math.exp(-8.5 * (v - 0.5)));
-  const clamp = (v) => Math.min(0.985, Math.max(0.015, v));
-  for (let i = 0; i < n; i++) {
-    const v = (i + 0.5 + (r() - 0.5) * 0.9) / n;
-    const e = clamp(0.04 + 0.92 * S(v) + 0.045 * gauss());
-    const m = clamp(0.04 + 0.92 * (1 - S(v)) + 0.045 * gauss());
-    out.push({ v, e, m, vm: v + (r() - 0.5) * 0.012 });
-  }
-  return out;
-}
+// ---------- opening: the banner, coming alive. The crowd appears, then the mark lights up in it, stroke by stroke ----------
 
 function openScene() {
-  const t = PINE, out = exit('open'), k = 760 / 360, fw = 760, fh = Math.round(286 * k), fx = W - M - fw, fy = 216;
-  const px = (v) => 14 * k + v * (fw - 28 * k), py = (p) => 14 * k + (1 - p) * (fh - 28 * k);
-  const people = bannerPeople(), last = people.length - 1, y0 = n2(py(0.5));
-  const dot = (i, v, p, fill) => {
-    const show = at('open', 0.3) + (i / last) * MOTION.WAVE, move = at('open', 0.95) + (i / last) * MOTION.WAVE;
-    return `<circle cx="${n2(px(v))}" cy="${y0}" r="${n2(4.4 * k)}" fill="${fill}" opacity="0" data-od="${y0},${n2(py(p))},${n2(show)},${n2(move)}"/>`;
-  };
-  const morning = people.map((p, i) => dot(i, p.vm, p.m, t.b)).join('');
-  const evening = people.map((p, i) => dot(i, p.v, p.e, mix(t.lit[1], t.lit[0], p.e))).join('');
+  const t = PINE, out = exit('open'), fw = 1180, fh = H;
+  const { dots, r0 } = markField({
+    w: fw, h: fh, pitch: 22, fadeLeft: 0.5, fadeBottom: 0.24, markSize: 610, markCentre: [fw - 430, 470],
+    colours: { bg: t.bg, fall: t.b, cross: t.x, lit: t.lit },
+  });
+  const cx = fw - 430, cy = 470, far = Math.hypot(fw, fh);
+  // The crowd ripples out from the mark's centre; then the rising stroke lights, then the falling one crosses it.
+  const crowd = dots.map((d) => {
+    const a = at('open', 0.1) + (Math.hypot(d.x - cx, d.y - cy) / far) * 0.7;
+    return `<circle cx="${n2(d.x)}" cy="${n2(d.y)}" r="${n2(r0)}" fill="${d.crowd}" opacity="0" data-wave="${n2(a)},0,1"/>`;
+  }).join('');
+  const startOf = (d) => d.stroke === 'rise' ? 0.75 + d.along * 1.1 : d.stroke === 'fall' ? 1.25 + d.along * 1.1 : 1.8;
+  const lit = dots.filter((d) => d.stroke).map((d) =>
+    `<circle cx="${n2(d.x)}" cy="${n2(d.y)}" r="${n2(d.r)}" fill="${d.fill}" opacity="0" data-wave="${n2(at('open', startOf(d)))},0,1"/>`).join('');
   return `<section class="scene pine" ${fade(-1, out, 0)}>
+    <svg class="abs" style="right:0;top:0" width="${fw}" height="${fh}" aria-hidden="true">${crowd}${lit}</svg>
     <div class="abs" style="left:${M}px;top:104px">${lockup(t, 46)}</div>
     <h1 class="abs o-h1" style="left:${M}px;top:348px">${banner.title.map(esc).join('<br>')}</h1>
     <p class="abs o-lead" style="left:${M}px;top:618px;width:760px" ${fade(at('open', 1.5))}>${esc(banner.lead)}</p>
-    <svg class="abs" style="left:${fx}px;top:${fy}px;overflow:visible" width="${fw}" height="${fh}" aria-hidden="true">${morning}${evening}</svg>
-    <p class="abs o-cap" style="right:${M}px;top:${fy + fh + 22}px" ${fade(at('open', 2.3), Infinity, 0)}>${esc(banner.caption)}</p>
+    <p class="abs o-cap" style="right:${M}px;bottom:96px;width:520px;text-align:right" ${fade(at('open', 2.3), Infinity, 0)}>${esc(banner.caption)}</p>
   </section>`;
 }
 

@@ -176,7 +176,7 @@ PersonaGen does two things at the same time:
 It's pretty easy to create personas that do *one* of these things; it is much
 harder to do both at the same time.
 
-Each person comes with about 230 details across 16 sections of life,
+Each person comes with more than 230 details across 16 sections of life,
 including:
 
 | Part of someone's life | Examples |
