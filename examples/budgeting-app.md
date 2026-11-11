@@ -15,6 +15,13 @@ paywall → make that feature free**
 
 Tally isn't real and the people are simulated. Every number is from a real run.
 
+> The run was recorded on PersonaGen 3.x, where "high financial pressure" was
+> a profile segment. nxk now targets PersonaGen 4.0, which has no such segment:
+> the nearest audience is `managing_financially: ["just_about_getting_by",
+> "finding_it_difficult"]` (about 36% of UK adults), sized with
+> `personas/validate` before drawing. The data file keeps the 3.x filters as
+> they were run.
+
 ## How it got there
 
 **Its first question was useless.**

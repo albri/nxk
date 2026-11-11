@@ -1,5 +1,5 @@
 {
-  "about": "nxk dogfood run: a made-up budgeting app called Tally. Values are average model support (%) from Jev (jev-latest) over PersonaGen UK profiles. Option order was rotated between people.",
+  "about": "nxk dogfood run: a made-up budgeting app called Tally. Values are average model support (%) from Jev (jev-latest) over PersonaGen UK profiles. Option order was rotated between people. Recorded on PersonaGen 3.x; the filters below are 3.x filters. See examples/budgeting-app.md for the 4.0 equivalent.",
   "run_date": "2026-09-28",
   "answering_model": "jev-latest",
   "draws": {

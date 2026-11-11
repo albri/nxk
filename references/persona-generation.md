@@ -1,123 +1,202 @@
 # Drawing people and asking questions
 
+nxk targets **PersonaGen 4.0** (API and persona schema `4.0.0`). Every response
+and the catalogue name the version they come from. If they report another
+major version, stop and tell the user: filter names, value codes and payload
+paths differ between major versions.
+
 ## Connections
 
 | Service | Request | Authentication |
 | --- | --- | --- |
-| PersonaGen | `POST https://api.personagen.dev/{uk\|us}/personas` | `X-API-Key: <key>` |
+| PersonaGen | `https://api.personagen.dev/{uk\|us}/...` | `X-API-Key: <key>`, optional |
 | Jev | `POST https://api.typesafe.ai/v1/systemone` | `Authorization: Bearer <key>` |
 
 Both take `Content-Type: application/json`. Use the credentials supplied by the
-user's environment; their storage and variable names are up to the user.
-PersonaGen also accepts `X-Demo: true` without a key, limited to 25 requests
-per hour per IP. This covers PersonaGen only; Jev needs its own key and credit.
-A supplied local PersonaGen instance uses its own URL and development key.
+user's environment; their storage and variable names are up to the user. A
+supplied local PersonaGen instance uses its own URL and development key. This
+covers PersonaGen only; Jev needs its own key and credit.
+
+Without a key, PersonaGen allows 10 personas per request and 25 persona
+requests an hour per IP, which is enough to look but not to run a study. A free
+key (personagen.dev) raises a request to 1,000 personas. Discovery and
+validation do not spend the persona allowance; see
+[Keep calls bounded](#keep-calls-bounded) for their limits. Send
+`Accept-Encoding: gzip`: answers of 1 KB or more come back compressed.
 
 Current contracts: [PersonaGen](https://personagen.dev/docs/getting-started),
-[TypeSafe HTTP API](https://docs.typesafe.ai/api.md). Consult the TypeSafe docs
-when changing the evaluator integration; no separate installed skill is required.
+[TypeSafe HTTP API](https://docs.typesafe.ai/api.md). The API describes itself:
+`GET /llms.txt` is a one-page guide and `GET /openapi.json` the full contract.
+Consult the TypeSafe docs when changing the evaluator integration; no separate
+installed skill is required.
+
+## Target an audience
+
+Five steps, in this order. A precise audience costs four to five small calls
+and no probe draws.
+
+1. **Discover the fields once.** The catalogue lists every field of a persona:
+   its section, meaning, who has a value, how to filter it, and each value with
+   its share of the population. It is static for a release and carries an
+   `ETag`, so keep it. The whole Markdown form is about 90 KB, far more than a
+   task needs, so read it in parts:
+
+   ```bash
+   node scripts/catalogue.mjs uk                      # sections and field names, about 1.5k tokens
+   node scripts/catalogue.mjs uk --group work         # one section as a table
+   node scripts/catalogue.mjs uk --grep tenure        # field rows mentioning a word
+   node scripts/catalogue.mjs uk --field home_tenure  # every value of one field
+   ```
+
+   The script caches under the system temp directory (`NXK_CACHE_DIR` to move
+   it), uses a copy under a day old with no request, and otherwise revalidates
+   with the `ETag` so an unchanged catalogue costs a 304 with no body. Set
+   `PERSONAGEN_URL` for a local API. Without the script, request
+   `GET /{country}/catalogue?format=md` yourself, send `If-None-Match` with the
+   saved `ETag`, and cache the result. `?groups=work` or
+   `?fields=home_tenure,region` returns only those parts. Never fetch it per
+   question.
+
+2. **Find values by their words.** `GET /{country}/search?q=nurse&limit=8`
+   searches every filterable field's values and labels at once and returns
+   `{field, value, label, share}`. Add `fields=current_occupation,current_occupation_group`
+   to stay inside one field. Search is broad and ranks whole words first:
+   "nurse" also finds nursery teachers and veterinary nurses. Check the label
+   against the person you want, and prefer the grouping that matches the
+   audience: an occupation group (UK `223`, Nursing professionals) covers many
+   detailed occupations, a detailed code (`2232`) one. A few fields exist in one
+   country only, and a search or filter on a field the country lacks is refused.
+   A share of "<1%" is normal for a detailed occupation.
+
+3. **Validate the filter set once.** `POST /{country}/personas/validate` with
+   the body you intend to draw with:
+
+   ```json
+   {
+     "count": 100,
+     "seed": "nurse-renters-1",
+     "filters": {
+       "age_years": { "min": 25, "max": 44 },
+       "current_occupation_group": ["223"],
+       "home_tenure": ["rented_from_a_private_landlord_or_letting_agency"]
+     }
+   }
+   ```
+
+   A 200 means the filters are accepted and no one was drawn. It returns
+   `estimated_share` (the share of all adults, rounded: "about 36%",
+   "about 0.8%", or "<0.01%" when it is too small to size), `range` (a 95%
+   interval), `basis` with `basis_detail` (how the share was estimated) and,
+   usually, `narrowest_filter`: the filter whose removal raises the share most,
+   with the share without it. Use it this way:
+
+   - Read the share as how rare the audience is, not as the chance a draw
+     succeeds. Every drawn person matches the filters, so a rare audience still
+     fills a draw of 100. What rarity costs is breadth: a very narrow audience
+     is a few people in thousands, so their answers describe a thin slice of
+     the country; say so.
+   - Under about 0.1% is a poor audience to draw from: loosen
+     `narrowest_filter` first and validate the new set. Validate each filter
+     set once; the answer for the same set does not change.
+   - A 200 accepts the filters; it does not promise people. When
+     `basis_detail` says no one in the reference sample matched, the audience is
+     either rare or impossible, and only a draw can tell which. This is the one
+     case for a probe: draw 10 people once to find out.
+   - A 400 (`invalid_filters`) lists each wrong field in `issues`. A 422
+     (`UNSATISFIABLE_FILTERS`) means no person can meet the filters together:
+     `details.conflicting_dimensions` is the smallest set that conflict, and
+     `details.drop_one_to_match`, when present, the filters whose removal alone
+     would give a match. Other 422s are `too_many_filters` (more than 10
+     fields) and `filters_too_rare_to_draw`. Change the audience on purpose.
+     Do not retry a refusal unchanged and do not drop a constraint to fill the
+     sample.
+
+4. **Draw.** `POST /{country}/personas` with the validated body. Next section.
+
+5. **Keep the draw** with its seed, filters, `generator_version` and the
+   sections you asked for, so a later comparison reuses the same people.
+
+Filter rules. A filter key is the field's bare name (`current_occupation`
+filters `work.current_occupation`). A categorical or coded field takes a list of
+its codes; a range field takes `{"min": n, "max": n}` with either bound optional.
+Values within a field are OR; different fields are AND. A list field such as
+`long_term_health_conditions` matches a person who has at least one of the
+listed values. A request can name at most 10 fields. Fields marked "not
+filterable" in the catalogue, such as `interests` and `job_title`, cannot be
+sent; filter those locally and draw extra. See [filters.md](filters.md) for how
+the catalogue maps to the groups that matter for common questions.
 
 ## Draw
 
 ```json
 {
   "count": 100,
-  "seed": "my-decision-1",
-  "filters": {
-    "age_group": ["25-34", "35-44"],
-    "pet_type_combo": ["dog_only"]
-  }
+  "seed": "nurse-renters-1",
+  "filters": { "...": "as validated" },
+  "sections": ["name_and_summary", "identity", "work", "money", "household_and_family", "shopping_and_decisions"]
 }
 ```
 
-Omit `filters` for a broad adult draw. Values within one field are OR;
-different fields are AND. Omit unused fields rather than sending empty values.
-Batch size is 1–1,000. The response is `{ success: true, data: [...], metadata }`;
-`data` is the array, not `data.personas`. The singular `/persona` route returns
-one object in `data`.
+- `count` is 1 to 1,000 (10 without a key). Omit `filters` for a broad adult
+  draw. Omit `seed` and the API picks one and reports it in `metadata`.
+- The response is `{ success: true, data: [...], metadata }`; `data` is the
+  array. `metadata.personas` lists each person's own seed.
+- **Pages.** Person `i` of a seeded draw is drawn from `<seed>_<start + i>`. A
+  request with `start: 100, count: 100` returns the same people as positions
+  101 to 200 of one request for 200. Draw 50 first and add `start: 50` to
+  extend the same panel; never redraw people you hold. `start` needs a `seed`.
+  Persist both.
+- **Streaming.** `Accept: application/x-ndjson` returns one
+  `{ "seed": ..., "data": { ...sections } }` line per person as it is drawn and
+  a final `{ "metadata": ... }` line. Prefer it for 200 or more people so each
+  person can be saved, or sent to the evaluator, as it arrives; a failure after
+  the stream starts ends it with an `{ "error": ... }` line.
+- **Sections.** `sections` cuts each person to the named sections and saves
+  bytes and tokens; `exclude_sections` keeps every section but the named ones
+  (send one or the other). The sections are `name_and_summary`, `identity`,
+  `origin_and_language`, `place`, `household_and_family`, `home_and_travel`,
+  `education`, `work`, `money`, `health`, `body_and_appearance`,
+  `digital_and_media`, `shopping_and_decisions`, `beliefs_and_politics`,
+  `personality_and_skills` and `interests`. Ask for what the evaluation or the
+  grouping needs. For an answering model, send the full life without
+  `body_and_appearance` (`"exclude_sections": ["body_and_appearance"]`;
+  appearance is about a quarter of the payload and rarely affects an answer),
+  or choose the sections the decision depends on.
+  Always include `name_and_summary` when evaluating, for the first name.
+- **One person.** `GET /{country}/persona?seed=abc&sections=identity` is a
+  seeded persona with an `ETag`; repeat it with `If-None-Match` and a 304 costs
+  nothing. `POST /{country}/persona` takes the same body without `count`.
+- **Shapes.** A section is an object of flat, uniquely named fields. A coded
+  field (occupation, industry, local area) is `{ "code", "title" }` and is
+  filtered by its code; a field outside the person's universe is a named value
+  such as `not_in_employment`, or `null` for a number. `interests` holds
+  `[{ "family", "specific", "intensity" }]` entries (casual, regular or
+  committed); `interest_families` lists the person's main interest areas and
+  `interest_count` counts them; `interest_participation` lists every area they
+  took part in over the last 12 months.
 
-Verify the returned count and relevant emitted fields. A narrow combination
-can be unsupported or exhaust the generator's attempts; fix the requested
-combination rather than retrying it unchanged. Do not silently drop a
-constraint to fill the sample.
+Verify the returned count and the fields the audience depends on, including that
+related fields agree (an occupation title with its major group and industry); a
+mismatch is a finding to report, not something to repair in the sample. Save the draw
+and its metadata. A seed, country, filters, sections and `generator_version`
+repeat the same people; a new generator version may change them, so reuse saved
+profiles for exact comparisons. For several independent draws, change the seed.
 
-Save the draw and its metadata. Within the same generator contract, seed,
-country and filters repeat the people. Changing the generator may change the
-draw, so reuse saved profiles for exact comparisons. When splitting a large
-draw into batches, give each batch a different seed to avoid duplicates.
-
-### Find the right filters
-
-Call `GET /{country}/capabilities` before you choose filters. The response
-contains `filter_catalogue`, which lists the public filter fields for that
-country. The fields are grouped for reading, and each field has its accepted
-values or a note that the values come from facet search.
-
-If the response has no `filter_catalogue`, the API is out of date. Use
-[filters.md](filters.md) and tell the user that the API is out of date.
-
-[filters.md](filters.md) is a readable copy of the same catalogue. Use it when
-you work offline. If the file and the response disagree, use the response.
-
-Compare the contract versions in the response with the versions at the top of
-filters.md. If the versions changed, read the fields from the response. Report
-the version that you used.
-
-Probe a new filter combination with a small draw before a full batch.
-
-For occupations, call
-`GET /{country}/facets/occupations/search?q=<encoded phrase>&limit=5`.
-Read `data.results`, choose a relevant candidate and pass its `occupation_code`
-or `canonical_role` as a structured filter. Search is broad: "product manager"
-can return manufacturing managers first. Check the title and domain fit; rank
-alone is not a match. Choose a plausible candidate and pass its code or
-canonical role as a structured filter.
-
-For current professionals, combine a suitable employment state with
-`career_context_scope: ["current_role"]`. A retired person can still have a
-valid occupational background. Verify `work.occupation_code`,
-`work.occupation_title` and `work.career_context.scope` in the returned people.
-If purchase authority is present, it describes prior involvement in a product
-area; it does not set the budget or decision authority for a hypothetical
-choice. Put situation-specific constraints in the survey context.
-
-Useful path differences:
-
-| Filter | Emitted field |
-| --- | --- |
-| `location` | `origin.region` |
-| `homeownership_status` | `household.housing_tenure` |
-| `occupational_background` | `work.occupation_domain` |
-| `income_source` | `economic.primary_personal_income_source` |
-| `career_seniority`, `decision_role`, `company_size_band` | `work.career_context.*` |
-| `career_context_scope` | `work.career_context.scope` |
-| `age_group` | Derive from `identity.age` |
-| `number_of_children` | `household.number_of_children` is numeric; map to the requested band |
-| `pet_type_combo` | Derive the combination from `behavior.pet_types` |
-
-Most other fields are in the matching `household`, `economic`, `behavior`,
-`decisioning` or `work` group. Inspect one record before writing field access.
-
-Always apply the supported server-side filters first. Add client-side filtering
-only for extra criteria the API cannot express, such as a particular interest.
-Reuse saved profiles where possible. Start with a small filtered draw and count
-how many qualify before requesting more. Use that retention rate to estimate
-the total draw needed, check `metadata.usage`, and set a modest cap on further
-generation. Keep both drawn and retained counts.
-
-For example, if 20 of 100 drawn profiles qualify, roughly 500 draws might yield
-a group of 100. If only one qualifies, do not automatically scale up to 10,000.
-Explain the limit and offer a smaller sample or broader conditions. Never
-burn through a user's 100,000-persona monthly allowance to retain 100 people.
+Apply server-side filters first and filter locally only on fields the API
+cannot filter. For the local part, draw more than you need and keep both the
+drawn and the retained counts; check `metadata.usage`; set a modest cap on
+further drawing. If one in twenty qualifies, 100 retained people need about
+2,000 drawn, which is about as far as it is worth going. If far fewer qualify,
+stop and offer a broader audience.
 
 ## Evaluate
 
 This JavaScript builds one Jev request from a saved persona. It uses the same
-tested public-field projection as the benchmark, keeping ordinary profile facts
-while limiting work context to public career and employer fields. `persona` is
-one saved `data` object from a single or batch response. `jevKey` is the
-credential supplied by the environment. Substitute the situation and options
-for the user's decision.
+tested projection as the benchmark, which keeps the person's life and drops the
+appearance section and the surname. `persona` is one saved element of `data`
+from a batch response (or the `data` of a single-persona response, or one
+`data` of a stream line). `jevKey` is the credential supplied by the
+environment. Substitute the situation and options for the user's decision.
 
 ```js
 import { buildPersonaRequest } from "../benchmarks/public-persona.mjs";
@@ -159,15 +238,26 @@ if (Math.abs(total - 1) > 0.03) throw new Error("Invalid probability total");
 // Save the complete response alongside a stable ID for this saved profile.
 ```
 
+The body puts the person in `state.respondent` (`firstName` and `profile`), the
+situation in `state.survey.context`, and the question and its options, in the
+order shown, in `state.survey.questions.q`. `questions.q` is what Jev answers:
+its `type`, the `instructions` that point at those state paths, and one
+`criteria` entry per option.
+
 Jev tends to make people keener on new technology than surveys find. When
 asking about adopting something new, put its real cost, effort and risk in the
 situation.
 
-Keep the full profile rather than reducing it to `description.short`. The helper
-excludes appearance and request metadata and copies only the public person shape.
+Keep the full life rather than reducing it to `name_and_summary.summary`. The
+helper sends the person's first name and every saved section except
+`body_and_appearance`, which is the 4.0 payload as the API returned it, with
+the surname taken out of the name and the summary. Draw with `sections` to save
+bytes; the helper copes with whatever sections you kept (it needs
+`name_and_summary.first_name`).
 Set `country` to the draw's country. Keep full option text unique and preserve
-the mapping back to your own IDs in code. For each question, update the state
-path in the instruction. For a Score,
+the mapping back to your own IDs in code. For each extra question, add it under
+`state.survey.questions` and `questions` with its own key, and point its
+instruction at that key. For a Score,
 ask for the rating and give concrete ordered levels. See
 [Score](https://docs.typesafe.ai/primitives/score.md)
 and [Noul](https://docs.typesafe.ai/primitives/noul.md) for their request shapes.
@@ -205,7 +295,8 @@ distribution, not accuracy against real people.
 
 - Check a few contrasting full profiles before completing the batch. Inspect
   the full probability sets as well as valid JSON; retain those profiles in the
-  sample. Keep any invented constraint probes outside the audience totals.
+  sample. If you add made-up test people to check a constraint, leave them out
+  of the totals.
   Cache successful answers and resume only missing ones.
 - Use bounded concurrency, for example eight calls at a time, and timeouts.
 - Stop the batch on authentication, billing or monthly quota errors. Report
@@ -213,11 +304,20 @@ distribution, not accuracy against real people.
 - For temporary rate limits or overload, honour `Retry-After` when present,
   otherwise back off. Keep retries bounded and report any incomplete sample.
 
-Default PersonaGen key allowances are 1,000 discovery calls and 100,000
-personas per UTC calendar month, separately metered. Key bursts allow 120
-tokens/minute: one per request plus one per 100 personas. The IP limit is 600
-requests/minute. The response's `metadata.usage` is authoritative for that key.
-Free generation still spends persona allowance, so reuse draws.
+PersonaGen meters three things apart, and `metadata.usage` in each response is
+authoritative:
+
+| Spent by | With a key | Without a key |
+| --- | --- | --- |
+| Drawing (`personas`, `persona`) | 100,000 personas a month; a request costs one burst token plus one per 100 personas, 120 tokens a minute | 10 personas a request, 25 requests an hour per IP |
+| Validating (`personas/validate`) | 1,000 a day | 30 an hour per IP |
+| Discovery (`catalogue`, `search`) | 1,000 a month | a per-minute burst limit only |
+
+Cached catalogue reads, one validation per filter set and paged draws keep
+well inside these. A 422 still counts as a validate call; a 400 (a wrong field
+or value) does not, but read the field values before sending anyway. The IP
+limit across all routes is 600 requests a minute. Seeded draws are
+reproducible, so reuse them.
 
 Recorded Jev runs used roughly 2,900 profile tokens per person. At the rate
 used for those runs, one question cost about $0.00012 per person and twenty
@@ -233,6 +333,7 @@ point. Compare versions on the same saved profiles when asking a direct
 preference. For separate exposure to a framing treatment, assign people to
 different arms instead of showing both treatments together.
 
-Only explore further groups when the decision needs it. Apply the skill's
-question check before each new comparison. Recheck a consequential result
+Only explore further groups when the decision needs it. Before each new
+comparison, check the question again as SKILL.md's "Start small" does: a real
+action, a real cost for every option, and an answer that could change the work. Recheck a consequential result
 if the offer's price or meaning changes.
