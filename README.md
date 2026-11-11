@@ -2,7 +2,7 @@
   <img src="assets/readme/banner.webp" alt="nxk. Give your agent a crowd. A skill for coding agents: it asks simulated people, drawn from real statistics, and shows who answers differently. Install with npx skills add albri/nxk. Beside it, a crowd drawn as lines through age, household and work to an answer. Retired people who want mornings are picked out in green, and people in full-time work who want evenings in amber.">
 </h1>
 
-https://github.com/user-attachments/assets/b7409ffd-ae7b-4f51-830f-cda31fbf352b
+https://github.com/user-attachments/assets/90ca684f-6d54-4f6c-9a8d-d618fb82898b
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
