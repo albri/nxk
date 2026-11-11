@@ -2,30 +2,31 @@
 
 > Give your agent a crowd. Let it find the differences that matter.
 
-nxk is a skill for coding agents. It runs a decision through synthetic people,
-keeps each probability distribution, mines how responses shift across different
+nxk is a skill for coding agents. It runs a decision through simulated people,
+keeps each probability distribution, shows how answers change with people's
 lives, and uses the differences to decide what to ask or change next. Consumer
 products, services and everyday trade-offs are the easiest fit. Work questions
 need a specific role and suitable employment context.
 
-PersonaGen is free, with generous usage limits. The answering model is the only
-cost, on the user's own account. The recorded runs use Jev
+PersonaGen is free, up to 100,000 personas a month. The answering model is the
+only cost, on the user's own account. The recorded runs use Jev
 from TypeSafe, which is the recommended model for this workflow. A recorded
 batch used 100 profiles and two questions each in about five seconds, with an
 estimated Jev input cost of $0.013.
 
-Install with `npx skills add albri/nxk`. Give the agent access to an LLM or
-System One model such as Jev, and get a PersonaGen key at personagen.dev.
+Install with `npx skills add albri/nxk`. Give the agent access to a model that
+returns a probability for each option, such as Jev, and get a PersonaGen key at
+personagen.dev.
 Credential storage is the user's choice. Jev needs its own key and credit.
 
-- [SKILL.md](SKILL.md): read when using nxk; keep quick checks bounded.
+- [SKILL.md](SKILL.md): read when using nxk; a quick check is about 100 people
+  and one or two questions.
 - [references/persona-generation.md](references/persona-generation.md): read
-  before the first API call; endpoints, full-profile state, response shapes,
-  accounting, reuse and failure handling.
-- [references/filters.md](references/filters.md): a readable copy of the
-  complete 78 UK and 77 US filter surface. `GET /{country}/capabilities`
-  serves the same catalogue as `filter_catalogue`. If the file and the
-  response disagree, use the response.
+  before the first API call; the discover, search, validate, draw workflow,
+  paging, streaming, sections, response shapes, accounting and failure handling.
+- [references/filters.md](references/filters.md): how to read PersonaGen's live
+  catalogue and write a filter. The catalogue is the only complete list of
+  fields; `scripts/catalogue.mjs` reads it with a cache.
 - [references/instruments.md](references/instruments.md): optional recipes for
   prices, trade-offs, blockers and further exploration.
 - [references/probabilities.md](references/probabilities.md): native probability
@@ -35,5 +36,6 @@ Credential storage is the user's choice. Jev needs its own key and credit.
 
 PersonaGen samples related traits from country-specific distributions, using
 official sources where available alongside modelled and derived context. It
-generates adults in the UK and US. Employer context is inferred; company-level
-generation is not part of this skill's current workflow.
+generates adults in the UK and US. nxk targets PersonaGen 4.0 (API and schema
+`4.0.0`). Employer context is inferred; company-level generation is not part
+of this skill's current workflow.

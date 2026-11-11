@@ -1,15 +1,8 @@
 <h1 align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/nxk-logo-dark.svg">
-    <img src="assets/nxk-logo.svg" alt="nxk branching mark" width="320">
-  </picture>
+  <img src="assets/readme/banner.webp" alt="nxk. Give your agent a crowd. A skill for coding agents: it asks simulated people, drawn from real statistics, and shows who answers differently. Install with npx skills add albri/nxk. Beside it, a crowd drawn as lines through age, household and work to an answer. Retired people who want mornings are picked out in green, and people in full-time work who want evenings in amber.">
 </h1>
 
-<p align="center">
-  Give your agent a crowd. Make something more people want.
-</p>
-
-https://github.com/user-attachments/assets/b7409ffd-ae7b-4f51-830f-cda31fbf352b
+https://github.com/user-attachments/assets/90ca684f-6d54-4f6c-9a8d-d618fb82898b
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
@@ -24,22 +17,29 @@ https://github.com/user-attachments/assets/b7409ffd-ae7b-4f51-830f-cda31fbf352b
 
 ---
 
-nxk is a skill for coding agents. When your agent needs to know how people
-might respond to its work, nxk gives it a crowd to ask. The crowd is a set of
-simulated people, not real ones.
+nxk is a skill for coding agents: the AI assistants that write and run code for
+you, such as Claude Code, Codex or Cursor. A skill is a set of instructions an
+agent can load to do one job well.
 
-[PersonaGen](https://personagen.dev) gives each one a detailed profile, with a
-job, a home, and habits that fit together. Your agent sends each profile to a
-model (I recommend [Jev](https://typesafe.ai)) and asks the model to answer as
-that person. With Jev, each answer costs a fraction of a cent, so 100 people can
-answer a question for about a cent. These people do not all answer in the same
-way, because the answer depends on the life in the profile.
+Agents make lots of small choices that depend on people: a default, a price, a
+headline, an opening time. Usually they guess. nxk gives your agent a crowd to
+ask first. The crowd is a set of simulated people, not real ones.
 
-nxk shows you which people answer differently and what they have in common, so
-your agent can work out who cares and who it is building for. It can ask those
-people more questions and follow the differences that look interesting. It
-keeps what works and drops what does not. That way, the agent makes something
-people are more likely to want.
+[PersonaGen](https://personagen.dev), my persona generator, gives each one a
+detailed profile, with a job, a home, and habits that fit together. Your agent
+sends each profile to a model and asks it to answer as that person. I recommend
+[Jev](https://typesafe.ai), which returns a probability for every option and
+writes no text. With Jev, each answer costs a fraction of a cent, so 100 people
+can answer a question for about a cent.
+
+These people don't all answer in the same way, because the answer depends on
+the life in the profile. That's the useful bit. An average answer can hide the
+people a change is for: ask when a library should open longer and the average
+says mornings, without saying that the people who want evenings are the ones at
+work all day. So nxk shows your agent who answers differently and what they
+have in common. The agent can ask those people more questions, follow
+the differences that matter and drop the ones that don't. That way, it makes
+something more people want.
 
 ## Quick start
 
@@ -68,8 +68,8 @@ the result brief.
 ## How it works
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/inside-the-task-dark.webp">
-  <img src="assets/diagrams/inside-the-task.webp" alt="A coding agent calls nxk, asks different people, compares their answers and changes the work">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/how-it-works-dark.webp">
+  <img src="assets/readme/how-it-works.webp" alt="How nxk works, in a made-up example, in four stops. One: a library can fund five more opening hours a week, and the file the agent is editing says when: TBD. Two: it asks who will visit. Retired people are nearly five times as likely to come as full-time workers, and they are 62 of the 100 likely visitors, with 14 part-time and 24 full-time. Three: weighted by who visits, mornings win 61% to 39%. Retired visitors lean towards mornings, 74%, part-time workers are even, and full-time workers lean the other way: 66% want evenings. Four: the agent fills in the file with three weekday mornings for the retired visitors and Thursday evening for full-time workers.">
 </picture>
 
 **Hypothetical example:** The library and the numbers are made up. A town's
@@ -79,30 +79,54 @@ would use them, so the agent calls nxk:
 
 | What the agent does | What nxk finds | What changes |
 | --- | --- | --- |
-| Checks who is likely to visit | Next three months: all adults 36% · retired people 68% · people in full-time work 14% | Weight later answers by each person's chance of visiting |
-| Asks likely visitors whether morning or evening hours would help more | Morning 61% · evening 39% | Start with three morning hours and two evening hours |
+| Checks who is likely to visit | Next three months: all adults 36% · retired people 68% · people in full-time work 14% | Count each later answer by how likely that person is to visit |
+| Asks everyone whether morning or evening hours would help more, counting likely visitors more | Morning 61% · evening 39% | Start with three morning hours and two evening hours |
 | Looks for groups that answer differently | Evening support among likely visitors in full-time work is 66%, 27 percentage points above all likely visitors | Do not put all five hours in the morning |
 | Asks which days help each group | Retired people prefer weekday mornings · people in full-time work prefer Thursday evening | Put three hours across weekday mornings and two on Thursday evening |
 
-**A real run:** [an agent takes a generic landing page and finds the headline, features and price people pick →](examples/budgeting-app.md)
+On average, mornings won. Split by work, the answers crossed: the people the
+average would have left out wanted evenings, and one more question told the
+agent which evening.
+
+### Each person answers with probabilities
 
 The model reads one person's profile and the question, then gives every option
-a probability, as that person would answer.
+a probability, as that person would answer. Here are three people from the same
+crowd, answering a real survey question:
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/keep-the-whole-answer-dark.webp">
-  <img src="assets/diagrams/keep-the-whole-answer.webp" alt="nxk keeps every answer probability and compares how people with different lives respond">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/every-answer-dark.webp">
+  <img src="assets/readme/every-answer.webp" alt="Three simulated people answer the same question about the affordability of food. Elena, 25, a fitness trainer with a household income of £70,000 to £100,000, is most likely not very concerned, 65%. Jonathan, 61, a social worker who rents privately, is most likely somewhat concerned, 89%. Christine, 52, long-term sick or disabled and in social housing, is highly concerned, 100%.">
 </picture>
+
+nxk keeps every probability, not only each person's top answer, so a narrow
+51% lean and a clear 95% one stay different. Two crowds can both come out 60 to
+40: in one, everyone is slightly unsure; in the other, six in ten are sure of
+one answer and four in ten are sure of the other. Only the second has a group
+worth building for, and only the probabilities tell them apart. Then nxk
+compares groups of people.
+
+### Each answer decides the next question
 
 nxk looks for what the people who answer differently have in common. In the
-example above, evening support was higher among people in full-time work. The
-agent can ask that group which evening they prefer, and use the answer to
-change the work.
+library example, evening support was higher among people in full-time work, so
+the agent asked that group which evening they'd use. It drops splits with no
+real gap, and it stops when another answer wouldn't change the work.
+
+The library is one decision. The bigger use is a longer run. I gave an agent a
+made-up budgeting app, Tally, with a deliberately generic landing page, and let
+it follow the answers:
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/find-the-connection-dark.webp">
-  <img src="assets/diagrams/find-the-connection.webp" alt="nxk compares PersonaGen dimensions and asks groups with different answers more questions">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/following-dark.webp">
+  <img src="assets/readme/following.webp" alt="A made-up budgeting app's landing page, rewritten by an agent following the answers. Its first question was useless: about 80% of a five-person pilot picked scroll down to find out more. 14% of UK adults would try a new money app, against 40% of people living paycheck to paycheck, so it drew 160 people under high financial pressure. 78% said £4.99 a month would put them off. They wanted to know what is safe to spend until payday, 42%, or be warned before going overdrawn, 33%, not the AI tips the page sold, 2%. A refund guarantee beat a lower price, 29% to 12%. The best headline sold a paid feature, so that feature went free. Two leads were left: worry about connecting a bank, and under-35s preferring another headline. The headline went from picked by 0.3% to 38%.">
 </picture>
+
+In about 35 minutes and for about 20p, it changed who the app is for, what it
+does, what it costs and what it says. It left two leads that only a small group
+cared about. Run again on 160 different people, every finding held.
+
+[The whole run, step by step →](examples/budgeting-app.md)
 
 ## Why use it?
 
@@ -117,15 +141,30 @@ show how it reached its conclusion.
 ## Does it work?
 
 I checked nxk against 26 questions from 15 published UK and US surveys, with
-1,000 simulated people per question.
+1,000 simulated people per question. I also asked the model each question with
+no person attached, to see what the crowd adds.
 
-| Check | Result |
-| --- | --- |
-| Was nxk's most popular answer the survey's, or the one next to it? | 22 of 26 questions |
-| Did the biggest gaps between groups, like young and old, point the same way? | 12 of 16 |
-| Do the people answer differently from each other? | 26% pick a different top answer from the crowd |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/does-it-work-dark.webp">
+  <img src="assets/readme/does-it-work.webp" alt="nxk against 26 published survey questions. Do the biggest gaps between groups point the same way as the survey? The model alone has no gaps to compare, because with no person attached everyone gets the same answer. nxk on PersonaGen 3.x gets 12 of 16: 9 clearly, 3 faintly and 4 the other way. How far is each answer from the survey, on average? 14.0 points for the model alone and 9.7 for nxk. Results on PersonaGen 4.0 are still to come.">
+</picture>
 
-Read the results for direction, not decimals.
+| Check | Model alone | nxk |
+| --- | --- | --- |
+| Of the 16 biggest gaps between groups in those surveys, like young and old, how many pointed the same way? | No groups to compare | 12 of 16 |
+| How far was each answer from the survey, on average? | 14.0 points | 9.7 points |
+| Do the people answer differently from each other? | One answer for everyone | For 26% of people, the top answer differs from the crowd's |
+
+Most gaps come out at about a third of their real size, and gaps by money come
+out too big. The results are modest, and they may flatter both runs: published
+surveys are likely to be in the models' training data, so some of what looks
+like insight could be recall. It's a check that nxk points the right way, not
+proof that it's accurate.
+
+<!-- PersonaGen 4.0: when the 4.0 run is recorded, update this table and the
+numbers in assets/readme/src/figures.mjs, then run render.mjs and video.mjs. -->
+These results were recorded on PersonaGen 3.x. The PersonaGen 4.0 run is still
+to come. Read the results for direction, not decimals.
 [Charts and every comparison →](methodology.md)
 
 ## What you can use nxk for
@@ -162,29 +201,33 @@ PersonaGen does two things at the same time:
 It's pretty easy to create personas that do *one* of these things; it is much
 harder to do both at the same time.
 
-Each person comes with more than 100 details across ten areas of life,
+Each person comes with more than 230 details across 16 sections of life,
 including:
 
 | Part of someone's life | Examples |
 | --- | --- |
 | People and place | Adult age, education, region, city or rural life |
-| Work | Occupation, seniority, employer size, ownership, remote or on-site work |
-| Money | Personal income, household resources, financial pressure |
+| Work | Occupation, industry, job level, employer size, remote or on-site work, purchasing roles |
+| Money | Personal and household income, debt, how they are managing financially |
 | Family and home | Children and their life stages, caregiving, renting, moving, outdoor space |
-| Pets and travel | Dogs, cats, other pets, car access, commuting |
-| Shopping and technology | Price sensitivity, shopping channels, digital confidence, privacy |
-| Personal context | Interests, language, personality, communication style, activity |
+| Pets and travel | Dogs, cats, other pets, vehicles, commuting |
+| Shopping and technology | Price comparison, shopping channels, brand choice, digital skills, privacy |
+| Personal context | Interests, language, personality, health, activity |
 
 [Open one actual PersonaGen profile →](examples/personagen.md)
 
-There are 79 filters for the UK and 78 for the US. The
-[filter reference](references/filters.md) groups the accepted fields and
-common values.
+About 200 of those details can be used to pick an audience, such as private
+renters aged 25 to 44. Before drawing anyone, nxk asks PersonaGen how common
+that audience is, so it doesn't waste draws finding out. Choosing an audience
+usually takes four or five small calls. The [filter guide](references/filters.md)
+says how nxk reads PersonaGen's live catalogue of fields.
+
+nxk targets **PersonaGen 4.0** (API and schema `4.0.0`).
 
 ## What it costs
 
-PersonaGen is free, with generous usage limits (100k personas a month). The
-answering model is the only cost.
+PersonaGen is free, up to 100,000 personas a month. The answering model is the
+only cost.
 
 **Estimated Jev input cost (USD)** when all questions for one person are sent together:
 
@@ -226,7 +269,7 @@ technology, are harder to iron out. [More on where to be careful](methodology.md
 I don't expect it to match a survey to the decimal point. You can't recreate
 the setting of a real survey, and making each person tick one box throws away
 how sure they were. nxk keeps the probability of every answer and looks for
-where people differ, which is the useful bit.
+where people differ.
 
 </details>
 
@@ -235,15 +278,16 @@ where people differ, which is the useful bit.
 
 Seriously enough to change what you build. Read them for direction: which
 option leads and who answers differently. A 61% is a clear lean, not a forecast
-that 61% of real people will choose it, and gaps between groups tend to come
-out smaller than in real surveys. [How nxk compares with real surveys](methodology.md).
+that 61% of real people will choose it. Gaps between groups usually come out at
+about a third of their real size, except gaps by money, which come out too big.
+[How nxk compares with real surveys](methodology.md).
 
 </details>
 
 <details>
 <summary>Why is nxk a skill rather than an app?</summary>
 
-Because the useful bit happens inside the work. Your coding agent knows what
+Because the work is where the questions come up. Your coding agent knows what
 you're building, can ask another question when an answer is interesting, and
 can change the work when it learns something. I started out building a full
 app for this. The more workflow I built, the clearer it became that these
@@ -268,10 +312,14 @@ the UK or US population. You need both.
 <details>
 <summary>Do I have to use Jev?</summary>
 
-No. nxk can use another model. I recommend Jev because it returns
-probabilities directly and is fast and cheap enough to ask hundreds of people.
-Other models generally cost more and take longer, and I have not found that
-they improve the answers enough to justify it.
+No. nxk can use another model. I recommend Jev because it's a decision model:
+it returns a probability for every option and writes no text, so it's fast and
+cheap enough to ask hundreds of people. OpenAI's
+[Decisions API](https://developers.openai.com/api/docs/guides/decisions) and
+Cloudflare's open [Clef](https://blog.cloudflare.com/clef-decision-models/)
+models work the same way. General-purpose models generally cost more and take
+longer, and I have not found that they improve the answers enough to justify
+it.
 
 </details>
 
@@ -330,9 +378,10 @@ whole households whose members fit together.
 | File | What it is |
 | --- | --- |
 | [SKILL.md](SKILL.md) | The agent's instructions |
-| [Drawing and evaluating](references/persona-generation.md) | API calls, full profiles, answers and limits |
+| [Drawing and evaluating](references/persona-generation.md) | Targeting, drawing, answers and limits |
 | [Using the probabilities](references/probabilities.md) | How to keep and compare the answers |
-| [Filters](references/filters.md) | The complete country-specific filter catalogue |
+| [Filters](references/filters.md) | How to read the live catalogue and write a filter |
+| [Catalogue helper](scripts/catalogue.mjs) | Cached reads of the live catalogue, by section, word or field |
 | [Question recipes](references/instruments.md) | Ways to ask about prices, trade-offs and follow-up questions |
 | [Methodology](methodology.md) | How nxk compares with published surveys |
 | [Experiments](experiments.md) | Ideas tried, rejected and still open |

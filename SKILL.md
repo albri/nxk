@@ -50,11 +50,11 @@ when another answer could change the work. Do not turn the run into a generic
 questionnaire.
 
 Before the first API call, read [references/persona-generation.md](references/persona-generation.md)
-for connections, full-profile requests, answer shapes and failure handling.
-When you choose filters, use the live `filter_catalogue` in
-`GET /{country}/capabilities`, or the groups in
-[references/filters.md](references/filters.md). If the two disagree, use the
-response.
+for the targeting workflow, drawing, answer shapes and failure handling. nxk
+targets PersonaGen 4.0. Choose filters from the live catalogue, never from
+memory: field names and value codes differ by country and release. Read it with
+`node scripts/catalogue.mjs`, which caches it;
+[references/filters.md](references/filters.md) says how to read it.
 
 ## Choose the people
 
@@ -68,31 +68,49 @@ exposure within a stated period. Keep that relevance probability and use it
 as a weight when comparing later answers. Do not act on a strong difference
 between groups until those people are relevant to the decision.
 
-Apply supported filters server-side first. For a more specific group, filter
-the returned profiles locally only for conditions the API cannot express. Start
-with a small draw to check how many qualify, then cap any further draws against
-the user's remaining allowance. Do not spend thousands of profiles chasing a
-tiny group; explain the constraint and offer a smaller sample or broader group.
+Target the audience in this order and stop as soon as you have it: read the
+catalogue once (cached); look up values with `GET /{country}/search?q=`;
+`POST /{country}/personas/validate` the filter set once and read its estimated
+share, its range and the filter that narrows most; then draw. Filters apply when
+each person is drawn, so every returned person matches them and no probe draw is
+needed, unless validation says no one in its reference sample matched. A request can filter on up to 10 fields. Filter locally only for what
+the API cannot express (interests, free text such as job titles) and size that
+draw by the share that qualifies. A refusal is information: change the audience
+on purpose, never retry it unchanged. When filtering locally, set a cap on
+drawing first and don't draw past it to chase a tiny group. If far fewer than
+about one in twenty qualify, explain the constraint and offer a smaller sample
+or a broader group.
 
-For work-related questions, resolve the occupation through the occupation
-search endpoint and check the returned role. Specify current employment and
-`career_context_scope` when the decision concerns someone doing that job today.
-Seniority, ownership, employer size and decision role can narrow the group
-further. Employer context is inferred; a profile does not contain a company's
-budget, software stack or buying committee. Supply any needed company facts as
-an explicit situation.
+For answering, draw the full life without appearance
+(`"exclude_sections": ["body_and_appearance"]`), or only the sections the
+decision depends on (`sections`). Either way, keep `name_and_summary` and any
+section you will group by. Draw the group with one `seed` and page it with
+`start` instead of redrawing; stream (`Accept: application/x-ndjson`) when it
+is large.
+
+For work-related questions, resolve the occupation with `search` and check the
+returned title. Filter on `economic_activity_status` when the decision concerns
+someone doing that job today. Seniority (`job_level`), employer size
+(`organisation_size`) and sector can narrow the group further. For buying
+decisions, `decision_role` is the biggest part a person plays in their
+organisation's purchases (low, influencer, decision maker or budget owner), and
+each `purchasing_role_*` field is their part in one area, such as software. All
+of them can be filtered. Employer context is inferred; a profile does not
+contain a company's budget, software stack or buying committee. Supply any
+needed company facts as an explicit situation.
 
 When an answer depends on something people already own, use or spend that the
 profile does not include, the experimental "Fill in a missing fact" recipe in
 [references/instruments.md](references/instruments.md) can add it. It can
 steer answers too far, so use it only when that fact decides the answer.
 
-Keep the full saved profile. Start with its household, money, work and habits
-together when evaluating; the reference omits appearance and API metadata.
+Keep the saved profile. Start with its household, money, work and habits
+together when evaluating; the request helper in the reference leaves out
+appearance (`body_and_appearance`), the surname and API metadata.
 
 Verify the relevant fields in the draw before evaluating it. Keep the country,
-seed, filters, generator version and profiles so a later comparison can reuse
-the same people. If the requested group cannot be drawn, explain the missing
+seed, `start`, filters, sections, generator version and profiles so a later
+comparison can reuse the same people. If the requested group cannot be drawn, explain the missing
 part instead of silently widening it.
 
 ## Ask
@@ -100,7 +118,8 @@ part instead of silently widening it.
 Give the person a concrete situation and credible options, including the choice
 to do nothing when appropriate. Leave out "don't know" and "not sure": each
 person's probabilities already show how sure they are, and a catch-all option
-hides where that uncertainty lies. Put the question and complete options
+hides where that uncertainty lies. "None of these", "neither" and doing
+nothing are real choices and can stay; only the catch-alls go. Put the question and complete options
 together in `state`. Ask for that person's response using the profile and
 situation. Use the request pattern in the reference. Keep hypothetical
 circumstances separate from profile facts. Give trade-offs concrete prices,
@@ -129,7 +148,7 @@ frame or default can change the answer.
 | Need | Question type |
 | --- | --- |
 | Pick an offer, feature or next step | Choice, including none or no preference |
-| Check a particular obstacle | Noul, one yes/no question per obstacle |
+| Check a particular obstacle | Noul (one yes probability), one yes/no question per obstacle |
 | Rate strength or choose a price band | Score with clearly described levels |
 | Find what would change their mind | Choice, including nothing |
 
@@ -154,9 +173,11 @@ Use the model available to the agent. Jev is recommended because it returns
 structured answers and probabilities quickly, but nxk is not tied to a
 particular provider. PersonaGen is free; the answering model is the cost. Use
 current pricing for the chosen model and keep the run within the task's budget.
-Check a few people with clearly different lives before completing the batch.
-Inspect the probabilities and check that each answer follows the stated limits.
-Keep those answers in the run; stop when you find a fault.
+
+Before the full batch, run three or four people with clearly different lives.
+Check that their probabilities differ and that nobody picks an option their
+situation rules out. If something is wrong, stop and fix the request; otherwise
+keep those answers in the run.
 
 ## Read and use the result
 
