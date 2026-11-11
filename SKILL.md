@@ -237,13 +237,21 @@ detail. Look for useful probability shifts across relevant profile traits and
 well-sized combinations. Express gaps in percentage points, or relative
 percentages with a clear comparison group. Use standard deviation only when
 calculated, stating what varies, such as results across seeds. Treat newly
-found connections as leads: a group difference does not explain its cause.
+found connections as leads: a group difference does not explain its cause,
+and one you found by searching needs a fresh draw to confirm it before you
+act on it.
 
 Read a gap between groups for its direction first. Against official surveys,
 a real gap of ten points or more usually points the same way here, about
 eight or nine times in ten. Its size is less dependable: gaps tend to come out
 at around two-thirds of their real size, gaps by age are flattened most, and
 gaps tied to money can come out larger than they are.
+
+How big a gap must be before you trust it: between two groups of 30 or more
+people each, about three in four gaps of ten points or more matched a real gap
+the same way in testing, and very few ran the other way; at fifteen points
+nearly nine in ten did. Below about seven points a gap is more often nothing
+than something, so treat it as a lead.
 
 The overall level is least dependable for questions about what people did in
 a recent period, such as in the past 12 months, because the answering model's
