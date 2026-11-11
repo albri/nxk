@@ -2,7 +2,8 @@
 //   assets/nxk-launch.mp4         1920 × 1080, 30 fps, about 70 seconds, with sound (it works muted too)
 //   assets/nxk-launch-poster.png  a still from the opening
 // It tells the README's story in the README's order: give your agent a crowd; ask, follow the difference and change the
-// work; every person answers with probabilities; each answer picks the next question; does it point the right way.
+// work; every person answers with probabilities; each answer picks the next question; and, once figures.mjs has the
+// PersonaGen 4.0 benchmark run, does it point the right way.
 // The sound is drawn by sound.mjs from the same timeline, so every cue lands on its cut.
 //
 //   node assets/readme/src/video.mjs               the MP4 and the poster
@@ -31,10 +32,18 @@ const W = 1920, H = 1080, FPS = 30, M = 120;
 // with the last square at most 0.3 s behind the first. Everything eases out on the brand curve.
 const MOTION = { MOVE: 0.32, OUT: 0.25, DATA: 0.9, WAVE: 0.3 };
 
+// The benchmark scene waits for the PersonaGen 4.0 run: while a run in figures.mjs is still `pending`, the video goes
+// from the Tally run straight to the end. Fill in the numbers, drop `pending`, and render again to bring it back.
+const BENCH = !benchmark.runs.some((r) => r.pending);
+const LAST = BENCH ? 'bench' : 'follow';
+
 // Scene lengths in seconds, in order. Each scene fades out in its last 0.3 s; the last one holds.
 // The Tally run gives each stop HOP seconds, then holds on what changed.
-const HOP = 2.3;
-const SCENES = { open: 4.6, intro: 3.4, s1: 4.2, s2: 5.4, s3: 6.4, s4: 5.6, answers: 7.6, follow: 1.0 + 6 * HOP + 4.4, bench: 10.4, close: 5.4 };
+const HOP = 3.5;
+const SCENES = {
+  open: 4.6, intro: 3.4, s1: 5.1, s2: 6.3, s3: 7.3, s4: 6.5, answers: 7.6, follow: 1.0 + 6 * HOP + 5.4,
+  ...(BENCH ? { bench: 10.4 } : {}), close: 5.4,
+};
 const T = {};
 let clock = 0;
 for (const [k, d] of Object.entries(SCENES)) { T[k] = clock; clock += d; }
@@ -258,9 +267,10 @@ function benchScene() {
       `<b class="num">${run.gaps.clearly + run.gaps.faintly} of ${d.gapsCompared}</b> · ${run.gaps.clearly} clearly`, a);
   }).join('');
 
-  // the distance: both recorded runs as points on one scale; nxk's slides in from the model alone's
+  // the distance: both recorded runs as points on one scale; nxk's slides in from the model alone's. A later nxk run
+  // (4.0) fills in the dashed row below with its own track.
   const v = c.avgGap, dTop = gTop + 60 + 3 * rowH + 44;
-  const [alone, nxk] = d.runs.filter((r) => !r.pending);
+  const [alone, nxk, ...later] = d.runs.filter((r) => !r.pending);
   const x = (n) => (n / v.max) * 100, move = n2(distAt + 0.9);
   cue(distAt + 0.3, 'pluck', 1);
   cue(move, 'move', 4);
@@ -271,17 +281,22 @@ function benchScene() {
       <span class="tag nxk" style="left:${x(nxk.avgGap)}%" ${fade(move + 0.6, Infinity, 0)}>${esc(nxk.label)} <b class="num">${nxk.avgGap.toFixed(1)}</b></span>
       <div class="axis">${v.ticks.map((n) => `<span style="left:${x(n)}%">${n}</span>`).join('')}</div></div>`;
   const dHead = `<div class="abs ck-h" style="left:${M}px;top:${dTop}px;width:${W - 2 * M}px" ${fade(distAt - 0.3, out, 10)}><h2>${esc(v.title)}</h2><span class="keys">${esc(v.key)}</span></div>`;
-  const dRows = row(dTop + 60, { label: v.both }, scale, `<b class="num">${alone.avgGap.toFixed(1)}</b> to <b class="num aurora">${nxk.avgGap.toFixed(1)}</b> points`, distAt, 160)
-    + d.runs.filter((r) => r.pending).map((run) => row(dTop + 60 + 160, run, '<i class="dline"></i>', chip, n2(distAt + 1.6))).join('');
+  const points = (run) => `<b class="num">${alone.avgGap.toFixed(1)}</b> to <b class="num aurora">${run.avgGap.toFixed(1)}</b> points`;
+  const track = (run, b) => `<div class="dtrack" style="width:914px"><i class="gain" style="left:${x(alone.avgGap)}%;width:0%" ${tw([b, 'left', x(alone.avgGap), x(Math.min(run.avgGap, alone.avgGap))], [b, 'width', 0, x(Math.abs(alone.avgGap - run.avgGap))])}></i>
+      <i class="ddot" style="left:${x(alone.avgGap)}%"></i><i class="ddot nxk" style="left:${x(alone.avgGap)}%" ${tw([b, 'left', x(alone.avgGap), x(run.avgGap)])}></i></div>`;
+  const below = [...later.map((run) => [run, track(run, n2(distAt + 2.2)), points(run)]), ...d.runs.filter((r) => r.pending).map((run) => [run, '<i class="dline"></i>', chip])];
+  if (later.length) cue(distAt + 2.2, 'move', 5);
+  const dRows = row(dTop + 60, { label: later.length ? nxk.label : v.both, nxk: later.length > 0 }, scale, points(nxk), distAt, 160)
+    + below.map(([run, t, value], i) => row(dTop + 60 + 160 + i * rowH, run, t, value, n2(distAt + 1.6))).join('');
   return heading('bench', d.title, esc(d.lead)) + gHead + gRows + dHead + dRows;
 }
 
 // The footer the README figures have: the name, and a note saying what the numbers are.
 function footer() {
   const note = (text, from, until) => `<span class="note" ${fade(at(from, 0.4), until, 0)}>${esc(text)}</span>`;
-  return `<div class="abs foot" style="left:${M}px;top:976px;width:${W - 2 * M}px" ${fade(at('intro', 0.1), exit('bench'), 0)}>
+  return `<div class="abs foot" style="left:${M}px;top:976px;width:${W - 2 * M}px" ${fade(at('intro', 0.1), exit(LAST), 0)}>
     <i class="hr"></i><div class="row">${wordmark(36)}
-      ${note(library.note, 'intro', exit('s4'))}${note(answers.note, 'answers', exit('answers'))}${note(tally.note, 'follow', exit('follow'))}${note(benchmark.note, 'bench', Infinity)}</div></div>`;
+      ${note(library.note, 'intro', exit('s4'))}${note(answers.note, 'answers', exit('answers'))}${note(tally.note, 'follow', BENCH ? exit('follow') : Infinity)}${BENCH ? note(benchmark.note, 'bench', Infinity) : ''}</div></div>`;
 }
 
 // ---------- the end: the name, the line and the install, on Night ----------
@@ -516,7 +531,7 @@ function inPage(D) {
 function html() {
   const font = fonts();
   const body = openScene() + introScene() + stepLine() + decisionScene() + askScene() + differenceScene() + changeScene()
-    + answersScene() + followScene() + benchScene() + footer() + closeScene();
+    + answersScene() + followScene() + (BENCH ? benchScene() : '') + footer() + closeScene();
   return `<!doctype html><html lang="en-GB"><head><meta charset="utf-8">${font.link}<style>${font.css}${CSS}</style></head>
     <body><div id="v"><div id="ground"></div>${body}</div></body></html>`;
 }
@@ -532,9 +547,11 @@ let chromium;
 const args = process.argv.slice(2), atArg = args.indexOf('--at');
 const markup = html();
 // The pad's chords and when each starts, one a step or stop, back home at the end. The cues were collected while the
-// scenes were built.
+// scenes were built. Without the benchmark, the Tally run lands on the dominant and the end resolves it.
 const SECTIONS = [['Dmaj9', T.open], ['Bm9', T.intro], ['Gmaj9', T.s2], ['Em9', T.s3], ['A7sus', T.s4], ['D/Fs', T.answers],
-  ['Gmaj9', T.follow], ['Bm9', at('follow', 1.0 + 3 * HOP)], ['Dmaj9', at('follow', 1.0 + 6 * HOP)], ['Em9', T.bench], ['A7sus', at('bench', 5.0)], ['Dmaj9', T.close]];
+  ['Gmaj9', T.follow], ['Bm9', at('follow', 1.0 + 3 * HOP)],
+  ...(BENCH ? [['Dmaj9', at('follow', 1.0 + 6 * HOP)], ['Em9', T.bench], ['A7sus', at('bench', 5.0)]] : [['A7sus', at('follow', 1.0 + 6 * HOP)]]),
+  ['Dmaj9', T.close]];
 
 if (args.includes('--sound')) {
   const dir = mkdtempSync(join(tmpdir(), 'nxk-sound-')), file = join(dir, 'nxk-launch.wav');

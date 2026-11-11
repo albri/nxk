@@ -32,10 +32,13 @@ The soundtrack uses no recordings or samples. Each cut in the video adds a cue
 moves a quiet chord pad along, all synthesised in sound.mjs and mixed with a
 small reverb. The video says everything on screen, so it works muted.
 
-When the PersonaGen 4.0 benchmark run is recorded, fill in the
-`nxk on PersonaGen 4.0` run in `benchmark` and remove its `pending: true`, then
-run both scripts. The figure and the video fill in the 4.0 row in place of the
-dashed one.
+Until the PersonaGen 4.0 benchmark run is recorded, the README figure shows a
+dashed "Results to come" row for it, and the video leaves the benchmark out: it
+goes from the Tally run straight to the closing card. When the run is recorded,
+fill in the `nxk on PersonaGen 4.0` run in `benchmark` and remove its
+`pending: true`, then run both scripts. The figure fills in the 4.0 rows in
+place of the dashed ones, and the video brings the benchmark back before the
+closing card, with its chords and cues.
 
 The top of the README plays the video from a GitHub upload, not from this
 folder. After rendering a new video, upload it to GitHub and replace the link.

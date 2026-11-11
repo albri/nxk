@@ -115,15 +115,18 @@ function doesItWork() {
   }).join('');
   const gaps = `<section class="check">${head(c.gaps.title, c.gaps.key.map((k, i) => `<span>${arrow(ways[i])}${esc(k)}</span>`).join(''))}<div class="rows">${gapRows}</div></section>`;
 
-  // the recorded runs as points on one scale, the model alone in grey and nxk in Aurora
-  const [alone, nxk] = d.runs.filter((r) => !r.pending);
+  // the recorded runs as points on one scale, the model alone in grey and nxk in Aurora; a later nxk run (4.0) fills in
+  // the dashed row with its own track
+  const [alone, nxk, ...later] = d.runs.filter((r) => !r.pending);
   const at = (v) => `${(v / c.avgGap.max) * 100}%`;
   const tag = (run, cls) => `<span class="tag ${cls}${run.avgGap / c.avgGap.max > 0.7 ? ' end' : ''}" style="left:${at(run.avgGap)}">${esc(run.label)} <b class="num">${run.avgGap.toFixed(1)}</b></span>`;
   const scale = `<div class="dist">${tag(alone, '')}<div class="dtrack"><i class="gain" style="left:${at(nxk.avgGap)};width:${at(alone.avgGap - nxk.avgGap)}"></i><i class="ddot" style="left:${at(alone.avgGap)}"></i><i class="ddot nxk" style="left:${at(nxk.avgGap)}"></i></div>${tag(nxk, 'nxk')}
     <div class="axis data">${c.avgGap.ticks.map((n) => `<span style="left:${at(n)}">${n}</span>`).join('')}</div></div>`;
-  const pending = d.runs.filter((r) => r.pending).map((run) => row(run, '<div class="dtrack p"></div>', chip)).join('');
+  const points = (run) => `<b class="num">${alone.avgGap.toFixed(1)}</b> to <b class="num aurora">${run.avgGap.toFixed(1)}</b> points`;
+  const laterRows = later.map((run) => row(run, `<div class="dtrack"><i class="gain" style="left:${at(Math.min(run.avgGap, alone.avgGap))};width:${at(Math.abs(alone.avgGap - run.avgGap))}"></i><i class="ddot" style="left:${at(alone.avgGap)}"></i><i class="ddot nxk" style="left:${at(run.avgGap)}"></i></div>`, points(run))).join('');
+  const pending = laterRows + d.runs.filter((r) => r.pending).map((run) => row(run, '<div class="dtrack p"></div>', chip)).join('');
   const distance = `<section class="check">${head(c.avgGap.title, esc(c.avgGap.key))}<div class="rows">
-    ${row({ label: c.avgGap.both }, scale, `<b class="num">${alone.avgGap.toFixed(1)}</b> to <b class="num aurora">${nxk.avgGap.toFixed(1)}</b> points`).replace('class="r"', 'class="r dist-row"')}${pending}</div></section>`;
+    ${row({ label: later.length ? nxk.label : c.avgGap.both, nxk: later.length > 0 }, scale, `<b class="num">${alone.avgGap.toFixed(1)}</b> to <b class="num aurora">${nxk.avgGap.toFixed(1)}</b> points`).replace('class="r"', 'class="r dist-row"')}${pending}</div></section>`;
 
   return frame(d.title, esc(d.lead), `<div class="checks">${gaps}${distance}</div>`, d.note);
 }
