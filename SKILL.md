@@ -82,14 +82,18 @@ about one in twenty qualify, explain the constraint and offer a smaller sample
 or a broader group.
 
 For answering, draw the full life without appearance
-(`"exclude_sections": ["body_and_appearance"]`), or only the sections the
-decision depends on (`sections`). Either way, keep `name_and_summary` and any
-section you will group by. Draw the group with one `seed` and page it with
-`start` instead of redrawing; stream (`Accept: application/x-ndjson`) when it
-is large.
+(`"exclude_sections": ["body_and_appearance"]`). The parts of a life that look
+unrelated to the question still shape the answer: in testing, leaving out
+beliefs, personality, shopping, interests and media made answers less
+accurate. Cut to chosen sections (`sections`) only when the budget forces it,
+and then keep `name_and_summary` and any section you will group by. Draw the
+group with one `seed` and page it with `start` instead of redrawing; stream
+(`Accept: application/x-ndjson`) when it is large.
 
 For work-related questions, resolve the occupation with `search` and check the
-returned title. Filter on `economic_activity_status` when the decision concerns
+returned title. Target and group by occupation rather than job title: the
+title is free text, cannot be filtered, and does not always match the
+occupation and industry. Filter on `economic_activity_status` when the decision concerns
 someone doing that job today. Seniority (`job_level`), employer size
 (`organisation_size`) and sector can narrow the group further. For buying
 decisions, `decision_role` is the biggest part a person plays in their
@@ -110,8 +114,11 @@ appearance (`body_and_appearance`), the surname and API metadata.
 
 Verify the relevant fields in the draw before evaluating it. Keep the country,
 seed, `start`, filters, sections, generator version and profiles so a later
-comparison can reuse the same people. If the requested group cannot be drawn, explain the missing
-part instead of silently widening it.
+comparison can reuse the same people. Keep the exact model version each answer
+reports as well: a new version of the same model can change how far apart
+groups come out, so compare answers only within one version. If the requested
+group cannot be drawn, explain the missing part instead of silently widening
+it.
 
 ## Ask
 
@@ -121,7 +128,10 @@ person's probabilities already show how sure they are, and a catch-all option
 hides where that uncertainty lies. "None of these", "neither" and doing
 nothing are real choices and can stay; only the catch-alls go. Put the question and complete options
 together in `state`. Ask for that person's response using the profile and
-situation. Use the request pattern in the reference. Keep hypothetical
+situation. Use the request pattern in the reference and leave its instruction
+as it is: adding coaching to it, such as telling the model to think as the
+person, to weigh every circumstance or to consider how common an answer is,
+made answers less accurate in testing. Keep hypothetical
 circumstances separate from profile facts. Give trade-offs concrete prices,
 times and terms.
 To test one change, reuse the situation and question. Change only that factor.
@@ -222,9 +232,16 @@ percentages with a clear comparison group. Use standard deviation only when
 calculated, stating what varies, such as results across seeds. Treat newly
 found connections as leads: a group difference does not explain its cause.
 
-Gaps between groups usually come out smaller than they would among real
-people, though money pressure can exaggerate them. Read a gap for its
-direction.
+Read a gap between groups for its direction first. Against official surveys,
+a real gap of ten points or more usually points the same way here, about
+eight or nine times in ten. Its size is less dependable: gaps tend to come out
+at around two-thirds of their real size, gaps by age are flattened most, and
+gaps tied to money can come out larger than they are.
+
+The overall level is least dependable for questions about what people did in
+a recent period, such as in the past 12 months, because the answering model's
+sense of how common a behaviour is can be far out. Use such questions to
+compare groups, and take the overall rate from a real source when one exists.
 
 Agreement can be real. Check whether the full probability sets vary between
 people before claiming a difference between groups. If the result does not
