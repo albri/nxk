@@ -167,6 +167,12 @@ Answering models rarely pick the ends or the middle of a scale, so a scale
 shows direction and differences between groups more reliably than strength of
 feeling.
 
+When the share of people who would say yes is itself what you need, ask a
+Choice between Yes and No rather than a Noul. In testing, a Noul's yes level
+ran high and its gaps between groups came out flatter, though they pointed the
+same way. Keep Nouls for comparing obstacles with each other and for seeing
+which way a group leans.
+
 Jev returns typed answers and probabilities. Use the full response text as
 Choice labels and rotate option order consistently in `state` and `criteria`.
 For an ordered Score, keep the levels in their meaningful order.
@@ -202,7 +208,8 @@ Sampling is optional; audience averages need no random draw. Use the same
 measure and saved profiles when comparing alternatives.
 
 A Noul is a yes probability. Its mean is average model support for that claim,
-not a headcount or strength score. A Score is a position on the levels you
+not a headcount or strength score, and it tends to run higher than the share
+of people who would say yes. A Score is a position on the levels you
 specified. Keep these measures separate. Report failed or missing answers;
 never turn them into zeros.
 
