@@ -269,6 +269,10 @@ understated (raising a monthly price from 6 to 16 cost under ten points), and
 a very small change, such as delivery in three days instead of one, may not
 register at all.
 
+When the aim is to find which groups react most to a change, draw 300 people
+or more and compare groups of at least 30. In testing, two panels of 300
+agreed closely on which groups moved more, and two panels of 100 only loosely.
+
 Agreement can be real. Check whether the full probability sets vary between
 people before claiming a difference between groups. If the result does not
 make sense, inspect the request and test a few clearly different profiles or
