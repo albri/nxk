@@ -165,8 +165,10 @@ the catalogue maps to the groups that matter for common questions.
   `personality_and_skills` and `interests`. Ask for what the evaluation or the
   grouping needs. For an answering model, send the full life without
   `body_and_appearance` (`"exclude_sections": ["body_and_appearance"]`;
-  appearance is about a quarter of the payload and rarely affects an answer),
-  or choose the sections the decision depends on.
+  appearance is about a quarter of the payload and rarely affects an answer).
+  Cutting further saves tokens but costs accuracy: in testing, a profile
+  without beliefs, personality, shopping, interests and media answered less
+  accurately, so do it only when the budget forces it.
   Always include `name_and_summary` when evaluating, for the first name.
 - **One person.** `GET /{country}/persona?seed=abc&sections=identity` is a
   seeded persona with an `ETag`; repeat it with `If-None-Match` and a 304 costs
@@ -186,6 +188,9 @@ mismatch is a finding to report, not something to repair in the sample. Save the
 and its metadata. A seed, country, filters, sections and `generator_version`
 repeat the same people; a new generator version may change them, so reuse saved
 profiles for exact comparisons. For several independent draws, change the seed.
+Save the `model` each answer reports too. An alias such as `jev-latest` moves
+to a new version without notice, and a new version can change how far apart
+groups come out, so compare answers only within one version.
 
 Apply server-side filters first and filter locally only on fields the API
 cannot filter. For the local part, draw more than you need and keep both the
@@ -247,7 +252,9 @@ The body puts the person in `state.respondent` (`firstName` and `profile`), the
 situation in `state.survey.context`, and the question and its options, in the
 order shown, in `state.survey.questions.q`. `questions.q` is what Jev answers:
 its `type`, the `instructions` that point at those state paths, and one
-`criteria` entry per option.
+`criteria` entry per option. The instruction is tested as it stands. Extra
+coaching sentences made answers less accurate, so to change an answer change
+the situation or the options, never the instruction.
 
 Jev tends to make people keener on new technology than surveys find. When
 asking about adopting something new, put its real cost, effort and risk in the
@@ -256,8 +263,8 @@ situation.
 Keep the full life rather than reducing it to `name_and_summary.summary`. The
 helper sends the person's first name and every saved section except
 `body_and_appearance`, which is the 4.0 payload as the API returned it, with
-the surname taken out of the name and the summary. Draw with `sections` to save
-bytes; the helper copes with whatever sections you kept (it needs
+the surname taken out of the name and the summary. If you drew with `sections`
+to save bytes, the helper copes with whatever sections you kept (it needs
 `name_and_summary.first_name`).
 Set `country` to the draw's country. Keep full option text unique and preserve
 the mapping back to your own IDs in code. For each extra question, add it under
