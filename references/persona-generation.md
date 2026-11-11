@@ -57,15 +57,20 @@ and no probe draws.
    `?fields=home_tenure,region` returns only those parts. Never fetch it per
    question.
 
-2. **Find values by their words.** `GET /{country}/search?q=nurse&limit=8`
+2. **Find values by their words.** `GET /{country}/search?q=nursing&limit=8`
    searches every filterable field's values and labels at once and returns
    `{field, value, label, share}`. Add `fields=current_occupation,current_occupation_group`
-   to stay inside one field. Search is broad and ranks whole words first:
-   "nurse" also finds nursery teachers and veterinary nurses. Check the label
-   against the person you want, and prefer the grouping that matches the
-   audience: an occupation group (UK `223`, Nursing professionals) covers many
-   detailed occupations, a detailed code (`2232`) one. A few fields exist in one
-   country only, and a search or filter on a field the country lacks is refused.
+   to stay inside those fields. Search matches whole words in the labels, so
+   the form of the word matters. In the UK, "nurse" finds the detailed nursing
+   codes (`2231` to `2236`), dental nurses and one group, veterinary nurses
+   (`324`), but not the group most nurses are in. "Nursing" finds that group
+   (`223`, Nursing Professionals) and nursing assistants. When the group you
+   expect doesn't appear, search the other form of the word (nurse or
+   nursing, teacher or teaching). Check the label against the person you want,
+   and prefer the grouping that matches the audience: an occupation group
+   (`223`) covers many detailed occupations, a detailed code (`2232`) one. A
+   few fields exist in one country only, and a search or filter on a field the
+   country lacks is refused.
    A share of "<1%" is normal for a detailed occupation.
 
 3. **Validate the filter set once.** `POST /{country}/personas/validate` with
