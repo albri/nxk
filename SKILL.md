@@ -250,6 +250,17 @@ a recent period, such as in the past 12 months, because the answering model's
 sense of how common a behaviour is can be far out. Use such questions to
 compare groups, and take the overall rate from a real source when one exists.
 
+When the same people answer two versions of a situation, read the change
+across the group, not in one person. A detail that should not matter still
+moves one person's answer by a point or two in either direction; across the
+group those moves cancel and a real change does not. Compare each person's
+probability before and after, not their top answer: in testing, three in four
+people moved the right way at a typical step while only one in ten changed
+their top answer. Direction is dependable for a clear change. Size is
+understated (raising a monthly price from 6 to 16 cost under ten points), and
+a very small change, such as delivery in three days instead of one, may not
+register at all.
+
 Agreement can be real. Check whether the full probability sets vary between
 people before claiming a difference between groups. If the result does not
 make sense, inspect the request and test a few clearly different profiles or
