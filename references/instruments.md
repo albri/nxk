@@ -60,9 +60,12 @@ comparisons do not tell you how support will divide across the full set.
 
 ## Find obstacles
 
-For the biggest obstacle, use a Choice with clear alternatives and "nothing"
-or "I don't need this" where appropriate. For obstacles that can coexist, ask
-one Noul per obstacle and average each independently.
+Ask one Noul per obstacle, all in one request, and rank the obstacles by their
+averages. Tested against official surveys that gave people a list of reasons,
+ranking by Noul averages matched the real order better than asking for the
+single biggest reason. Read the order and which groups feel an obstacle more;
+the averages themselves run high. Use a Choice with "nothing" or "I don't need
+this" only when you need each person's one main obstacle.
 
 A later question can compare ways to address an obstacle, including "none of
 these would help". Keep the proposed solution concrete: a lower price, a smaller
@@ -75,9 +78,13 @@ Show the copy in its intended position, with the surrounding offer. Keep price,
 features and essential information constant between versions. Ask which version
 they prefer, with neither or no preference available.
 
-Use a clear preference to choose a draft. A small or inconsistent gap gives no
-reason to keep generating more versions. Describe it as wording preference,
-not proof that it will change behaviour.
+Treat the result as a weak signal at best. Tested on real headline experiments
+where one headline drew far more clicks than the other, the panel picked the
+winner no more often than a coin, with Jev and with a stronger answering
+model. Use a clear preference to choose a draft when nothing better is to
+hand, and describe it as wording preference, never as a prediction of which
+version will perform. A small or inconsistent gap gives no reason to keep
+generating more versions. When the wording matters, run the real test.
 
 ## Follow a useful difference
 
