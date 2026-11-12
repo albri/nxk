@@ -35,6 +35,93 @@ function situation(study) {
   return [`It is ${study.surveyed}.`, study.context].filter(Boolean).join(" ");
 }
 
+/** The tested instruction for a Noul (one yes probability). Like DEFAULT_INSTRUCTION, it is meant to be used unchanged. */
+export const NOUL_INSTRUCTION = "Based on `respondent.profile`, would this person answer yes to `survey.questions.q.text` in the situation described in `survey.context`? Apply the person's stated circumstances; predict their response rather than recommending what is best in general.";
+
+/** The tested instruction for a question type, pointed at that question's key in `state.survey.questions`. */
+export function instructionFor(type, key) {
+  const text = type === "noul" ? NOUL_INSTRUCTION : DEFAULT_INSTRUCTION;
+  return text.replaceAll("survey.questions.q.", `survey.questions.${key}.`);
+}
+
+/** The same options starting from a different one, so that across a panel no option is always first. */
+export function rotate(options, index) {
+  const start = ((index % options.length) + options.length) % options.length;
+  return [...options.slice(start), ...options.slice(0, start)];
+}
+
+/**
+ * Several independent questions about one situation, for one person, in one request.
+ * `questions` maps a key to { type: "choice", text, options } or { type: "noul", text }.
+ * Choice options are sent in the order given: rotate them per person with `rotate`.
+ */
+export function buildQuestionsRequest(study, person, questions) {
+  const entries = Object.entries(questions ?? {});
+  if (!entries.length) throw new Error("At least one question is required");
+  const respondent = person
+    ? projectPersonaForModel(person, study.country)
+    : { profile: { country: study.country } };
+  const stated = {};
+  const asked = {};
+  for (const [key, question] of entries) {
+    if (!/^[a-z][a-z0-9_]*$/.test(key)) throw new Error(`Question key "${key}" must be lower-case letters, digits and underscores`);
+    if (typeof question?.text !== "string" || question.text === "") throw new Error(`Question "${key}" needs its text`);
+    if (question.type === "noul") {
+      stated[key] = { text: question.text };
+      asked[key] = { type: "noul", instructions: instructionFor("noul", key) };
+    } else if (question.type === "choice") {
+      const options = question.options;
+      if (!Array.isArray(options) || options.length < 2 || new Set(options).size !== options.length) {
+        throw new Error(`Question "${key}" needs two or more different options`);
+      }
+      stated[key] = { text: question.text, options: [...options] };
+      asked[key] = {
+        type: "choice",
+        instructions: instructionFor("choice", key),
+        criteria: Object.fromEntries(options.map((text) => [text, null])),
+      };
+    } else {
+      throw new Error(`Question "${key}" must have type "choice" or "noul"`);
+    }
+  }
+  return {
+    model: "jev-latest",
+    state: { respondent, survey: { context: situation(study), questions: stated } },
+    questions: asked,
+  };
+}
+
+/**
+ * Check a Jev response against the request that produced it. Returns each answer in a plain shape
+ * ({ probabilities } keyed by option text for a Choice, { yes } for a Noul), with the resolved model
+ * and the tokens used. Throws on a missing or invalid answer: report it, never turn it into a zero.
+ */
+export function readAnswers(request, response) {
+  const answers = {};
+  for (const [key, question] of Object.entries(request.questions)) {
+    const answer = response?.answers?.[key];
+    if (question.type === "noul") {
+      if (typeof answer?.noul !== "number" || !(answer.noul >= 0 && answer.noul <= 1)) throw new Error(`Invalid answer for "${key}"`);
+      answers[key] = { yes: answer.noul };
+    } else {
+      const options = request.state.survey.questions[key].options;
+      const given = answer?.probabilities;
+      if (!isRecord(given) || options.some((text) => !Number.isFinite(given[text]) || given[text] < 0 || given[text] > 1)) {
+        throw new Error(`Invalid answer for "${key}"`);
+      }
+      const total = options.reduce((sum, text) => sum + given[text], 0);
+      if (Math.abs(total - 1) > 0.03) throw new Error(`Invalid probability total for "${key}"`);
+      answers[key] = { probabilities: Object.fromEntries(options.map((text) => [text, given[text]])) };
+    }
+  }
+  return {
+    answers,
+    model: response?.model,
+    inputTokens: response?.usage?.input_tokens,
+    outputTokens: response?.usage?.output_tokens,
+  };
+}
+
 /** Pure outbound Jev state builder. The scenario stays outside the person profile. */
 export function buildPersonaRequest(study, person, order, instruction = DEFAULT_INSTRUCTION) {
   const options = order.map((index) => study.options[index]);

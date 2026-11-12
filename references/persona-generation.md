@@ -267,12 +267,39 @@ the surname taken out of the name and the summary. If you drew with `sections`
 to save bytes, the helper copes with whatever sections you kept (it needs
 `name_and_summary.first_name`).
 Set `country` to the draw's country. Keep full option text unique and preserve
-the mapping back to your own IDs in code. For each extra question, add it under
-`state.survey.questions` and `questions` with its own key, and point its
-instruction at that key. For a Score,
-ask for the rating and give concrete ordered levels. See
-[Score](https://docs.typesafe.ai/primitives/score.md)
-and [Noul](https://docs.typesafe.ai/primitives/noul.md) for their request shapes.
+the mapping back to your own IDs in code.
+
+To ask several questions about one situation, or to ask a Noul, use
+`buildQuestionsRequest` from the same file. It takes the questions by key,
+writes each one into `state.survey.questions`, and gives each the tested
+instruction for its type, pointed at its own key. `rotate` starts a Choice's
+options from a different one for each person, and `readAnswers` checks the
+response and returns each answer with the resolved model and the tokens used.
+
+```js
+import { buildQuestionsRequest, readAnswers, rotate } from "../benchmarks/public-persona.mjs";
+
+const situation = {
+  country: "uk",
+  surveyed: "November 2026",
+  context: "A broadband provider offers the speed your household needs for £30 a month with no set-up fee, on a 24-month contract."
+};
+const options = ["Take this deal", "Stay with what I have now", "Look for a different deal"];
+// `index` is the person's position in the saved draw.
+const body = buildQuestionsRequest(situation, persona, {
+  pick: { type: "choice", text: "What would you do?", options: rotate(options, index) },
+  too_long: { type: "noul", text: "Is a 24-month contract longer than you are willing to commit to?" },
+  too_dear: { type: "noul", text: "Is £30 a month more than you are willing to pay for broadband?" }
+});
+// POST `body` exactly as in the example above, then:
+const { answers, model, inputTokens } = readAnswers(body, await response.json());
+// answers.pick.probabilities is keyed by option text; answers.too_long.yes is 0 to 1.
+```
+
+Use the helper's instructions as they are, for a Choice and for a Noul. For a
+Score, write the request yourself: ask for the rating and give concrete ordered
+levels. See [Score](https://docs.typesafe.ai/primitives/score.md) and
+[Noul](https://docs.typesafe.ai/primitives/noul.md) for the request shapes.
 
 Several independent questions about the same situation can share one request.
 Every question sees the whole state: isolate different offer sets or price
@@ -331,11 +358,13 @@ or value) does not, but read the field values before sending anyway. The IP
 limit across all routes is 600 requests a minute. Seeded draws are
 reproducible, so reuse them.
 
-Recorded Jev runs used roughly 2,900 profile tokens per person. At the rate
-used for those runs, one question cost about $0.00012 per person and twenty
-batched questions about $0.0003. These are run estimates, not a current tariff.
-Record returned token usage, resolved model and elapsed time. More questions
-still cost tokens; batching saves resending the profile.
+Recorded Jev runs on PersonaGen 4.0 used roughly 4,000 to 4,500 input tokens
+per person and request. At the rate used for those runs, a request cost about
+$0.0002 per person, whether it carried one question or a Choice and nine Nouls,
+so 300 people cost about 6 cents a request. These are run estimates, not a
+current tariff. Jev reports the tokens in `usage.input_tokens` and the resolved
+model in `model`; record both and the elapsed time, and keep a running total
+when the budget is tight. Batching saves resending the profile.
 
 ## When comparing groups
 
