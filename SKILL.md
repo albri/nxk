@@ -110,12 +110,15 @@ drawing first and don't draw past it to chase a tiny group. If far fewer than
 about one in twenty qualify, explain the constraint and offer a smaller sample
 or a broader group.
 
-For answering, draw the full life without appearance
-(`"exclude_sections": ["body_and_appearance"]`). The parts of a life that look
-unrelated to the question still shape the answer: in testing, leaving out
-beliefs, personality, shopping, interests and media made answers less
-accurate. Cut to chosen sections (`sections`) only when the budget forces it,
-and then keep `name_and_summary` and any section you will group by. Draw the
+Draw the full life without appearance
+(`"exclude_sections": ["body_and_appearance"]`) and save it. Then send each
+person to the answering model with only the fields that bear on the question:
+the helpers in the reference have the model rate every field once for the
+situation and keep the 15 highest. In testing this cost a fifth as much as
+sending the whole profile and was no less accurate. Do not cut sections by
+hand: leaving out fixed sections such as beliefs, personality and shopping made
+answers less accurate, and which facts matter changes with the question. Group
+the answers by any field of the saved draw, whether or not it was sent. Draw the
 group with one `seed` and page it with `start` instead of redrawing; stream
 (`Accept: application/x-ndjson`) when it is large.
 
@@ -203,8 +206,9 @@ ran high and its gaps between groups came out flatter, though they pointed the
 same way. Keep Nouls for comparing obstacles with each other and for seeing
 which way a group leans.
 
-Jev returns typed answers and probabilities. Use the full response text as
-Choice labels and rotate option order consistently in `state` and `criteria`.
+The answering model returns typed answers and probabilities. Use the full
+response text as Choice labels and rotate option order consistently in `state`
+and `criteria`.
 For an ordered Score, keep the levels in their meaningful order.
 
 Batch independent questions about the same situation for one person. Put
@@ -215,10 +219,14 @@ can refer to it draws attention to that offer in every choice in the same
 request, so ask such questions in their own request. If a follow-up depends
 on an earlier answer, send that answer in a new request.
 
-Use the model available to the agent. Jev is recommended because it returns
-structured answers and probabilities quickly, but nxk is not tied to a
-particular provider. PersonaGen is free; the answering model is the cost. Use
-current pricing for the chosen model and keep the run within the task's budget.
+Gemini Decision 1, reached through Vercel AI Gateway, is the recommended
+answering model. Against official surveys it was as accurate about differences
+between groups as a frontier model asked about each group directly, and a
+question put to 300 people costs about two cents with the relevant fields. Jev
+takes the same requests and is steadier on small changes of terms, but less
+accurate. nxk is not tied to a particular provider. PersonaGen is free; the
+answering model is the cost. Use current pricing for the chosen model and keep
+the run within the task's budget.
 
 Before the full batch, run three or four people with clearly different lives.
 Check that their probabilities differ and that nobody picks an option their
@@ -327,9 +335,10 @@ panel's numbers.
   on showing little interest, do not switch the decision on that alone. Say
   so, and make it the first thing to test for real.
 - Where the panel and your judgement disagree about a group you can name, keep
-  your judgement and record the disagreement. In testing, where the two
-  disagreed on the direction of a real gap, the direct answer was right about
-  nine times in ten.
+  your judgement and record the disagreement as something to test for real. In
+  testing with the recommended model, where the panel and a strong model asked
+  directly disagreed on the direction of a real gap, the direct answer was
+  right about two times in three.
 - Do not take a price from the panel. Use it for who drops out when a term or
   a step is added, and settle the price by the sums.
 - Do not let the panel choose between ways of charging, such as a fee per use,

@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  DEFAULT_INSTRUCTION, NOUL_INSTRUCTION, buildPersonaRequest, buildQuestionsRequest, instructionFor,
-  projectPersonaForModel, readAnswers, rotate,
+  ANSWERING, DEFAULT_INSTRUCTION, NOUL_INSTRUCTION, RELEVANT_FIELDS, buildPersonaRequest, buildQuestionsRequest,
+  buildRelevanceRequests, instructionFor, mostRelevant, profileFields, projectPersonaForModel, pruneProfile, readAnswers,
+  readRelevance, rotate,
 } from "./public-persona.mjs";
 
 function study() {
@@ -128,4 +129,53 @@ test("answers are checked against the request and returned in a plain shape", ()
   assert.equal(read.inputTokens, 4200);
   assert.throws(() => readAnswers(body, { answers: { pick: response.answers.pick } }), /too_dear/);
   assert.throws(() => readAnswers(body, { answers: { ...response.answers, pick: { probabilities: { "Choose the offer": 0.9, "Keep the current option": 0.9, Neither: 0.5 } } } }), /probability total/);
+});
+
+test("the fields of a panel are listed once each, with examples and without appearance or the surname", () => {
+  const other = { ...savedPerson(), identity: { age_years: 61, gender: "man" } };
+  const fields = profileFields("us", [savedPerson(), other]);
+  const paths = fields.map((f) => f.path);
+  assert.ok(paths.includes("identity.age_years"));
+  assert.ok(paths.includes("money.personal_income_before_tax_per_year"));
+  assert.ok(!paths.some((p) => p.startsWith("body_and_appearance")));
+  assert.ok(!paths.includes("name_and_summary.last_name"));
+  assert.equal(new Set(paths).size, paths.length);
+  assert.equal(fields.find((f) => f.path === "identity.age_years").examples, "38; 61");
+});
+
+test("relevance is asked once for a situation, one Noul a field, with no person in the request", () => {
+  const fields = Array.from({ length: 130 }, (_, i) => ({ path: `section.field_${i}`, examples: "a; b" }));
+  const requests = buildRelevanceRequests(study(), questions(), fields);
+  assert.deepEqual(requests.map((r) => r.paths.length), [100, 30]);
+  assert.equal(requests[0].body.model, ANSWERING.gemini.model);
+  assert.equal(requests[0].body.state.respondent, undefined);
+  assert.deepEqual(Object.keys(requests[0].body.state.survey.questions), ["pick", "too_dear"]);
+  assert.equal(requests[1].body.questions.f100.type, "noul");
+  assert.match(requests[1].body.questions.f100.instructions, /`section\.field_100` \(for example: a; b\)/);
+  const responses = requests.map((r) => ({ answers: Object.fromEntries(Object.keys(r.body.questions).map((key, i) => [key, { type: "noul", noul: i / 100 }])) }));
+  const ratings = readRelevance(requests, responses);
+  assert.equal(Object.keys(ratings).length, 130);
+  assert.equal(ratings["section.field_99"], 0.99);
+  assert.throws(() => readRelevance(requests, [responses[0], { answers: {} }]), /No rating for section\.field_100/);
+});
+
+test("the most relevant fields are kept and the rest of the profile is cut", () => {
+  assert.equal(RELEVANT_FIELDS, 15);
+  const keep = mostRelevant({ "identity.age_years": 0.9, "money.personal_income_before_tax_per_year": 0.95, "work.current_occupation": 0.4, "interests.interest_count": 0.1 }, 2);
+  assert.deepEqual([...keep], ["money.personal_income_before_tax_per_year", "identity.age_years"]);
+  const { profile } = projectPersonaForModel(savedPerson(), "us");
+  assert.deepEqual(pruneProfile(profile, keep), { country: "us", identity: { age_years: 38 }, money: { personal_income_before_tax_per_year: "75k_to_99k_usd" } });
+  const body = buildQuestionsRequest(study(), savedPerson(), questions(), { fields: keep, model: ANSWERING.gemini.model });
+  assert.equal(body.model, "google/gemini-decision-1");
+  assert.deepEqual(body.state.respondent.profile, { country: "us", identity: { age_years: 38 }, money: { personal_income_before_tax_per_year: "75k_to_99k_usd" } });
+  assert.equal(body.state.respondent.firstName, "Avery");
+});
+
+test("a long option is sent under a short name and read back by its own text", () => {
+  const long = "Employers pay workplace pension contributions into your first pension (typically the default fund from your first job) unless you say otherwise";
+  const body = buildQuestionsRequest(study(), savedPerson(), { pick: { type: "choice", text: "Which?", options: [long, "Neither"] } });
+  assert.deepEqual(body.questions.pick.criteria, { "Option 1": long, "Option 2": "Neither" });
+  assert.deepEqual(body.state.survey.questions.pick.options, [long, "Neither"]);
+  const read = readAnswers(body, { model: "google/gemini-decision-1", answers: { pick: { type: "choice", choice: "Option 2", probabilities: { "Option 1": 0.25, "Option 2": 0.75 } } } });
+  assert.deepEqual(read.answers.pick.probabilities, { [long]: 0.25, Neither: 0.75 });
 });
