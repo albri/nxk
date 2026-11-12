@@ -1,17 +1,26 @@
 ---
 name: nxk
-description: Explore how different people's lives change response probabilities. Use when work depends on what people may think, prefer, understand or reject, including products, services, messages, prices and everyday trade-offs.
+description: Find who an idea, price, offer or change is for, who it loses and what holds people back, by asking a panel of realistic simulated people. Use when work depends on how different groups of people would react, for products, services, prices and everyday trade-offs.
 ---
 
 # nxk
 
-Ask a relevant group a concrete question. Keep every answer probability, find
-what changes across the crowd, and use the useful differences in the current
-task. Match the size of the run to the decision.
+nxk is a discovery instrument. It asks a panel of realistic people a concrete
+question and shows where to look: which groups react differently, which way a
+change of substance pushes them, and what holds them back. Keep every answer
+probability, find what changes across the crowd, and use the useful differences
+in the current task. Match the size of the run to the decision.
 
 The differences between people matter more than the overall result. Look for
 where the answers change. Then look at what those people have in common, and
 what that changes in your work.
+
+| A run is good for | A run is not for |
+| --- | --- |
+| Which way a price, a term, a step or an offer pushes people | Which wording of the same thing will perform better |
+| Which groups lean in, and who a change would lose | An exact share, or how large an effect is |
+| Which obstacles matter most, and to whom | One person's answer taken on its own |
+| Leads worth a closer look or a real test | A number a real survey has already published |
 
 ## Start small
 
@@ -30,11 +39,6 @@ known profile facts. Give people only the information they would have at that
 point in real life. Do not explain away uncertainty with reassuring details the
 real page, product or situation would not provide. When testing wording, hold
 the offer and essential facts constant.
-
-Use a run for changes of substance: a price, a term, a step, an offer, an
-audience. It reads those in the right direction. It does not tell which of two
-wordings of the same thing will perform better: against real headline
-experiments it picked the winner no more often than a coin.
 
 For a quick check, draw about 100 people and ask the one or two questions
 needed to choose. Reuse a suitable saved draw when available. A quick check
@@ -248,6 +252,16 @@ and one you found by searching needs a fresh draw to confirm it before you
 act on it. The more cuts you search through, the more of them differ by
 chance, so name the one gap you mean to act on before you draw again.
 
+Once a run has shown which groups matter, check the important ones against
+your own judgement. Say in a sentence how you would expect that named group to
+answer, before leaning on the panel's gap. For a group that can be named, a
+strong model asked directly is usually at least as accurate as the panel, and
+where the two disagreed on the direction of a real gap in testing, the direct
+answer was right about nine times in ten. So the panel is for finding the
+groups and for comparing versions on the same people. If your expectation
+points the other way, treat the gap as open until a fresh draw or a real check
+settles it.
+
 Read a gap between groups for its direction first. Against official surveys,
 a real gap of ten points or more usually points the same way here, about
 eight or nine times in ten. Its size is less dependable: gaps tend to come out
@@ -288,5 +302,6 @@ Change an identified problem, not the numbers to manufacture variety.
 
 Use the results to explore preferences and obstacles. Do not present them as
 what real people actually did. Describe a wording result as a preference for
-that wording, not proof that it will change behaviour. Keep political, hiring,
+that wording, not proof that it will change behaviour: against real headline
+experiments the panel picked the winner no more often than a coin. Keep political, hiring,
 medical and other high-stakes decisions out of this workflow.
