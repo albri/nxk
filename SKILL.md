@@ -1,33 +1,53 @@
 ---
 name: nxk
-description: Find who an idea, price, offer or change is for, who it loses and what holds people back, by asking a panel of realistic simulated people. Use when work depends on how different groups of people would react, for products, services, prices and everyday trade-offs.
+description: Get a second opinion from a panel of realistic simulated people on who an idea, offer or change is for, who it loses and what holds people back. Use after forming your own view, when work depends on how different groups of people would react, for products, services, offers and everyday trade-offs.
 ---
 
 # nxk
 
-nxk is a discovery instrument. It asks a panel of realistic people a concrete
-question and shows where to look: which groups react differently, which way a
-change of substance pushes them, and what holds them back. Keep every answer
-probability, find what changes across the crowd, and use the useful differences
-in the current task. Match the size of the run to the decision.
+nxk is a second opinion from a crowd. Work the decision out yourself first,
+then put it to a panel of realistic people to see what you missed: a group you
+did not name, an assumption the people do not share, an obstacle that ranks
+higher than you thought. Keep every answer probability, find what changes
+across the crowd, and use the useful differences in the current task. Match
+the size of the run to the decision.
 
-The differences between people matter more than the overall result. Look for
-where the answers change. Then look at what those people have in common, and
-what that changes in your work.
+The panel adds to your judgement; it does not replace it. In testing, an agent
+that took its answer from the panel gave a worse answer than the same agent
+working alone, and in every case the panel still found a group that agent had
+missed.
 
-| A run is good for | A run is not for |
+| The panel can | The panel cannot |
 | --- | --- |
-| Which way a price, a term, a step or an offer pushes people | Which wording of the same thing will perform better |
-| Which groups lean in, and who a change would lose | An exact share, or how large an effect is |
-| Which obstacles matter most, and to whom | One person's answer taken on its own |
-| Leads worth a closer look or a real test | A number a real survey has already published |
+| Show a group you did not name, and who a change would lose | Set a price, or choose between ways of charging |
+| Show that people you were counting on do not want the thing | See the business's side: capacity, margin, cost to serve |
+| Rank obstacles, and show who feels each one most | See people by how they already use you: existing customers, regulars, lapsed users |
+| Show which way a term, a step or an offer pushes people | Say which wording will perform, an exact share, or how large an effect is |
+
+## Answer first
+
+Before drawing anyone, write your own answer to the task in a few lines and
+keep it:
+
+- the decision you would make and why, including the sums: what each option
+  costs a person at typical levels of use, and what it earns or costs the
+  business;
+- who it is for, who it loses and what holds people back, naming people by how
+  they use the thing as well as by who they are: existing customers, people
+  who already do this another way, people with a pressing need;
+- the two or three assumptions about people that your answer rests on, such as
+  "retired people will want a weekday pass".
+
+Those assumptions are what the run is for. Put them to the panel, and look for
+what your answer left out.
 
 ## Start small
 
 Before drawing people, state the decision, what success means, any fixed
 constraints and what different answers would change. If demand, cost, access
-or another goal could point in different directions, name the trade-off. Pick
-a simple decision rule before seeing the result; do not invent one afterwards.
+or another goal could point in different directions, name the trade-off. Decide
+before seeing the result what the panel would have to show to change your
+answer; do not invent that afterwards.
 
 Ask about the nearest real action. "What would they do next?" is stronger than
 "Would they consider it?" Include what they already do and the real cost or
@@ -223,7 +243,8 @@ of people who would say yes. A Score is a position on the levels you
 specified. Keep these measures separate. Report failed or missing answers;
 never turn them into zeros.
 
-Apply the decision rule chosen before the run. If the task allocates limited
+Apply the rule chosen before the run: what the panel would have to show to
+change your answer. If the task allocates limited
 money, time or capacity, show the calculation that turns weighted demand into
 an allocation. Call a result optimal only when the objective and constraints
 fully define what optimal means.
@@ -252,16 +273,6 @@ and one you found by searching needs a fresh draw to confirm it before you
 act on it. The more cuts you search through, the more of them differ by
 chance, so name the one gap you mean to act on before you draw again.
 
-Once a run has shown which groups matter, check the important ones against
-your own judgement. Say in a sentence how you would expect that named group to
-answer, before leaning on the panel's gap. For a group that can be named, a
-strong model asked directly is usually at least as accurate as the panel, and
-where the two disagreed on the direction of a real gap in testing, the direct
-answer was right about nine times in ten. So the panel is for finding the
-groups and for comparing versions on the same people. If your expectation
-points the other way, treat the gap as open until a fresh draw or a real check
-settles it.
-
 Read a gap between groups for its direction first. Against official surveys,
 a real gap of ten points or more usually points the same way here, about
 eight or nine times in ten. Its size is less dependable: gaps tend to come out
@@ -285,10 +296,12 @@ moves one person's answer by a point or two in either direction; across the
 group those moves cancel and a real change does not. Compare each person's
 probability before and after, not their top answer: in testing, three in four
 people moved the right way at a typical step while only one in ten changed
-their top answer. Direction is dependable for a clear change. Size is
-understated (raising a monthly price from 6 to 16 cost under ten points), and
-a very small change, such as delivery in three days instead of one, may not
-register at all.
+their top answer. Direction is dependable for a clear change of terms or
+effort. Size is understated, and a very small change, such as delivery in
+three days instead of one, may not register at all. Price is the weakest:
+raising a monthly price from 6 to 16 cost under ten points in one test, and
+in another the same people were as likely to join a plan at 23 a month as at
+12.
 
 When the aim is to find which groups react most to a change, draw 300 people
 or more and compare groups of at least 30. In testing, two panels of 300
@@ -299,6 +312,33 @@ people before claiming a difference between groups. If the result does not
 make sense, inspect the request and test a few clearly different profiles or
 the same question without a profile before scaling up.
 Change an identified problem, not the numbers to manufacture variety.
+
+## Bring it back to your answer
+
+Finish by amending the answer you wrote first. Do not write a new one from the
+panel's numbers.
+
+- Keep everything in your answer that the panel could not have seen: groups
+  named by how they use the thing, the business's side, and the sums.
+- Add a group the panel showed and you had not named, when the gap is big
+  enough to trust and repeats on a fresh draw. Describe it as a group to
+  include in a real test.
+- Where the panel does not back an assumption, such as people you were counting
+  on showing little interest, do not switch the decision on that alone. Say
+  so, and make it the first thing to test for real.
+- Where the panel and your judgement disagree about a group you can name, keep
+  your judgement and record the disagreement. In testing, where the two
+  disagreed on the direction of a real gap, the direct answer was right about
+  nine times in ten.
+- Do not take a price from the panel. Use it for who drops out when a term or
+  a step is added, and settle the price by the sums.
+- Do not let the panel choose between ways of charging, such as a fee per use,
+  a flat fee or a spending threshold. Which is best depends on how much each
+  person would use it. The panel imagines that differently each time, and in
+  testing one added sentence about a typical order reversed its ranking. Ask
+  the panel who would use the thing and how much, then do the sums yourself.
+- Resolve any finding that contradicts another line of your answer before you
+  hand the answer over. Do not list the two side by side.
 
 Use the results to explore preferences and obstacles. Do not present them as
 what real people actually did. Describe a wording result as a preference for
