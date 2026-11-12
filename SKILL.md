@@ -128,8 +128,9 @@ person's probabilities already show how sure they are, and a catch-all option
 hides where that uncertainty lies. "None of these", "neither" and doing
 nothing are real choices and can stay; only the catch-alls go. Put the question and complete options
 together in `state`. Ask for that person's response using the profile and
-situation. Use the request pattern in the reference and leave its instruction
-as it is: adding coaching to it, such as telling the model to think as the
+situation. Use the request helpers in the reference, which carry a tested
+instruction for a Choice and for a Noul, and leave those instructions as they
+are: adding coaching, such as telling the model to think as the
 person, to weigh every circumstance or to consider how common an answer is,
 made answers less accurate in testing. Keep hypothetical
 circumstances separate from profile facts. Give trade-offs concrete prices,
@@ -239,7 +240,8 @@ percentages with a clear comparison group. Use standard deviation only when
 calculated, stating what varies, such as results across seeds. Treat newly
 found connections as leads: a group difference does not explain its cause,
 and one you found by searching needs a fresh draw to confirm it before you
-act on it.
+act on it. The more cuts you search through, the more of them differ by
+chance, so name the one gap you mean to act on before you draw again.
 
 Read a gap between groups for its direction first. Against official surveys,
 a real gap of ten points or more usually points the same way here, about
