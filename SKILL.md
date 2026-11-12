@@ -31,6 +31,11 @@ point in real life. Do not explain away uncertainty with reassuring details the
 real page, product or situation would not provide. When testing wording, hold
 the offer and essential facts constant.
 
+Use a run for changes of substance: a price, a term, a step, an offer, an
+audience. It reads those in the right direction. It does not tell which of two
+wordings of the same thing will perform better: against real headline
+experiments it picked the winner no more often than a coin.
+
 For a quick check, draw about 100 people and ask the one or two questions
 needed to choose. Reuse a suitable saved draw when available. A quick check
 ends with the result and what it changes. Do not add rounds by default.
