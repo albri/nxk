@@ -39,9 +39,20 @@ additional idea resends the profile, so include those calls in the estimate.
 
 ## Explore prices
 
+Do not choose a price from the panel. It reacts weakly to price: in one test
+the same people were as likely to join a plan at 23 a month as at 12. Settle
+the price by the sums, and use the panel for who drops out first as the price
+rises, and for whether a term or a step added at that price loses people.
+
 Start with a concrete offer at a stated price, including keeping the current
 routine as an option. To compare prices, change only the price and evaluate
-each version separately on the same profiles.
+each version separately on the same profiles. If the answers do not move
+between prices, say that the panel could not separate them; do not read the
+small differences.
+
+When the options charge in different ways, such as a fee per use, a flat fee
+or a spending threshold, do not ask the panel to pick one. Ask who would use
+the thing and how much, then work out what each option costs those people.
 
 For a broader range, use Scores with explicit price bands: a bargain, getting
 expensive but still considered, and too expensive to consider. Keep each answer
