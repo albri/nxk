@@ -50,17 +50,111 @@ export function rotate(options, index) {
   return [...options.slice(start), ...options.slice(0, start)];
 }
 
+/** Where the answering models are reached. Both take the same request and return the same response. */
+export const ANSWERING = {
+  gemini: { url: "https://ai-gateway.vercel.sh/typesafe/v1/systemone", model: "google/gemini-decision-1" },
+  jev: { url: "https://api.typesafe.ai/v1/systemone", model: "jev-latest" },
+};
+
+/** How many of the highest-rated fields are sent for each person by default. */
+export const RELEVANT_FIELDS = 15;
+// An option longer than this is sent under a short name, with its full text as the description: Gemini Decision 1
+// rejects a long text used as an option name.
+const LONG_OPTION_CHARS = 100;
+const optionName = (index) => `Option ${index + 1}`;
+const clip = (value) => {
+  const text = typeof value === "string" ? value : JSON.stringify(value);
+  return text.length > 60 ? `${text.slice(0, 57)}...` : text;
+};
+
+/** Every `section.field` of the profiles the answering model would see, with up to four example values each. */
+export function profileFields(country, people) {
+  const fields = new Map();
+  for (const person of people) {
+    for (const [section, value] of Object.entries(projectPersonaForModel(person, country).profile)) {
+      if (!isRecord(value)) continue; // `country` is a bare value and is always sent
+      for (const [field, v] of Object.entries(value)) {
+        const path = `${section}.${field}`;
+        const examples = fields.get(path) ?? new Set();
+        if (examples.size < 4 && v !== null && v !== "") examples.add(clip(v));
+        fields.set(path, examples);
+      }
+    }
+  }
+  return [...fields].map(([path, examples]) => ({ path, examples: [...examples].join("; ") }));
+}
+
+function statedQuestions(questions) {
+  return Object.fromEntries(Object.entries(questions).map(([key, q]) => [key, q.type === "choice" ? { text: q.text, options: [...q.options] } : { text: q.text }]));
+}
+
+/**
+ * Requests that ask the answering model, once for a situation and its questions, how much each profile field bears on
+ * the answers: one Noul per field, at most 100 fields a request. No person is sent. Returns [{ body, paths }].
+ */
+export function buildRelevanceRequests(study, questions, fields, { model = ANSWERING.gemini.model } = {}) {
+  const survey = { context: situation(study), questions: statedQuestions(questions) };
+  const requests = [];
+  for (let start = 0; start < fields.length; start += 100) {
+    const chunk = fields.slice(start, start + 100);
+    requests.push({
+      paths: chunk.map((f) => f.path),
+      body: {
+        model,
+        state: { survey },
+        questions: Object.fromEntries(chunk.map((f, i) => [`f${start + i}`, {
+          type: "noul",
+          instructions: `A profile of a person can include the fact \`${f.path}\` (for example: ${f.examples}). Would knowing this fact about a person help predict how they would answer the questions in \`survey.questions\` in the situation described in \`survey.context\`?`,
+        }])),
+      },
+    });
+  }
+  return requests;
+}
+
+/** The ratings from the responses to buildRelevanceRequests, in the same order: { "section.field": 0 to 1 }. */
+export function readRelevance(requests, responses) {
+  const ratings = {};
+  requests.forEach((request, r) => {
+    Object.keys(request.body.questions).forEach((key, i) => {
+      const rating = responses[r]?.answers?.[key]?.noul;
+      if (typeof rating !== "number" || !(rating >= 0 && rating <= 1)) throw new Error(`No rating for ${request.paths[i]}`);
+      ratings[request.paths[i]] = rating;
+    });
+  });
+  return ratings;
+}
+
+/** The `count` highest-rated fields, as a Set of `section.field` paths. */
+export function mostRelevant(ratings, count = RELEVANT_FIELDS) {
+  return new Set(Object.entries(ratings).sort((a, b) => b[1] - a[1]).slice(0, count).map(([path]) => path));
+}
+
+/** A profile with only the kept `section.field` paths; `country` always stays. */
+export function pruneProfile(profile, keep) {
+  const kept = new Set(keep);
+  const out = {};
+  for (const [section, value] of Object.entries(profile)) {
+    if (!isRecord(value)) { out[section] = value; continue; }
+    const fields = Object.fromEntries(Object.entries(value).filter(([field]) => kept.has(`${section}.${field}`)));
+    if (Object.keys(fields).length) out[section] = fields;
+  }
+  return out;
+}
+
 /**
  * Several independent questions about one situation, for one person, in one request.
  * `questions` maps a key to { type: "choice", text, options } or { type: "noul", text }.
  * Choice options are sent in the order given: rotate them per person with `rotate`.
+ * `fields` (from mostRelevant) sends only those profile fields; `model` names the answering model.
  */
-export function buildQuestionsRequest(study, person, questions) {
+export function buildQuestionsRequest(study, person, questions, { fields = null, model = "jev-latest" } = {}) {
   const entries = Object.entries(questions ?? {});
   if (!entries.length) throw new Error("At least one question is required");
   const respondent = person
     ? projectPersonaForModel(person, study.country)
     : { profile: { country: study.country } };
+  if (fields) respondent.profile = pruneProfile(respondent.profile, fields);
   const stated = {};
   const asked = {};
   for (const [key, question] of entries) {
@@ -75,17 +169,18 @@ export function buildQuestionsRequest(study, person, questions) {
         throw new Error(`Question "${key}" needs two or more different options`);
       }
       stated[key] = { text: question.text, options: [...options] };
+      const long = options.some((text) => text.length > LONG_OPTION_CHARS);
       asked[key] = {
         type: "choice",
         instructions: instructionFor("choice", key),
-        criteria: Object.fromEntries(options.map((text) => [text, null])),
+        criteria: Object.fromEntries(options.map((text, i) => (long ? [optionName(i), text] : [text, null]))),
       };
     } else {
       throw new Error(`Question "${key}" must have type "choice" or "noul"`);
     }
   }
   return {
-    model: "jev-latest",
+    model,
     state: { respondent, survey: { context: situation(study), questions: stated } },
     questions: asked,
   };
@@ -105,7 +200,11 @@ export function readAnswers(request, response) {
       answers[key] = { yes: answer.noul };
     } else {
       const options = request.state.survey.questions[key].options;
-      const given = answer?.probabilities;
+      // Long options were sent under short names (see buildQuestionsRequest): read them back by position.
+      const renamed = !options.every((text) => text in question.criteria);
+      const given = renamed && isRecord(answer?.probabilities)
+        ? Object.fromEntries(options.map((text, i) => [text, answer.probabilities[optionName(i)]]))
+        : answer?.probabilities;
       if (!isRecord(given) || options.some((text) => !Number.isFinite(given[text]) || given[text] < 0 || given[text] > 1)) {
         throw new Error(`Invalid answer for "${key}"`);
       }
