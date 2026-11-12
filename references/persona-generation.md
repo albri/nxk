@@ -10,12 +10,15 @@ paths differ between major versions.
 | Service | Request | Authentication |
 | --- | --- | --- |
 | PersonaGen | `https://api.personagen.dev/{uk\|us}/...` | `X-API-Key: <key>`, optional |
-| Jev | `POST https://api.typesafe.ai/v1/systemone` | `Authorization: Bearer <key>` |
+| Gemini Decision 1 (recommended answering model) | `POST https://ai-gateway.vercel.sh/typesafe/v1/systemone`, `model: "google/gemini-decision-1"` | `Authorization: Bearer <Vercel AI Gateway key>` |
+| Jev | `POST https://api.typesafe.ai/v1/systemone`, `model: "jev-latest"` | `Authorization: Bearer <key>` |
 
-Both take `Content-Type: application/json`. Use the credentials supplied by the
-user's environment; their storage and variable names are up to the user. A
-supplied local PersonaGen instance uses its own URL and development key. This
-covers PersonaGen only; Jev needs its own key and credit.
+All take `Content-Type: application/json`. The two answering models take the
+same request and return the same response, so everything below that says Jev
+holds for either. Use the credentials supplied by the user's environment; their
+storage and variable names are up to the user. A supplied local PersonaGen
+instance uses its own URL and development key. This covers PersonaGen only; the
+answering model needs its own key and credit.
 
 Without a key, PersonaGen allows 10 personas per request and 25 persona
 requests an hour per IP, which is enough to look but not to run a study. A free
@@ -201,6 +204,69 @@ stop and offer a broader audience.
 
 ## Evaluate
 
+### The default: relevant fields, Gemini Decision 1
+
+Rate the fields once for a situation, then send each person with only the 15
+highest-rated fields. `people` is the saved `data` of the draw and `key` the
+Vercel AI Gateway credential supplied by the environment.
+
+```js
+import {
+  ANSWERING, buildQuestionsRequest, buildRelevanceRequests, mostRelevant, profileFields,
+  readAnswers, readRelevance, rotate,
+} from "../benchmarks/public-persona.mjs";
+
+const post = async (body) => {
+  const response = await fetch(ANSWERING.gemini.url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(45000)
+  });
+  if (!response.ok) throw new Error(`Answering model HTTP ${response.status}`);
+  return response.json();
+};
+
+const situation = {
+  country: "uk",
+  surveyed: "November 2026",
+  context: "A broadband provider offers the speed your household needs for £30 a month with no set-up fee, on a 24-month contract."
+};
+const options = ["Take this deal", "Stay with what I have now", "Look for a different deal"];
+const questionsFor = (index) => ({
+  pick: { type: "choice", text: "What would you do?", options: rotate(options, index) },
+  too_long: { type: "noul", text: "Is a 24-month contract longer than you are willing to commit to?" },
+  too_dear: { type: "noul", text: "Is £30 a month more than you are willing to pay for broadband?" }
+});
+
+// 1. Once for this situation and these questions: rate every field, keep the 15 most relevant.
+const rating = buildRelevanceRequests(situation, questionsFor(0), profileFields(situation.country, people));
+const ratings = readRelevance(rating, await Promise.all(rating.map((r) => post(r.body))));
+const fields = mostRelevant(ratings); // save `ratings` beside the draw
+
+// 2. For each person (`index` is their position in the saved draw): the same questions, only those fields.
+const body = buildQuestionsRequest(situation, people[index], questionsFor(index), { fields, model: ANSWERING.gemini.model });
+const { answers, model, inputTokens } = readAnswers(body, await post(body));
+// answers.pick.probabilities is keyed by option text; answers.too_long.yes is 0 to 1.
+```
+
+- **One rating per situation.** A new situation or a different set of questions
+  gets its own rating: two small requests, a fraction of a cent.
+- **Versions of one situation share a rating.** When versions differ only in a
+  price, a term or a step, rate the first and reuse its `fields`, so every
+  version shows the model the same facts about each person.
+- **Group by anything.** The saved draw still has every field. A group's own
+  field is often not among the 15 sent, and its difference still shows, because
+  related fields carry it.
+- **Tested:** on eight official surveys the 15 fields cost a fifth as much as
+  the full profile and were no less accurate. Leave `fields` out to send the
+  full profile.
+- **Long options are handled.** An option over 100 characters is sent under a
+  short name with its text as the description, and `readAnswers` returns it
+  under its own text.
+
+### One question, or the full profile
+
 This JavaScript builds one Jev request from a saved persona. It uses the same
 tested projection as the benchmark, which keeps the person's life and drops the
 appearance section and the surname. `persona` is one saved element of `data`
@@ -267,12 +333,39 @@ the surname taken out of the name and the summary. If you drew with `sections`
 to save bytes, the helper copes with whatever sections you kept (it needs
 `name_and_summary.first_name`).
 Set `country` to the draw's country. Keep full option text unique and preserve
-the mapping back to your own IDs in code. For each extra question, add it under
-`state.survey.questions` and `questions` with its own key, and point its
-instruction at that key. For a Score,
-ask for the rating and give concrete ordered levels. See
-[Score](https://docs.typesafe.ai/primitives/score.md)
-and [Noul](https://docs.typesafe.ai/primitives/noul.md) for their request shapes.
+the mapping back to your own IDs in code.
+
+To ask several questions about one situation, or to ask a Noul, use
+`buildQuestionsRequest` from the same file. It takes the questions by key,
+writes each one into `state.survey.questions`, and gives each the tested
+instruction for its type, pointed at its own key. `rotate` starts a Choice's
+options from a different one for each person, and `readAnswers` checks the
+response and returns each answer with the resolved model and the tokens used.
+
+```js
+import { buildQuestionsRequest, readAnswers, rotate } from "../benchmarks/public-persona.mjs";
+
+const situation = {
+  country: "uk",
+  surveyed: "November 2026",
+  context: "A broadband provider offers the speed your household needs for £30 a month with no set-up fee, on a 24-month contract."
+};
+const options = ["Take this deal", "Stay with what I have now", "Look for a different deal"];
+// `index` is the person's position in the saved draw.
+const body = buildQuestionsRequest(situation, persona, {
+  pick: { type: "choice", text: "What would you do?", options: rotate(options, index) },
+  too_long: { type: "noul", text: "Is a 24-month contract longer than you are willing to commit to?" },
+  too_dear: { type: "noul", text: "Is £30 a month more than you are willing to pay for broadband?" }
+});
+// POST `body` exactly as in the example above, then:
+const { answers, model, inputTokens } = readAnswers(body, await response.json());
+// answers.pick.probabilities is keyed by option text; answers.too_long.yes is 0 to 1.
+```
+
+Use the helper's instructions as they are, for a Choice and for a Noul. For a
+Score, write the request yourself: ask for the rating and give concrete ordered
+levels. See [Score](https://docs.typesafe.ai/primitives/score.md) and
+[Noul](https://docs.typesafe.ai/primitives/noul.md) for the request shapes.
 
 Several independent questions about the same situation can share one request.
 Every question sees the whole state: isolate different offer sets or price
@@ -331,11 +424,18 @@ or value) does not, but read the field values before sending anyway. The IP
 limit across all routes is 600 requests a minute. Seeded draws are
 reproducible, so reuse them.
 
-Recorded Jev runs used roughly 2,900 profile tokens per person. At the rate
-used for those runs, one question cost about $0.00012 per person and twenty
-batched questions about $0.0003. These are run estimates, not a current tariff.
-Record returned token usage, resolved model and elapsed time. More questions
-still cost tokens; batching saves resending the profile.
+Recorded runs on PersonaGen 4.0, as run estimates and not a current tariff:
+
+| Answering model and profile | Input tokens per person and request | Cost per person and request | 300 people, one request each |
+| --- | ---: | ---: | ---: |
+| Gemini Decision 1, 15 relevant fields | about 600 | about $0.00006 | about 2 cents |
+| Gemini Decision 1, full profile | about 3,000 | about $0.0003 | about 9 cents |
+| Jev, full profile | 4,000 to 4,500 | about $0.0002 | about 6 cents |
+
+The cost is the same whether a request carries one question or a Choice and
+nine Nouls. Both models report the tokens in `usage.input_tokens` and the
+resolved model in `model`; record both and the elapsed time, and keep a running
+total when the budget is tight. Batching saves resending the profile.
 
 ## When comparing groups
 

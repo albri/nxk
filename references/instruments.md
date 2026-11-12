@@ -39,9 +39,20 @@ additional idea resends the profile, so include those calls in the estimate.
 
 ## Explore prices
 
+Do not choose a price from the panel. It reacts weakly to price: in one test
+the same people were as likely to join a plan at 23 a month as at 12. Settle
+the price by the sums, and use the panel for who drops out first as the price
+rises, and for whether a term or a step added at that price loses people.
+
 Start with a concrete offer at a stated price, including keeping the current
 routine as an option. To compare prices, change only the price and evaluate
-each version separately on the same profiles.
+each version separately on the same profiles. If the answers do not move
+between prices, say that the panel could not separate them; do not read the
+small differences.
+
+When the options charge in different ways, such as a fee per use, a flat fee
+or a spending threshold, do not ask the panel to pick one. Ask who would use
+the thing and how much, then work out what each option costs those people.
 
 For a broader range, use Scores with explicit price bands: a bargain, getting
 expensive but still considered, and too expensive to consider. Keep each answer
@@ -60,9 +71,12 @@ comparisons do not tell you how support will divide across the full set.
 
 ## Find obstacles
 
-For the biggest obstacle, use a Choice with clear alternatives and "nothing"
-or "I don't need this" where appropriate. For obstacles that can coexist, ask
-one Noul per obstacle and average each independently.
+Ask one Noul per obstacle, all in one request, and rank the obstacles by their
+averages. Tested against official surveys that gave people a list of reasons,
+ranking by Noul averages matched the real order better than asking for the
+single biggest reason. Read the order and which groups feel an obstacle more;
+the averages themselves run high. Use a Choice with "nothing" or "I don't need
+this" only when you need each person's one main obstacle.
 
 A later question can compare ways to address an obstacle, including "none of
 these would help". Keep the proposed solution concrete: a lower price, a smaller
@@ -75,9 +89,13 @@ Show the copy in its intended position, with the surrounding offer. Keep price,
 features and essential information constant between versions. Ask which version
 they prefer, with neither or no preference available.
 
-Use a clear preference to choose a draft. A small or inconsistent gap gives no
-reason to keep generating more versions. Describe it as wording preference,
-not proof that it will change behaviour.
+Treat the result as a weak signal at best. Tested on real headline experiments
+where one headline drew far more clicks than the other, the panel picked the
+winner no more often than a coin, with Jev and with a stronger answering
+model. Use a clear preference to choose a draft when nothing better is to
+hand, and describe it as wording preference, never as a prediction of which
+version will perform. A small or inconsistent gap gives no reason to keep
+generating more versions. When the wording matters, run the real test.
 
 ## Follow a useful difference
 

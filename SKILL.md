@@ -1,24 +1,53 @@
 ---
 name: nxk
-description: Explore how different people's lives change response probabilities. Use when work depends on what people may think, prefer, understand or reject, including products, services, messages, prices and everyday trade-offs.
+description: Get a second opinion from a panel of realistic simulated people on who an idea, offer or change is for, who it loses and what holds people back. Use after forming your own view, when work depends on how different groups of people would react, for products, services, offers and everyday trade-offs.
 ---
 
 # nxk
 
-Ask a relevant group a concrete question. Keep every answer probability, find
-what changes across the crowd, and use the useful differences in the current
-task. Match the size of the run to the decision.
+nxk is a second opinion from a crowd. Work the decision out yourself first,
+then put it to a panel of realistic people to see what you missed: a group you
+did not name, an assumption the people do not share, an obstacle that ranks
+higher than you thought. Keep every answer probability, find what changes
+across the crowd, and use the useful differences in the current task. Match
+the size of the run to the decision.
 
-The differences between people matter more than the overall result. Look for
-where the answers change. Then look at what those people have in common, and
-what that changes in your work.
+The panel adds to your judgement; it does not replace it. In testing, an agent
+that took its answer from the panel gave a worse answer than the same agent
+working alone, and in every case the panel still found a group that agent had
+missed.
+
+| The panel can | The panel cannot |
+| --- | --- |
+| Show a group you did not name, and who a change would lose | Set a price, or choose between ways of charging |
+| Show that people you were counting on do not want the thing | See the business's side: capacity, margin, cost to serve |
+| Rank obstacles, and show who feels each one most | See people by how they already use you: existing customers, regulars, lapsed users |
+| Show which way a term, a step or an offer pushes people | Say which wording will perform, an exact share, or how large an effect is |
+
+## Answer first
+
+Before drawing anyone, write your own answer to the task in a few lines and
+keep it:
+
+- the decision you would make and why, including the sums: what each option
+  costs a person at typical levels of use, and what it earns or costs the
+  business;
+- who it is for, who it loses and what holds people back, naming people by how
+  they use the thing as well as by who they are: existing customers, people
+  who already do this another way, people with a pressing need;
+- the two or three assumptions about people that your answer rests on, such as
+  "retired people will want a weekday pass".
+
+Those assumptions are what the run is for. Put them to the panel, and look for
+what your answer left out.
 
 ## Start small
 
 Before drawing people, state the decision, what success means, any fixed
 constraints and what different answers would change. If demand, cost, access
-or another goal could point in different directions, name the trade-off. Pick
-a simple decision rule before seeing the result; do not invent one afterwards.
+or another goal could point in different directions, name the trade-off. Decide
+before seeing the result what the panel would have to show to change your
+answer; do not invent that afterwards.
 
 Ask about the nearest real action. "What would they do next?" is stronger than
 "Would they consider it?" Include what they already do and the real cost or
@@ -81,12 +110,15 @@ drawing first and don't draw past it to chase a tiny group. If far fewer than
 about one in twenty qualify, explain the constraint and offer a smaller sample
 or a broader group.
 
-For answering, draw the full life without appearance
-(`"exclude_sections": ["body_and_appearance"]`). The parts of a life that look
-unrelated to the question still shape the answer: in testing, leaving out
-beliefs, personality, shopping, interests and media made answers less
-accurate. Cut to chosen sections (`sections`) only when the budget forces it,
-and then keep `name_and_summary` and any section you will group by. Draw the
+Draw the full life without appearance
+(`"exclude_sections": ["body_and_appearance"]`) and save it. Then send each
+person to the answering model with only the fields that bear on the question:
+the helpers in the reference have the model rate every field once for the
+situation and keep the 15 highest. In testing this cost a fifth as much as
+sending the whole profile and was no less accurate. Do not cut sections by
+hand: leaving out fixed sections such as beliefs, personality and shopping made
+answers less accurate, and which facts matter changes with the question. Group
+the answers by any field of the saved draw, whether or not it was sent. Draw the
 group with one `seed` and page it with `start` instead of redrawing; stream
 (`Accept: application/x-ndjson`) when it is large.
 
@@ -128,8 +160,9 @@ person's probabilities already show how sure they are, and a catch-all option
 hides where that uncertainty lies. "None of these", "neither" and doing
 nothing are real choices and can stay; only the catch-alls go. Put the question and complete options
 together in `state`. Ask for that person's response using the profile and
-situation. Use the request pattern in the reference and leave its instruction
-as it is: adding coaching to it, such as telling the model to think as the
+situation. Use the request helpers in the reference, which carry a tested
+instruction for a Choice and for a Noul, and leave those instructions as they
+are: adding coaching, such as telling the model to think as the
 person, to weigh every circumstance or to consider how common an answer is,
 made answers less accurate in testing. Keep hypothetical
 circumstances separate from profile facts. Give trade-offs concrete prices,
@@ -167,8 +200,15 @@ Answering models rarely pick the ends or the middle of a scale, so a scale
 shows direction and differences between groups more reliably than strength of
 feeling.
 
-Jev returns typed answers and probabilities. Use the full response text as
-Choice labels and rotate option order consistently in `state` and `criteria`.
+When the share of people who would say yes is itself what you need, ask a
+Choice between Yes and No rather than a Noul. In testing, a Noul's yes level
+ran high and its gaps between groups came out flatter, though they pointed the
+same way. Keep Nouls for comparing obstacles with each other and for seeing
+which way a group leans.
+
+The answering model returns typed answers and probabilities. Use the full
+response text as Choice labels and rotate option order consistently in `state`
+and `criteria`.
 For an ordered Score, keep the levels in their meaningful order.
 
 Batch independent questions about the same situation for one person. Put
@@ -179,10 +219,14 @@ can refer to it draws attention to that offer in every choice in the same
 request, so ask such questions in their own request. If a follow-up depends
 on an earlier answer, send that answer in a new request.
 
-Use the model available to the agent. Jev is recommended because it returns
-structured answers and probabilities quickly, but nxk is not tied to a
-particular provider. PersonaGen is free; the answering model is the cost. Use
-current pricing for the chosen model and keep the run within the task's budget.
+Gemini Decision 1, reached through Vercel AI Gateway, is the recommended
+answering model. Against official surveys it was as accurate about differences
+between groups as a frontier model asked about each group directly, and a
+question put to 300 people costs about two cents with the relevant fields. Jev
+takes the same requests and is steadier on small changes of terms, but less
+accurate. nxk is not tied to a particular provider. PersonaGen is free; the
+answering model is the cost. Use current pricing for the chosen model and keep
+the run within the task's budget.
 
 Before the full batch, run three or four people with clearly different lives.
 Check that their probabilities differ and that nobody picks an option their
@@ -202,11 +246,13 @@ Sampling is optional; audience averages need no random draw. Use the same
 measure and saved profiles when comparing alternatives.
 
 A Noul is a yes probability. Its mean is average model support for that claim,
-not a headcount or strength score. A Score is a position on the levels you
+not a headcount or strength score, and it tends to run higher than the share
+of people who would say yes. A Score is a position on the levels you
 specified. Keep these measures separate. Report failed or missing answers;
 never turn them into zeros.
 
-Apply the decision rule chosen before the run. If the task allocates limited
+Apply the rule chosen before the run: what the panel would have to show to
+change your answer. If the task allocates limited
 money, time or capacity, show the calculation that turns weighted demand into
 an allocation. Call a result optimal only when the objective and constraints
 fully define what optimal means.
@@ -230,7 +276,10 @@ detail. Look for useful probability shifts across relevant profile traits and
 well-sized combinations. Express gaps in percentage points, or relative
 percentages with a clear comparison group. Use standard deviation only when
 calculated, stating what varies, such as results across seeds. Treat newly
-found connections as leads: a group difference does not explain its cause.
+found connections as leads: a group difference does not explain its cause,
+and one you found by searching needs a fresh draw to confirm it before you
+act on it. The more cuts you search through, the more of them differ by
+chance, so name the one gap you mean to act on before you draw again.
 
 Read a gap between groups for its direction first. Against official surveys,
 a real gap of ten points or more usually points the same way here, about
@@ -238,10 +287,33 @@ eight or nine times in ten. Its size is less dependable: gaps tend to come out
 at around two-thirds of their real size, gaps by age are flattened most, and
 gaps tied to money can come out larger than they are.
 
+How big a gap must be before you trust it: between two groups of 30 or more
+people each, about three in four gaps of ten points or more matched a real gap
+the same way in testing, and very few ran the other way; at fifteen points
+nearly nine in ten did. Below about seven points a gap is more often nothing
+than something, so treat it as a lead.
+
 The overall level is least dependable for questions about what people did in
 a recent period, such as in the past 12 months, because the answering model's
 sense of how common a behaviour is can be far out. Use such questions to
 compare groups, and take the overall rate from a real source when one exists.
+
+When the same people answer two versions of a situation, read the change
+across the group, not in one person. A detail that should not matter still
+moves one person's answer by a point or two in either direction; across the
+group those moves cancel and a real change does not. Compare each person's
+probability before and after, not their top answer: in testing, three in four
+people moved the right way at a typical step while only one in ten changed
+their top answer. Direction is dependable for a clear change of terms or
+effort. Size is understated, and a very small change, such as delivery in
+three days instead of one, may not register at all. Price is the weakest:
+raising a monthly price from 6 to 16 cost under ten points in one test, and
+in another the same people were as likely to join a plan at 23 a month as at
+12.
+
+When the aim is to find which groups react most to a change, draw 300 people
+or more and compare groups of at least 30. In testing, two panels of 300
+agreed closely on which groups moved more, and two panels of 100 only loosely.
 
 Agreement can be real. Check whether the full probability sets vary between
 people before claiming a difference between groups. If the result does not
@@ -249,7 +321,36 @@ make sense, inspect the request and test a few clearly different profiles or
 the same question without a profile before scaling up.
 Change an identified problem, not the numbers to manufacture variety.
 
+## Bring it back to your answer
+
+Finish by amending the answer you wrote first. Do not write a new one from the
+panel's numbers.
+
+- Keep everything in your answer that the panel could not have seen: groups
+  named by how they use the thing, the business's side, and the sums.
+- Add a group the panel showed and you had not named, when the gap is big
+  enough to trust and repeats on a fresh draw. Describe it as a group to
+  include in a real test.
+- Where the panel does not back an assumption, such as people you were counting
+  on showing little interest, do not switch the decision on that alone. Say
+  so, and make it the first thing to test for real.
+- Where the panel and your judgement disagree about a group you can name, keep
+  your judgement and record the disagreement as something to test for real. In
+  testing with the recommended model, where the panel and a strong model asked
+  directly disagreed on the direction of a real gap, the direct answer was
+  right about two times in three.
+- Do not take a price from the panel. Use it for who drops out when a term or
+  a step is added, and settle the price by the sums.
+- Do not let the panel choose between ways of charging, such as a fee per use,
+  a flat fee or a spending threshold. Which is best depends on how much each
+  person would use it. The panel imagines that differently each time, and in
+  testing one added sentence about a typical order reversed its ranking. Ask
+  the panel who would use the thing and how much, then do the sums yourself.
+- Resolve any finding that contradicts another line of your answer before you
+  hand the answer over. Do not list the two side by side.
+
 Use the results to explore preferences and obstacles. Do not present them as
 what real people actually did. Describe a wording result as a preference for
-that wording, not proof that it will change behaviour. Keep political, hiring,
+that wording, not proof that it will change behaviour: against real headline
+experiments the panel picked the winner no more often than a coin. Keep political, hiring,
 medical and other high-stakes decisions out of this workflow.
