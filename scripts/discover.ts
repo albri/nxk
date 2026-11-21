@@ -40,6 +40,7 @@ import { argsOf, cli, Exit, readIn, usageExit, type Args, type Out, type RunCont
 import {
   alike,
   leanBy,
+  leftOut,
   ownCorners,
   reached,
   roomOf,
@@ -871,7 +872,7 @@ function printWhiteSpace(
   log: Log,
   { map, pool, whom, room, ideas, scored, everyIdea, sized }: Reading,
   flags: Flags,
-): { empty: EmptyGroup[]; reach: number } {
+): { empty: EmptyGroup[]; left: EmptyGroup[]; reach: number } {
   const now = new Set(ideas.filter((idea) => idea.now).map((idea) => idea.key));
   const ways = scored.filter((idea) => now.has(idea.key));
   const empty: EmptyGroup[] = whiteSpace(room, scored, {
@@ -886,7 +887,8 @@ function printWhiteSpace(
       "Only groups named by a fact that was asked about can appear.",
     ].join(" "),
   );
-  for (const corner of empty) {
+  // Each group with how it does on the way of doing it now and on the best offer, then what else marks its people out.
+  const printGroup = (corner: EmptyGroup) => {
     const inGroup = new Uint8Array(room.N);
     for (const i of corner.list) inGroup[i] = 1;
     const lines = profile(
@@ -908,7 +910,8 @@ function printWhiteSpace(
       { counted: [sized(corner)] },
     );
     log.line(`      ${age ? `middle age ${age.group} against ${age.all}; ` : ""}${corner.also.join("; ")}`);
-  }
+  };
+  for (const corner of empty) printGroup(corner);
   if (!ways.length)
     log.line(
       [
@@ -919,6 +922,21 @@ function printWhiteSpace(
     );
   else if (!empty.length)
     log.line(`  None of 5% of ${whom} or more: where people do it themselves most, the offers do as well or better.`);
+  // Who the offers leave out: not a gap they can fill as they are, but what their form costs (an app leaves out people
+  // who do it by hand and use no apps), which an owner may not have thought of.
+  const left: EmptyGroup[] = ways.length
+    ? leftOut(room, scored, { floor: Number(flags.floor ?? 0.05), among: everyIdea, now, apart: empty })
+    : [];
+  if (left.length) {
+    log.line(
+      [
+        "\nWho the offers leave out: big groups who do it themselves at least as often as most, but are cold on every offer",
+        "(each under 0.9 of its own average). Not a gap the offers can fill as they are: what their form costs.",
+        "Raise one only when the owner has not named it, with a change that would reach them.",
+      ].join(" "),
+    );
+    for (const corner of left) printGroup(corner);
+  }
   const reach = reached(room, scored);
   log.line(
     `\nReach: ${percent(reach)} of ${whom === "all adults" ? "adults" : whom} are at least a fifth keener than average on at least one idea.`,
@@ -932,7 +950,7 @@ function printWhiteSpace(
       "- Before spending on a corner, work out how many customers the idea needs (the sums tool) and compare that with the corner's counted size. Then go and talk to people in it.",
     ].join("\n"),
   );
-  return { empty, reach };
+  return { empty, left, reach };
 }
 
 /** A corner as the JSON writes it: without its list of people, and with its share of all adults. */
@@ -946,9 +964,17 @@ function writeJson(
     same,
     own,
     empty,
+    left,
     reach,
     by = {},
-  }: { same: Likeness; own: OwnCorners; empty: EmptyGroup[]; reach: number; by?: Record<string, KeenBy[]> },
+  }: {
+    same: Likeness;
+    own: OwnCorners;
+    empty: EmptyGroup[];
+    left: EmptyGroup[];
+    reach: number;
+    by?: Record<string, KeenBy[]>;
+  },
 ) {
   const strip = ({ list, keenest, ...rest }: Corner & { keenest?: KeenCorner }): WrittenCorner => ({
     ...rest,
@@ -969,6 +995,7 @@ function writeJson(
         cold_on_all: strip(own.cold),
         ideas: own.ideas.map((idea) => ({ ...strip(idea), ...(by[idea.key] ? { own: true, by: by[idea.key] } : {}) })),
         nothing_for: empty.map(strip),
+        left_out: left.map(strip),
         reach,
         missing,
         unfinished,

@@ -583,12 +583,14 @@ export function nextMove({
           `${strong.length} strong lead(s), kept, split and looked up${skipped}.`,
           'Report the findings as guide topic research says ("What you return").',
           `${yours}Then strong leads, each sized (counted) among who pays, faint ones marked faint,`,
-          "the groups no version serves, what the owner's own figures would sharpen,",
+          "the groups nobody serves (or that none were found, or that it was not read), who the offers leave out",
+          "in one line when the owner has not named that group, what the owner's own figures would sharpen,",
           "what the scans cannot say and what they cost. Nothing is chosen for the owner.",
         ].join(" ")
       : [
           "No version has a strong corner of its own. Report that plainly, as guide topic research says.",
-          `${yours}Then that nothing else stood out, the faint leads marked faint, the groups no version serves,`,
+          `${yours}Then that nothing else stood out, the faint leads marked faint, the groups nobody serves`,
+          "(or that none were found, or that it was not read), who the offers leave out in one line when the owner has not named that group,",
           "and that the choice rests on what the owner can test with real buyers.",
         ].join(" "),
   };

@@ -1,7 +1,18 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { CATEGORIES } from "./businesses.ts";
-import { alike, correlation, leanBy, ownCorners, reached, roomOf, scoresOf, whiteSpace, workersOf } from "./corners.ts";
+import {
+  alike,
+  correlation,
+  leanBy,
+  leftOut,
+  ownCorners,
+  reached,
+  roomOf,
+  scoresOf,
+  whiteSpace,
+  workersOf,
+} from "./corners.ts";
 import {
   PART,
   atWork,
@@ -214,9 +225,39 @@ test("a group cold on everything, the way they do it now too, is not one nobody 
     idea("hand", { retired: 0.4, student: 0.4, employed: 0.1 }),
   ];
   assert.deepEqual(whiteSpace(room, ideas, { floor: 0.2, now: new Set(["hand"]) }), []);
+  assert.deepEqual(leftOut(room, ideas, { floor: 0.2, now: new Set(["hand"]) }), []);
   // Retired people and students are each a little keener than the room on some idea; the employed are on none.
   assert.ok(Math.abs(reached(room, ideas, 1.02) - 2 / 3) < 0.01);
   assert.equal(reached(room, ideas, 2), 0);
+});
+
+test("leftOut finds who does it themselves as often as most but is cold on every offer, once", () => {
+  // Retired people pick teams by hand a little more than most, and no app is for them: not a gap, what an app costs.
+  const ideas = [idea("hand", { retired: 0.3 }), idea("app", { retired: 0.01 }), idea("club", { retired: 0.01 })];
+  const now = new Set(["hand"]);
+  assert.deepEqual(
+    whiteSpace(room, ideas, { floor: 0.2, now }),
+    [],
+    "not keen enough on doing it themselves to be a gap",
+  );
+  const left = leftOut(room, ideas, { floor: 0.2, now });
+  assert.deepEqual(
+    left.map((c) => c.facts.map((f) => f.code).join("+")),
+    ["retired"],
+  );
+  assert.ok(left[0].nowLift >= 1 && left[0].lift < 0.9);
+  // A group nobody serves is not also given as one left out.
+  const keen = [
+    idea("hand", { student: 0.9 }),
+    idea("app", { retired: 0.5, student: 0.01 }),
+    idea("club", { employed: 0.5, student: 0.01 }),
+  ];
+  const empty = whiteSpace(room, keen, { floor: 0.2, now });
+  assert.equal(empty[0].facts[0].code, "student");
+  assert.equal(leftOut(room, keen, { floor: 0.2, now })[0].facts[0].code, "student");
+  assert.deepEqual(leftOut(room, keen, { floor: 0.2, now, apart: empty }), []);
+  // With no way of doing it now on the list, nothing is read.
+  assert.deepEqual(leftOut(room, ideas, { floor: 0.2 }), []);
 });
 
 test("ideasOf keeps the way people do it now, and refuses an idea marked both own and now", () => {

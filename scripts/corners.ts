@@ -4,6 +4,7 @@
 //   alike        are the ideas wanted by the same people?
 //   ownCorners   for each idea, the corner of the room that prefers it most to the other ideas
 //   whiteSpace   the big corners keen on doing the job themselves, where every offer does worse than its own average
+//   leftOut      the big corners who do it themselves as often as most, cold on every offer: what the offers' form costs
 //
 // A corner is a combination of up to three facts held by at least `minShare` of adults. Its size is counted on the
 // people. How keen it is comes from the decision model and is simulated.
@@ -425,9 +426,10 @@ export function ownCorners(room: Room, ideas: ScoredIdea[], options: SearchOptio
   };
 }
 
-/** A group whiteSpace finds, by its facts: the strongest way of doing it now there, and the best offer there. */
+/** A group found by its facts: the strongest way of doing it now there, and the best offer there. */
 interface ColdGroup {
   parts: Fact[];
+  n: number;
   now: string;
   nowLift: number;
   best: string;
@@ -435,28 +437,29 @@ interface ColdGroup {
   average: number;
 }
 
+/** What coldGroups looks for: the groups it keeps, and the order it keeps them in (first first). */
+interface ColdTest {
+  keeps: (group: ColdGroup) => boolean;
+  rank: (a: ColdGroup, b: ColdGroup) => number;
+}
+
 /**
- * The big groups nobody serves: people who want the job done but whom no offer suits. One fact, or two together, held
- * by `floor` of adults or more, where a way of doing it now (an idea in `now`: by hand, a spreadsheet, a free
- * template) is at least `demand` times its own average, and every other idea, the offers, does worse than its own
- * average. Returns up to `keep` groups that are not mostly the same people as one already kept, those the offers miss
- * by most first.
- *
- * With no way of doing it now on the list, nothing can be read, and none are returned: a group cold on every offer is
- * then most often a group that wants none of it (older adults, out of work, with a long-term condition, cold on
- * whatever is put to them), not one nobody serves. Going without is not a way of doing it now: people who would rather
- * go without do not want the job done.
+ * The big groups of one fact, or two together, held by `floor` of adults or more, that `test` keeps, each with the
+ * way of doing it now (an idea in `now`) they are keenest on and the best of the other ideas, the offers, each as
+ * many times its own average. Returns up to `keep` groups that are not mostly the same people as one already kept,
+ * nor as one in `apart`, in `test`'s order. With no way of doing it now on the list, or no offer, none.
  */
-export function whiteSpace(
+function coldGroups(
   room: Room,
   ideas: Pick<ScoredIdea, "key" | "p" | "mean">[],
+  test: ColdTest,
   {
-    floor = 0.05,
-    keep = 5,
-    among = null,
-    now = new Set<string>(),
-    demand = 1.1,
-  }: { floor?: number; keep?: number; among?: Set<string> | null; now?: Set<string>; demand?: number } = {},
+    floor,
+    keep,
+    among,
+    now,
+    apart = [],
+  }: { floor: number; keep: number; among: Set<string> | null; now: Set<string>; apart?: Corner[] },
 ): EmptyCorner[] {
   const ways = ideas.filter((idea) => now.has(idea.key)),
     offers = ideas.filter((idea) => !now.has(idea.key));
@@ -492,15 +495,16 @@ export function whiteSpace(
       total += lift;
       if (lift > best.lift) best = { key: order[k].key, lift };
     }
-    if (way.lift >= demand && best.lift < 1)
-      scored.push({
-        parts,
-        now: way.key,
-        nowLift: way.lift,
-        best: best.key,
-        lift: best.lift,
-        average: total / (K - W),
-      });
+    const group = {
+      parts,
+      n,
+      now: way.key,
+      nowLift: way.lift,
+      best: best.key,
+      lift: best.lift,
+      average: total / (K - W),
+    };
+    if (test.keeps(group)) scored.push(group);
   };
   for (const fact of big) {
     sums.fill(0);
@@ -521,18 +525,19 @@ export function whiteSpace(
         }
       if (n >= min) score([big[a], big[b]], n);
     }
-  scored.sort((x, y) => y.nowLift / y.lift - x.nowLift / x.lift);
+  scored.sort(test.rank);
   const listOf = (parts: Fact[]) => {
     if (parts.length === 1) return parts[0].list;
     const [small, other] = parts[0].list.length <= parts[1].list.length ? parts : [parts[1], parts[0]];
     return small.list.filter((i) => other.members[i]);
   };
+  const same = (a: number[], b: Set<number>, size: number) =>
+    a.filter((i) => b.has(i)).length / Math.min(a.length, size) > 0.6;
   const kept: (ColdGroup & { list: number[] })[] = [];
   for (const corner of scored) {
     const list = listOf(corner.parts),
       set = new Set(list);
-    if (kept.some((k) => k.list.filter((i) => set.has(i)).length / Math.min(k.list.length, list.length) > 0.6))
-      continue;
+    if ([...apart, ...kept].some((k) => same(k.list, set, list.length))) continue;
     kept.push({ ...corner, list });
     if (kept.length >= keep) break;
   }
@@ -544,6 +549,82 @@ export function whiteSpace(
       lift: corner.lift,
       average: corner.average,
     }),
+  );
+}
+
+/** What whiteSpace and leftOut are given: the ideas that are ways of doing it now, and where to look. */
+export interface ColdOptions {
+  /** The smallest group, as a share of the room. */
+  floor?: number;
+  keep?: number;
+  /** The fields every idea was asked about: only their facts name a group. */
+  among?: Set<string> | null;
+  /** The keys of the ideas that are how people do it now without buying (by hand, a spreadsheet, a free template). */
+  now?: Set<string>;
+}
+
+/**
+ * The big groups nobody serves: people who want the job done but whom no offer suits. One fact, or two together, held
+ * by `floor` of adults or more, where a way of doing it now (an idea in `now`: by hand, a spreadsheet, a free
+ * template) is at least `demand` times its own average, and every other idea, the offers, does worse than its own
+ * average. Returns up to `keep` groups that are not mostly the same people as one already kept, those the offers miss
+ * by most first.
+ *
+ * With no way of doing it now on the list, nothing can be read, and none are returned: a group cold on every offer is
+ * then most often a group that wants none of it (older adults, out of work, with a long-term condition, cold on
+ * whatever is put to them), not one nobody serves. Going without is not a way of doing it now: people who would rather
+ * go without do not want the job done.
+ */
+export function whiteSpace(
+  room: Room,
+  ideas: Pick<ScoredIdea, "key" | "p" | "mean">[],
+  {
+    floor = 0.05,
+    keep = 5,
+    among = null,
+    now = new Set<string>(),
+    demand = 1.1,
+  }: ColdOptions & { demand?: number } = {},
+): EmptyCorner[] {
+  return coldGroups(
+    room,
+    ideas,
+    {
+      keeps: (g) => g.nowLift >= demand && g.lift < 1,
+      rank: (a, b) => b.nowLift / b.lift - a.nowLift / a.lift,
+    },
+    { floor, keep, among, now },
+  );
+}
+
+/**
+ * Who the offers leave out: big groups who do it themselves at least as often as most people (a way of doing it now
+ * at its own average or above), but are cold on every offer (each under `cold` of its own average). Not a gap the
+ * offers can fill as they are, but what their form costs, which an owner may not have thought of (an app leaves out
+ * people who do it by hand and use no apps). A group cold on everything is not one of them: it does not do it
+ * themselves either. Groups mostly the same people as one in `apart` (the groups nobody serves) are left to it.
+ * Returns up to `keep`, the most people the offers miss first (their share, times how far the best offer falls short).
+ */
+export function leftOut(
+  room: Room,
+  ideas: Pick<ScoredIdea, "key" | "p" | "mean">[],
+  {
+    floor = 0.05,
+    keep = 3,
+    among = null,
+    now = new Set<string>(),
+    cold = 0.9,
+    apart = [],
+  }: ColdOptions & { cold?: number; apart?: Corner[] } = {},
+): EmptyCorner[] {
+  return coldGroups(
+    room,
+    ideas,
+    {
+      keeps: (g) => g.nowLift >= 1 && g.lift < cold,
+      rank: (a, b) => b.n * (1 - b.lift) - a.n * (1 - a.lift),
+    },
+    { floor, keep, among, now, apart },
   );
 }
 

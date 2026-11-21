@@ -217,6 +217,8 @@ export interface Scan {
   likeness?: number;
   corners: ScanCorner[];
   nothing_for: ScanGap[];
+  /** Big groups who do it themselves as often as most but are cold on every offer: what the offers' form costs. */
+  left_out?: ScanGap[];
   date: string;
 }
 

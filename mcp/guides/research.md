@@ -124,6 +124,14 @@ reply), then `note_check` on them:
   themselves most, the offers do as well or better"). When it was not read
   (no version marked now), say that, and never put forward a group cold on
   every offer as one nobody serves.
+- **Who the offers leave out,** in one line, when the scan names one: people
+  who do it themselves as often as most but are cold on every offer (an app
+  leaves out people who do it by hand and use no apps). It is not a gap the
+  offers can fill as they are, so say it as what their form costs ("an app
+  leaves out about <how many> adults who do this by hand"), with the change
+  that would reach them (paper, a text message, someone running it for
+  them). Give it only when the owner's question or work has not named that
+  group, and only the one that bears most on their offer.
 - **The owner's figures.** When they gave a target, a margin or a price,
   `sums`: how many paying customers that takes, beside the counted payers.
   When they did not, name what would sharpen the findings (their margin, who

@@ -119,6 +119,8 @@ interface DiscoverResult {
     by?: KeenBy[];
   })[];
   nothing_for: Omit<EmptyCorner, "list">[];
+  /** Absent from readings written before it was read. */
+  left_out?: Omit<EmptyCorner, "list">[];
 }
 
 /** The owner's results about a segment's group (or recorded against the segment), one line each. */
@@ -412,13 +414,15 @@ export const DISCOVERY: NxkTool[] = [
           ...(roomed ? { room_of: result.room_of } : {}),
         };
       });
-      const nothing = result.nothing_for.map((c): ScanGap => ({
+      const gapOf = (c: Omit<EmptyCorner, "list">): ScanGap => ({
         among: among(c),
         label: groupLabel(c),
         share: c.share,
         best: c.best,
         now: c.now,
-      }));
+      });
+      const nothing = result.nothing_for.map(gapOf),
+        left = (result.left_out ?? []).map(gapOf);
       // A scan belongs to the research question it was started for, which may not be the one open now.
       const study = (finished ? run?.study : undefined) ?? studyOf(product)?.id ?? null;
       const { product: next, scan } = addScan(product, {
@@ -438,6 +442,7 @@ export const DISCOVERY: NxkTool[] = [
         likeness: result.likeness,
         corners: summary,
         nothing_for: nothing,
+        ...(left.length ? { left_out: left } : {}),
       });
       save({ ...next, country });
       return {

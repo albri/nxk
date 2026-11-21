@@ -175,6 +175,12 @@ were kept when it began. Do not sleep or check its files in between.
   on whatever is put to them), so the reading says it was not read. "None"
   is a finding: where people do it themselves most, the offers do as well or
   better.
+- **Who the offers leave out.** Large groups who do it themselves at least
+  as often as most (the version marked now at its average or above) but are
+  cold on every offer (each under 0.9 of its own average). Not a gap the
+  offers can fill as they are: what their form costs, which the owner may
+  not have thought of (an app leaves out people who do it by hand and use no
+  apps). A group nobody serves is not given here again.
 
 Then go round again: write ideas for the groups nobody serves, as those
 people would meet them (it need not be an app), add them to the ideas list, run
