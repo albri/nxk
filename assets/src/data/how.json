@@ -1,0 +1,42 @@
+{
+  "_about": "The words of the how-it-works figure (assets/src/how.ts): one lane for each command, from what you ask, through the agent that does it in its own context, to what comes back. A *starred* phrase is drawn in the accent.",
+  "title": "How it works",
+  "lead": "Three commands. Each hands your question to one of nxk's agents, which works in its own context and hands back only its result.",
+  "columns": ["You ask", "nxk's agent, in its own context", "You get back"],
+  "lanes": [
+    {
+      "icon": "research",
+      "command": "/nxk:research",
+      "ask": "Who would want it, how many, where, and which version",
+      "agent": "Researcher",
+      "uses": ["people", "scan"],
+      "back": "*Findings:* strong leads first, each sized and broken down, and the groups nothing serves"
+    },
+    {
+      "icon": "look",
+      "command": "/nxk:look",
+      "ask": "A page, a policy, a letter or a plan",
+      "agent": "Second look",
+      "uses": ["people"],
+      "back": "*At most three points,* each with who and how many, or one line saying none"
+    },
+    {
+      "icon": "meet",
+      "command": "/nxk:meet",
+      "ask": "A group of people, and your page if you like",
+      "agent": "Panel",
+      "uses": ["people"],
+      "back": "*The group counted,* and a few of its people as cards, walked through your page if you ask"
+    }
+  ],
+  "uses": {
+    "people": "counts",
+    "scan": "scans"
+  },
+  "check": "Before anything reaches you, every figure is checked against the record of the tool that printed it.",
+  "legend": [
+    { "icon": "people", "text": "*Counts* on 200,000 made-up adults a country: on your computer, free, in seconds." },
+    { "icon": "scan", "text": "*Scans* with a decision model: on your own key, about 2 US cents a version." }
+  ],
+  "note": "Until you ask, nxk's tools are not loaded, and Claude works as it would without nxk."
+}

@@ -1,0 +1,32 @@
+{
+  "_about": "The words of the header and the opening figure. Every number in both comes from idea-counts.json (node assets/src/count.ts, every command and its output in idea-counts.txt), rounded to 100 in the figure code so the parts add up to the whole.",
+  "header": {
+    "line": "Research for Claude: who would want it, how many, where, and every breakdown.",
+    "install": "/plugin install nxk --marketplace albri/nxk",
+    "facts": { "age": "age", "work": "work", "signup": "app sign-up" },
+    "labels": {
+      "signup": { "phone": "Suits", "out": "Left out:", "other": "No smartphone", "none": "Offline" }
+    }
+  },
+  "context": "One choice on a sign-up page, counted for adults in the UK",
+  "choice": "“You can only sign up in our app, on a smartphone.”",
+  "suits": "it suits",
+  "leaves_out": "it leaves out",
+  "groups": [
+    {
+      "online": "none",
+      "tone": "aurora",
+      "who": "do not use the internet",
+      "detail": "{n} of the {of} are 65 or over",
+      "detail_ages": ["65-74", "75+"]
+    },
+    {
+      "online": "other",
+      "tone": "look",
+      "who": "go online, but not on a smartphone",
+      "detail": "{n} of the {of} are under 65",
+      "detail_ages": ["18-34", "35-64"]
+    }
+  ],
+  "note": "Each square is 1 in 100 adults in the UK. It suits the people who go online on a smartphone. Counted on 200,000 made-up adults that match official statistics."
+}

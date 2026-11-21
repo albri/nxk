@@ -1,0 +1,241 @@
+{
+ "_about": "People in each mix of how they go online, age and work, counted by node assets/src/count.ts; data/idea-counts.txt has every command and its output.",
+ "country": "uk",
+ "people": 200000,
+ "engine": "v4/line 5e8253cbe",
+ "built": "2026-11-16",
+ "online": {
+  "phone": "devices_used_to_go_online=smartphone",
+  "other": "internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone",
+  "none": "internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet"
+ },
+ "age": {
+  "18-34": "age_years=18..34",
+  "35-64": "age_years=35..64",
+  "65-74": "age_years=65..74",
+  "75+": "age_years=75..120"
+ },
+ "work": {
+  "work": "economic_activity_status=in_employment",
+  "retired": "economic_activity_status=retired",
+  "other": "economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working"
+ },
+ "cells": [
+  {
+   "online": "phone",
+   "age": "18-34",
+   "work": "work",
+   "n": 36649
+  },
+  {
+   "online": "phone",
+   "age": "18-34",
+   "work": "retired",
+   "n": 0
+  },
+  {
+   "online": "phone",
+   "age": "18-34",
+   "work": "other",
+   "n": 13819
+  },
+  {
+   "online": "phone",
+   "age": "35-64",
+   "work": "work",
+   "n": 68612
+  },
+  {
+   "online": "phone",
+   "age": "35-64",
+   "work": "retired",
+   "n": 4125
+  },
+  {
+   "online": "phone",
+   "age": "35-64",
+   "work": "other",
+   "n": 16002
+  },
+  {
+   "online": "phone",
+   "age": "65-74",
+   "work": "work",
+   "n": 3904
+  },
+  {
+   "online": "phone",
+   "age": "65-74",
+   "work": "retired",
+   "n": 13090
+  },
+  {
+   "online": "phone",
+   "age": "65-74",
+   "work": "other",
+   "n": 915
+  },
+  {
+   "online": "phone",
+   "age": "75+",
+   "work": "work",
+   "n": 625
+  },
+  {
+   "online": "phone",
+   "age": "75+",
+   "work": "retired",
+   "n": 9147
+  },
+  {
+   "online": "phone",
+   "age": "75+",
+   "work": "other",
+   "n": 333
+  },
+  {
+   "online": "other",
+   "age": "18-34",
+   "work": "work",
+   "n": 2310
+  },
+  {
+   "online": "other",
+   "age": "18-34",
+   "work": "retired",
+   "n": 0
+  },
+  {
+   "online": "other",
+   "age": "18-34",
+   "work": "other",
+   "n": 1217
+  },
+  {
+   "online": "other",
+   "age": "35-64",
+   "work": "work",
+   "n": 4088
+  },
+  {
+   "online": "other",
+   "age": "35-64",
+   "work": "retired",
+   "n": 335
+  },
+  {
+   "online": "other",
+   "age": "35-64",
+   "work": "other",
+   "n": 1793
+  },
+  {
+   "online": "other",
+   "age": "65-74",
+   "work": "work",
+   "n": 685
+  },
+  {
+   "online": "other",
+   "age": "65-74",
+   "work": "retired",
+   "n": 2241
+  },
+  {
+   "online": "other",
+   "age": "65-74",
+   "work": "other",
+   "n": 235
+  },
+  {
+   "online": "other",
+   "age": "75+",
+   "work": "work",
+   "n": 207
+  },
+  {
+   "online": "other",
+   "age": "75+",
+   "work": "retired",
+   "n": 3573
+  },
+  {
+   "online": "other",
+   "age": "75+",
+   "work": "other",
+   "n": 193
+  },
+  {
+   "online": "none",
+   "age": "18-34",
+   "work": "work",
+   "n": 63
+  },
+  {
+   "online": "none",
+   "age": "18-34",
+   "work": "retired",
+   "n": 0
+  },
+  {
+   "online": "none",
+   "age": "18-34",
+   "work": "other",
+   "n": 231
+  },
+  {
+   "online": "none",
+   "age": "35-64",
+   "work": "work",
+   "n": 513
+  },
+  {
+   "online": "none",
+   "age": "35-64",
+   "work": "retired",
+   "n": 250
+  },
+  {
+   "online": "none",
+   "age": "35-64",
+   "work": "other",
+   "n": 1551
+  },
+  {
+   "online": "none",
+   "age": "65-74",
+   "work": "work",
+   "n": 131
+  },
+  {
+   "online": "none",
+   "age": "65-74",
+   "work": "retired",
+   "n": 2902
+  },
+  {
+   "online": "none",
+   "age": "65-74",
+   "work": "other",
+   "n": 382
+  },
+  {
+   "online": "none",
+   "age": "75+",
+   "work": "work",
+   "n": 57
+  },
+  {
+   "online": "none",
+   "age": "75+",
+   "work": "retired",
+   "n": 9273
+  },
+  {
+   "online": "none",
+   "age": "75+",
+   "work": "other",
+   "n": 549
+  }
+ ]
+}
