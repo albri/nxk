@@ -2,7 +2,7 @@
 // Renders nxk's launch video, the one at the top of the README, from the scenes in video/scenes.ts and the words in
 // data/video.json:
 //
-//   node assets/src/video.ts                  out/nxk-launch.mp4 and assets/nxk-launch-poster.png
+//   node assets/src/video.ts                  out/nxk-launch.mp4, and its first frame as out/nxk-launch-poster.png
 //   node assets/src/video.ts --at=0,21,40     stills at those seconds, for checking (--at=all: one in each scene)
 //   node assets/src/video.ts --sound          only the soundtrack, as a WAV
 //   node assets/src/video.ts --out=/some/dir  stills, the WAV and the frames go there instead of a temporary folder
@@ -10,7 +10,7 @@
 // The video is 1920 by 1080 at 30 frames a second, with sound, and starts on a finished title card: GitHub shows a
 // video's first frame before it plays, and starts it muted, so every idea is in the words on screen as well. The mp4
 // is not kept in the repository: GitHub plays a video in a README only when it is uploaded as an attachment, so
-// out/ (which git ignores) is where it is written, ready to upload.
+// out/ (which git ignores) is where it is written, ready to upload, with its first frame to check it by.
 //
 // Each frame is drawn in a headless Chromium (video/runtime.ts draws any moment on its own), and the sound is
 // synthesised from the same cue sheet (video/sound.ts), so every sound lands on its frame. ffmpeg puts them together,
@@ -30,7 +30,7 @@ import { soundtrack } from "./video/sound.ts";
 const ROOT = new URL("../../", import.meta.url);
 const read = (path: string) => JSON.parse(readFileSync(new URL(path, ROOT), "utf8"));
 const MP4 = fileURLToPath(new URL("out/nxk-launch.mp4", ROOT));
-const POSTER = fileURLToPath(new URL("assets/nxk-launch-poster.png", ROOT));
+const POSTER = fileURLToPath(new URL("out/nxk-launch-poster.png", ROOT));
 const LIMIT = 9.5 * 1024 * 1024; // under GitHub's 10 MB for a video attached on a free plan
 const AUDIO = 112; // kb/s of AAC: the sound is soft and warm, so this is plenty, and leaves the picture more
 const FFMPEG = process.env.FFMPEG || "ffmpeg";
@@ -108,6 +108,7 @@ try {
         }
       }),
     );
+    mkdirSync(fileURLToPath(new URL("out/", ROOT)), { recursive: true });
     writeFileSync(POSTER, readFileSync(join(outDir, "f00000.png")));
     const wav = join(outDir, "nxk-launch.wav");
     writeSound(wav);
@@ -120,7 +121,6 @@ try {
     ).stderr;
     const m = JSON.parse(log.slice(log.lastIndexOf("{"), log.lastIndexOf("}") + 1));
     const loud = `loudnorm=I=-18:TP=-1.5:LRA=11:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`;
-    mkdirSync(fileURLToPath(new URL("out/", ROOT)), { recursive: true });
     const encode = (video: string[]) =>
       execFileSync(FFMPEG, [
         "-y",

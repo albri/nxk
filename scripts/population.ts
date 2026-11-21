@@ -106,9 +106,6 @@ export interface NumericField extends FieldInfo {
 /** A fact recorded about people, as the map lists it. */
 export type Field = ListedField | NumericField;
 
-/** The kinds of field a map lists. */
-export type FieldKind = Field["kind"];
-
 /** The versions PersonaGen gives its catalogue (its `contract`), which a map keeps in its source. */
 export interface PersonaGenVersions {
   api_version: string;

@@ -7,7 +7,8 @@
 //   node assets/src/build.ts --data=/a --out=/b # data from another folder, SVGs to another folder (to try a data file)
 //
 // For each figure it writes assets/<name>-light.svg and -dark.svg, fonts embedded and nothing loaded from outside, and
-// for each icon (icons.ts) assets/icons/<name>-light.svg and -dark.svg; with --png, also a sheet of the icons.
+// for each icon the README's text uses (the three ways in) assets/icons/<name>-light.svg and -dark.svg; with --png,
+// also a sheet of every icon in icons.ts.
 //
 // Text is measured in a headless Chromium, so lines wrap with the real fonts. This repository installs neither, so
 // the build reads two environment variables:
@@ -34,6 +35,9 @@ import type { EvidenceWords } from "./evidence.ts";
 import type { HowWords } from "./how.ts";
 import type { IdeaCounts } from "./hundred.ts";
 import type { IdeaWords } from "./idea.ts";
+
+/** The icons the README's text shows, beside the three ways in. */
+const IN_TEXT = ["research", "look", "meet"];
 
 /** Every data file, by its name without .json. */
 interface FigureData {
@@ -144,13 +148,14 @@ try {
       console.log(`${base}: ${fig.width ?? W}x${Math.ceil(fig.height)}, svg ${(svg.length / 1024).toFixed(0)} KB`);
     }
   }
-  // the icons, as their own files for the README's text, and a sheet of them to look at
+  // the icons the README's text uses, as their own files (the figures and the video draw theirs inline), and a sheet of
+  // every icon to look at
   if (!wanted.length || wanted.includes("icons")) {
     const iconDir = join(outDir, "icons");
     mkdirSync(iconDir, { recursive: true });
     for (const [theme, t] of Object.entries(themes))
-      for (const name of Object.keys(ICONS)) writeFileSync(join(iconDir, `${name}-${theme}.svg`), iconFile(name, t));
-    console.log(`icons: ${Object.keys(ICONS).length} in two themes, in ${iconDir}`);
+      for (const name of IN_TEXT) writeFileSync(join(iconDir, `${name}-${theme}.svg`), iconFile(name, t));
+    console.log(`icons: ${IN_TEXT.length} in two themes, in ${iconDir}`);
     if (pngDir)
       for (const [theme, t] of Object.entries(themes)) {
         const cells = Object.keys(ICONS)

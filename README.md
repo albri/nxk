@@ -6,13 +6,12 @@
 </h1>
 
 <!--
-  THE LAUNCH VIDEO: replace the placeholder line below with the URL GitHub gives the uploaded video
-  (https://github.com/user-attachments/assets/...), on its own line with a blank line either side.
-  GitHub plays a video in a README only when it is an uploaded attachment, never a file in the repository.
-  To get the URL: build out/nxk-launch.mp4 with `node assets/src/video.ts`, drag it into a comment box on
-  any issue or pull request in albri/nxk, wait for the link to appear, post the comment, and copy the link.
+  The launch video, built with `node assets/src/video.ts` and uploaded to albri/nxk#6: GitHub plays a video in a
+  README only when it is an uploaded attachment, never a file in the repository. To change it, build it again,
+  drag out/nxk-launch.mp4 into a comment box on an issue or pull request, and put the link it gives here.
 -->
-VIDEO_URL_PLACEHOLDER
+
+https://github.com/user-attachments/assets/d8e1574c-85b2-46aa-8094-66999a137cbb
 
 <p align="center">
   <a href="https://github.com/albri/nxk/actions/workflows/test.yml"><img src="https://github.com/albri/nxk/actions/workflows/test.yml/badge.svg?branch=main" alt="Tests on main"></a>
@@ -79,6 +78,18 @@ when the plugin asks for its settings, or later with
 
 Three commands, or the same in your own words ("ask nxk how many firms in the
 North West would pay for this"). A question, a policy or a plan needs no code.
+Research before you decide, a second look once something is written, and a
+panel to see who is behind a count. After the command, write what you would
+tell a colleague:
+
+- `/nxk:research`: your question, where you sell, and a budget for scans if
+  you like ("up to $1"). Counts are free; with no budget, it tells you what a
+  scan would cost and asks before it sends anything. One budget for every
+  request can go in the plugin's settings (`/plugin configure nxk@nxk`).
+- `/nxk:look`: what to read (a file such as `site/join.html`, or "the plan
+  above"), and your goal if you like.
+- `/nxk:meet`: the group in your own words, and a page to walk them through if
+  you like.
 
 | You ask | nxk comes back with |
 | --- | --- |
