@@ -1,0 +1,14 @@
+{
+  "name": "nxk",
+  "owner": {
+    "name": "Alex Bristow"
+  },
+  "description": "nxk: research on people for Claude, counted on the whole UK or US adult population.",
+  "plugins": [
+    {
+      "name": "nxk",
+      "source": "./",
+      "description": "Research for Claude: who would want it, how many, where, and every breakdown, counted on 200,000 made-up adults a country matched to official statistics."
+    }
+  ]
+}

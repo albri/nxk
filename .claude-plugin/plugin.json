@@ -1,0 +1,106 @@
+{
+  "name": "nxk",
+  "displayName": "nxk",
+  "version": "0.10.0",
+  "description": "Research on people for Claude: who would want something, how many of them there are, where they live, and every breakdown, counted on 200,000 made-up adults a country (UK and US) from PersonaGen, matched to official statistics. /nxk:research puts your question to the whole country and returns findings; /nxk:look has a second look at a page, policy, letter or plan and comes back with at most three points worth considering; /nxk:meet draws a few of the people behind a count, as cards of their own facts. Every figure says where it came from.",
+  "author": {
+    "name": "Alex Bristow"
+  },
+  "repository": "https://github.com/albri/nxk",
+  "license": "MIT",
+  "keywords": [
+    "product",
+    "customers",
+    "population",
+    "research",
+    "decisions",
+    "mcp"
+  ],
+  "userConfig": {
+    "gemini_api_key": {
+      "type": "string",
+      "title": "Google AI Studio key",
+      "description": "For scans through Google's decision model, gemini-decision-1 (recommended). Empty: GEMINI_API_KEY or ~/.config/nxk/gemini-key is used if set.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "gemini_tier": {
+      "type": "string",
+      "title": "Google tier",
+      "description": "Your Google AI Studio project's tier (aistudio.google.com/projects shows it). It sets how fast scans go: Tier 1 is 20 times the Free Tier. Not set keeps to the Free Tier's limits.",
+      "options": [
+        "not set",
+        "Free Tier",
+        "Tier 1",
+        "Tier 2",
+        "Tier 3"
+      ],
+      "default": "not set"
+    },
+    "gateway_api_key": {
+      "type": "string",
+      "title": "Vercel AI Gateway key",
+      "description": "For decision models through Vercel AI Gateway (Gemini Decision 1, Jev and others).",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "openrouter_api_key": {
+      "type": "string",
+      "title": "OpenRouter key",
+      "description": "For decision models through OpenRouter's decisions endpoint, which OpenRouter marks as alpha.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "typesafe_api_key": {
+      "type": "string",
+      "title": "TypeSafe key",
+      "description": "For Jev straight from TypeSafe.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "decision_model": {
+      "type": "string",
+      "title": "Decision model",
+      "description": "gemini-decision-1 (recommended), or another decision model your gateway or OpenRouter serves. Answers are kept apart by model.",
+      "default": "gemini-decision-1"
+    },
+    "scan_budget": {
+      "type": "string",
+      "title": "Scan budget (US dollars)",
+      "description": "Optional: the most nxk may spend on scans for one request without asking you first, such as 0.50. Empty: it asks before every paid scan.",
+      "required": false,
+      "default": ""
+    },
+    "personagen_api_key": {
+      "type": "string",
+      "title": "PersonaGen key",
+      "description": "Optional: lets people_pull draw more people for an audience too narrow for the 200,000 shipped.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    }
+  },
+  "mcpServers": {
+    "nxk": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/scripts/launch.mjs",
+        "mcp/server.ts"
+      ],
+      "env": {
+        "NXK_GEMINI_API_KEY": "${user_config.gemini_api_key}",
+        "NXK_GEMINI_TIER": "${user_config.gemini_tier}",
+        "NXK_DECISION_KEY": "${user_config.gateway_api_key}",
+        "NXK_OPENROUTER_API_KEY": "${user_config.openrouter_api_key}",
+        "NXK_TYPESAFE_API_KEY": "${user_config.typesafe_api_key}",
+        "NXK_DECISION_MODEL": "${user_config.decision_model}",
+        "NXK_PERSONAGEN_API_KEY": "${user_config.personagen_api_key}",
+        "NXK_SCAN_BUDGET": "${user_config.scan_budget}"
+      }
+    }
+  }
+}
