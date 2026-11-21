@@ -173,6 +173,8 @@ export function shallowNote(lines: (string | TranscriptEntry)[], running = false
     .filter((c) => c.nxk && !c.error)
     .map((c) => nudgeLine(c.text))
     .findLast(Boolean);
+  // The tools' last word was to stop, or a move only the owner can make: digging further would go against it.
+  if (said && /^Next \((stop|owner)\):/.test(said)) return null;
   // Each number of looks is said in words that fit it: no look is not "one look".
   const done = d.scans
     ? "read a scan and asked nothing after it, so the answer rests on one look"
