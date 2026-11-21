@@ -363,8 +363,11 @@ weight:
 - **Paid calls are capped.** A scan shows its cost before it sends anything and
   stops at the limit you set.
 
-You need Node 22.18 or later, which runs the `.ts` files directly. `npm ci`
-adds the development tools: oxlint, oxfmt and TypeScript 7's checker.
+You need Node 22.18 or later, which runs the `.ts` files directly. `npm install`
+adds the development tools: oxlint, oxfmt and TypeScript 7's checker, each at
+the exact version in `package.json`. There is no lockfile on purpose: Claude
+Code installs a plugin's packages whenever it ships one, and these tools would
+then land in every owner's install.
 
 ```bash
 claude --plugin-dir .   # this checkout as the plugin, for one session
