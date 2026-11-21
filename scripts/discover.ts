@@ -26,6 +26,7 @@
 //   --read      print again from the saved answers; no request
 //   --floor     the smallest group counted as "nothing is for them", as a share of adults (default 0.05)
 //   --json      also write the result to this file
+//   --among     read among the people of one place, where the owner sells (research_start's where): region=scotland
 //
 // Answers are saved under <dir>/<ideas file name>.spec/, so adding ideas to the file and running again sends only
 // what is missing. Every field: about 18 cents for ten ideas and 36 for twenty; named fields: about 7 and 17. The
@@ -55,7 +56,7 @@ import {
   type ScoredIdea,
 } from "./corners.ts";
 import { percent, plural } from "./format.ts";
-import { marked, profile } from "./groups.ts";
+import { conditionsOf, describeConditions, marked, matches, profile } from "./groups.ts";
 import { openLog, type Log } from "./log.ts";
 import { ADULTS as OFFICIAL, loadPeople, type Country, type Field, type PeopleMap, type Row } from "./population.ts";
 import type { KeenBy, ScanIdea } from "./product.ts";
@@ -538,9 +539,18 @@ function scoreIdeas(
   // When every offer is asked at work, the reading is among the people in work (corners.ts workersOf); sizes are
   // still given as shares of all adults.
   const workers = ideas.length && ideas.every(atWork) ? workersOf(map.fields, people) : null;
-  const pool = workers ? people.filter((_, i) => workers[i]) : people,
+  // A study about one place (research_start's where, given as --among) is read among the people there: for a shop or
+  // a promotion in one region, how keen a group is against the whole country says nothing the owner can use.
+  const placed = flags.among ? conditionsOf(map.fields, String(flags.among).split(",")) : [];
+  const pool =
+      workers || placed.length ? people.filter((row, i) => (!workers || workers[i]) && matches(placed, row)) : people,
     scale = pool.length / people.length;
-  const whom = workers ? "people in work" : "all adults";
+  const there = placed.length ? ` in ${describeConditions(placed)}` : "";
+  const whom = workers ? `people in work${there}` : placed.length ? `adults${there}` : "all adults";
+  if (placed.length && pool.length < 1000)
+    throw new Error(
+      `Only ${pool.length} generated ${whom}: too few to read a scan among. Read it nationwide (leave where out).`,
+    );
   const room = roomOf(map.fields, pool);
   const askable = new Set(map.fields.filter((field) => probesOf(field).length >= 2).map((field) => field.name));
   // A field that does not split the people read here (among the people in work, everyone is in employment) cannot be
@@ -623,14 +633,16 @@ function scoreIdeas(
 /** What was read, and whether the ideas are wanted by the same people, with who is keen and cold on all of them. */
 function printLikeness(
   log: Log,
-  { country, model, map, people, workers, room, scored, missing, unfinished, everyIdea, sized }: Reading,
+  { country, model, map, people, workers, room, whom, scored, missing, unfinished, everyIdea, sized }: Reading,
 ): { same: Likeness; own: OwnCorners } {
   const atWorkNote = workers
     ? [
-        ` Every idea was asked at work, so what follows is read among the ${room.N} in work`,
+        ` Every idea was asked at work, so what follows is read among the ${room.N} ${whom}`,
         "(people not in work answered that they never had any); sizes are still shares of all adults.",
       ].join(" ")
-    : "";
+    : whom !== "all adults"
+      ? ` What follows is read among the ${room.N} generated ${whom}, where the owner sells: each group is of them, and how keen it is, against them; sizes are still shares of all adults.`
+      : "";
   log.line(
     [
       `\nEXPERIMENTAL. ${scored.length} ideas put to ${people.length} generated ${country.toUpperCase()} adults`,
@@ -849,7 +861,7 @@ interface EmptyGroup extends EmptyCorner {
  */
 function printWhiteSpace(
   log: Log,
-  { map, pool, workers, whom, room, scored, everyIdea, sized }: Reading,
+  { map, pool, whom, room, scored, everyIdea, sized }: Reading,
   flags: Flags,
 ): { empty: EmptyGroup[]; reach: number } {
   const empty: EmptyGroup[] = whiteSpace(room, scored, {
@@ -885,7 +897,7 @@ function printWhiteSpace(
   if (!empty.length) log.line(`  None of 5% of ${whom} or more.`);
   const reach = reached(room, scored);
   log.line(
-    `\nReach: ${percent(reach)} of ${workers ? "people in work" : "adults"} are at least a fifth keener than average on at least one idea.`,
+    `\nReach: ${percent(reach)} of ${whom === "all adults" ? "adults" : whom} are at least a fifth keener than average on at least one idea.`,
   );
   log.line(
     [
