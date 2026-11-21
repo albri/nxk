@@ -1,41 +1,37 @@
 # nxk
 
-> Give your agent a crowd. Let it find the differences that matter.
+> nxk is a plugin for Claude. It gives Claude 200,000 made-up adults for the UK and 200,000 for the US, built by PersonaGen to match official statistics, and tools to count them and put questions to them. Ask a question about people and nxk answers it from the whole country: who would want something, how many of them there are, where they live, and every breakdown by any of 150 facts, with every figure saying where it came from. It runs only when asked, and never changes the person's work without their yes.
 
-nxk is a skill for coding agents. It runs a decision through simulated people,
-keeps each probability distribution, shows how answers change with people's
-lives, and uses the differences to decide what to ask or change next. Consumer
-products, services and everyday trade-offs are the easiest fit. Work questions
-need a specific role and suitable employment context.
+The made-up adults ship in `maps/`. As a group they match official statistics and large surveys on age, money, work, health, internet use and more, so a share of them stands for about the same share of real adults, and each count also says about how many real adults (or firms) that is. Counting runs on the user's machine, needs no key and sends nothing.
 
-PersonaGen is free, up to 100,000 personas a month. The answering model is the
-only cost, on the user's own account. The recorded runs use Jev
-from TypeSafe, which is the recommended model for this workflow. A recorded
-batch used 100 profiles and two questions each in about five seconds, with an
-estimated Jev input cost of $0.013.
+Three commands, each handed to one of nxk's agents, which works in its own context and returns only its result. Until one is used, nxk's tools are not loaded.
 
-Install with `npx skills add albri/nxk`. Give the agent access to a model that
-returns a probability for each option, such as Jev, and get a PersonaGen key at
-personagen.dev.
-Credential storage is the user's choice. Jev needs its own key and credit.
+- Research, `/nxk:research <question>`: how many people like this live here, who would want this, which version or price people would take, which firms would pay, who nobody is serving. Counts answer how many, where and how a group breaks down. For who would want something, the researcher writes the idea a few ways to whoever pays, scans them (`ideas_scan`), counts each group where the person sells, and follows the strongest leads (`explore_next`). It returns findings: strong leads first, each sized and broken down, the groups nothing serves, and the cheapest real test to tell the leading two apart.
+- Second look, `/nxk:look` on a page, a policy, a letter or a plan: at most three points worth considering ("Worth considering:"), opportunity first, each with who, roughly how many, and what Claude will do if the person says yes; or one line saying nothing is worth raising. Counts only.
+- Panel, `/nxk:meet` on a group: the group counted, and a few of its people drawn at random, each a card of their own facts; when asked, each walked through a page, marked imagined.
 
-- [SKILL.md](SKILL.md): read when using nxk; a quick check is about 100 people
-  and one or two questions.
-- [references/persona-generation.md](references/persona-generation.md): read
-  before the first API call; the discover, search, validate, draw workflow,
-  paging, streaming, sections, response shapes, accounting and failure handling.
-- [references/filters.md](references/filters.md): how to read PersonaGen's live
-  catalogue and write a filter. The catalogue is the only complete list of
-  fields; `scripts/catalogue.mjs` reads it with a cache.
-- [references/instruments.md](references/instruments.md): optional recipes for
-  prices, trade-offs, blockers and further exploration.
-- [references/probabilities.md](references/probabilities.md): native probability
-  averages, normalised per-option weights, optional sampling and collapse checks.
-- [methodology.md](methodology.md): how nxk's crowd compares with 26 published
-  UK and US survey questions; read for its known limits.
+A scan asks a decision model (an AI model that gives a probability for each possible answer and writes no text) about one fact at a time, then gives each made-up person an answer built from all their facts, so its result is counted and broken down like any other count. Scans run on Google's `gemini-decision-1` with the user's own key, about 2 US cents a version on Google's paid tiers, with the cost shown first and a spending limit.
 
-PersonaGen samples related traits from country-specific distributions, using
-official sources where available alongside modelled and derived context. It
-generates adults in the UK and US. nxk targets PersonaGen 4.0 (API and schema
-`4.0.0`). Employer context is inferred; company-level generation is not part
-of this skill's current workflow.
+The evidence, against published figures: all 23 US counts came within 2 points of 200,000 real adults in the Census Bureau's 2024 American Community Survey (`evals/real-us/`); on 22 official surveys the decision model put 327 of 345 differences between groups the right way round, 95% (`evals/surveys/`); on 32 existing products, scanned in nxk's own words, the scan put the group that really uses each more ahead in 559 of 622 published differences, 90% (`evals/products/`).
+
+Every figure in a reply carries one label: given, measured, counted, computed, sourced, simulated or guess; words in a made-up person's voice are marked imagined and carry none. Group sizes are counted; which groups lean in is simulated. nxk gives direction and size, not a forecast of sales. It is for decisions about products and services, not about individual people.
+
+Install in Claude Code 2.1.275 or later: `/plugin install nxk --marketplace albri/nxk`.
+
+## Docs
+
+- [README.md](README.md): what nxk is, what to ask it, how it works, the evidence, the made-up people and scans.
+- [tested.md](tested.md): the evidence in full: each check, its method and how to run it again.
+- [docs/architecture.md](docs/architecture.md): how nxk is built: the parts, how a tool call flows, the checks on a reply, the hooks.
+- [mcp/README.md](mcp/README.md): every tool and its inputs, `nxk.json`, the settings and the hooks.
+- [mcp/guides/](mcp/guides/): the method nxk's agents follow, such as [research.md](mcp/guides/research.md), [second-look.md](mcp/guides/second-look.md), [panel.md](mcp/guides/panel.md) and [scan.md](mcp/guides/scan.md).
+- [evals/README.md](evals/README.md): the cases, and how to run them.
+
+## Code
+
+- `mcp/`: the server (`server.ts`, `protocol.ts`) and its tools in four groups (`knowledge.ts`, `build.ts`, `discovery.ts`, `explore.ts`), wrapped in `tools.ts`.
+- `scripts/`: the scripts the tools run to count and check, and the checks on nxk's writing in `scripts/checks/`.
+- `agents/`, `skills/`: the researcher, the second look and the panel, and the `/nxk:research`, `/nxk:look` and `/nxk:meet` commands.
+- `hooks/`: the three Claude Code hooks.
+- `maps/`: the made-up people of each country, built by `scripts/build-maps.ts`.
+- `evals/`: the cases, the runner, and the checks against published figures.

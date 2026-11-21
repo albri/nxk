@@ -1,0 +1,1058 @@
+[
+ {
+  "id": "tiktok_use",
+  "what": "TikTok",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who use social media apps and sites",
+  "measure": "uses the app/site (Q16 \"And which, if any, of these apps or sites do you use?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 83,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 72,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 54,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 43,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 26,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 13,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 7,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 46,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 52,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 51,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 48,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 51,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 46,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || TikTok | 49% 83% 72% 54% 43% 26% 13% 7% 49% 46% 52% 51% 48% 51% 46% 49% 49% 49%"
+   }
+  ]
+ },
+ {
+  "id": "snapchat_use",
+  "what": "Snapchat",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who use social media apps and sites",
+  "measure": "uses the app/site (Q16 \"And which, if any, of these apps or sites do you use?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 78,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 53,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 33,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 22,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 9,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 3,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 3,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 32,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 35,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 37,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 32,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 34,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 31,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Snapchat | 34% 78% 53% 33% 22% 9% 3% 3% 34% 32% 35% 37% 32% 34% 31% 35% 32% 34%"
+   }
+  ]
+ },
+ {
+  "id": "facebook_use",
+  "what": "Facebook/ Facebook Messenger",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who use social media apps and sites",
+  "measure": "uses the app/site (Q16 \"And which, if any, of these apps or sites do you use?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 55,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 74,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 85,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 85,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 82,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 77,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 81,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 73,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 80,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 75,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 75,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 79,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 80,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Facebook/ Facebook Messenger | 77% 55% 74% 85% 85% 82% 77% 81% 77% 73% 80% 75% 75% 79% 80% 75% 79% 77%"
+   }
+  ]
+ },
+ {
+  "id": "instagram_use",
+  "what": "Instagram",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who use social media apps and sites",
+  "measure": "uses the app/site (Q16 \"And which, if any, of these apps or sites do you use?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 85,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 80,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 66,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 57,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 43,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 30,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 21,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 58,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 63,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 69,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 62,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 56,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 52,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Instagram | 61% 85% 80% 66% 57% 43% 30% 21% 61% 58% 63% 69% 62% 56% 52% 65% 54% 61%"
+   }
+  ]
+ },
+ {
+  "id": "x_twitter_use",
+  "what": "X/Twitter",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who use social media apps and sites",
+  "measure": "uses the app/site (Q16 \"And which, if any, of these apps or sites do you use?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 37,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 44,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 35,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 29,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 21,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 19,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 11,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 40,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 23,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 44,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 29,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 25,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 21,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || X/Twitter | 31% 37% 44% 35% 29% 21% 19% 11% 31% 40% 23% 44% 29% 25% 21% 36% 23% 31%"
+   }
+  ]
+ },
+ {
+  "id": "linkedin_use",
+  "what": "LinkedIn",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who use social media apps and sites",
+  "measure": "uses the app/site (Q16 \"And which, if any, of these apps or sites do you use?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 22,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 34,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 31,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 28,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 21,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 11,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 10,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 29,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 22,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 43,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 26,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 14,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 9,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || LinkedIn | 25% 22% 34% 31% 28% 21% 11% 10% 25% 29% 22% 43% 26% 14% 9% 34% 11% 25%"
+   }
+  ]
+ },
+ {
+  "id": "pinterest_use",
+  "what": "Pinterest",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who use social media apps and sites",
+  "measure": "uses the app/site (Q16 \"And which, if any, of these apps or sites do you use?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 36,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 30,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 23,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 21,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 17,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 15,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 9,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 16,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 30,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 31,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 23,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 21,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 16,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Pinterest | 23% 36% 30% 23% 21% 17% 15% 9% 23% 16% 30% 31% 23% 21% 16% 27% 19% 23%"
+   }
+  ]
+ },
+ {
+  "id": "reddit_use",
+  "what": "Reddit",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who use social media apps and sites",
+  "measure": "uses the app/site (Q16 \"And which, if any, of these apps or sites do you use?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 22,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 23,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 20,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 14,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 7,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 4,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 2,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 19,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 12,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 21,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 15,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 13,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 10,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Reddit | 15% 22% 23% 20% 14% 7% 4% 2% 15% 19% 12% 21% 15% 13% 10% 18% 11% 15%"
+   }
+  ]
+ },
+ {
+  "id": "ai_apps_ever_used",
+  "what": "AI applications such as ChatGPT, CoPilot or Gemini (answer: Yes)",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who had heard of AI applications (Module 1 respondents aware of AI)",
+  "measure": "has ever used (A2 \"Have you ever used AI applications such as ChatGPT, CoPilot or Gemini?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 82,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 79,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 73,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 61,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 47,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 34,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 16,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 62,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 57,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 75,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 63,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 51,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 41,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Yes | 60% 82% 79% 73% 61% 47% 34% 16% 60% 62% 57% 75% 63% 51% 41% 69% 46% 60%"
+   }
+  ]
+ },
+ {
+  "id": "games_console_play",
+  "what": "Playing games on a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch)",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "All UK adults 16+ (all respondents)",
+  "measure": "plays games at home or elsewhere in this way (Q17)",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 51,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 57,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 47,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 33,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 14,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 6,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 2,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 41,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 24,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 42,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 29,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 33,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 23,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || On a games console or games player (e.g., PlayStation, Xbox or Nintendo Switch) | 32% 51% 57% 47% 33% 14% 6% 2% 32% 41% 24% 42% 29% 33% 23% 35% 28% 32%"
+   }
+  ]
+ },
+ {
+  "id": "streaming_tv_online",
+  "what": "Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go)",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who go online (at home or elsewhere)",
+  "measure": "does this activity online (Q13B \"which, if any, of these activities do you do online?\")",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 84,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 86,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 86,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 83,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 76,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 66,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 49,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 79,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 78,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 84,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 82,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 77,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 68,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Watch TV programmes/ films/ content online (e.g. Netflix, BBC iPlayer, or Sky Go) | 79% 84% 86% 86% 83% 76% 66% 49% 79% 79% 78% 84% 82% 77% 68% 83% 72% 79%"
+   }
+  ]
+ },
+ {
+  "id": "streamed_audio",
+  "what": "Use streamed audio services (e.g. Spotify, Deezer or Apple Music)",
+  "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+  "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+  "population": "UK adults 16+ who go online (at home or elsewhere)",
+  "measure": "does this activity online (Q13B)",
+  "figures": [
+   {
+    "dimension": "age",
+    "group": "16-24",
+    "percent": 78,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 76,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 67,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 59,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 43,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 25,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 18,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "gender",
+    "group": "MAN",
+    "percent": 59,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "gender",
+    "group": "WOMAN",
+    "percent": 54,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "AB",
+    "percent": 66,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C1",
+    "percent": 60,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "C2",
+    "percent": 55,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   },
+   {
+    "dimension": "socio-economic group",
+    "group": "DE",
+    "percent": 41,
+    "quote": "Total 16-24 25-34 35-44 45-54 55-64 65-74 75+ ALL UK MAN WOMAN AB C1 C2 DE ABC1 C2DE ALL UK || Use streamed audio services (e.g. Spotify, Deezer or Apple Music) | 57% 78% 76% 67% 59% 43% 25% 18% 57% 59% 54% 66% 60% 55% 41% 63% 48% 57%"
+   }
+  ]
+ }
+]

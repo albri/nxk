@@ -1,0 +1,9 @@
+{
+  "request": "fix the typo in the footer, it says 'opne' instead of 'open'",
+  "goals": "Dan Lee runs a bike repair shop in York.",
+  "knows": "",
+  "reply": "Fixed: the footer now says 'open'. Nothing else changed.",
+  "expect": {
+    "quiet": true
+  }
+}

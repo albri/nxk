@@ -1,0 +1,1 @@
+Two people who used to work at a large insurer want to start a pet insurance company that sells online across the UK, covering vet bills when a cat or dog is ill or injured, for about £20 a month. Before they spend on building it or on advertising, they want to know which kinds of people are most likely to buy it, so that the first advertising goes to them.

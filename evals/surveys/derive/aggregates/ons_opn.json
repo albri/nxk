@@ -1,0 +1,1575 @@
+{
+ "source": {
+  "name": "ONS Opinions and Lifestyle Survey, Public opinions and social trends tables",
+  "files": {
+   "household_finances": {
+    "file": "hf_pc_jul_sep2026.xlsx",
+    "sha": "e6aeccc5b66cdfc29b7ef3eb28d05fb9ebdbdb66e607e53f7920c35fe9d626ca",
+    "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/personalandhouseholdfinances/debt/datasets/publicopinionsandsocialtrendsgreatbritainhouseholdfinancesbypersonalcharacteristics/1julyto27september2026/householdfinancesbypersonalcharacteristics1julyto27september2026.xlsx"
+   },
+   "wellbeing": {
+    "file": "wl_pc_jul_sep2026.xlsx",
+    "sha": "b9997dc354f8f7c7429a0d798b78bd45136d6c92f06ea7bec5cf197550ed563a",
+    "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/datasets/publicopinionsandsocialtrendsgreatbritainpersonalwellbeingandlonelinessbypersonalcharacteristics/1julyto27september2026/personalwellbeingandlonelinessbypersonalcharacteristics1julyto27september2026.xlsx"
+   },
+   "winter_pressures": {
+    "file": "wp_pc_oct25_jan26.xlsx",
+    "sha": "193a986ec4d8f5026d0082bf82960711efc93f6bfa5464df52d11c0207a7213a",
+    "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/personalandhouseholdfinances/debt/datasets/publicopinionsandsocialtrendsgreatbritainwinterpressuresbypersonalcharacteristics/1october2025to4january2026/winterpressuresbypersonalcharacteristics1october2025to4january2026.xlsx"
+   }
+  },
+  "min_group_n": 100
+ },
+ "group_definitions": {
+  "age": {
+   "16_29": {
+    "field": "age_years",
+    "min": 18,
+    "max": 29
+   },
+   "30_49": {
+    "field": "age_years",
+    "min": 30,
+    "max": 49
+   },
+   "50_69": {
+    "field": "age_years",
+    "min": 50,
+    "max": 69
+   },
+   "70_plus": {
+    "field": "age_years",
+    "min": 70,
+    "max": 100
+   }
+  },
+  "sex": {
+   "female": {
+    "field": "sex_at_birth",
+    "in": [
+     "female"
+    ]
+   },
+   "male": {
+    "field": "sex_at_birth",
+    "in": [
+     "male"
+    ]
+   }
+  },
+  "health_limitation": {
+   "disabled": {
+    "field": "day_to_day_activities_limited_by_health",
+    "in": [
+     "limited_a_lot",
+     "limited_a_little"
+    ]
+   },
+   "not_disabled": {
+    "field": "day_to_day_activities_limited_by_health",
+    "in": [
+     "has_a_long_term_condition_not_limiting",
+     "no_long_term_condition"
+    ]
+   }
+  },
+  "work": {
+   "in_employment": {
+    "field": "economic_activity_status",
+    "in": [
+     "in_employment"
+    ]
+   },
+   "unemployed": {
+    "field": "economic_activity_status",
+    "in": [
+     "unemployed_and_looking_for_work"
+    ]
+   },
+   "retired": {
+    "field": "economic_activity_status",
+    "in": [
+     "retired"
+    ]
+   },
+   "inactive_other": {
+    "field": "economic_activity_status",
+    "in": [
+     "student_not_in_employment",
+     "looking_after_home_or_family",
+     "long_term_sick_or_disabled",
+     "other_not_working"
+    ]
+   }
+  },
+  "tenure": {
+   "outright": {
+    "field": "home_tenure",
+    "in": [
+     "owned_outright"
+    ]
+   },
+   "mortgage": {
+    "field": "home_tenure",
+    "in": [
+     "owned_with_a_mortgage_or_loan"
+    ]
+   },
+   "social_rent": {
+    "field": "home_tenure",
+    "in": [
+     "rented_from_a_council_or_local_authority",
+     "rented_from_a_housing_association_or_other_social_landlord"
+    ]
+   },
+   "private_rent": {
+    "field": "home_tenure",
+    "in": [
+     "rented_from_a_private_landlord_or_letting_agency"
+    ]
+   }
+  },
+  "education": {
+   "degree": {
+    "field": "higher_education_qualification",
+    "in": [
+     "bachelors_degree_or_equivalent",
+     "masters_degree_or_postgraduate_diploma",
+     "doctorate"
+    ]
+   },
+   "none": {
+    "field": "highest_qualification",
+    "in": [
+     "no_qualifications"
+    ]
+   }
+  },
+  "children": {
+   "one_or_more": {
+    "field": "own_dependent_children_at_home",
+    "in": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6_or_more"
+    ]
+   },
+   "none": {
+    "field": "own_dependent_children_at_home",
+    "in": [
+     "0"
+    ]
+   }
+  }
+ },
+ "studies": {
+  "ons-loneliness-frequency": {
+   "real": [
+    6.2,
+    19.6,
+    26.8,
+    29.9,
+    17.5
+   ],
+   "n": 10680,
+   "groups": {
+    "age": {
+     "16_29": {
+      "real": [
+       8.4,
+       27.4,
+       33.7,
+       22.1,
+       8.4
+      ],
+      "n": 870
+     },
+     "30_49": {
+      "real": [
+       8.1,
+       18.2,
+       28.3,
+       31.3,
+       14.1
+      ],
+      "n": 1560
+     },
+     "50_69": {
+      "real": [
+       6.1,
+       16.3,
+       22.5,
+       32.7,
+       22.4
+      ],
+      "n": 3660
+     },
+     "70_plus": {
+      "real": [
+       4.0,
+       15.2,
+       22.2,
+       30.3,
+       28.3
+      ],
+      "n": 4590
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       6.2,
+       21.6,
+       28.9,
+       28.9,
+       14.4
+      ],
+      "n": 5410
+     },
+     "male": {
+      "real": [
+       6.1,
+       16.3,
+       25.5,
+       30.6,
+       21.5
+      ],
+      "n": 5280
+     }
+    },
+    "health_limitation": {
+     "disabled": {
+      "real": [
+       13.1,
+       24.3,
+       25.3,
+       24.2,
+       13.1
+      ],
+      "n": 3980
+     },
+     "not_disabled": {
+      "real": [
+       3.0,
+       15.2,
+       27.3,
+       33.3,
+       21.2
+      ],
+      "n": 6210
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       6.2,
+       19.6,
+       27.8,
+       30.9,
+       15.5
+      ],
+      "n": 3970
+     },
+     "unemployed": {
+      "real": [
+       9.4,
+       27.1,
+       34.4,
+       21.8,
+       7.3
+      ],
+      "n": 220
+     },
+     "retired": {
+      "real": [
+       3.1,
+       13.3,
+       21.4,
+       32.6,
+       29.6
+      ],
+      "n": 5630
+     },
+     "inactive_other": {
+      "real": [
+       14.9,
+       27.7,
+       27.6,
+       20.2,
+       9.6
+      ],
+      "n": 870
+     }
+    },
+    "tenure": {
+     "outright": {
+      "real": [
+       4.1,
+       15.3,
+       24.5,
+       30.6,
+       25.5
+      ],
+      "n": 6630
+     },
+     "mortgage": {
+      "real": [
+       5.1,
+       18.3,
+       28.6,
+       33.7,
+       14.3
+      ],
+      "n": 1980
+     },
+     "social_rent": {
+      "real": [
+       15.8,
+       27.4,
+       26.3,
+       18.9,
+       11.6
+      ],
+      "n": 890
+     },
+     "private_rent": {
+      "real": [
+       12.4,
+       23.7,
+       27.8,
+       23.7,
+       12.4
+      ],
+      "n": 810
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       6.1,
+       17.2,
+       29.3,
+       33.3,
+       14.1
+      ],
+      "n": 4320
+     },
+     "none": {
+      "real": [
+       6.3,
+       18.9,
+       23.2,
+       24.2,
+       27.4
+      ],
+      "n": 1190
+     }
+    },
+    "children": {
+     "one_or_more": {
+      "real": [
+       5.1,
+       18.6,
+       23.7,
+       34.0,
+       18.6
+      ],
+      "n": 850
+     },
+     "none": {
+      "real": [
+       7.1,
+       19.4,
+       27.6,
+       28.6,
+       17.3
+      ],
+      "n": 9830
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "cells_substituted": 0,
+   "table": {
+    "workbook": "wl_pc_jul_sep2026.xlsx",
+    "sheet": "Table_11",
+    "question": "Question: And how often do you feel lonely?",
+    "base": "All persons",
+    "published_all_persons": {
+     "Often or always": 6.0,
+     "Some of the time": 19.0,
+     "Occasionally": 26.0,
+     "Hardly ever": 29.0,
+     "Never": 17.0,
+     "Don't know": 1.0,
+     "Prefer not to say": 1.0,
+     "Often, always or some of the time": 25.0,
+     "Hardly ever or never": 46.0
+    }
+   }
+  },
+  "ons-able-to-save-next-12-months": {
+   "real": [
+    47.4,
+    35.1,
+    17.5
+   ],
+   "n": 10680,
+   "groups": {
+    "age": {
+     "16_29": {
+      "real": [
+       54.5,
+       26.3,
+       19.2
+      ],
+      "n": 870
+     },
+     "30_49": {
+      "real": [
+       50.0,
+       33.7,
+       16.3
+      ],
+      "n": 1560
+     },
+     "50_69": {
+      "real": [
+       42.3,
+       41.2,
+       16.5
+      ],
+      "n": 3660
+     },
+     "70_plus": {
+      "real": [
+       41.2,
+       38.2,
+       20.6
+      ],
+      "n": 4590
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       42.9,
+       37.7,
+       19.4
+      ],
+      "n": 5410
+     },
+     "male": {
+      "real": [
+       52.0,
+       32.7,
+       15.3
+      ],
+      "n": 5280
+     }
+    },
+    "health_limitation": {
+     "disabled": {
+      "real": [
+       35.0,
+       46.4,
+       18.6
+      ],
+      "n": 3980
+     },
+     "not_disabled": {
+      "real": [
+       54.1,
+       29.6,
+       16.3
+      ],
+      "n": 6210
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       54.5,
+       30.3,
+       15.2
+      ],
+      "n": 3970
+     },
+     "unemployed": {
+      "real": [
+       30.3,
+       42.4,
+       27.3
+      ],
+      "n": 220
+     },
+     "retired": {
+      "real": [
+       41.2,
+       40.2,
+       18.6
+      ],
+      "n": 5630
+     },
+     "inactive_other": {
+      "real": [
+       27.1,
+       46.9,
+       26.0
+      ],
+      "n": 870
+     }
+    },
+    "tenure": {
+     "outright": {
+      "real": [
+       50.5,
+       32.0,
+       17.5
+      ],
+      "n": 6630
+     },
+     "mortgage": {
+      "real": [
+       54.6,
+       31.3,
+       14.1
+      ],
+      "n": 1980
+     },
+     "social_rent": {
+      "real": [
+       22.9,
+       51.1,
+       26.0
+      ],
+      "n": 890
+     },
+     "private_rent": {
+      "real": [
+       37.7,
+       43.9,
+       18.4
+      ],
+      "n": 810
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       61.6,
+       26.3,
+       12.1
+      ],
+      "n": 4320
+     },
+     "none": {
+      "real": [
+       24.5,
+       50.0,
+       25.5
+      ],
+      "n": 1190
+     }
+    },
+    "children": {
+     "one_or_more": {
+      "real": [
+       44.9,
+       39.8,
+       15.3
+      ],
+      "n": 850
+     },
+     "none": {
+      "real": [
+       48.5,
+       34.0,
+       17.5
+      ],
+      "n": 9830
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "cells_substituted": 0,
+   "table": {
+    "workbook": "hf_pc_jul_sep2026.xlsx",
+    "sheet": "Table_1",
+    "question": "Question: In view of the general economic situation, do you think you will be able to save any money in the next 12 months?",
+    "base": "All persons",
+    "published_all_persons": {
+     "Yes": 46.0,
+     "No": 34.0,
+     "Don't know": 17.0,
+     "Prefer not to say": 2.0
+    }
+   }
+  },
+  "ons-borrowed-more-than-usual": {
+   "real": [
+    22.3,
+    77.7
+   ],
+   "n": 10680,
+   "groups": {
+    "age": {
+     "16_29": {
+      "real": [
+       22.2,
+       77.8
+      ],
+      "n": 870
+     },
+     "30_49": {
+      "real": [
+       33.0,
+       67.0
+      ],
+      "n": 1560
+     },
+     "50_69": {
+      "real": [
+       18.8,
+       81.2
+      ],
+      "n": 3660
+     },
+     "70_plus": {
+      "real": [
+       11.5,
+       88.5
+      ],
+      "n": 4590
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       24.5,
+       75.5
+      ],
+      "n": 5410
+     },
+     "male": {
+      "real": [
+       20.2,
+       79.8
+      ],
+      "n": 5280
+     }
+    },
+    "health_limitation": {
+     "disabled": {
+      "real": [
+       27.4,
+       72.6
+      ],
+      "n": 3980
+     },
+     "not_disabled": {
+      "real": [
+       20.0,
+       80.0
+      ],
+      "n": 6210
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       27.4,
+       72.6
+      ],
+      "n": 3970
+     },
+     "unemployed": {
+      "real": [
+       20.5,
+       79.5
+      ],
+      "n": 220
+     },
+     "retired": {
+      "real": [
+       10.3,
+       89.7
+      ],
+      "n": 5630
+     },
+     "inactive_other": {
+      "real": [
+       24.2,
+       75.8
+      ],
+      "n": 870
+     }
+    },
+    "tenure": {
+     "outright": {
+      "real": [
+       11.5,
+       88.5
+      ],
+      "n": 6630
+     },
+     "mortgage": {
+      "real": [
+       27.4,
+       72.6
+      ],
+      "n": 1980
+     },
+     "social_rent": {
+      "real": [
+       35.2,
+       64.8
+      ],
+      "n": 890
+     },
+     "private_rent": {
+      "real": [
+       38.0,
+       62.0
+      ],
+      "n": 810
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       23.7,
+       76.3
+      ],
+      "n": 4320
+     },
+     "none": {
+      "real": [
+       17.8,
+       82.2
+      ],
+      "n": 1190
+     }
+    },
+    "children": {
+     "one_or_more": {
+      "real": [
+       37.2,
+       62.8
+      ],
+      "n": 850
+     },
+     "none": {
+      "real": [
+       19.1,
+       80.9
+      ],
+      "n": 9830
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "cells_substituted": 0,
+   "table": {
+    "workbook": "hf_pc_jul_sep2026.xlsx",
+    "sheet": "Table_3",
+    "question": "Question: Have you had to borrow more money or use more credit than usual in the last month, compared to a year ago?",
+    "base": "All persons",
+    "published_all_persons": {
+     "Yes": 21.0,
+     "No": 73.0,
+     "Don't know": 3.0,
+     "Prefer not to say": 3.0
+    }
+   }
+  },
+  "ons-afford-rent-or-mortgage": {
+   "real": [
+    16.0,
+    48.9,
+    29.8,
+    5.3
+   ],
+   "n": 3320,
+   "groups": {
+    "age": {
+     "16_29": {
+      "real": [
+       16.1,
+       54.8,
+       22.6,
+       6.5
+      ],
+      "n": 250
+     },
+     "30_49": {
+      "real": [
+       15.8,
+       49.5,
+       29.5,
+       5.2
+      ],
+      "n": 1270
+     },
+     "50_69": {
+      "real": [
+       15.2,
+       45.7,
+       33.7,
+       5.4
+      ],
+      "n": 1190
+     },
+     "70_plus": {
+      "real": [
+       15.7,
+       49.4,
+       30.1,
+       4.8
+      ],
+      "n": 620
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       13.8,
+       47.9,
+       31.9,
+       6.4
+      ],
+      "n": 1710
+     },
+     "male": {
+      "real": [
+       17.2,
+       49.5,
+       27.9,
+       5.4
+      ],
+      "n": 1610
+     }
+    },
+    "health_limitation": {
+     "disabled": {
+      "real": [
+       11.0,
+       46.1,
+       36.3,
+       6.6
+      ],
+      "n": 1190
+     },
+     "not_disabled": {
+      "real": [
+       17.9,
+       51.6,
+       26.3,
+       4.2
+      ],
+      "n": 1980
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       15.6,
+       51.1,
+       28.1,
+       5.2
+      ],
+      "n": 2190
+     },
+     "retired": {
+      "real": [
+       16.3,
+       46.5,
+       31.4,
+       5.8
+      ],
+      "n": 740
+     },
+     "inactive_other": {
+      "real": [
+       17.1,
+       35.4,
+       40.2,
+       7.3
+      ],
+      "n": 330
+     }
+    },
+    "tenure": {
+     "mortgage": {
+      "real": [
+       17.9,
+       54.7,
+       24.2,
+       3.2
+      ],
+      "n": 1680
+     },
+     "social_rent": {
+      "real": [
+       12.7,
+       40.2,
+       37.9,
+       9.2
+      ],
+      "n": 770
+     },
+     "private_rent": {
+      "real": [
+       11.8,
+       40.9,
+       36.6,
+       10.7
+      ],
+      "n": 750
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       17.5,
+       53.6,
+       24.8,
+       4.1
+      ],
+      "n": 1600
+     },
+     "none": {
+      "real": [
+       15.7,
+       39.8,
+       37.3,
+       7.2
+      ],
+      "n": 310
+     }
+    },
+    "children": {
+     "one_or_more": {
+      "real": [
+       11.7,
+       50.0,
+       31.9,
+       6.4
+      ],
+      "n": 690
+     },
+     "none": {
+      "real": [
+       17.4,
+       48.9,
+       28.3,
+       5.4
+      ],
+      "n": 2630
+     }
+    }
+   },
+   "groups_dropped_for_n": {
+    "work:unemployed": 80,
+    "tenure:outright": null
+   },
+   "cells_substituted": 0,
+   "table": {
+    "workbook": "hf_pc_jul_sep2026.xlsx",
+    "sheet": "Table_10",
+    "question": "Question: How easy or difficult is it to afford your rent or mortgage payments?",
+    "base": "Among those who are currently paying rent or mortgage payments:",
+    "published_all_persons": {
+     "Very easy": 15.0,
+     "Somewhat easy": 46.0,
+     "Somewhat difficult": 28.0,
+     "Very difficult": 5.0,
+     "Don't know": 3.0,
+     "Prefer not to say": 4.0,
+     "Very or somewhat easy": 60.0,
+     "Very or somewhat difficult": 33.0
+    }
+   }
+  },
+  "ons-ran-out-of-food": {
+   "real": [
+    5.1,
+    94.9
+   ],
+   "n": 10680,
+   "groups": {
+    "age": {
+     "16_29": {
+      "real": [
+       7.4,
+       92.6
+      ],
+      "n": 870
+     },
+     "30_49": {
+      "real": [
+       7.2,
+       92.8
+      ],
+      "n": 1560
+     },
+     "50_69": {
+      "real": [
+       3.1,
+       96.9
+      ],
+      "n": 3660
+     },
+     "70_plus": {
+      "real": [
+       1.0,
+       99.0
+      ],
+      "n": 4590
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       5.2,
+       94.8
+      ],
+      "n": 5410
+     },
+     "male": {
+      "real": [
+       4.1,
+       95.9
+      ],
+      "n": 5280
+     }
+    },
+    "health_limitation": {
+     "disabled": {
+      "real": [
+       9.3,
+       90.7
+      ],
+      "n": 3980
+     },
+     "not_disabled": {
+      "real": [
+       3.0,
+       97.0
+      ],
+      "n": 6210
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       4.1,
+       95.9
+      ],
+      "n": 3970
+     },
+     "unemployed": {
+      "real": [
+       6.3,
+       93.7
+      ],
+      "n": 220
+     },
+     "retired": {
+      "real": [
+       1.0,
+       99.0
+      ],
+      "n": 5630
+     },
+     "inactive_other": {
+      "real": [
+       14.9,
+       85.1
+      ],
+      "n": 870
+     }
+    },
+    "tenure": {
+     "outright": {
+      "real": [
+       1.0,
+       99.0
+      ],
+      "n": 6630
+     },
+     "mortgage": {
+      "real": [
+       2.0,
+       98.0
+      ],
+      "n": 1980
+     },
+     "social_rent": {
+      "real": [
+       19.1,
+       80.9
+      ],
+      "n": 890
+     },
+     "private_rent": {
+      "real": [
+       9.6,
+       90.4
+      ],
+      "n": 810
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       3.0,
+       97.0
+      ],
+      "n": 4320
+     },
+     "none": {
+      "real": [
+       6.3,
+       93.7
+      ],
+      "n": 1190
+     }
+    },
+    "children": {
+     "one_or_more": {
+      "real": [
+       8.2,
+       91.8
+      ],
+      "n": 850
+     },
+     "none": {
+      "real": [
+       4.1,
+       95.9
+      ],
+      "n": 9830
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "cells_substituted": 0,
+   "table": {
+    "workbook": "hf_pc_jul_sep2026.xlsx",
+    "sheet": "Table_8",
+    "question": "Question: In the past two weeks, have you or your household run out of food and could not afford to buy more?",
+    "base": "All persons",
+    "published_all_persons": {
+     "Yes": 5.0,
+     "No": 93.0,
+     "Don't know": 1.0,
+     "Prefer not to say": 2.0
+    }
+   }
+  },
+  "ons-unable-to-pay-a-bill": {
+   "real": [
+    6.3,
+    93.7
+   ],
+   "n": 10680,
+   "groups": {
+    "age": {
+     "16_29": {
+      "real": [
+       9.7,
+       90.3
+      ],
+      "n": 870
+     },
+     "30_49": {
+      "real": [
+       9.3,
+       90.7
+      ],
+      "n": 1560
+     },
+     "50_69": {
+      "real": [
+       4.1,
+       95.9
+      ],
+      "n": 3660
+     },
+     "70_plus": {
+      "real": [
+       1.0,
+       99.0
+      ],
+      "n": 4590
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       7.3,
+       92.7
+      ],
+      "n": 5410
+     },
+     "male": {
+      "real": [
+       5.2,
+       94.8
+      ],
+      "n": 5280
+     }
+    },
+    "health_limitation": {
+     "disabled": {
+      "real": [
+       10.3,
+       89.7
+      ],
+      "n": 3980
+     },
+     "not_disabled": {
+      "real": [
+       4.1,
+       95.9
+      ],
+      "n": 6210
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       7.2,
+       92.8
+      ],
+      "n": 3970
+     },
+     "unemployed": {
+      "real": [
+       12.9,
+       87.1
+      ],
+      "n": 220
+     },
+     "retired": {
+      "real": [
+       1.0,
+       99.0
+      ],
+      "n": 5630
+     },
+     "inactive_other": {
+      "real": [
+       14.1,
+       85.9
+      ],
+      "n": 870
+     }
+    },
+    "tenure": {
+     "outright": {
+      "real": [
+       2.0,
+       98.0
+      ],
+      "n": 6630
+     },
+     "mortgage": {
+      "real": [
+       4.1,
+       95.9
+      ],
+      "n": 1980
+     },
+     "social_rent": {
+      "real": [
+       22.3,
+       77.7
+      ],
+      "n": 890
+     },
+     "private_rent": {
+      "real": [
+       14.9,
+       85.1
+      ],
+      "n": 810
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       4.1,
+       95.9
+      ],
+      "n": 4320
+     },
+     "none": {
+      "real": [
+       5.4,
+       94.6
+      ],
+      "n": 1190
+     }
+    },
+    "children": {
+     "one_or_more": {
+      "real": [
+       11.3,
+       88.7
+      ],
+      "n": 850
+     },
+     "none": {
+      "real": [
+       5.2,
+       94.8
+      ],
+      "n": 9830
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "cells_substituted": 0,
+   "table": {
+    "workbook": "hf_pc_jul_sep2026.xlsx",
+    "sheet": "Table_7",
+    "question": "Question: Have you had a direct debit, standing order, or bill you have not been able to pay in the past month?",
+    "base": "All persons",
+    "published_all_persons": {
+     "Yes": 6.0,
+     "No": 90.0,
+     "Don't know": 1.0,
+     "Prefer not to say": 2.0
+    }
+   }
+  },
+  "ons-kept-comfortably-warm": {
+   "real": [
+    57.1,
+    25.5,
+    13.3,
+    4.1
+   ],
+   "n": 10070,
+   "groups": {
+    "age": {
+     "16_29": {
+      "real": [
+       59.6,
+       23.4,
+       12.8,
+       4.2
+      ],
+      "n": 560
+     },
+     "30_49": {
+      "real": [
+       56.1,
+       22.5,
+       16.3,
+       5.1
+      ],
+      "n": 1370
+     },
+     "50_69": {
+      "real": [
+       57.1,
+       25.5,
+       12.3,
+       5.1
+      ],
+      "n": 3570
+     },
+     "70_plus": {
+      "real": [
+       57.9,
+       31.5,
+       8.1,
+       2.5
+      ],
+      "n": 4580
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       53.6,
+       27.8,
+       13.4,
+       5.2
+      ],
+      "n": 4930
+     },
+     "male": {
+      "real": [
+       61.8,
+       22.7,
+       12.4,
+       3.1
+      ],
+      "n": 5150
+     }
+    },
+    "health_limitation": {
+     "disabled": {
+      "real": [
+       48.5,
+       27.8,
+       17.5,
+       6.2
+      ],
+      "n": 3700
+     },
+     "not_disabled": {
+      "real": [
+       62.2,
+       23.5,
+       11.2,
+       3.1
+      ],
+      "n": 5970
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       58.8,
+       23.7,
+       13.4,
+       4.1
+      ],
+      "n": 3510
+     },
+     "unemployed": {
+      "real": [
+       54.8,
+       15.2,
+       20.3,
+       9.7
+      ],
+      "n": 170
+     },
+     "retired": {
+      "real": [
+       60.3,
+       29.2,
+       8.0,
+       2.5
+      ],
+      "n": 5660
+     },
+     "inactive_other": {
+      "real": [
+       47.9,
+       26.6,
+       18.1,
+       7.4
+      ],
+      "n": 730
+     }
+    },
+    "tenure": {
+     "outright": {
+      "real": [
+       62.2,
+       25.5,
+       9.2,
+       3.1
+      ],
+      "n": 6550
+     },
+     "mortgage": {
+      "real": [
+       60.8,
+       23.7,
+       12.4,
+       3.1
+      ],
+      "n": 1800
+     },
+     "social_rent": {
+      "real": [
+       41.2,
+       24.7,
+       25.8,
+       8.3
+      ],
+      "n": 720
+     },
+     "private_rent": {
+      "real": [
+       44.8,
+       27.1,
+       18.7,
+       9.4
+      ],
+      "n": 680
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       63.6,
+       22.2,
+       10.1,
+       4.1
+      ],
+      "n": 4100
+     },
+     "none": {
+      "real": [
+       42.5,
+       34.2,
+       17.6,
+       5.7
+      ],
+      "n": 1150
+     }
+    },
+    "children": {
+     "one_or_more": {
+      "real": [
+       58.2,
+       24.5,
+       14.3,
+       3.0
+      ],
+      "n": 810
+     },
+     "none": {
+      "real": [
+       57.1,
+       25.5,
+       13.3,
+       4.1
+      ],
+      "n": 9260
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "cells_substituted": 4,
+   "table": {
+    "workbook": "wp_pc_oct25_jan26.xlsx",
+    "sheet": "Table_2",
+    "question": "Question: In the past two weeks, how often were you able to keep comfortably warm in your home?",
+    "base": "All persons",
+    "published_all_persons": {
+     "Often or always": 56.0,
+     "Some of the time": 25.0,
+     "Occasionally": 13.0,
+     "Hardly ever": 3.0,
+     "Never": 1.0,
+     "Don't know": 1.0,
+     "Prefer not to say": 1.0,
+     "Occasionally, hardly ever or never": 17.0
+    }
+   }
+  }
+ }
+}

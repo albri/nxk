@@ -1,0 +1,11 @@
+{
+  "request": "write the poster for the new Saturday morning bike maintenance class",
+  "goals": "Sam Okafor runs a bike shop in Leeds and is starting a Saturday morning bike maintenance class at £25 a session. It needs 6 people a session by the end of April, or he drops it. He pictures it for commuters who cycle to work.",
+  "knows": "- Most of the shop's customers are commuters who cycle to work.\n- The class runs from 9am to 11am on Saturdays.",
+  "reply": "The poster is in posters/maintenance-class.md, with the time, the price and how to book.\n\nWorth considering:\n- Retired people who ride for leisure: about 1 in 6 adults in Leeds (counted), free on Saturday mornings and keen to look after their own bikes. The poster speaks to commuters only. Say yes and I'll add a line inviting leisure riders of any age.",
+  "expect": {
+    "yes": [
+      "leisure riders"
+    ]
+  }
+}

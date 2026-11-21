@@ -1,0 +1,147 @@
+# The counts checked against real people, and the rule for a match. Written before any count was run on real people,
+# and not changed after.
+#
+# Each count is run with nxk's own command, node scripts/people.ts, twice: once on the made-up US people shipped in
+# maps/, once on real US adults from the American Community Survey (ACS) in the same file format. Same command, same
+# field names, two groups of people.
+#
+# The real adults: 200,000 drawn from the ACS 2024 1-year Public Use Microdata Sample (US Census Bureau), each drawn
+# with a chance in proportion to their survey weight, so they stand for adults as the made-up people do. Both groups
+# are adults aged 18 and over in the 50 states and DC. Like the made-up people, the real ones leave out people whose
+# only answer to race was "some other race" and who are not Hispanic (fewer than 1 in 100 adults).
+#
+# A count matches if the made-up share is within 2 points of the real share, or, for real shares under 10%, if the
+# made-up share divided by the real share is between 0.8 and 1.25. Every other count is a gap.
+#
+# Each count below has an id, the command it runs (after node scripts/people.ts, with --country=us and --people
+# added), what it counts in plain words, why it is here, and anything that makes the two sides differ by design. For a
+# reach, the share compared is the share left after every requirement. Household facts (tenure, vehicles, household
+# income, household size and type) are compared only with the same household facts in the ACS; a person's own facts
+# only with the person's own answers.
+
+id: english-limited
+run: count --who=english_speaking_ability=speaks_english_not_well|does_not_speak_english
+what: Speaks English not well or not at all
+why: nxk takes it that the words a person reads are in English, and counts who speaks English with difficulty.
+
+id: spanish-at-home
+run: count --who=main_language=spanish
+what: Speaks Spanish at home
+why: The eval case on a Spanish returns policy.
+
+id: any-difficulty
+run: count --who=serious_functional_difficulties=hearing|seeing|concentrating_remembering_or_deciding|walking_or_climbing_stairs|dressing_or_bathing|doing_errands_alone
+what: Has difficulty hearing, seeing, remembering, walking, dressing or doing errands alone
+why: nxk counts who cannot see or handle small controls whenever a page is opened on a phone.
+note: The ACS asks about serious difficulty. The made-up people list an area at a lot of difficulty or at some difficulty, so the two may differ by definition.
+
+id: not-full-time
+run: count --who=full_time_or_part_time=part_time|not_in_employment
+what: Not in full-time work (works part time, or does not work)
+why: nxk counts who is free in the working day when a business sets its hours.
+note: Full time is 35 or more usual hours a week on both sides.
+
+id: works-from-home
+run: count --who=usual_travel_to_work_mode=works_from_home
+what: Works from home
+why: nxk counts who works from home when a business sets its hours.
+note: The ACS asks how a person got to work in the week before the survey. A worker who was away from work that week has no answer, so real shares of travel to work run a little low.
+
+id: renters
+run: count --who=home_tenure=rented_without_government_housing_assistance|rented_with_government_housing_assistance
+what: Lives in a rented home
+why: The eval cases on a rental application and on renters under 30.
+note: The ACS does not say whether rent is assisted, so the two renter codes are counted together.
+
+id: no-vehicle
+run: count --who=vehicles_in_household=0
+what: No car, van or truck in the household
+why: nxk counts who has no car when a job, a service or a place needs one (the warehouse job eval case).
+note: People in group quarters (dorms, care homes, barracks) have no vehicle on both sides.
+
+id: household-under-25k
+run: count --who=household_income_before_tax_per_year=under_25000_usd
+what: Household income under $25,000 a year
+why: nxk counts who a price is a lot for.
+note: For people in group quarters both sides use the person's own income.
+
+id: not-citizen
+run: count --who=citizenship=not_a_us_citizen
+what: Not a US citizen
+why: nxk counts citizenship when a form asks for ID or a Social Security number (the bank account eval case).
+
+id: aged-65-plus
+run: count --who=age_years=65..120
+what: Aged 65 or over
+why: The eval cases on care for older parents and on a laundry service for over-65s.
+
+id: parents-under-18
+run: count --who=own_dependent_children_at_home=1..6_or_more
+what: Has their own children under 18 at home
+why: nxk counts parents when a name or a plan is aimed at families (the laundry eval cases).
+
+id: lone-parent
+run: count --who=household_type=lone_parent_household_with_dependent_children
+what: Lives in a lone-parent household with the parent's own children under 18
+why: nxk counts household types when a name or a size says who a product is for.
+
+id: lives-alone
+run: count --who=people_in_household=1
+what: Lives alone
+why: nxk counts household sizes when a product comes in sizes.
+note: People in group quarters count as living alone on both sides.
+
+id: self-employed
+run: count --who=employment_type=self_employed_in_an_incorporated_business|self_employed_in_an_unincorporated_business
+what: Self-employed
+why: The eval cases on software for trade businesses and on a self-employed electrician.
+
+id: unemployed
+run: count --who=economic_activity_status=unemployed_and_looking_for_work
+what: Out of work and looking for work
+why: The eval case on a reply to a self-storage customer who lost their job.
+
+id: in-education
+run: count --who=current_education_enrolment=full_time_student|part_time_student
+what: Enrolled in school or college
+why: The eval case on a laundry service choosing between college students and young families.
+note: The ACS does not say full or part time, so the two codes are counted together.
+
+id: renters-18-29
+run: count --who=age_years=18..29,home_tenure=rented_without_government_housing_assistance|rented_with_government_housing_assistance
+what: Aged 18 to 29 and lives in a rented home
+why: Two facts at once: the eval case on renters under 30.
+note: The ACS does not say whether rent is assisted, so the two renter codes are counted together.
+
+id: drive-alone-one-car
+run: count --who=usual_travel_to_work_mode=drives_alone_in_a_car_truck_or_van,vehicles_in_household=1
+what: Drives alone to work, and the household has one vehicle
+why: Two facts at once: the eval case on e-bikes for commuters.
+note: The ACS asks how a person got to work in the week before the survey. A worker who was away from work that week has no answer, so real shares of travel to work run a little low.
+
+id: 65-plus-alone
+run: count --who=age_years=65..120,people_in_household=1
+what: Aged 65 or over and lives alone
+why: Two facts at once: the eval case on care for older parents.
+
+id: parents-under-50k
+run: count --who=own_dependent_children_at_home=1..6_or_more,household_income_before_tax_per_year=under_25000_usd..25000_to_49999_usd
+what: Has their own children under 18 at home, and household income under $50,000
+why: Two facts at once: the eval case that asks whether parents choose differently by income.
+
+id: students-18-24
+run: count --who=age_years=18..24,current_education_enrolment=full_time_student|part_time_student
+what: Aged 18 to 24 and enrolled in school or college
+why: Two facts at once: college students in the laundry eval case.
+note: The ACS does not say full or part time, so the two codes are counted together.
+
+id: warehouse-job
+run: reach --need=vehicles_in_household=1..3_or_more,english_speaking_ability=speaks_only_english_at_home..speaks_english_well
+what: Of all adults, has a vehicle in the household, then also speaks English well or better
+why: Requirements one after another: the warehouse job that needs your own car and an English form.
+
+id: rental-application
+run: reach --among=home_tenure=rented_without_government_housing_assistance|rented_with_government_housing_assistance --need=household_income_before_tax_per_year=50000_to_74999_usd..200000_usd_or_more,employment_type=employee
+what: Of renters, household income $50,000 or more (about three times a $1,400 monthly rent), then also an employee who gets pay stubs
+why: Requirements one after another, within an audience: the rental application eval case.
+note: The ACS does not say whether rent is assisted, so the two renter codes are counted together.

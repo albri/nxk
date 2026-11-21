@@ -1,0 +1,15 @@
+{
+  "request": "update the opening hours on the site: Tuesday to Saturday, 9 to 5.30",
+  "goals": "Dan Lee runs a bike repair shop in York and wants fewer phone calls asking when the shop is open.",
+  "knows": "",
+  "reply": "The opening hours on site/index.html now say Tuesday to Saturday, 9am to 5.30pm. If any of those hours aren't right, tell me and I'll fix them. Would you like me to add a map of the shop to the page?",
+  "expect": {
+    "no": [
+      "map"
+    ],
+    "notOffers": [
+      "hours"
+    ],
+    "quiet": true
+  }
+}

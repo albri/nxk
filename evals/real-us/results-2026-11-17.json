@@ -1,0 +1,276 @@
+{
+  "checked": "2026-11-17",
+  "what": "Each count run with nxk's own command (scripts/people.ts) on made-up and on real US adults. Shares are in every 100 adults, or in every 100 of the audience for a reach given one. Gap is made-up minus real, in points.",
+  "tolerance": "A count matches if the made-up share is within 2 points of the real share, or, for real shares under 10, if made-up divided by real is between 0.8 and 1.25.",
+  "made_up": {
+    "people": 200000,
+    "name": "PersonaGen catalogue and generated people",
+    "built": "2026-11-16",
+    "sha256": "396507cdbce62f7fc4d6fd2e95af8bb57c69bd4c802fcb81f2d3812851e9bfdc",
+    "path": "maps/us-people.bin.gz"
+  },
+  "real": {
+    "people": 200000,
+    "name": "Real US adults: ACS 2024 1-year PUMS (US Census Bureau), drawn in proportion to the person weight",
+    "survey": "American Community Survey 2024 1-year Public Use Microdata Sample",
+    "drawn": "2026-11-17"
+  },
+  "matched": 23,
+  "counted": 23,
+  "results": [
+    {
+      "id": "english-limited",
+      "what": "Speaks English not well or not at all",
+      "run": "count --who=english_speaking_ability=speaks_english_not_well|does_not_speak_english",
+      "made_up": 5.17,
+      "real": 5.22,
+      "gap": -0.05,
+      "ratio": 0.99,
+      "verdict": "match"
+    },
+    {
+      "id": "spanish-at-home",
+      "what": "Speaks Spanish at home",
+      "run": "count --who=main_language=spanish",
+      "made_up": 13.86,
+      "real": 13.83,
+      "gap": 0.03,
+      "ratio": 1.002,
+      "verdict": "match"
+    },
+    {
+      "id": "any-difficulty",
+      "what": "Has difficulty hearing, seeing, remembering, walking, dressing or doing errands alone",
+      "run": "count --who=serious_functional_difficulties=hearing|seeing|concentrating_remembering_or_deciding|walking_or_climbing_stairs|dressing_or_bathing|doing_errands_alone",
+      "made_up": 16.33,
+      "real": 16.56,
+      "gap": -0.23,
+      "ratio": 0.986,
+      "verdict": "match"
+    },
+    {
+      "id": "not-full-time",
+      "what": "Not in full-time work (works part time, or does not work)",
+      "run": "count --who=full_time_or_part_time=part_time|not_in_employment",
+      "made_up": 50.01,
+      "real": 50.08,
+      "gap": -0.07,
+      "ratio": 0.999,
+      "verdict": "match"
+    },
+    {
+      "id": "works-from-home",
+      "what": "Works from home",
+      "run": "count --who=usual_travel_to_work_mode=works_from_home",
+      "made_up": 8.44,
+      "real": 8.25,
+      "gap": 0.19,
+      "ratio": 1.023,
+      "verdict": "match"
+    },
+    {
+      "id": "renters",
+      "what": "Lives in a rented home",
+      "run": "count --who=home_tenure=rented_without_government_housing_assistance|rented_with_government_housing_assistance",
+      "made_up": 28.29,
+      "real": 28.52,
+      "gap": -0.23,
+      "ratio": 0.992,
+      "verdict": "match"
+    },
+    {
+      "id": "no-vehicle",
+      "what": "No car, van or truck in the household",
+      "run": "count --who=vehicles_in_household=0",
+      "made_up": 9.42,
+      "real": 9.38,
+      "gap": 0.04,
+      "ratio": 1.004,
+      "verdict": "match"
+    },
+    {
+      "id": "household-under-25k",
+      "what": "Household income under $25,000 a year",
+      "run": "count --who=household_income_before_tax_per_year=under_25000_usd",
+      "made_up": 12.48,
+      "real": 12.22,
+      "gap": 0.26,
+      "ratio": 1.021,
+      "verdict": "match"
+    },
+    {
+      "id": "not-citizen",
+      "what": "Not a US citizen",
+      "run": "count --who=citizenship=not_a_us_citizen",
+      "made_up": 8.21,
+      "real": 8.22,
+      "gap": -0.01,
+      "ratio": 0.999,
+      "verdict": "match"
+    },
+    {
+      "id": "aged-65-plus",
+      "what": "Aged 65 or over",
+      "run": "count --who=age_years=65..120",
+      "made_up": 22.93,
+      "real": 22.93,
+      "gap": 0,
+      "ratio": 1,
+      "verdict": "match"
+    },
+    {
+      "id": "parents-under-18",
+      "what": "Has their own children under 18 at home",
+      "run": "count --who=own_dependent_children_at_home=1..6_or_more",
+      "made_up": 23.59,
+      "real": 23.67,
+      "gap": -0.08,
+      "ratio": 0.997,
+      "verdict": "match"
+    },
+    {
+      "id": "lone-parent",
+      "what": "Lives in a lone-parent household with the parent's own children under 18",
+      "run": "count --who=household_type=lone_parent_household_with_dependent_children",
+      "made_up": 4.07,
+      "real": 4.12,
+      "gap": -0.05,
+      "ratio": 0.988,
+      "verdict": "match"
+    },
+    {
+      "id": "lives-alone",
+      "what": "Lives alone",
+      "run": "count --who=people_in_household=1",
+      "made_up": 17.43,
+      "real": 17.41,
+      "gap": 0.02,
+      "ratio": 1.001,
+      "verdict": "match"
+    },
+    {
+      "id": "self-employed",
+      "what": "Self-employed",
+      "run": "count --who=employment_type=self_employed_in_an_incorporated_business|self_employed_in_an_unincorporated_business",
+      "made_up": 6.21,
+      "real": 6.28,
+      "gap": -0.07,
+      "ratio": 0.989,
+      "verdict": "match"
+    },
+    {
+      "id": "unemployed",
+      "what": "Out of work and looking for work",
+      "run": "count --who=economic_activity_status=unemployed_and_looking_for_work",
+      "made_up": 2.85,
+      "real": 2.83,
+      "gap": 0.02,
+      "ratio": 1.007,
+      "verdict": "match"
+    },
+    {
+      "id": "in-education",
+      "what": "Enrolled in school or college",
+      "run": "count --who=current_education_enrolment=full_time_student|part_time_student",
+      "made_up": 9.12,
+      "real": 9.17,
+      "gap": -0.05,
+      "ratio": 0.995,
+      "verdict": "match"
+    },
+    {
+      "id": "renters-18-29",
+      "what": "Aged 18 to 29 and lives in a rented home",
+      "run": "count --who=age_years=18..29,home_tenure=rented_without_government_housing_assistance|rented_with_government_housing_assistance",
+      "made_up": 8.91,
+      "real": 8.77,
+      "gap": 0.14,
+      "ratio": 1.016,
+      "verdict": "match"
+    },
+    {
+      "id": "drive-alone-one-car",
+      "what": "Drives alone to work, and the household has one vehicle",
+      "run": "count --who=usual_travel_to_work_mode=drives_alone_in_a_car_truck_or_van,vehicles_in_household=1",
+      "made_up": 8.62,
+      "real": 8.41,
+      "gap": 0.21,
+      "ratio": 1.025,
+      "verdict": "match"
+    },
+    {
+      "id": "65-plus-alone",
+      "what": "Aged 65 or over and lives alone",
+      "run": "count --who=age_years=65..120,people_in_household=1",
+      "made_up": 6.64,
+      "real": 6.56,
+      "gap": 0.08,
+      "ratio": 1.012,
+      "verdict": "match"
+    },
+    {
+      "id": "parents-under-50k",
+      "what": "Has their own children under 18 at home, and household income under $50,000",
+      "run": "count --who=own_dependent_children_at_home=1..6_or_more,household_income_before_tax_per_year=under_25000_usd..25000_to_49999_usd",
+      "made_up": 3.79,
+      "real": 3.99,
+      "gap": -0.2,
+      "ratio": 0.95,
+      "verdict": "match"
+    },
+    {
+      "id": "students-18-24",
+      "what": "Aged 18 to 24 and enrolled in school or college",
+      "run": "count --who=age_years=18..24,current_education_enrolment=full_time_student|part_time_student",
+      "made_up": 5.58,
+      "real": 5.59,
+      "gap": -0.01,
+      "ratio": 0.998,
+      "verdict": "match"
+    },
+    {
+      "id": "warehouse-job",
+      "what": "Of all adults, has a vehicle in the household, then also speaks English well or better",
+      "run": "reach --need=vehicles_in_household=1..3_or_more,english_speaking_ability=speaks_only_english_at_home..speaks_english_well",
+      "made_up": 86.1,
+      "real": 86.1,
+      "gap": 0,
+      "ratio": 1,
+      "verdict": "match",
+      "steps": [
+        {
+          "after": "1 vehicle available to the household or 2 vehicles available to the household or 3 or more vehicles available to the household",
+          "made_up": 90.6,
+          "real": 90.6
+        },
+        {
+          "after": "Speaks only English at home or Speaks another language at home; speaks English very well or Speaks another language at home; speaks English well",
+          "made_up": 86.1,
+          "real": 86.1
+        }
+      ]
+    },
+    {
+      "id": "rental-application",
+      "what": "Of renters, household income $50,000 or more (about three times a $1,400 monthly rent), then also an employee who gets pay stubs",
+      "run": "reach --among=home_tenure=rented_without_government_housing_assistance|rented_with_government_housing_assistance --need=household_income_before_tax_per_year=50000_to_74999_usd..200000_usd_or_more,employment_type=employee",
+      "made_up": 46.2,
+      "real": 46.9,
+      "gap": -0.7,
+      "ratio": 0.985,
+      "verdict": "match",
+      "steps": [
+        {
+          "after": "$50,000 to $74,999 or $75,000 to $99,999 or $100,000 to $149,999 or $150,000 to $199,999 or $200,000 or more",
+          "made_up": 63.5,
+          "real": 63.1
+        },
+        {
+          "after": "Employee of a company, non-profit or government",
+          "made_up": 46.2,
+          "real": 46.9
+        }
+      ]
+    }
+  ]
+}

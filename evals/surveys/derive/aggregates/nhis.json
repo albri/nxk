@@ -1,0 +1,1917 @@
+{
+ "source": {
+  "name": "National Health Interview Survey 2024, sample adult file",
+  "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2024/adult24csv.zip",
+  "sha256": "5f926b2ec0af508fa84ebc791c83bfefa6f020724754aab599004706981abdaf",
+  "member": "adult24.csv",
+  "rows": 32629,
+  "weight": "WTFA_A",
+  "min_group_n": 100
+ },
+ "group_definitions": {
+  "age": {
+   "18_29": {
+    "field": "age_years",
+    "min": 18,
+    "max": 29
+   },
+   "30_44": {
+    "field": "age_years",
+    "min": 30,
+    "max": 44
+   },
+   "45_64": {
+    "field": "age_years",
+    "min": 45,
+    "max": 64
+   },
+   "65_plus": {
+    "field": "age_years",
+    "min": 65,
+    "max": 100
+   }
+  },
+  "sex": {
+   "female": {
+    "field": "sex_at_birth",
+    "in": [
+     "female"
+    ]
+   },
+   "male": {
+    "field": "sex_at_birth",
+    "in": [
+     "male"
+    ]
+   }
+  },
+  "tenure": {
+   "owned": {
+    "field": "home_tenure",
+    "in": [
+     "owned_with_a_mortgage_or_loan",
+     "owned_free_and_clear"
+    ]
+   },
+   "rented": {
+    "field": "home_tenure",
+    "in": [
+     "rented_without_government_housing_assistance",
+     "rented_with_government_housing_assistance"
+    ]
+   }
+  },
+  "education": {
+   "hs_or_less": {
+    "field": "highest_qualification",
+    "in": [
+     "less_than_high_school_diploma",
+     "high_school_diploma_or_ged"
+    ]
+   },
+   "some_college": {
+    "field": "highest_qualification",
+    "in": [
+     "some_college_no_degree",
+     "associate_degree"
+    ]
+   },
+   "degree": {
+    "field": "highest_qualification",
+    "in": [
+     "bachelors_degree",
+     "masters_degree",
+     "professional_degree_beyond_a_bachelors",
+     "doctorate_degree"
+    ]
+   }
+  },
+  "work": {
+   "in_employment": {
+    "field": "economic_activity_status",
+    "in": [
+     "in_employment"
+    ]
+   },
+   "retired": {
+    "field": "economic_activity_status",
+    "in": [
+     "retired"
+    ]
+   },
+   "not_working": {
+    "field": "economic_activity_status",
+    "in": [
+     "unemployed_and_looking_for_work",
+     "student_not_in_employment",
+     "looking_after_home_or_family",
+     "long_term_sick_or_disabled",
+     "other_not_working"
+    ]
+   }
+  },
+  "children": {
+   "none": {
+    "field": "own_dependent_children_at_home",
+    "in": [
+     "0"
+    ]
+   },
+   "one_or_more": {
+    "field": "own_dependent_children_at_home",
+    "in": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6_or_more"
+    ]
+   }
+  },
+  "health_limitation": {
+   "limited_a_lot": {
+    "field": "day_to_day_activities_limited_by_health",
+    "in": [
+     "limited_a_lot"
+    ]
+   },
+   "not_limited_a_lot": {
+    "field": "day_to_day_activities_limited_by_health",
+    "in": [
+     "limited_a_little",
+     "has_a_long_term_condition_not_limiting",
+     "no_long_term_condition"
+    ]
+   }
+  },
+  "insurance": {
+   "uninsured": {
+    "field": "health_insurance",
+    "in": [
+     "no_health_insurance"
+    ]
+   },
+   "private_only": {
+    "field": "health_insurance",
+    "in": [
+     "employer_only",
+     "direct_purchase_only",
+     "multiple_private_types"
+    ]
+   },
+   "medicaid_or_public_only": {
+    "field": "health_insurance",
+    "in": [
+     "medicaid_or_other_public_only"
+    ]
+   },
+   "medicare": {
+    "field": "health_insurance",
+    "in": [
+     "medicare_only",
+     "employer_and_medicare",
+     "direct_purchase_and_medicare",
+     "medicare_and_medicaid"
+    ]
+   }
+  }
+ },
+ "studies": {
+  "nhis-flu-vaccine-12-months": {
+   "real": [
+    43.0,
+    57.0
+   ],
+   "n": 32132,
+   "groups": {
+    "age": {
+     "18_29": {
+      "real": [
+       28.8,
+       71.2
+      ],
+      "n": 4025
+     },
+     "30_44": {
+      "real": [
+       32.7,
+       67.3
+      ],
+      "n": 7529
+     },
+     "45_64": {
+      "real": [
+       42.8,
+       57.2
+      ],
+      "n": 9768
+     },
+     "65_plus": {
+      "real": [
+       67.1,
+       32.9
+      ],
+      "n": 10765
+     }
+    },
+    "children": {
+     "none": {
+      "real": [
+       45.8,
+       54.2
+      ],
+      "n": 25255
+     },
+     "one_or_more": {
+      "real": [
+       34.9,
+       65.1
+      ],
+      "n": 6721
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       54.6,
+       45.4
+      ],
+      "n": 12180
+     },
+     "hs_or_less": {
+      "real": [
+       34.8,
+       65.2
+      ],
+      "n": 10892
+     },
+     "some_college": {
+      "real": [
+       40.4,
+       59.6
+      ],
+      "n": 8922
+     }
+    },
+    "health_limitation": {
+     "limited_a_lot": {
+      "real": [
+       53.4,
+       46.6
+      ],
+      "n": 3672
+     },
+     "not_limited_a_lot": {
+      "real": [
+       41.9,
+       58.1
+      ],
+      "n": 28459
+     }
+    },
+    "insurance": {
+     "medicaid_or_public_only": {
+      "real": [
+       30.3,
+       69.7
+      ],
+      "n": 2786
+     },
+     "medicare": {
+      "real": [
+       65.1,
+       34.9
+      ],
+      "n": 10032
+     },
+     "private_only": {
+      "real": [
+       40.2,
+       59.8
+      ],
+      "n": 14747
+     },
+     "uninsured": {
+      "real": [
+       13.3,
+       86.7
+      ],
+      "n": 2288
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       46.3,
+       53.7
+      ],
+      "n": 17386
+     },
+     "male": {
+      "real": [
+       39.6,
+       60.4
+      ],
+      "n": 14741
+     }
+    },
+    "tenure": {
+     "owned": {
+      "real": [
+       47.1,
+       52.9
+      ],
+      "n": 21085
+     },
+     "rented": {
+      "real": [
+       34.2,
+       65.8
+      ],
+      "n": 9404
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       37.4,
+       62.6
+      ],
+      "n": 17969
+     },
+     "not_working": {
+      "real": [
+       35.9,
+       64.1
+      ],
+      "n": 4339
+     },
+     "retired": {
+      "real": [
+       67.4,
+       32.6
+      ],
+      "n": 8940
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "status": {
+    "ok": 32132,
+    "excluded": 497
+   },
+   "raw_label_counts": {
+    "SHTFLU12M_A=2": 16911,
+    "SHTFLU12M_A=1": 15221,
+    "SHTFLU12M_A=8": 343,
+    "SHTFLU12M_A=9": 105,
+    "SHTFLU12M_A=7": 49
+   }
+  },
+  "nhis-worry-paying-medical-bills": {
+   "real": [
+    14.1,
+    30.5,
+    55.4
+   ],
+   "n": 32431,
+   "groups": {
+    "age": {
+     "18_29": {
+      "real": [
+       13.0,
+       34.6,
+       52.4
+      ],
+      "n": 4073
+     },
+     "30_44": {
+      "real": [
+       16.8,
+       33.0,
+       50.2
+      ],
+      "n": 7612
+     },
+     "45_64": {
+      "real": [
+       17.4,
+       31.4,
+       51.2
+      ],
+      "n": 9849
+     },
+     "65_plus": {
+      "real": [
+       7.5,
+       23.2,
+       69.3
+      ],
+      "n": 10850
+     }
+    },
+    "children": {
+     "none": {
+      "real": [
+       13.0,
+       29.7,
+       57.3
+      ],
+      "n": 25485
+     },
+     "one_or_more": {
+      "real": [
+       17.2,
+       33.2,
+       49.6
+      ],
+      "n": 6789
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       8.6,
+       30.4,
+       61.0
+      ],
+      "n": 12307
+     },
+     "hs_or_less": {
+      "real": [
+       19.2,
+       30.1,
+       50.7
+      ],
+      "n": 10991
+     },
+     "some_college": {
+      "real": [
+       13.8,
+       31.3,
+       54.9
+      ],
+      "n": 8994
+     }
+    },
+    "health_limitation": {
+     "limited_a_lot": {
+      "real": [
+       21.7,
+       26.3,
+       52.0
+      ],
+      "n": 3707
+     },
+     "not_limited_a_lot": {
+      "real": [
+       13.3,
+       31.0,
+       55.7
+      ],
+      "n": 28723
+     }
+    },
+    "insurance": {
+     "medicaid_or_public_only": {
+      "real": [
+       16.1,
+       28.0,
+       55.9
+      ],
+      "n": 2835
+     },
+     "medicare": {
+      "real": [
+       8.3,
+       24.5,
+       67.2
+      ],
+      "n": 10110
+     },
+     "private_only": {
+      "real": [
+       11.8,
+       34.5,
+       53.7
+      ],
+      "n": 14890
+     },
+     "uninsured": {
+      "real": [
+       42.5,
+       31.9,
+       25.6
+      ],
+      "n": 2302
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       15.8,
+       32.2,
+       52.0
+      ],
+      "n": 17539
+     },
+     "male": {
+      "real": [
+       12.3,
+       28.8,
+       58.9
+      ],
+      "n": 14887
+     }
+    },
+    "tenure": {
+     "owned": {
+      "real": [
+       10.8,
+       30.2,
+       59.0
+      ],
+      "n": 21143
+     },
+     "rented": {
+      "real": [
+       21.3,
+       31.7,
+       47.0
+      ],
+      "n": 9435
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       14.6,
+       33.7,
+       51.7
+      ],
+      "n": 18024
+     },
+     "not_working": {
+      "real": [
+       20.4,
+       27.5,
+       52.1
+      ],
+      "n": 4355
+     },
+     "retired": {
+      "real": [
+       6.8,
+       23.4,
+       69.8
+      ],
+      "n": 8965
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "status": {
+    "ok": 32431,
+    "excluded": 198
+   },
+   "raw_label_counts": {
+    "PAYWORRY_A=3": 18720,
+    "PAYWORRY_A=2": 9576,
+    "PAYWORRY_A=1": 4135,
+    "PAYWORRY_A=8": 123,
+    "PAYWORRY_A=9": 40,
+    "PAYWORRY_A=7": 35
+   }
+  },
+  "nhis-virtual-appointment-12-months": {
+   "real": [
+    25.0,
+    75.0
+   ],
+   "n": 32324,
+   "groups": {
+    "age": {
+     "18_29": {
+      "real": [
+       21.4,
+       78.6
+      ],
+      "n": 4053
+     },
+     "30_44": {
+      "real": [
+       26.9,
+       73.1
+      ],
+      "n": 7584
+     },
+     "45_64": {
+      "real": [
+       26.4,
+       73.6
+      ],
+      "n": 9824
+     },
+     "65_plus": {
+      "real": [
+       24.2,
+       75.8
+      ],
+      "n": 10816
+     }
+    },
+    "children": {
+     "none": {
+      "real": [
+       24.8,
+       75.2
+      ],
+      "n": 25397
+     },
+     "one_or_more": {
+      "real": [
+       25.3,
+       74.7
+      ],
+      "n": 6771
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       32.3,
+       67.7
+      ],
+      "n": 12265
+     },
+     "hs_or_less": {
+      "real": [
+       17.9,
+       82.1
+      ],
+      "n": 10947
+     },
+     "some_college": {
+      "real": [
+       25.9,
+       74.1
+      ],
+      "n": 8971
+     }
+    },
+    "health_limitation": {
+     "limited_a_lot": {
+      "real": [
+       35.5,
+       64.5
+      ],
+      "n": 3700
+     },
+     "not_limited_a_lot": {
+      "real": [
+       23.9,
+       76.1
+      ],
+      "n": 28623
+     }
+    },
+    "insurance": {
+     "medicaid_or_public_only": {
+      "real": [
+       23.1,
+       76.9
+      ],
+      "n": 2816
+     },
+     "medicare": {
+      "real": [
+       25.0,
+       75.0
+      ],
+      "n": 10080
+     },
+     "private_only": {
+      "real": [
+       26.6,
+       73.4
+      ],
+      "n": 14844
+     },
+     "uninsured": {
+      "real": [
+       11.5,
+       88.5
+      ],
+      "n": 2292
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       28.7,
+       71.3
+      ],
+      "n": 17484
+     },
+     "male": {
+      "real": [
+       21.1,
+       78.9
+      ],
+      "n": 14835
+     }
+    },
+    "tenure": {
+     "owned": {
+      "real": [
+       25.2,
+       74.8
+      ],
+      "n": 21164
+     },
+     "rented": {
+      "real": [
+       24.8,
+       75.2
+      ],
+      "n": 9433
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       24.6,
+       75.4
+      ],
+      "n": 18037
+     },
+     "not_working": {
+      "real": [
+       27.0,
+       73.0
+      ],
+      "n": 4358
+     },
+     "retired": {
+      "real": [
+       24.9,
+       75.1
+      ],
+      "n": 8967
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "status": {
+    "ok": 32324,
+    "excluded": 305
+   },
+   "raw_label_counts": {
+    "VIRAPP12M_A=2": 24031,
+    "VIRAPP12M_A=1": 8293,
+    "VIRAPP12M_A=8": 271,
+    "VIRAPP12M_A=9": 28,
+    "VIRAPP12M_A=7": 6
+   }
+  },
+  "nhis-loneliness-frequency": {
+   "real": [
+    2.5,
+    2.4,
+    18.8,
+    25.7,
+    50.6
+   ],
+   "n": 31470,
+   "groups": {
+    "age": {
+     "18_29": {
+      "real": [
+       2.4,
+       3.9,
+       22.8,
+       27.9,
+       43.0
+      ],
+      "n": 3951
+     },
+     "30_44": {
+      "real": [
+       2.5,
+       2.1,
+       18.2,
+       26.8,
+       50.4
+      ],
+      "n": 7374
+     },
+     "45_64": {
+      "real": [
+       2.7,
+       2.2,
+       16.8,
+       24.5,
+       53.8
+      ],
+      "n": 9553
+     },
+     "65_plus": {
+      "real": [
+       2.2,
+       1.8,
+       18.9,
+       24.3,
+       52.8
+      ],
+      "n": 10548
+     }
+    },
+    "children": {
+     "none": {
+      "real": [
+       2.7,
+       2.6,
+       20.1,
+       26.2,
+       48.4
+      ],
+      "n": 24759
+     },
+     "one_or_more": {
+      "real": [
+       1.8,
+       1.7,
+       15.2,
+       24.5,
+       56.8
+      ],
+      "n": 6561
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       1.2,
+       2.0,
+       17.7,
+       31.5,
+       47.6
+      ],
+      "n": 11993
+     },
+     "hs_or_less": {
+      "real": [
+       3.7,
+       2.4,
+       19.3,
+       19.9,
+       54.7
+      ],
+      "n": 10589
+     },
+     "some_college": {
+      "real": [
+       2.2,
+       2.9,
+       19.6,
+       26.6,
+       48.7
+      ],
+      "n": 8759
+     }
+    },
+    "health_limitation": {
+     "limited_a_lot": {
+      "real": [
+       7.4,
+       6.2,
+       29.0,
+       21.7,
+       35.7
+      ],
+      "n": 3583
+     },
+     "not_limited_a_lot": {
+      "real": [
+       2.0,
+       2.0,
+       17.7,
+       26.2,
+       52.1
+      ],
+      "n": 27886
+     }
+    },
+    "insurance": {
+     "medicaid_or_public_only": {
+      "real": [
+       5.4,
+       3.2,
+       23.5,
+       20.8,
+       47.1
+      ],
+      "n": 2701
+     },
+     "medicare": {
+      "real": [
+       2.7,
+       2.1,
+       19.3,
+       24.0,
+       51.9
+      ],
+      "n": 9831
+     },
+     "private_only": {
+      "real": [
+       1.6,
+       2.2,
+       16.9,
+       28.4,
+       50.9
+      ],
+      "n": 14479
+     },
+     "uninsured": {
+      "real": [
+       3.5,
+       2.7,
+       22.4,
+       20.4,
+       51.0
+      ],
+      "n": 2229
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       2.6,
+       2.5,
+       21.4,
+       27.6,
+       45.9
+      ],
+      "n": 17039
+     },
+     "male": {
+      "real": [
+       2.4,
+       2.3,
+       16.1,
+       23.7,
+       55.5
+      ],
+      "n": 14426
+     }
+    },
+    "tenure": {
+     "owned": {
+      "real": [
+       1.9,
+       2.0,
+       16.8,
+       26.4,
+       52.9
+      ],
+      "n": 21104
+     },
+     "rented": {
+      "real": [
+       3.5,
+       3.4,
+       23.3,
+       24.7,
+       45.1
+      ],
+      "n": 9419
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       1.9,
+       2.2,
+       17.5,
+       26.6,
+       51.8
+      ],
+      "n": 17978
+     },
+     "not_working": {
+      "real": [
+       5.5,
+       3.9,
+       24.1,
+       23.4,
+       43.1
+      ],
+      "n": 4348
+     },
+     "retired": {
+      "real": [
+       2.0,
+       1.8,
+       19.0,
+       24.8,
+       52.4
+      ],
+      "n": 8964
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "status": {
+    "ok": 31470,
+    "excluded": 1159
+   },
+   "raw_label_counts": {
+    "LONELY_A=5": 14724,
+    "LONELY_A=4": 8372,
+    "LONELY_A=3": 6640,
+    "LONELY_A=8": 1079,
+    "LONELY_A=2": 881,
+    "LONELY_A=1": 853,
+    "LONELY_A=7": 46,
+    "LONELY_A=9": 34
+   }
+  },
+  "nhis-volunteered-12-months": {
+   "real": [
+    23.6,
+    76.4
+   ],
+   "n": 31333,
+   "groups": {
+    "age": {
+     "18_29": {
+      "real": [
+       19.9,
+       80.1
+      ],
+      "n": 3929
+     },
+     "30_44": {
+      "real": [
+       22.8,
+       77.2
+      ],
+      "n": 7331
+     },
+     "45_64": {
+      "real": [
+       26.3,
+       73.7
+      ],
+      "n": 9512
+     },
+     "65_plus": {
+      "real": [
+       24.0,
+       76.0
+      ],
+      "n": 10519
+     }
+    },
+    "children": {
+     "none": {
+      "real": [
+       22.5,
+       77.5
+      ],
+      "n": 24673
+     },
+     "one_or_more": {
+      "real": [
+       26.9,
+       73.1
+      ],
+      "n": 6511
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       37.1,
+       62.9
+      ],
+      "n": 11951
+     },
+     "hs_or_less": {
+      "real": [
+       12.2,
+       87.8
+      ],
+      "n": 10531
+     },
+     "some_college": {
+      "real": [
+       22.7,
+       77.3
+      ],
+      "n": 8724
+     }
+    },
+    "health_limitation": {
+     "limited_a_lot": {
+      "real": [
+       15.3,
+       84.7
+      ],
+      "n": 3581
+     },
+     "not_limited_a_lot": {
+      "real": [
+       24.5,
+       75.5
+      ],
+      "n": 27752
+     }
+    },
+    "insurance": {
+     "medicaid_or_public_only": {
+      "real": [
+       12.8,
+       87.2
+      ],
+      "n": 2674
+     },
+     "medicare": {
+      "real": [
+       23.0,
+       77.0
+      ],
+      "n": 9797
+     },
+     "private_only": {
+      "real": [
+       27.8,
+       72.2
+      ],
+      "n": 14413
+     },
+     "uninsured": {
+      "real": [
+       12.6,
+       87.4
+      ],
+      "n": 2218
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       25.3,
+       74.7
+      ],
+      "n": 16946
+     },
+     "male": {
+      "real": [
+       21.8,
+       78.2
+      ],
+      "n": 14382
+     }
+    },
+    "tenure": {
+     "owned": {
+      "real": [
+       26.6,
+       73.4
+      ],
+      "n": 21141
+     },
+     "rented": {
+      "real": [
+       16.8,
+       83.2
+      ],
+      "n": 9423
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       24.8,
+       75.2
+      ],
+      "n": 17964
+     },
+     "not_working": {
+      "real": [
+       18.0,
+       82.0
+      ],
+      "n": 4357
+     },
+     "retired": {
+      "real": [
+       24.3,
+       75.7
+      ],
+      "n": 8980
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "status": {
+    "ok": 31333,
+    "excluded": 1296
+   },
+   "raw_label_counts": {
+    "CEVOLUN1_A=2": 23476,
+    "CEVOLUN1_A=1": 7857,
+    "CEVOLUN1_A=8": 1268,
+    "CEVOLUN1_A=7": 21,
+    "CEVOLUN1_A=9": 7
+   }
+  },
+  "nhis-e-cigarette-use": {
+   "real": [
+    7.0,
+    13.3,
+    79.7
+   ],
+   "n": 31889,
+   "groups": {
+    "age": {
+     "18_29": {
+      "real": [
+       14.7,
+       21.7,
+       63.6
+      ],
+      "n": 4005
+     },
+     "30_44": {
+      "real": [
+       10.0,
+       18.6,
+       71.4
+      ],
+      "n": 7475
+     },
+     "45_64": {
+      "real": [
+       4.1,
+       10.5,
+       85.4
+      ],
+      "n": 9694
+     },
+     "65_plus": {
+      "real": [
+       0.9,
+       4.1,
+       95.0
+      ],
+      "n": 10671
+     }
+    },
+    "children": {
+     "none": {
+      "real": [
+       6.5,
+       12.7,
+       80.8
+      ],
+      "n": 25074
+     },
+     "one_or_more": {
+      "real": [
+       8.5,
+       14.9,
+       76.6
+      ],
+      "n": 6662
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       3.7,
+       11.9,
+       84.4
+      ],
+      "n": 12129
+     },
+     "hs_or_less": {
+      "real": [
+       9.0,
+       13.6,
+       77.4
+      ],
+      "n": 10770
+     },
+     "some_college": {
+      "real": [
+       8.3,
+       14.7,
+       77.0
+      ],
+      "n": 8854
+     }
+    },
+    "health_limitation": {
+     "limited_a_lot": {
+      "real": [
+       7.4,
+       12.5,
+       80.1
+      ],
+      "n": 3642
+     },
+     "not_limited_a_lot": {
+      "real": [
+       7.0,
+       13.4,
+       79.6
+      ],
+      "n": 28246
+     }
+    },
+    "insurance": {
+     "medicaid_or_public_only": {
+      "real": [
+       13.1,
+       17.2,
+       69.7
+      ],
+      "n": 2759
+     },
+     "medicare": {
+      "real": [
+       1.6,
+       5.3,
+       93.1
+      ],
+      "n": 9946
+     },
+     "private_only": {
+      "real": [
+       7.3,
+       15.4,
+       77.3
+      ],
+      "n": 14662
+     },
+     "uninsured": {
+      "real": [
+       12.3,
+       15.5,
+       72.2
+      ],
+      "n": 2260
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       6.4,
+       11.7,
+       81.9
+      ],
+      "n": 17269
+     },
+     "male": {
+      "real": [
+       7.7,
+       15.0,
+       77.3
+      ],
+      "n": 14615
+     }
+    },
+    "tenure": {
+     "owned": {
+      "real": [
+       5.4,
+       11.6,
+       83.0
+      ],
+      "n": 21154
+     },
+     "rented": {
+      "real": [
+       10.8,
+       17.5,
+       71.7
+      ],
+      "n": 9432
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       8.4,
+       15.7,
+       75.9
+      ],
+      "n": 18023
+     },
+     "not_working": {
+      "real": [
+       8.8,
+       15.3,
+       75.9
+      ],
+      "n": 4353
+     },
+     "retired": {
+      "real": [
+       1.1,
+       4.3,
+       94.6
+      ],
+      "n": 8978
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "status": {
+    "ok": 31889,
+    "excluded": 740
+   },
+   "raw_label_counts": {
+    "SMKECIGST_A=3": 26089,
+    "SMKECIGST_A=2": 3947,
+    "SMKECIGST_A=1": 1853,
+    "SMKECIGST_A=9": 740
+   }
+  },
+  "nhis-sleep-hours": {
+   "real": [
+    8.8,
+    21.6,
+    30.7,
+    30.3,
+    8.6
+   ],
+   "n": 31503,
+   "groups": {
+    "age": {
+     "18_29": {
+      "real": [
+       7.0,
+       18.1,
+       30.5,
+       34.6,
+       9.8
+      ],
+      "n": 3957
+     },
+     "30_44": {
+      "real": [
+       9.4,
+       23.4,
+       32.3,
+       29.4,
+       5.5
+      ],
+      "n": 7391
+     },
+     "45_64": {
+      "real": [
+       9.9,
+       24.5,
+       32.6,
+       27.1,
+       5.9
+      ],
+      "n": 9577
+     },
+     "65_plus": {
+      "real": [
+       8.5,
+       18.7,
+       26.3,
+       31.8,
+       14.7
+      ],
+      "n": 10538
+     }
+    },
+    "children": {
+     "none": {
+      "real": [
+       8.4,
+       20.3,
+       30.3,
+       31.1,
+       9.9
+      ],
+      "n": 24775
+     },
+     "one_or_more": {
+      "real": [
+       10.2,
+       25.5,
+       32.0,
+       27.8,
+       4.5
+      ],
+      "n": 6578
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       6.1,
+       20.2,
+       37.9,
+       30.0,
+       5.8
+      ],
+      "n": 12017
+     },
+     "hs_or_less": {
+      "real": [
+       10.0,
+       21.0,
+       25.8,
+       31.7,
+       11.5
+      ],
+      "n": 10600
+     },
+     "some_college": {
+      "real": [
+       10.4,
+       24.1,
+       28.7,
+       28.6,
+       8.2
+      ],
+      "n": 8760
+     }
+    },
+    "health_limitation": {
+     "limited_a_lot": {
+      "real": [
+       16.9,
+       20.3,
+       16.5,
+       26.8,
+       19.5
+      ],
+      "n": 3568
+     },
+     "not_limited_a_lot": {
+      "real": [
+       8.0,
+       21.8,
+       32.2,
+       30.6,
+       7.4
+      ],
+      "n": 27934
+     }
+    },
+    "insurance": {
+     "medicaid_or_public_only": {
+      "real": [
+       11.5,
+       21.2,
+       22.5,
+       33.5,
+       11.3
+      ],
+      "n": 2697
+     },
+     "medicare": {
+      "real": [
+       9.1,
+       19.2,
+       25.7,
+       31.1,
+       14.9
+      ],
+      "n": 9820
+     },
+     "private_only": {
+      "real": [
+       7.4,
+       22.8,
+       35.6,
+       28.9,
+       5.3
+      ],
+      "n": 14524
+     },
+     "uninsured": {
+      "real": [
+       9.6,
+       21.7,
+       26.4,
+       34.4,
+       7.9
+      ],
+      "n": 2233
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       9.3,
+       21.1,
+       29.7,
+       30.8,
+       9.1
+      ],
+      "n": 17046
+     },
+     "male": {
+      "real": [
+       8.4,
+       22.2,
+       31.7,
+       29.7,
+       8.0
+      ],
+      "n": 14452
+     }
+    },
+    "tenure": {
+     "owned": {
+      "real": [
+       8.0,
+       21.8,
+       31.8,
+       29.7,
+       8.7
+      ],
+      "n": 21100
+     },
+     "rented": {
+      "real": [
+       10.8,
+       21.1,
+       28.4,
+       31.4,
+       8.3
+      ],
+      "n": 9394
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       8.4,
+       23.6,
+       33.9,
+       29.1,
+       5.0
+      ],
+      "n": 17995
+     },
+     "not_working": {
+      "real": [
+       11.5,
+       18.4,
+       23.9,
+       31.3,
+       14.9
+      ],
+      "n": 4320
+     },
+     "retired": {
+      "real": [
+       8.3,
+       18.1,
+       26.0,
+       33.0,
+       14.6
+      ],
+      "n": 8946
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "status": {
+    "ok": 31503,
+    "excluded": 1126
+   },
+   "raw_label_counts": {
+    "SLPHOURS_A=7": 9574,
+    "SLPHOURS_A=8": 9460,
+    "SLPHOURS_A=6": 6759,
+    "SLPHOURS_A=5": 2038,
+    "SLPHOURS_A=9": 1568,
+    "SLPHOURS_A=98": 1008,
+    "SLPHOURS_A=10": 785,
+    "SLPHOURS_A=4": 685,
+    "SLPHOURS_A=12": 273,
+    "SLPHOURS_A=3": 129,
+    "SLPHOURS_A=99": 94,
+    "SLPHOURS_A=11": 64,
+    "SLPHOURS_A=2": 45,
+    "SLPHOURS_A=14": 30,
+    "SLPHOURS_A=97": 24,
+    "SLPHOURS_A=15": 19,
+    "SLPHOURS_A=16": 16,
+    "SLPHOURS_A=18": 16,
+    "SLPHOURS_A=1": 13,
+    "SLPHOURS_A=13": 8,
+    "SLPHOURS_A=20": 7,
+    "SLPHOURS_A=24": 6,
+    "SLPHOURS_A=22": 5,
+    "SLPHOURS_A=17": 2,
+    "SLPHOURS_A=19": 1
+   }
+  },
+  "nhis-delayed-care-cost": {
+   "real": [
+    8.6,
+    91.4
+   ],
+   "n": 32355,
+   "groups": {
+    "age": {
+     "18_29": {
+      "real": [
+       10.6,
+       89.4
+      ],
+      "n": 4052
+     },
+     "30_44": {
+      "real": [
+       10.5,
+       89.5
+      ],
+      "n": 7592
+     },
+     "45_64": {
+      "real": [
+       10.0,
+       90.0
+      ],
+      "n": 9830
+     },
+     "65_plus": {
+      "real": [
+       2.6,
+       97.4
+      ],
+      "n": 10834
+     }
+    },
+    "children": {
+     "none": {
+      "real": [
+       8.0,
+       92.0
+      ],
+      "n": 25425
+     },
+     "one_or_more": {
+      "real": [
+       10.2,
+       89.8
+      ],
+      "n": 6775
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       7.1,
+       92.9
+      ],
+      "n": 12277
+     },
+     "hs_or_less": {
+      "real": [
+       8.9,
+       91.1
+      ],
+      "n": 10956
+     },
+     "some_college": {
+      "real": [
+       9.8,
+       90.2
+      ],
+      "n": 8981
+     }
+    },
+    "health_limitation": {
+     "limited_a_lot": {
+      "real": [
+       14.2,
+       85.8
+      ],
+      "n": 3705
+     },
+     "not_limited_a_lot": {
+      "real": [
+       8.0,
+       92.0
+      ],
+      "n": 28649
+     }
+    },
+    "insurance": {
+     "medicaid_or_public_only": {
+      "real": [
+       6.7,
+       93.3
+      ],
+      "n": 2820
+     },
+     "medicare": {
+      "real": [
+       3.5,
+       96.5
+      ],
+      "n": 10091
+     },
+     "private_only": {
+      "real": [
+       8.3,
+       91.7
+      ],
+      "n": 14852
+     },
+     "uninsured": {
+      "real": [
+       26.8,
+       73.2
+      ],
+      "n": 2295
+     }
+    },
+    "sex": {
+     "female": {
+      "real": [
+       9.6,
+       90.4
+      ],
+      "n": 17498
+     },
+     "male": {
+      "real": [
+       7.5,
+       92.5
+      ],
+      "n": 14852
+     }
+    },
+    "tenure": {
+     "owned": {
+      "real": [
+       6.9,
+       93.1
+      ],
+      "n": 21177
+     },
+     "rented": {
+      "real": [
+       12.5,
+       87.5
+      ],
+      "n": 9438
+     }
+    },
+    "work": {
+     "in_employment": {
+      "real": [
+       9.6,
+       90.4
+      ],
+      "n": 18044
+     },
+     "not_working": {
+      "real": [
+       11.5,
+       88.5
+      ],
+      "n": 4359
+     },
+     "retired": {
+      "real": [
+       3.2,
+       96.8
+      ],
+      "n": 8978
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "status": {
+    "ok": 32355,
+    "excluded": 274
+   },
+   "raw_label_counts": {
+    "MEDDL12M_A=2": 29791,
+    "MEDDL12M_A=1": 2564,
+    "MEDDL12M_A=8": 255,
+    "MEDDL12M_A=7": 10,
+    "MEDDL12M_A=9": 9
+   }
+  }
+ }
+}

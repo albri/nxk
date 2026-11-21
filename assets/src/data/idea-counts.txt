@@ -1,0 +1,159 @@
+# The counts behind assets/src/data/idea-counts.json, made by node assets/src/count.ts on 2026-11-17.
+# People: maps/uk-people.bin.gz, 200000 people, engine v4/line 5e8253cbe, built 2026-11-16.
+# Each command is run from the repository root with NXK_LOG=off. It prints how many of the people are in the group.
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone,age_years=18..34,economic_activity_status=in_employment
+Within all adults (200000 people):
+Smartphone, and age_years 18 to 34, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 36649 people, 18.3% of adults (give or take 0.2); about 10,000,000 of the adults in the UK (give or take 96,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone,age_years=18..34,economic_activity_status=retired
+Within all adults (200000 people):
+Smartphone, and age_years 18 to 34, and Retired: 0 people, 0.0% of adults (give or take 0.0); about 0 of the adults in the UK (give or take 0; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=devices_used_to_go_online=smartphone,age_years=18..34,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Smartphone, and age_years 18 to 34, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 13819 people, 6.9% of adults (give or take 0.1); about 3,800,000 of the adults in the UK (give or take 63,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone,age_years=35..64,economic_activity_status=in_employment
+Within all adults (200000 people):
+Smartphone, and age_years 35 to 64, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 68612 people, 34.3% of adults (give or take 0.2); about 19,000,000 of the adults in the UK (give or take 120,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone,age_years=35..64,economic_activity_status=retired
+Within all adults (200000 people):
+Smartphone, and age_years 35 to 64, and Retired: 4125 people, 2.1% of adults (give or take 0.1); about 1,100,000 of the adults in the UK (give or take 35,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=devices_used_to_go_online=smartphone,age_years=35..64,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Smartphone, and age_years 35 to 64, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 16002 people, 8.0% of adults (give or take 0.1); about 4,400,000 of the adults in the UK (give or take 67,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone,age_years=65..74,economic_activity_status=in_employment
+Within all adults (200000 people):
+Smartphone, and age_years 65 to 74, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 3904 people, 2.0% of adults (give or take 0.1); about 1,100,000 of the adults in the UK (give or take 34,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone,age_years=65..74,economic_activity_status=retired
+Within all adults (200000 people):
+Smartphone, and age_years 65 to 74, and Retired: 13090 people, 6.5% of adults (give or take 0.1); about 3,600,000 of the adults in the UK (give or take 61,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=devices_used_to_go_online=smartphone,age_years=65..74,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Smartphone, and age_years 65 to 74, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 915 people, 0.5% of adults (give or take under 0.1); about 250,000 of the adults in the UK (give or take 17,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone,age_years=75..120,economic_activity_status=in_employment
+Within all adults (200000 people):
+Smartphone, and age_years 75 to 120, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 625 people, 0.3% of adults (give or take under 0.1); about 170,000 of the adults in the UK (give or take 14,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone,age_years=75..120,economic_activity_status=retired
+Within all adults (200000 people):
+Smartphone, and age_years 75 to 120, and Retired: 9147 people, 4.6% of adults (give or take 0.1); about 2,500,000 of the adults in the UK (give or take 52,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=devices_used_to_go_online=smartphone,age_years=75..120,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Smartphone, and age_years 75 to 120, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 333 people, 0.2% of adults (give or take under 0.1); about 92,000 of the adults in the UK (give or take 10,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=18..34,economic_activity_status=in_employment
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 18 to 34, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 2310 people, 1.2% of adults (give or take under 0.1); about 640,000 of the adults in the UK (give or take 27,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=18..34,economic_activity_status=retired
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 18 to 34, and Retired: 0 people, 0.0% of adults (give or take 0.0); about 0 of the adults in the UK (give or take 0; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=18..34,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 18 to 34, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 1217 people, 0.6% of adults (give or take under 0.1); about 340,000 of the adults in the UK (give or take 19,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=35..64,economic_activity_status=in_employment
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 35 to 64, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 4088 people, 2.0% of adults (give or take 0.1); about 1,100,000 of the adults in the UK (give or take 35,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=35..64,economic_activity_status=retired
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 35 to 64, and Retired: 335 people, 0.2% of adults (give or take under 0.1); about 93,000 of the adults in the UK (give or take 10,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=35..64,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 35 to 64, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 1793 people, 0.9% of adults (give or take under 0.1); about 500,000 of the adults in the UK (give or take 23,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=65..74,economic_activity_status=in_employment
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 65 to 74, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 685 people, 0.3% of adults (give or take under 0.1); about 190,000 of the adults in the UK (give or take 14,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=65..74,economic_activity_status=retired
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 65 to 74, and Retired: 2241 people, 1.1% of adults (give or take under 0.1); about 620,000 of the adults in the UK (give or take 26,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=65..74,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 65 to 74, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 235 people, 0.1% of adults (give or take under 0.1); about 65,000 of the adults in the UK (give or take 8,500; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=75..120,economic_activity_status=in_employment
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 75 to 120, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 207 people, 0.1% of adults (give or take under 0.1); about 57,000 of the adults in the UK (give or take 8,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=75..120,economic_activity_status=retired
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 75 to 120, and Retired: 3573 people, 1.8% of adults (give or take 0.1); about 990,000 of the adults in the UK (give or take 33,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone,age_years=75..120,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone, and age_years 75 to 120, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 193 people, 0.1% of adults (give or take under 0.1); about 54,000 of the adults in the UK (give or take 7,700; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=18..34,economic_activity_status=in_employment
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 18 to 34, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 63 people, 0.0% of adults (give or take under 0.1); about 17,000 of the adults in the UK (give or take 4,400; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=18..34,economic_activity_status=retired
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 18 to 34, and Retired: 0 people, 0.0% of adults (give or take 0.0); about 0 of the adults in the UK (give or take 0; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=18..34,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 18 to 34, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 231 people, 0.1% of adults (give or take under 0.1); about 64,000 of the adults in the UK (give or take 8,400; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=35..64,economic_activity_status=in_employment
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 35 to 64, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 513 people, 0.3% of adults (give or take under 0.1); about 140,000 of the adults in the UK (give or take 13,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=35..64,economic_activity_status=retired
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 35 to 64, and Retired: 250 people, 0.1% of adults (give or take under 0.1); about 69,000 of the adults in the UK (give or take 8,800; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=35..64,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 35 to 64, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 1551 people, 0.8% of adults (give or take under 0.1); about 430,000 of the adults in the UK (give or take 22,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=65..74,economic_activity_status=in_employment
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 65 to 74, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 131 people, 0.1% of adults (give or take under 0.1); about 36,000 of the adults in the UK (give or take 6,300; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=65..74,economic_activity_status=retired
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 65 to 74, and Retired: 2902 people, 1.5% of adults (give or take 0.1); about 810,000 of the adults in the UK (give or take 30,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=65..74,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 65 to 74, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 382 people, 0.2% of adults (give or take under 0.1); about 110,000 of the adults in the UK (give or take 11,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=75..120,economic_activity_status=in_employment
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 75 to 120, and In paid work for at least 1 hour in the last 7 days, or temporarily away from a job: 57 people, 0.0% of adults (give or take under 0.1); about 16,000 of the adults in the UK (give or take 4,200; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=75..120,economic_activity_status=retired
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 75 to 120, and Retired: 9273 people, 4.6% of adults (give or take 0.1); about 2,600,000 of the adults in the UK (give or take 52,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk '--who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet,age_years=75..120,economic_activity_status=unemployed_and_looking_for_work|student_not_in_employment|looking_after_home_or_family|long_term_sick_or_disabled|other_not_working'
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet, and age_years 75 to 120, and Unemployed: without a job, looking for work and available to start or Not working: a full-time student or Not working: looking after home or family or Not working: long-term sick or disabled or Not working for another reason, not looking for work: 549 people, 0.3% of adults (give or take under 0.1); about 150,000 of the adults in the UK (give or take 13,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=devices_used_to_go_online=smartphone
+Within all adults (200000 people):
+Smartphone: 167221 people, 83.6% of adults (give or take 0.2); about 46,000,000 of the adults in the UK (give or take 92,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=daily_or_almost_daily..less_than_weekly,devices_used_to_go_online!=smartphone
+Within all adults (200000 people):
+Uses the internet daily or almost daily or Uses the internet at least once a week but not daily or Uses the internet less than once a week, and not Smartphone: 16877 people, 8.4% of adults (give or take 0.1); about 4,700,000 of the adults in the UK (give or take 69,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).
+
+$ node scripts/people.ts count --country=uk --who=internet_use_frequency=not_used_in_the_last_3_months..never_used_the_internet
+Within all adults (200000 people):
+Has used the internet but not in the last 3 months or Has never used the internet: 15902 people, 8.0% of adults (give or take 0.1); about 4,400,000 of the adults in the UK (give or take 67,000; the share of the generated people times the ONS mid-2025 estimate, 55,484,667 adults in the UK).

@@ -1,0 +1,1 @@
+Someone in Liverpool is planning an online football results game for Great Britain: players pay £1.50 a week, pick the matches they think will end in a score draw, and win cash prizes every week. Before they apply for a licence and build it, they want to know who would play it, so they know who to market it to and whether there are enough of them.

@@ -1,0 +1,6 @@
+- I'm in Liverpool and would run it online across Great Britain.
+- I've run a five-a-side league for eight years.
+- I'd need a Gambling Commission licence, and I haven't applied yet.
+- I have about £20,000 to start it.
+- I'd need about 3,000 regular players to make it pay.
+- I don't have any players yet.

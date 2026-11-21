@@ -1,0 +1,31 @@
+{
+  "_about": "The words of the evidence figure (assets/src/evidence.ts). Every number in it is read from the checks' own results in evals/ when the figure is drawn: {braced} names are filled in there.",
+  "title": "Checked against published figures",
+  "lead": "Three checks against figures published by statistics offices and regulators. Each can be run again from this repository.",
+  "rows": [
+    {
+      "icon": "people",
+      "head": "The people match the census",
+      "big": "{matched} of {counted}",
+      "text": "counts on nxk's made-up US adults within 2 points of 200,000 real adults in the Census Bureau's 2024 survey. The largest gap: {largest} points.",
+      "axis": ["real share", "made-up"],
+      "link": "evals/real-us/"
+    },
+    {
+      "icon": "scan",
+      "head": "The decision model knows who leans which way",
+      "big": "{in100} in 100",
+      "text": "differences between groups in 22 official surveys put the right way round: {right} of {of}.",
+      "link": "evals/surveys/"
+    },
+    {
+      "icon": "research",
+      "head": "Scans point the right way on real products",
+      "big": "{in100} in 100",
+      "text": "differences in who uses 32 existing products, from social apps to premium bonds, put the right way round in nxk's own words: {right} of {of}.",
+      "link": "evals/products/"
+    }
+  ],
+  "key": "Each square is 1 in 100 differences: in colour, the right way round.",
+  "note": "The people are counted on your computer. Scans use Google's decision model on your own key."
+}

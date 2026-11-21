@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "sortPackageJson": false,
+  // Code is formatted; prose and data are not. Guides and eval cases are what models read, so their wording and
+  // layout stay as written. Of the eval folders, only the check runners and each case's seed script (answers.ts) are
+  // code: the rest of a case, and the records the checks' figures were derived from, are data. A later pattern wins.
+  "ignorePatterns": [
+    "evals/*/*",
+    "!evals/*/answers.ts",
+    "!evals/real-us/*",
+    "!evals/surveys/*",
+    "!evals/products/*",
+    "evals/*/derive/",
+    "*.md",
+    "*.json",
+    "*.jsonl",
+    "*.html",
+    "*.svg",
+    "examples/",
+    "maps/",
+    ".nxk/"
+  ]
+}

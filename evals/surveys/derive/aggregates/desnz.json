@@ -1,0 +1,339 @@
+{
+ "source": {
+  "name": "DESNZ Public Attitudes Tracker, Spring 2026 crosstabulations",
+  "file": {
+   "file": "crosstabs_spring2026.xlsx",
+   "sha": "6d80f0f8bddb59421e7e2d3a106904c275ea1506fb07a9207eaf0b62bf2a788e",
+   "url": "https://assets.publishing.service.gov.uk/media/6a4268213413112faed80dea/DESNZ_Public_Attitudes_Tracker_-_Crosstabulations__Spring_2026__UK.xlsx"
+  },
+  "min_group_n": 100
+ },
+ "group_definitions": {
+  "sex": {
+   "female": {
+    "field": "sex_at_birth",
+    "in": [
+     "female"
+    ]
+   },
+   "male": {
+    "field": "sex_at_birth",
+    "in": [
+     "male"
+    ]
+   }
+  },
+  "age": {
+   "16_24": {
+    "field": "age_years",
+    "min": 18,
+    "max": 24
+   },
+   "25_34": {
+    "field": "age_years",
+    "min": 25,
+    "max": 34
+   },
+   "35_44": {
+    "field": "age_years",
+    "min": 35,
+    "max": 44
+   },
+   "45_54": {
+    "field": "age_years",
+    "min": 45,
+    "max": 54
+   },
+   "55_64": {
+    "field": "age_years",
+    "min": 55,
+    "max": 64
+   },
+   "65_plus": {
+    "field": "age_years",
+    "min": 65,
+    "max": 100
+   }
+  },
+  "education": {
+   "degree": {
+    "field": "higher_education_qualification",
+    "in": [
+     "bachelors_degree_or_equivalent",
+     "masters_degree_or_postgraduate_diploma",
+     "doctorate"
+    ]
+   },
+   "none": {
+    "field": "highest_qualification",
+    "in": [
+     "no_qualifications"
+    ]
+   }
+  }
+ },
+ "studies": {
+  "desnz-worry-paying-energy-bills": {
+   "real": [
+    20.2,
+    35.7,
+    24.5,
+    12.2,
+    7.4
+   ],
+   "n": 3388,
+   "groups": {
+    "sex": {
+     "female": {
+      "real": [
+       22.3,
+       37.9,
+       23.6,
+       9.8,
+       6.4
+      ],
+      "n": 1665
+     },
+     "male": {
+      "real": [
+       17.5,
+       33.2,
+       25.9,
+       15.1,
+       8.3
+      ],
+      "n": 1658
+     }
+    },
+    "age": {
+     "16_24": {
+      "real": [
+       11.2,
+       23.7,
+       12.0,
+       7.7,
+       45.4
+      ],
+      "n": 177
+     },
+     "25_34": {
+      "real": [
+       20.9,
+       40.7,
+       23.2,
+       11.1,
+       4.1
+      ],
+      "n": 326
+     },
+     "35_44": {
+      "real": [
+       31.4,
+       36.2,
+       22.8,
+       8.5,
+       1.1
+      ],
+      "n": 475
+     },
+     "45_54": {
+      "real": [
+       24.5,
+       39.6,
+       23.3,
+       12.6,
+       0.0
+      ],
+      "n": 467
+     },
+     "55_64": {
+      "real": [
+       19.7,
+       38.2,
+       27.1,
+       14.7,
+       0.3
+      ],
+      "n": 659
+     },
+     "65_plus": {
+      "real": [
+       14.2,
+       34.3,
+       32.9,
+       16.9,
+       1.7
+      ],
+      "n": 1212
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       16.9,
+       38.0,
+       28.3,
+       14.6,
+       2.2
+      ],
+      "n": 1677
+     },
+     "none": {
+      "real": [
+       25.5,
+       31.3,
+       21.0,
+       10.9,
+       11.3
+      ],
+      "n": 342
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "cells_substituted": 2,
+   "table": {
+    "title": "Worry about energy bills in last 3 months",
+    "question": "PAYBILLEN. Over the last three months, how worried, if at all, have you been about paying for energy bills gas/electricity?",
+    "base": "Base: All Respondents",
+    "workbook": "crosstabs_spring2026.xlsx",
+    "sheet": "PAYBILLEN",
+    "published_total": {
+     "Very worried": 0.20012376168867285,
+     "Fairly worried": 0.35387289593677396,
+     "Not very worried": 0.2430718979055523,
+     "Not at all worried": 0.1207595892654931,
+     "Not applicable/Don't know": 0.07315806214047302,
+     "Prefer not to say": 0.00901379306303322,
+     "Net: Total worried": 0.553996657625447,
+     "Net: Total not worried": 0.36383148717104574
+    }
+   }
+  },
+  "desnz-concern-about-climate-change": {
+   "real": [
+    34.0,
+    44.7,
+    16.4,
+    4.9
+   ],
+   "n": 3386,
+   "groups": {
+    "sex": {
+     "female": {
+      "real": [
+       36.1,
+       48.0,
+       12.8,
+       3.1
+      ],
+      "n": 1664
+     },
+     "male": {
+      "real": [
+       32.0,
+       41.2,
+       20.0,
+       6.8
+      ],
+      "n": 1658
+     }
+    },
+    "age": {
+     "16_24": {
+      "real": [
+       33.6,
+       46.7,
+       16.5,
+       3.2
+      ],
+      "n": 177
+     },
+     "25_34": {
+      "real": [
+       31.0,
+       48.9,
+       16.4,
+       3.7
+      ],
+      "n": 326
+     },
+     "35_44": {
+      "real": [
+       32.9,
+       42.8,
+       19.6,
+       4.7
+      ],
+      "n": 475
+     },
+     "45_54": {
+      "real": [
+       38.1,
+       42.0,
+       16.7,
+       3.2
+      ],
+      "n": 467
+     },
+     "55_64": {
+      "real": [
+       34.3,
+       45.6,
+       14.6,
+       5.5
+      ],
+      "n": 658
+     },
+     "65_plus": {
+      "real": [
+       34.6,
+       44.3,
+       14.5,
+       6.6
+      ],
+      "n": 1211
+     }
+    },
+    "education": {
+     "degree": {
+      "real": [
+       44.4,
+       41.9,
+       11.0,
+       2.7
+      ],
+      "n": 1674
+     },
+     "none": {
+      "real": [
+       25.9,
+       49.0,
+       17.3,
+       7.8
+      ],
+      "n": 342
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "cells_substituted": 0,
+   "table": {
+    "title": "Concern about climate change",
+    "question": "CLIMCONCERN. How concerned, if at all, are you about climate change, sometimes referred to as 'global warming'?  ",
+    "base": "Base: All respondents",
+    "workbook": "crosstabs_spring2026.xlsx",
+    "sheet": "CLIMCONCERN",
+    "published_total": {
+     "Very concerned": 0.335740505481151,
+     "Fairly concerned": 0.44136141814120455,
+     "Not very concerned": 0.16168163211808545,
+     "Not at all concerned": 0.04875720735221021,
+     "Don't know": 0.01245923690734674,
+     "Net: Total concerned": 0.7771019236223563,
+     "Net: Total not concerned": 0.21043883947029543
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,2807 @@
+{
+ "about": "32 existing products and activities, each described without its name, with who uses it as published by group. batch 2 also counts the low-figure rule (evals/products/README.md). cond is the group on the made-up people.",
+ "products": [
+  {
+   "id": "tiktok_use",
+   "name": "Short-video app (TikTok)",
+   "batch": 1,
+   "description": "a phone app that shows an endless stream of short videos made by other users, chosen for you from what you watch. You can post your own videos too. It is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who use social media apps and sites",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 83,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 72,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 54,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 43,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 26,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 13,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 7,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 46,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 52,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 51,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 48,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 51,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 46,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "snapchat_use",
+   "name": "Disappearing photo messages (Snapchat)",
+   "batch": 1,
+   "description": "a phone app for sending photos and short videos to friends, which disappear after they are seen, with filters that change how you look. It is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who use social media apps and sites",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 78,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 53,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 33,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 22,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 9,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 3,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 3,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 32,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 35,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 37,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 32,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 34,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 31,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "facebook_use",
+   "name": "Friends, groups and local selling (Facebook)",
+   "batch": 1,
+   "description": "an online service where you connect with friends and family, share photos and news, join groups for your interests and your local area, and buy and sell things locally. It comes with a messaging app and is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who use social media apps and sites",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 55,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 74,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 85,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 85,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 82,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 77,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 81,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 73,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 80,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 75,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 75,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 79,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 80,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "instagram_use",
+   "name": "Photo sharing (Instagram)",
+   "batch": 1,
+   "description": "a phone app for sharing photos and short videos, and for following friends, celebrities and brands. It is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who use social media apps and sites",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 85,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 80,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 66,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 57,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 43,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 30,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 21,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 58,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 63,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 69,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 62,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 56,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 52,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "x_twitter_use",
+   "name": "Short public posts (X)",
+   "batch": 1,
+   "description": "an online service where people post short public messages about news, politics, sport and entertainment as things happen, and you follow the accounts that interest you. It is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who use social media apps and sites",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 37,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 44,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 35,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 29,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 21,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 19,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 11,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 40,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 23,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 44,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 29,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 25,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 21,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "linkedin_use",
+   "name": "Career profile and jobs (LinkedIn)",
+   "batch": 1,
+   "description": "an online service where you keep a profile of your career, connect with colleagues and people in your line of work, and look for jobs. It is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who use social media apps and sites",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 22,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 34,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 31,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 28,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 21,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 11,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 10,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 29,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 22,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 43,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 26,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 14,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 9,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "pinterest_use",
+   "name": "Collecting pictures of ideas (Pinterest)",
+   "batch": 1,
+   "description": "an online service for collecting and browsing pictures of ideas: home decoration, recipes, outfits, crafts and party planning. It is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who use social media apps and sites",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 36,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 30,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 23,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 21,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 17,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 15,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 9,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 16,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 30,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 31,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 23,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 21,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 16,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "reddit_use",
+   "name": "Discussion forums (Reddit)",
+   "batch": 1,
+   "description": "an online service made up of thousands of discussion forums, each on one subject, where people post under made-up names and vote the best answers to the top. It is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who use social media apps and sites",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 22,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 23,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 20,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 14,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 7,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 4,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 2,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 19,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 12,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 21,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 15,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 13,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 10,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "ai_apps_ever_used",
+   "name": "AI assistant",
+   "batch": 1,
+   "description": "an AI assistant that you type questions to in plain English. It answers them, writes and rewrites text, and summarises documents. It is free to use.",
+   "source": "Adults' Media Literacy 2025 data tables (Ofcom Adult Media Literacy Research; fieldwork 29 Sep-28 Nov 2025; published 28 Jan 2026), Ofcom, 2025",
+   "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2025/adults-media-literacy-tracker/amlt-2026/adults-media-literacy-2025-data-tables.pdf",
+   "population": "UK adults 16+ who had heard of AI applications (Module 1 respondents aware of AI)",
+   "measure": "uses it",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "16-24",
+     "percent": 82,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 79,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 73,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 61,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 47,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 34,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 16,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "MAN",
+     "percent": 62,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "WOMAN",
+     "percent": 57,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "social grade",
+     "label": "AB",
+     "percent": 75,
+     "cond": "social_grade=ab_higher_and_intermediate_managerial_administrative_or_professional"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C1",
+     "percent": 63,
+     "cond": "social_grade=c1_supervisory_clerical_or_junior_managerial"
+    },
+    {
+     "dimension": "social grade",
+     "label": "C2",
+     "percent": 51,
+     "cond": "social_grade=c2_skilled_manual_workers"
+    },
+    {
+     "dimension": "social grade",
+     "label": "DE",
+     "percent": 41,
+     "cond": "social_grade=de_semi_skilled_unskilled_manual_workers_or_not_working"
+    }
+   ]
+  },
+  {
+   "id": "ev_hybrid",
+   "name": "Electric or hybrid car",
+   "batch": 1,
+   "description": "an electric or hybrid car to replace your current car, on a monthly finance plan.",
+   "source": "English Housing Survey 2023 to 2024: low carbon technologies in English homes, fact sheet (MHCLG)",
+   "url": "https://www.gov.uk/government/statistics/english-housing-survey-2023-to-2024-low-carbon-technologies-in-english-homes-fact-sheet/english-housing-survey-2023-to-2024-low-carbon-technologies-in-english-homes-fact-sheet",
+   "population": "households in England with a car or van",
+   "measure": "has an electric or hybrid vehicle",
+   "groups": [
+    {
+     "dimension": "tenure",
+     "label": "Owner occupiers",
+     "percent": 13,
+     "cond": "home_tenure=owned_outright|owned_with_a_mortgage_or_loan|shared_ownership"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Private renters",
+     "percent": 8,
+     "cond": "home_tenure=rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Social renters",
+     "percent": 6,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord"
+    },
+    {
+     "dimension": "rural or urban",
+     "label": "Rural areas",
+     "percent": 14,
+     "cond": "settlement_size=small_town_of_1000_to_9999_people|village_hamlet_or_open_countryside"
+    },
+    {
+     "dimension": "rural or urban",
+     "label": "Urban areas",
+     "percent": 11,
+     "cond": "settlement_size=city_or_conurbation_of_1_million_or_more_people|city_or_conurbation_of_250000_to_999999_people|town_or_city_of_10000_to_249999_people"
+    }
+   ]
+  },
+  {
+   "id": "solar_pv",
+   "name": "Solar panels",
+   "batch": 1,
+   "description": "solar panels fitted to the roof of your home, which generate electricity and cut your bills. They cost several thousand pounds to install.",
+   "source": "English Housing Survey 2023 to 2024: low carbon technologies in English homes, fact sheet (MHCLG)",
+   "url": "https://www.gov.uk/government/statistics/english-housing-survey-2023-to-2024-low-carbon-technologies-in-english-homes-fact-sheet/english-housing-survey-2023-to-2024-low-carbon-technologies-in-english-homes-fact-sheet",
+   "population": "dwellings in England",
+   "measure": "has solar panels",
+   "groups": [
+    {
+     "dimension": "tenure",
+     "label": "Owner occupiers",
+     "percent": 7,
+     "cond": "home_tenure=owned_outright|owned_with_a_mortgage_or_loan|shared_ownership"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Social renters",
+     "percent": 5,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Private renters",
+     "percent": 2,
+     "cond": "home_tenure=rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "rural or urban",
+     "label": "Rural areas",
+     "percent": 11,
+     "cond": "settlement_size=small_town_of_1000_to_9999_people|village_hamlet_or_open_countryside"
+    },
+    {
+     "dimension": "rural or urban",
+     "label": "Urban areas",
+     "percent": 5,
+     "cond": "settlement_size=city_or_conurbation_of_1_million_or_more_people|city_or_conurbation_of_250000_to_999999_people|town_or_city_of_10000_to_249999_people"
+    }
+   ]
+  },
+  {
+   "id": "heat_pump",
+   "name": "Heat pump",
+   "batch": 1,
+   "description": "a heat pump to replace your home's boiler, heating your home with electricity. It costs several thousand pounds to install, with a government grant towards it.",
+   "source": "English Housing Survey 2023 to 2024: low carbon technologies in English homes, fact sheet (MHCLG)",
+   "url": "https://www.gov.uk/government/statistics/english-housing-survey-2023-to-2024-low-carbon-technologies-in-english-homes-fact-sheet/english-housing-survey-2023-to-2024-low-carbon-technologies-in-english-homes-fact-sheet",
+   "population": "dwellings in England",
+   "measure": "heats the home with a heat pump",
+   "groups": [
+    {
+     "dimension": "rural or urban",
+     "label": "Rural areas",
+     "percent": 8,
+     "cond": "settlement_size=small_town_of_1000_to_9999_people|village_hamlet_or_open_countryside"
+    },
+    {
+     "dimension": "rural or urban",
+     "label": "Urban areas",
+     "percent": 0.5,
+     "cond": "settlement_size=city_or_conurbation_of_1_million_or_more_people|city_or_conurbation_of_250000_to_999999_people|town_or_city_of_10000_to_249999_people"
+    }
+   ]
+  },
+  {
+   "id": "mobile_wallet",
+   "name": "Paying by phone",
+   "batch": 1,
+   "description": "a way to pay in shops by holding your phone to the card reader, with your bank card stored in the phone. It is free to use.",
+   "source": "Financial Lives 2022 survey: key findings (FCA)",
+   "url": "https://www.fca.org.uk/publications/financial-lives/financial-lives-survey-2022-key-findings",
+   "population": "UK adults 18+",
+   "measure": "used it in the last 12 months",
+   "groups": [
+    {
+     "dimension": "age",
+     "label": "18-34",
+     "percent": 74,
+     "cond": "age_years=18..34"
+    },
+    {
+     "dimension": "age",
+     "label": "55+",
+     "percent": 23,
+     "cond": "age_years=55..100"
+    },
+    {
+     "dimension": "sex",
+     "label": "Men",
+     "percent": 52,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Women",
+     "percent": 43,
+     "cond": "sex_at_birth=female"
+    }
+   ]
+  },
+  {
+   "id": "lottery_draw",
+   "name": "National lottery draw",
+   "batch": 2,
+   "description": "tickets for a national lottery draw. You pick six numbers for £2 and the jackpot is several million pounds. Draws are twice a week, and you can play in a shop or online.",
+   "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+   "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+   "population": "adults 18+ in Great Britain",
+   "measure": "took part in the past four weeks",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "All males",
+     "percent": 33.5,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "All females",
+     "percent": 28.2,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18 to 24",
+     "percent": 10.9,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25 to 34",
+     "percent": 22.8,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35 to 44",
+     "percent": 31.4,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45 to 54",
+     "percent": 39.9,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55 to 64",
+     "percent": 38.9,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65 to 74",
+     "percent": 35.5,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75 plus",
+     "percent": 30,
+     "cond": "age_years=75..100"
+    }
+   ]
+  },
+  {
+   "id": "charity_lottery",
+   "name": "Charity lottery",
+   "batch": 2,
+   "description": "a charity lottery. You pay £1 a week by Direct Debit, part of it goes to a charity such as a hospice or an air ambulance, and there is a weekly draw with a top prize of a few thousand pounds.",
+   "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+   "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+   "population": "adults 18+ in Great Britain",
+   "measure": "took part in the past four weeks",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "All males",
+     "percent": 14.4,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "All females",
+     "percent": 16.9,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18 to 24",
+     "percent": 5.4,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25 to 34",
+     "percent": 9.8,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35 to 44",
+     "percent": 12.9,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45 to 54",
+     "percent": 19.8,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55 to 64",
+     "percent": 21,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65 to 74",
+     "percent": 20.7,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75 plus",
+     "percent": 19.7,
+     "cond": "age_years=75..100"
+    }
+   ]
+  },
+  {
+   "id": "scratchcards",
+   "name": "Scratchcards",
+   "batch": 2,
+   "description": "scratchcards sold at shop tills for £1 to £5 each. You scratch off the panel and see at once whether you have won a cash prize.",
+   "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+   "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+   "population": "adults 18+ in Great Britain",
+   "measure": "took part in the past four weeks",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "All males",
+     "percent": 11.8,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "All females",
+     "percent": 13.6,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18 to 24",
+     "percent": 14,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25 to 34",
+     "percent": 17,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35 to 44",
+     "percent": 17,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45 to 54",
+     "percent": 14.8,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55 to 64",
+     "percent": 9.4,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65 to 74",
+     "percent": 7.3,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75 plus",
+     "percent": 6.7,
+     "cond": "age_years=75..100"
+    }
+   ]
+  },
+  {
+   "id": "online_instant_win",
+   "name": "Online instant win games",
+   "batch": 2,
+   "description": "instant win games that you play on your phone for 50p to £5 a go. You tap to reveal the symbols and see at once whether you have won a cash prize.",
+   "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+   "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+   "population": "adults 18+ in Great Britain",
+   "measure": "took part in the past four weeks",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "All males",
+     "percent": 8.1,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "All females",
+     "percent": 6.9,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18 to 24",
+     "percent": 9.6,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25 to 34",
+     "percent": 11.3,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35 to 44",
+     "percent": 10.7,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45 to 54",
+     "percent": 9.2,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55 to 64",
+     "percent": 4.8,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65 to 74",
+     "percent": 2.7,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75 plus",
+     "percent": 1.6,
+     "cond": "age_years=75..100"
+    }
+   ]
+  },
+  {
+   "id": "sports_betting_online",
+   "name": "Sports betting app",
+   "batch": 2,
+   "description": "a phone app for betting on football, horse racing and other sports, including bets placed while a match is being played.",
+   "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+   "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+   "population": "adults 18+ in Great Britain",
+   "measure": "took part in the past four weeks",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "All males",
+     "percent": 14.2,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "All females",
+     "percent": 4,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18 to 24",
+     "percent": 13.7,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25 to 34",
+     "percent": 13.8,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35 to 44",
+     "percent": 10.7,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45 to 54",
+     "percent": 9.1,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55 to 64",
+     "percent": 7.7,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65 to 74",
+     "percent": 3.5,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75 plus",
+     "percent": 1.6,
+     "cond": "age_years=75..100"
+    }
+   ]
+  },
+  {
+   "id": "bingo_venue",
+   "name": "Bingo hall",
+   "batch": 2,
+   "description": "an evening at a bingo hall near you, with games through the night, cash prizes, and food and drink brought to your table.",
+   "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+   "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+   "population": "adults 18+ in Great Britain",
+   "measure": "took part in the past four weeks",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "All males",
+     "percent": 2.2,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "All females",
+     "percent": 4.4,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18 to 24",
+     "percent": 4.3,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25 to 34",
+     "percent": 4.1,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35 to 44",
+     "percent": 2.8,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45 to 54",
+     "percent": 3.6,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55 to 64",
+     "percent": 2.2,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65 to 74",
+     "percent": 3.1,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75 plus",
+     "percent": 3.4,
+     "cond": "age_years=75..100"
+    }
+   ]
+  },
+  {
+   "id": "online_casino",
+   "name": "Online casino",
+   "batch": 2,
+   "description": "an online casino where you play roulette, blackjack and other casino games for money on your phone or computer.",
+   "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+   "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+   "population": "adults 18+ in Great Britain",
+   "measure": "took part in the past four weeks",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "All males",
+     "percent": 4.3,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "All females",
+     "percent": 1.4,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18 to 24",
+     "percent": 6.4,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25 to 34",
+     "percent": 4.5,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35 to 44",
+     "percent": 3.8,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45 to 54",
+     "percent": 2.5,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55 to 64",
+     "percent": 1.3,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65 to 74",
+     "percent": 0.3,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75 plus",
+     "percent": 0,
+     "cond": "age_years=75..100"
+    }
+   ]
+  },
+  {
+   "id": "football_pools",
+   "name": "Football pools",
+   "batch": 2,
+   "description": "the football pools. You pay a small stake each week and pick the matches you think will end in a draw, with cash prizes every week.",
+   "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+   "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+   "population": "adults 18+ in Great Britain",
+   "measure": "took part in the past four weeks",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "All males",
+     "percent": 2.9,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "All females",
+     "percent": 0.9,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18 to 24",
+     "percent": 3.4,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25 to 34",
+     "percent": 3.5,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35 to 44",
+     "percent": 2.2,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45 to 54",
+     "percent": 1.2,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55 to 64",
+     "percent": 0.8,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65 to 74",
+     "percent": 0.9,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75 plus",
+     "percent": 1,
+     "cond": "age_years=75..100"
+    }
+   ]
+  },
+  {
+   "id": "premium_bonds",
+   "name": "Premium bonds",
+   "batch": 2,
+   "description": "a government-backed savings product that pays no interest. Each £1 you put in is entered into a monthly prize draw, with tax-free prizes from £25 to £1 million, and you can take your money out at any time.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "holds it",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 27,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 26,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 11,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 12,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 15,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 24,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 35,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 44,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 48,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 49,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 26,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 11,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 17,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 24,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 29,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 30,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 30,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 33,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "stocks_shares_isa",
+   "name": "Stocks and shares ISA",
+   "batch": 2,
+   "description": "an account for investing in shares and funds, in which any gains are free of tax. The value of what you put in can go down as well as up.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "holds it",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 22,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 13,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 9,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 12,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 12,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 16,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 20,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 25,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 29,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 32,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 18,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 7,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 5,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 12,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 18,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 22,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 29,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 36,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "crypto",
+   "name": "Cryptocurrency",
+   "batch": 2,
+   "description": "an app for buying and holding cryptocurrencies, digital coins whose price can rise or fall sharply.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "holds it",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 7,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 2,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 5,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 7,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 7,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 5,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 3,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 1,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 1,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 2,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 7,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 5,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 2,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 3,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 3,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 7,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 9,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 10,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "bnpl",
+   "name": "Buy now, pay later",
+   "batch": 2,
+   "description": "a way to pay for online shopping in three interest-free instalments, or a month later, offered at the checkout. There is no fee if you pay on time.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "has it now or used it in the last 12 months",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 18,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 23,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 23,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 30,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 28,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 24,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 15,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 9,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 5,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 7,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 24,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 29,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 21,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 23,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 22,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 26,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 21,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 18,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "catalogue_credit",
+   "name": "Catalogue credit",
+   "batch": 2,
+   "description": "a shopping catalogue account. You order clothes and household goods from it and spread the cost over weekly or monthly payments, with interest.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "has it now or used it in the last 12 months",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 6,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 16,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 5,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 10,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 15,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 17,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 13,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 8,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 6,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 7,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 12,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 15,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 14,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 14,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 13,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 12,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 10,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 8,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "high_cost_credit",
+   "name": "High-cost short-term loan",
+   "batch": 2,
+   "description": "a short-term loan of a few hundred pounds, paid into your account the same day and repaid over a few weeks or months at a high rate of interest.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "has it now or used it in the last 12 months",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 6,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 6,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 12,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 9,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 8,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 6,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 4,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 2,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 2,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 2,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 5,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 10,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 10,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 8,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 7,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 6,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 5,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 3,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "pet_insurance",
+   "name": "Pet insurance",
+   "batch": 2,
+   "description": "insurance that pays the vet's bills if your pet is ill or injured, for a monthly premium.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "holds it",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 14,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 19,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 7,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 19,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 19,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 24,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 19,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 13,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 7,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 14,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 28,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 12,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 9,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 13,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 20,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 24,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 25,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 25,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "phone_insurance",
+   "name": "Mobile phone insurance",
+   "batch": 2,
+   "description": "insurance that repairs or replaces your mobile phone if it is lost, stolen or damaged, for a monthly premium.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "holds it",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 16,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 15,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 15,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 16,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 16,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 16,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 15,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 15,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 11,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 15,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 20,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 13,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 8,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 13,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 16,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 20,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 21,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 22,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "annual_travel_insurance",
+   "name": "Annual travel insurance",
+   "batch": 2,
+   "description": "travel insurance that covers every trip abroad you take in a year under one policy.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "holds it",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 28,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 26,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 11,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 19,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 26,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 31,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 34,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 36,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 25,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 39,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 37,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 12,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 10,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 18,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 28,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 35,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 43,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 52,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "private_medical",
+   "name": "Private medical insurance",
+   "batch": 2,
+   "description": "private medical insurance. It pays for treatment in private hospitals so that you can avoid waiting lists, for a monthly premium.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "holds it",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 16,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 12,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 8,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 16,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 18,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 19,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 12,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 9,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 12,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 14,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 22,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 10,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 4,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 7,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 12,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 17,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 26,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 42,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  },
+  {
+   "id": "emoney_account",
+   "name": "App-only current account",
+   "batch": 2,
+   "description": "a current account run entirely through a phone app by a company that is not a traditional bank, with instant notifications when you spend and no fees for spending abroad.",
+   "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+   "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+   "population": "UK adults 18+",
+   "measure": "holds it",
+   "groups": [
+    {
+     "dimension": "sex",
+     "label": "Male",
+     "percent": 15,
+     "cond": "sex_at_birth=male"
+    },
+    {
+     "dimension": "sex",
+     "label": "Female",
+     "percent": 9,
+     "cond": "sex_at_birth=female"
+    },
+    {
+     "dimension": "age",
+     "label": "18-24",
+     "percent": 16,
+     "cond": "age_years=18..24"
+    },
+    {
+     "dimension": "age",
+     "label": "25-34",
+     "percent": 21,
+     "cond": "age_years=25..34"
+    },
+    {
+     "dimension": "age",
+     "label": "35-44",
+     "percent": 18,
+     "cond": "age_years=35..44"
+    },
+    {
+     "dimension": "age",
+     "label": "45-54",
+     "percent": 11,
+     "cond": "age_years=45..54"
+    },
+    {
+     "dimension": "age",
+     "label": "55-64",
+     "percent": 7,
+     "cond": "age_years=55..64"
+    },
+    {
+     "dimension": "age",
+     "label": "65-74",
+     "percent": 4,
+     "cond": "age_years=65..74"
+    },
+    {
+     "dimension": "age",
+     "label": "75+",
+     "percent": 2,
+     "cond": "age_years=75..100"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Own outright",
+     "percent": 5,
+     "cond": "home_tenure=owned_outright"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Mortgage",
+     "percent": 13,
+     "cond": "home_tenure=owned_with_a_mortgage_or_loan"
+    },
+    {
+     "dimension": "tenure",
+     "label": "Renting",
+     "percent": 17,
+     "cond": "home_tenure=rented_from_a_council_or_local_authority|rented_from_a_housing_association_or_other_social_landlord|rented_from_a_private_landlord_or_letting_agency|rented_from_a_relative_friend_or_employer_or_other_private_rented"
+    },
+    {
+     "dimension": "household income",
+     "label": "Less than £15k",
+     "percent": 8,
+     "cond": "household_income_before_tax_per_year=under_15000_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£15k - <£30k",
+     "percent": 9,
+     "cond": "household_income_before_tax_per_year=15000_to_24999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£30k - <£50k",
+     "percent": 12,
+     "cond": "household_income_before_tax_per_year=35000_to_49999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£50k - <£70k",
+     "percent": 16,
+     "cond": "household_income_before_tax_per_year=50000_to_69999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£70k - <£100k",
+     "percent": 17,
+     "cond": "household_income_before_tax_per_year=70000_to_99999_gbp"
+    },
+    {
+     "dimension": "household income",
+     "label": "£100k - <£250k",
+     "percent": 20,
+     "cond": "household_income_before_tax_per_year=100000_to_149999_gbp|150000_gbp_or_more"
+    }
+   ]
+  }
+ ]
+}

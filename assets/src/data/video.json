@@ -1,0 +1,113 @@
+{
+  "_about": "The words of the launch video (assets/src/video.ts), scene by scene. Every figure is one the README or tested.md gives: {braced} names are filled in when the video is built, the sign-up's numbers from idea-counts.json through hundred.ts and the evidence's from the checks' own results in evals/. A *starred* phrase is drawn in the accent.",
+  "title": {
+    "line": "Research on people, for Claude."
+  },
+  "questions": {
+    "asks": ["Who would want this?", "How many of them are there?", "Where do they live?"],
+    "answer": "nxk answers from the *whole country.*"
+  },
+  "crowd": {
+    "label": "made-up adults in the UK",
+    "more": "and another 200,000 in the US",
+    "dot": "Each dot is 20 of them"
+  },
+  "person": {
+    "kicker": "One of the 200,000",
+    "name": "Woman, 76. Cardiff, Wales.",
+    "rows": [
+      ["Work", "Retired, last worked more than 5 years ago"],
+      ["Home", "Owned outright, 20 years or more at this address"],
+      ["Money", "Finding it difficult to get by"],
+      ["Online", "Every day, on a smartphone and tablet; not very confident"],
+      ["Shopping", "Usually compares prices"]
+    ],
+    "head": "Each has *150 facts,* and they fit together."
+  },
+  "matched": {
+    "head": "As a group, they match official statistics",
+    "facts": ["age", "money", "work", "health", "internet use", "and more"],
+    "sorted": { "age": "age", "work": "work", "online": "internet use" },
+    "bands": {
+      "age": ["18 to 34", "35 to 64", "65 to 74", "75+"],
+      "work": ["in work", "retired", "not working"],
+      "online": ["smartphone", "no smartphone", "offline"]
+    },
+    "if": "If about *22 in 100* of them are retired and free on weekday mornings,",
+    "so": "about *22 in 100* real adults are too.",
+    "grids": ["made-up adults", "real adults"]
+  },
+  "count": {
+    "context": "One choice on a sign-up page, counted for adults in the UK",
+    "choice": "“You can only sign up in our app, on a smartphone.”",
+    "suits": "it suits",
+    "leaves_out": "it leaves out",
+    "adults": "{out} in 100 UK adults: about *9,100,000 people*",
+    "label": "counted",
+    "note": "Each square is 1 in 100 adults in the UK. Counted on 200,000 made-up adults that match official statistics."
+  },
+  "breakdown": {
+    "groups": [
+      { "online": "none", "tone": "aurora", "who": "do not use the internet", "detail": "{n} of the {of} are 65 or over", "ages": ["65-74", "75+"] },
+      { "online": "other", "tone": "look", "who": "go online, but not on a smartphone", "detail": "{n} of the {of} are under 65", "ages": ["18-34", "35-64"] }
+    ],
+    "fixes": "Two groups, with *two different fixes.*"
+  },
+  "scan": {
+    "how": "A count says *how many.*",
+    "who": ["Who would *want* it?", "For that, nxk runs a *scan.*"],
+    "model": "A scan asks a *decision model.*",
+    "model_what": "An AI model that, given a question and its possible answers, says how likely each answer is.",
+    "someone": "Someone who",
+    "question": "sees your sign-up page. What do they do next?",
+    "answers": ["sign up", "look around first", "leave"],
+    "one": "It asks about *one fact at a time.*",
+    "facts": ["rents their home", "25 to 34", "works shifts", "no car"],
+    "all": "Then each of the 200,000 gets an answer built from *all their facts.*",
+    "counted": "So who leans in is *counted and broken down,* like any count.",
+    "note": "A sketch of how a scan works. No result is shown."
+  },
+  "research": {
+    "kicker": "In Claude Code",
+    "command": "/nxk:research",
+    "ask": " who would want this?",
+    "steps": ["Writes your idea a few ways", "Finds which groups lean in to each", "Counts them where you sell", "Follows the strongest leads"],
+    "cost": "Counts are free, on your computer. Scans are about 2 US cents a version, on your own key.",
+    "findings": "It comes back with *findings:*",
+    "parts": ["Strong leads first, each sized and broken down", "The groups nothing serves", "The cheapest real test that would tell the leading two apart"]
+  },
+  "look": {
+    "command": "/nxk:look",
+    "ask": " at our membership contract",
+    "reply_head": "Worth considering:",
+    "point": "A way out of the twelve months: a year's contract with no way out is harder for *about 40 in every 100 adults in Cardiff,* who find money hard or are just getting by",
+    "label": "counted",
+    "what": "*A second look:* at most three points, or one line saying none."
+  },
+  "meet": {
+    "command": "/nxk:meet",
+    "ask": " private renters in Manchester under 35",
+    "rows": ["Work", "Home", "Money", "Online", "Shopping"],
+    "what": "*A panel* puts faces to a count.",
+    "sub": "The group counted, and a few of its people drawn at random, each a card of their own facts."
+  },
+  "context": {
+    "head": "Each runs in its own context, *only when you ask.*",
+    "sub": "Until you ask, Claude works, and costs, exactly as it would without nxk."
+  },
+  "checked": {
+    "labels_head": "Every figure says *where it came from.*",
+    "labels": ["given", "measured", "counted", "computed", "sourced", "simulated", "guess", "imagined"],
+    "from": "From a count: *counted.* From a scan: *simulated.*",
+    "head": "Checked against published figures",
+    "rows": [
+      { "big": "{matched} of {counted}", "text": "counts on nxk's made-up US adults came within 2 points of real adults in the Census Bureau's 2024 survey" },
+      { "big": "{in100} in 100", "text": "differences between groups in 22 official surveys, put the right way round by the decision model" },
+      { "big": "{in100} in 100", "text": "differences in who uses 32 existing products, put the right way round by a scan" }
+    ]
+  },
+  "end": {
+    "line": "Research on people, for Claude.",
+    "install": "/plugin install nxk --marketplace albri/nxk"
+  }
+}

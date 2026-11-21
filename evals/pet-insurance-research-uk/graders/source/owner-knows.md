@@ -1,0 +1,7 @@
+- We're based in Bristol and would sell across the UK.
+- There are two of us. We both worked at a large insurer for about ten years.
+- We'd cover cats and dogs only at first.
+- We'd sell through our own website at first, not through comparison sites.
+- Our launch advertising budget is about £15,000.
+- We'd need about 2,000 policies in the first year to cover our costs.
+- We don't have any customers yet.
