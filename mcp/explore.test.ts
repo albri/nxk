@@ -647,6 +647,42 @@ test("a scan finished in the background is read by its label alone, with the off
   }
 });
 
+test("research about one place reads its scan among the people there, and its leads are of them", async () => {
+  const s = start();
+  try {
+    await s.ready;
+    seedProduct(s.dir, { name: "Treasure", description: "A promotional game", stage: "idea", country: "uk" });
+    await s.call("research_start", { question: "Who in Scotland would play it?", where: "region=scotland" });
+    const spec = join(s.dir, ".nxk", "scans", "ideas-uk.spec");
+    mkdirSync(spec, { recursive: true });
+    for (const [key, rows] of Object.entries(answersFor(["app", "clerk", "pack"], ["home_tenure"])))
+      writeFileSync(
+        join(spec, `scan-${key}.jsonl`),
+        rows.map((r) => JSON.stringify({ ...r, r: 0, usd: 0, m: "gemini-decision-1" })).join("\n"),
+      );
+    const ideas = ["app", "clerk", "pack"].map((key) => ({
+      key,
+      offer: `Offer ${key}, £3 a month.`,
+      fields: ["home_tenure"],
+      buying_category: "household",
+      ...(key === "app" ? { own: true } : {}),
+    }));
+    const read = (await s.call("ideas_scan", { label: "placed", ideas, read_only: true })).content[0].text;
+    // Every group, and how keen it is, is of the adults in Scotland, not the whole country.
+    assert.match(read, /What follows is read among the \d+ generated adults in Scotland, where the owner sells/);
+    assert.match(read, /odds of adults in Scotland/);
+    const scan: Scan = JSON.parse(readFileSync(join(s.dir, "nxk.json"), "utf8")).discovery.scans.at(-1);
+    assert.ok(scan.corners.length);
+    for (const corner of scan.corners) {
+      assert.match(corner.among, /(^|,)region=scotland$/);
+      assert.match(corner.label, /, in Scotland$/);
+      assert.equal(corner.room_of, "adults in Scotland");
+    }
+  } finally {
+    s.close();
+  }
+});
+
 test("two products in one repository keep their scans apart, beside their own nxk.json", () => {
   const root = mkdtempSync(join(tmpdir(), "nxk-mono-"));
   try {
