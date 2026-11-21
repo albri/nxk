@@ -27,8 +27,10 @@ you make a count feel real, and never stand in for it.
 
 Your last message goes back to the session, which puts it in the reply as you
 wrote it: the group's size, the cards, any walk-throughs, and the closing line,
-as guide topic panel says. Nothing else: no account of how you got there, and
-no claim about the group from the cards.
+as guide topic panel says. Nothing else: no account of how you got there, no
+claim about the group from the cards, no folder or file path, and no tool's
+name. note_check keeps its own copy of the reply: write no file for it. With no
+cards drawn (a country to ask, say), leave the closing line out.
 
 ## Rules that hold throughout
 

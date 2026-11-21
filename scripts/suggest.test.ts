@@ -280,7 +280,7 @@ test("the note keeps at most three items, largest first, and says when nothing i
   // The line that says what "counted" means comes with the note, so the reply needs no second check to add it.
   assert.match(
     four.text,
-    /what the label means: "counted: on 200,000 made-up adults that match official statistics, a rough guide"/,
+    /what the label means: "Counted: on 200,000 made-up adults that match official statistics, a rough guide"/,
   );
   assert.deepEqual(
     four.records.map((r) => r.suggestion),

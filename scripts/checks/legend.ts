@@ -35,9 +35,14 @@ export function countryOf(ctx: Pick<CheckContext, "runs" | "text">): string | nu
   return uk !== us ? (uk ? "uk" : "us") : null;
 }
 
-/** The line to add for these labels, as nxk writes it. */
-export const legendFor = (labels: string[], country: string | null): string =>
-  labels.map((l) => `${l}: ${MEANINGS[l](country)}`).join("; ");
+/**
+ * The line to add for these labels, as nxk writes it. It opens with a capital: a reply that starts "counted: on ..."
+ * reads as one whose first words were cut off.
+ */
+export const legendFor = (labels: string[], country: string | null): string => {
+  const line = labels.map((l) => `${l}: ${MEANINGS[l](country)}`).join("; ");
+  return line.charAt(0).toUpperCase() + line.slice(1);
+};
 
 // A label is given its meaning in nxk's own form (it opens the line, or follows a ";" or ":", and a colon, "means" or
 // "is" comes after it; not "(sourced: Publisher, 2026, link)" inside a figure's own line), or, in a session's own
@@ -78,7 +83,7 @@ export const LEGEND: Check[] = [
       if (!missing.length) return;
       const mean = plural(missing.length, "it means", "they mean");
       fail(
-        `the reply uses ${missing.join(", ")} with no word on what ${mean}, and the reader may not know nxk. Add one line, outside any draft: "${legendFor(missing, countryOf(ctx))}"`,
+        `the reply uses ${missing.join(", ")} with no word on what ${mean}, and the reader may not know nxk. Add one line at the end, outside any draft: "${legendFor(missing, countryOf(ctx))}"`,
       );
     },
   },

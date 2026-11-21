@@ -11,11 +11,15 @@ Hand it to the nxk:second-look agent: what to look at (the files they name;
 when they name none, the work or the answer from this conversation, with
 answers pasted in full), the owner's request and goal in their own words,
 their terms (prices, a contract, how people pay), and anything they have
-answered since. Do not review the work yourself first, and do not call nxk's
-tools: the look is the answer.
+answered since. Say which of it the owner wrote and which was written in this
+conversation for them: only what the owner wrote or said is theirs. Do not
+review the work yourself first, and do not call nxk's tools: the look is the
+answer. Wait for it to finish (do not start it in the background), and say nothing of
+your own meanwhile: not what the owner did or did not give, not what you expect.
 
 Put what the second look returns in your reply as it wrote it, figures and
-labels unchanged: a line about a law goes at the top, and a
+labels unchanged, with nothing of your own before or after it (no summary, no
+caveat about its figures): a line about a law goes at the top, and a
 `To ask the owner:` line is your question to them. When it says nothing is
 worth raising, say only: `nxk had a look: nothing worth raising.`
 

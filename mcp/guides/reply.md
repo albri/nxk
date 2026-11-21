@@ -64,8 +64,8 @@ Every other figure carries its source in the same line:
 Words written in a made-up person's voice (a panel's walk-through) are marked
 **(imagined)** and carry no figures at all: `note_check` fails one that does.
 
-Say once, in one short line outside any draft, what each label you use means,
-for a reader who has never met nxk: `note_check` prints the line to add
-("counted: on 200,000 made-up UK adults that match official statistics; ...").
+Say once, in one short line at the end, outside any draft, what each label you
+use means, for a reader who has never met nxk: `note_check` prints the line to
+add ("Counted: on 200,000 made-up UK adults that match official statistics; ...").
 These figures are directional: round them, and say whom a count is of. Check
 the reply with `note_check` before it goes.

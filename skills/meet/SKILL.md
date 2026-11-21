@@ -11,7 +11,10 @@ Hand it to the nxk:panel agent: the group in the owner's words, where they
 sell if they have said, and any page or form they want the people walked
 through, as the path they gave, relative to the project folder you are working
 in (never another folder). Do not describe the people yourself, and do not call nxk's
-tools.
+tools. Wait for it to finish (do not start it in the background), and say nothing of
+your own meanwhile: not what the owner did or did not give, not what you expect.
 
 Put what the panel returns in your reply as it wrote it, cards and labels
-unchanged, with nothing of your own beside it.
+unchanged, with nothing of your own before or after it: no fence around it, no
+summary, no caveat about its figures. A `To ask the owner:` line is your
+question to them: hand their reply back to the panel.

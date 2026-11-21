@@ -145,6 +145,19 @@ test("the hook never holds the main session for nxk, holds nxk's agents on their
   assert.match(dig.reason, /end with the whole note or the whole findings, since your last message is what goes back/);
   // The researcher is held the same way; any other agent, the old advisor's name included, is not nxk's.
   assert.match(JSON.parse(hook({ ...advisor, agent_type: "nxk:researcher" })).reason, /Dig one more round/);
+  // nxk's agent that answered without loading nxk's tools is held to load them; it is held only once.
+  const bare = join(dir, "bare.jsonl");
+  writeFileSync(
+    bare,
+    turn("look at plan.md", [["Read", { file_path: join(dir, "plan.md") }]], "Worth considering: ...").join("\n"),
+  );
+  const unloaded = JSON.parse(hook({ ...advisor, agent_transcript_path: bare, agent_type: "nxk:second-look" }));
+  assert.match(unloaded.reason, /^nxk: you answered without nxk's tools, so nothing in it was counted\. Load them/);
+  assert.equal(
+    hook({ ...advisor, agent_transcript_path: bare, agent_type: "nxk:second-look", stop_hook_active: "true" }),
+    "",
+  );
+  assert.equal(hook({ ...advisor, agent_transcript_path: bare, agent_type: "Explore" }), "");
   // The panel counts its group once and draws from it: it is not told to dig.
   assert.equal(hook({ ...advisor, agent_type: "nxk:panel" }), "");
   assert.equal(hook({ ...advisor, agent_type: "Explore" }), "");

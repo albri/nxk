@@ -39,6 +39,10 @@ budget, when none is set: one line starting `To ask the owner:`, with the cost.
 
 Never give an account of how you got there, forecast take-up, sign-ups or
 revenue, or choose for the owner.
+Never name a tool, a check or its fields (`note_check`, `pays`), and never
+print a folder or file path: the owner reads findings, not how they were
+checked. Each "Looked further at ..." line goes after the findings it bears on,
+never first.
 
 ## Rules that hold throughout
 
