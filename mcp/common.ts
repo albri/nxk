@@ -3,11 +3,11 @@
 // into the answer and recording into the folder's log, which note_check reads; a paid scan apart from it, so that a
 // cancelled call or a closed session does not stop it), and the small helpers the tools' replies use.
 import { spawn } from "node:child_process";
-import { closeSync, mkdirSync, openSync, readFileSync, realpathSync, rmSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { closeSync, existsSync, mkdirSync, openSync, readFileSync, realpathSync, rmSync, writeFileSync } from "node:fs";
+import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { Exit, type Out, type Run } from "../scripts/cli.ts";
-import { fileSink, logFile, type LogRecord } from "../scripts/log.ts";
+import { fileSink, keepOutOfGit, logFile, type LogRecord } from "../scripts/log.ts";
 import { ADULTS as OFFICIAL, loadPeople, type Country, type LoadedPeople } from "../scripts/population.ts";
 import {
   FILE,
@@ -119,7 +119,13 @@ export const projectDir = (env: NodeJS.ProcessEnv = process.env): string =>
 
 /** The folder a tool works in: `folder` relative to the project (or absolute), created if missing. */
 export function folderOf(args: ToolArgs, env: NodeJS.ProcessEnv = process.env): string {
-  const folder = args.folder ? resolve(projectDir(env), String(args.folder)) : projectDir(env);
+  const project = projectDir(env);
+  const folder = args.folder ? resolve(project, String(args.folder)) : project;
+  // A folder inside the project may be new (one for a piece of work). One outside it that does not exist is a slip in
+  // the path (a "/" copied as "-"), and making it would put the work where the owner never looks.
+  const inside = relative(project, folder);
+  if (!existsSync(folder) && (inside.startsWith("..") || isAbsolute(inside)))
+    throw new Error(`No folder ${folder}. Give the project folder, ${project}, or a folder inside it.`);
   mkdirSync(folder, { recursive: true });
   return folder;
 }
@@ -412,9 +418,16 @@ export function withCountry(argv: string[], folder: string, country: Country | u
   return [...argv, `--country=${country || countryOf({}, kb(folder).product)}`];
 }
 
+/**
+ * Where a tool keeps a working file (the owner's request, a reply to check, suggestions): in the project's .nxk folder,
+ * beside the log, never loose at the top of the owner's project.
+ */
+export const work = (name: string): string => join(".nxk", name);
+
 /** Write text to a file in the folder (a request, a reply, a suggestions file) and return its name there. */
 export function saveIn(folder: string, name: string, content: string): string {
   mkdirSync(dirname(join(folder, name)), { recursive: true });
+  keepOutOfGit(dirname(join(folder, name)));
   writeFileSync(join(folder, name), content.endsWith("\n") ? content : `${content}\n`);
   return name;
 }

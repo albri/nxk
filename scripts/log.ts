@@ -19,8 +19,8 @@
 //   { type: "next", text }                    the next move the tool named itself
 // and records with no text of their own, written with record(): scripts/records.ts lists the ones read.
 import { randomBytes } from "node:crypto";
-import { appendFileSync, mkdirSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { appendFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { basename, dirname, join, resolve } from "node:path";
 
 /** The kinds of figure a tool prints, which a line in the reply can be traced to. */
 export type FigureKind = "counted" | "computed" | "simulated" | "measured";
@@ -285,12 +285,27 @@ export function logFile(env: NodeJS.ProcessEnv, folder: string): string | null {
   return resolve(folder, env.NXK_LOG || ".nxk/log.jsonl");
 }
 
+/**
+ * A .nxk folder holds what the tools wrote in the owner's project (the log, scans, pages opened, a reply checked): it
+ * keeps itself out of git, so none of it turns up in the owner's changes. Any other folder is left as it is.
+ */
+export function keepOutOfGit(dir: string): void {
+  const ignore = join(dir, ".gitignore");
+  if (basename(dir) !== ".nxk" || existsSync(ignore)) return;
+  try {
+    writeFileSync(ignore, "# What nxk's tools wrote in this project: kept out of git.\n*\n");
+  } catch {
+    // A folder that cannot be written to is no reason to stop the tool.
+  }
+}
+
 /** A sink that appends each record to a file as a line of JSON, or null for no file. */
 export function fileSink(file: string | null | undefined): Sink | null {
   if (!file) return null;
   return (record) => {
     try {
       mkdirSync(dirname(file), { recursive: true });
+      keepOutOfGit(dirname(file));
       appendFileSync(file, `${JSON.stringify(record)}\n`);
     } catch {
       /* a folder that cannot be written to must not stop the tool */

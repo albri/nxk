@@ -43,7 +43,7 @@ function ownerGiven(folder: string): OwnerGiven {
   const theirs = <T extends { source: Source }>(entries: T[] = []) =>
     entries.filter((entry) => entry.source === "owner");
   return {
-    written: [join(folder, "request.md"), ...askedFiles(folder)]
+    written: [requestFile(folder), ...askedFiles(folder)]
       .filter((file) => existsSync(file))
       .map((file) => readFileSync(file, "utf8")),
     product: p?.product ?? null,
@@ -105,6 +105,11 @@ const NXK_FILES = new Set([
   "suggestions.json",
 ]);
 
+/** The owner's request as the terms tool saved it: in .nxk, or at the top of a project nxk ran in before. */
+export const requestFile = (folder: string): string =>
+  [join(folder, ".nxk", "request.md"), join(folder, "request.md")].find((path) => existsSync(path)) ??
+  join(folder, ".nxk", "request.md");
+
 /**
  * What the owner gave, as texts: the request (request.md), what they typed in the session, what nxk.json keeps in their
  * words, the project's own files, and the words checked on pages opened with source_check. A project file written
@@ -116,7 +121,7 @@ export function ownerTexts(
   folder: string,
   { delivered = [], sources = null }: { delivered?: string[]; sources?: SourceRecord[] | null } = {},
 ): string[] {
-  const request = join(folder, "request.md");
+  const request = requestFile(folder);
   const since = existsSync(request) ? statSync(request).mtimeMs : Infinity;
   const { written, answers, figures } = ownerGiven(folder);
   const texts = [...written, ...answers, ...figures, ...(sources ?? []).map((record) => String(record.words ?? ""))];

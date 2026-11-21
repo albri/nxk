@@ -52,9 +52,9 @@ flowchart TD
 2. `tools.ts` wraps every tool three times. `placed` settles the country: it is never assumed, the first one given is
    kept (in `nxk.json` when there is one), and a tool that counts people refuses without one. `logged` writes the
    lines of the server's own tools to the log. `nudged` adds the next move.
-3. The tool checks its inputs, writes the files its script reads into the working folder (`request.md`,
-   `terms.json`, `suggestions.json`, `reply.md`, `pays.json` and so on) and calls `runScript(script, argv, folder)` in
-   `mcp/common.ts`.
+3. The tool checks its inputs, writes the files its script reads into the working folder's `.nxk` (`request.md`,
+   `terms.json`, `suggestions.json`, `reply.md`, `pays.json` and so on, never loose in the owner's project; `.nxk`
+   keeps itself out of git) and calls `runScript(script, argv, folder)` in `mcp/common.ts`.
 4. `runScript` imports the script and calls its `run(argv, out, { folder, env })` in the server's process. The script
    opens its log with the kind its figures are (`openLog` in `scripts/log.ts`) and prints only through that writer.
    That kind is the figure's label: counted on the people, computed from the owner's figures, simulated by a decision

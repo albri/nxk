@@ -669,7 +669,13 @@ test("tools run in the folder and log what they print there, the server's own to
     });
     assert.ok(refused.isError);
     assert.match(refused.content[0].text, /^Fix the suggestions first:\n- /);
-    assert.equal(JSON.parse(readFileSync(join(s.dir, "work", "suggestions.json"), "utf8")).request, "request.md");
+    // The suggestions are kept in .nxk, beside the request they name, and .nxk keeps itself out of the owner's git.
+    assert.equal(
+      JSON.parse(readFileSync(join(s.dir, "work", ".nxk", "suggestions.json"), "utf8")).request,
+      "request.md",
+    );
+    assert.ok(!existsSync(join(s.dir, "work", "suggestions.json")));
+    assert.match(readFileSync(join(s.dir, "work", ".nxk", ".gitignore"), "utf8"), /^\*$/m);
     // Suggestions for another country than the product's are not counted.
     const moved = await s.call("suggest", {
       folder: "work",

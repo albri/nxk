@@ -18,6 +18,7 @@ import {
   folderOf,
   runScript,
   saveIn,
+  work,
   withCountry,
   type NxkTool,
   type ScriptResult,
@@ -438,11 +439,11 @@ export const BUILD: NxkTool[] = [
       if (!a.request && !a.request_file)
         throw new Error("Give request (the owner's words, as written) or request_file");
       const folder = folderOf(a);
-      const file = a.request ? saveIn(folder, "request.md", a.request) : a.request_file!;
-      const listed = saveIn(folder, "terms.json", JSON.stringify(a.terms ?? null, null, 2));
-      const open = saveIn(folder, "open.json", JSON.stringify(a.open ?? null, null, 2));
-      const clashes = saveIn(folder, "clashes.json", JSON.stringify(a.clashes ?? null, null, 2));
-      const notClashes = saveIn(folder, "not-clashes.json", JSON.stringify(a.not_clashes ?? [], null, 2));
+      const file = a.request ? saveIn(folder, work("request.md"), a.request) : a.request_file!;
+      const listed = saveIn(folder, work("terms.json"), JSON.stringify(a.terms ?? null, null, 2));
+      const open = saveIn(folder, work("open.json"), JSON.stringify(a.open ?? null, null, 2));
+      const clashes = saveIn(folder, work("clashes.json"), JSON.stringify(a.clashes ?? null, null, 2));
+      const notClashes = saveIn(folder, work("not-clashes.json"), JSON.stringify(a.not_clashes ?? [], null, 2));
       return run(
         "terms.ts",
         [
@@ -572,8 +573,8 @@ export const BUILD: NxkTool[] = [
           ].join(" "),
           error: true,
         };
-      saveIn(folder, "suggestions.json", JSON.stringify(a.suggestions, null, 1));
-      return runScript("suggest.ts", ["suggestions.json"], folder);
+      saveIn(folder, work("suggestions.json"), JSON.stringify(a.suggestions, null, 1));
+      return runScript("suggest.ts", [work("suggestions.json")], folder);
     },
   },
   {
@@ -619,7 +620,7 @@ export const BUILD: NxkTool[] = [
     name: "note_check",
     title: "Check the reply, and what it delivers, before it goes to the owner",
     description: [
-      "The last step: give the reply as you will send it (saved as reply.md in the folder),",
+      "The last step: give the reply as you will send it, as its text in reply (nxk keeps its own copy: write no file),",
       "and in delivered every file it hands over (a page, an email, a letter, a policy).",
       "Checks what is delivered (each file, each draft in the reply: a fenced block or lines quoted with >;",
       "with neither, the reply itself): the figures of each term the owner set are in it",
@@ -675,8 +676,8 @@ export const BUILD: NxkTool[] = [
     },
     run: async (a: NoteCheckArgs) => {
       if (!a.reply && !a.reply_file) throw new Error("Give reply (the text) or reply_file");
-      const file = a.reply ? saveIn(folderOf(a), "reply.md", a.reply) : a.reply_file!;
-      const pays = saveIn(folderOf(a), "pays.json", JSON.stringify(a.pays ?? [], null, 2));
+      const file = a.reply ? saveIn(folderOf(a), work("reply.md"), a.reply) : a.reply_file!;
+      const pays = saveIn(folderOf(a), work("pays.json"), JSON.stringify(a.pays ?? [], null, 2));
       return run("note.ts", [file, `--pays=${pays}`, ...(a.delivered ?? []).map((path) => `--delivered=${path}`)], a, {
         country: false,
       });
