@@ -1,6 +1,6 @@
 {
   "name": "nxk",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "private": true,
   "description": "A plugin for Claude that gives it 200,000 made-up adults for the UK and 200,000 for the US, and tools to count them and put questions to them.",
   "license": "MIT",
