@@ -382,8 +382,9 @@ async function send(log: Log, scan: ScanContext, flags: Record<string, string>):
     sent.fatal === "DAILY"
       ? `${sent.stop} The answers so far are saved: run the same scan again once it has reset, and it sends only the rest.`
       : sent.stop;
-  log.line(`Spent $${sent.spent.toFixed(3)} on this spec.${stop ? ` Stopped: ${stop}` : ""}`);
-  log.record("spent", { usd: sent.spent });
+  const spentNow = spentNote(spent, sent.spent, stop);
+  log.line(spentNow.line);
+  log.record("spent", spentNow.record);
   if (sent.lost.length)
     log.line(
       [
@@ -394,6 +395,20 @@ async function send(log: Log, scan: ScanContext, flags: Record<string, string>):
   log.line("");
   // A stop no rescan gets past says so in the exit code, so discover.ts tells the owner instead of asking for a rescan.
   return sent.fatal ? (STOPPED[sent.fatal] ?? 0) : 0;
+}
+
+/**
+ * What a scan says it spent. Sending counts from what the spec's saved answers already cost, so that its limit holds
+ * across scans; the line and the record give this scan's own charge, so that adding up a folder's records counts each
+ * answer once. `total` is the whole spec's.
+ */
+export function spentNote(before: number, after: number, stop: string | null) {
+  const now = after - before;
+  const all = before > 0 ? ` ($${after.toFixed(3)} on this spec in all)` : "";
+  return {
+    line: `Spent $${now.toFixed(3)} on this scan${all}.${stop ? ` Stopped: ${stop}` : ""}`,
+    record: { usd: now, total: after },
+  };
 }
 
 /**

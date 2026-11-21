@@ -607,8 +607,8 @@ test("a scan finished in the background is read by its label alone, with the off
           "simulated",
           "Kept to the Tier 1 limits: about 1 minute.",
           { type: "paced", minutes: 1 },
-          "Spent $0.000 on this spec.",
-          { type: "spent", usd: 0 },
+          "Spent $0.000 on this scan.",
+          { type: "spent", usd: 0, total: 0 },
         ),
       ]),
     );
