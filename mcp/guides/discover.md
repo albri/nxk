@@ -71,7 +71,7 @@ People not in work answer that they never had it. The scan also asks about
 each person's part in buying that category and about where they work: the
 size and kind of organisation, how it buys, and the person's job level and
 management duties. When every offer on the list is asked at work, the corners,
-the groups nothing is for and the reach are read among the people in work
+the groups nobody serves and the reach are read among the people in work
 (people not in work would otherwise make up corners of their own); sizes are
 still in every 100 adults.
 
@@ -162,12 +162,21 @@ were kept when it began. Do not sleep or check its files in between.
   the people who like everything. A corner no keener on its idea than
   everyone is a group cold on the whole list: `explore_next` lists it as not
   followed.
-- **Nothing here is for them.** Large groups, of one fact or two together,
-  where even the best idea does worse than its own average. Each comes with
-  what else marks those people, which is what you need to write an idea for
-  them.
+- **Nobody serves them.** Large groups, of one fact or two together, at
+  least a tenth keener than average on the way people do it now (the version
+  marked `now: true`), where every offer does worse than its own average:
+  people who want the job done whom nothing on the list suits. Each comes
+  with what else marks those people, which is what you need to write an
+  idea for them. It is read only when one version is how people do it now
+  without buying anything (by hand, a spreadsheet, a free template, asking
+  someone). Going without is not one: people who would go without do not
+  want the job done. Without such a version a group cold on every offer is
+  most often a group that wants none of it (older, out of work, unwell, cold
+  on whatever is put to them), so the reading says it was not read. "None"
+  is a finding: where people do it themselves most, the offers do as well or
+  better.
 
-Then go round again: write ideas for the groups nothing is for, as those
+Then go round again: write ideas for the groups nobody serves, as those
 people would meet them (it need not be an app), add them to the ideas list, run
 again. Stop when new ideas stop reaching new people.
 

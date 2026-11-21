@@ -152,7 +152,8 @@ would want something gets a [scan](#scans): nxk writes the idea a few ways to
 whoever pays for it, finds which groups lean in to each, counts them where you
 sell, then follows the strongest leads, splitting a group to find who inside
 it is keenest and checking who already serves it. It comes back with findings:
-strong leads first, each sized and broken down, the groups nothing serves,
+strong leads first, each sized and broken down, the groups nothing serves
+(people keener than most on doing the job themselves, whom every offer misses),
 and the cheapest real test that would tell the leading two apart.
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/look-dark.svg"><img src="assets/icons/look-light.svg" width="18" height="18" align="absmiddle" alt=""></picture> **Second look** (`/nxk:look`) reads a page, a policy, a letter or a plan with

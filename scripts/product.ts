@@ -159,6 +159,8 @@ export interface ScanIdea {
   buying_category?: string;
   /** The owner's own offer. */
   own?: boolean;
+  /** How people do the job now without buying an offer (by hand, a spreadsheet, a free template), never going without. */
+  now?: boolean;
 }
 
 /** How keen people are on one offer by age band or by gender (simulated), each group with its share of the people. */
@@ -188,12 +190,14 @@ export interface ScanCorner {
   by?: KeenBy[];
 }
 
-/** A big group none of a scan's offers serves, and the offer that came nearest. */
+/** A big group keen on doing the job themselves that none of a scan's offers serves, and the offer that came nearest. */
 export interface ScanGap {
   among: string;
   label: string;
   share: number;
   best: string;
+  /** The way of doing it now they are keenest on (absent on scans saved before it was read). */
+  now?: string;
 }
 
 /** A scan of offers, saved once read. Ids run scan1, scan2, ... */

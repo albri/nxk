@@ -129,8 +129,16 @@ export interface GapLead {
   label: string;
   share: number;
   best: string;
+  /** The way of doing it now they are keenest on, when the scan read one. */
+  now?: string;
   segment: Segment | null;
 }
+
+/** What a group nobody serves is, in words: keen on doing it themselves when the scan read that, cold on every offer. */
+const nobodyServes = (gap: Pick<GapLead, "now">) =>
+  gap.now
+    ? `are keener than most on doing it themselves (${gap.now}), and every offer misses them`
+    : "prefer none of the offers";
 
 /** Every lead of what is read. */
 export interface Leads {
@@ -403,6 +411,7 @@ export function leadsOf(product: Product): Leads {
         label: g.label,
         share: g.share,
         best: g.best,
+        ...(g.now ? { now: g.now } : {}),
         segment: segments.find((s) => groupOf(s.among) === groupOf(g.among)) ?? null,
       }));
   return { corners, gaps };
@@ -534,7 +543,7 @@ export function nextMove({
           question: `Scanning new offers costs about ${(100 * spend.perOffer).toFixed(1)} US cents an offer on your decision-model key. What is the most nxk may spend on exploring, in US dollars?`,
           why: "new offers for the groups nothing serves are paid scans",
         },
-        why: `${gap.label} (${one(gap.share)} in every 100 adults, counted) prefer none of the offers. New offers for them are a paid scan, and no budget is set.`,
+        why: `${gap.label} (${one(gap.share)} in every 100 adults, counted) ${nobodyServes(gap)}. New offers for them are a paid scan, and no budget is set.`,
         figures: { counted: [`${one(gap.share)} in every 100 adults`] },
       };
     if (left !== null && left >= cost)
@@ -552,7 +561,7 @@ export function nextMove({
         },
         why: [
           `${gap.label}: ${one(gap.share)} in every 100 adults, about ${people_(gap.share, country)} (counted),`,
-          `prefer none of the offers (the best, ${gap.best}, did worse than its own average there: simulated).`,
+          `${nobodyServes(gap)} (the best offer, ${gap.best}, did worse than its own average there: simulated).`,
           `Only the new offers are sent: about ${(100 * cost).toFixed(1)} cents.`,
         ].join(" "),
         figures: { counted: [`${one(gap.share)} in every 100 adults, about ${people_(gap.share, country)}`] },

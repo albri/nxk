@@ -187,18 +187,47 @@ test("an idea with no corner of its own still names who it is for: the people ke
   assert.ok(ownCorners(room, ideas).ideas.every((x) => x.keenest && x.keenest.odds > 1));
 });
 
-test("whiteSpace finds the big group even the best idea leaves below its own average", () => {
+test("whiteSpace finds the big group keen on doing it themselves that every offer misses", () => {
+  // Students pick teams by hand more than anyone; both apps are for retired and employed people.
+  const ideas = [
+    idea("hand", { student: 0.9 }),
+    idea("app", { retired: 0.5, student: 0.05 }),
+    idea("club", { employed: 0.5, student: 0.05 }),
+  ];
+  const empty = whiteSpace(room, ideas, { floor: 0.2, now: new Set(["hand"]) });
+  assert.deepEqual(
+    empty.map((c) => c.facts.map((f) => f.code).join("+")),
+    ["student"],
+  );
+  assert.equal(empty[0].now, "hand");
+  assert.ok(empty[0].nowLift >= 1.1 && empty[0].lift < 1);
+  assert.ok(["app", "club"].includes(empty[0].best));
+  // With no way of doing it now on the list, nothing is read.
+  assert.deepEqual(whiteSpace(room, ideas, { floor: 0.2 }), []);
+});
+
+test("a group cold on everything, the way they do it now too, is not one nobody serves", () => {
+  // The employed are cold on every idea, the way they do it now among them: they want none of it.
   const ideas = [
     idea("a", { retired: 0.6, employed: 0.1 }),
     idea("b", { student: 0.5, employed: 0.1 }),
-    idea("c", { retired: 0.4, student: 0.4, employed: 0.1 }),
+    idea("hand", { retired: 0.4, student: 0.4, employed: 0.1 }),
   ];
-  const empty = whiteSpace(room, ideas, { floor: 0.2 });
-  assert.equal(empty[0].facts[0].code, "employed");
-  assert.ok(empty[0].lift < 1);
+  assert.deepEqual(whiteSpace(room, ideas, { floor: 0.2, now: new Set(["hand"]) }), []);
   // Retired people and students are each a little keener than the room on some idea; the employed are on none.
   assert.ok(Math.abs(reached(room, ideas, 1.02) - 2 / 3) < 0.01);
   assert.equal(reached(room, ideas, 2), 0);
+});
+
+test("ideasOf keeps the way people do it now, and refuses an idea marked both own and now", () => {
+  assert.deepEqual(ideasOf([{ key: "hand", offer: "pick teams by hand, free", now: true }])[0], {
+    key: "hand",
+    offer: "pick teams by hand, free",
+    fields: [],
+    now: true,
+  });
+  assert.equal(ideasOf([{ key: "a", offer: "x", now: "yes" }])[0].now, undefined);
+  assert.throws(() => ideasOf([{ key: "a", offer: "x", own: true, now: true }]), /mark one or the other/);
 });
 
 test("ideasOf makes keys safe, and refuses a repeat or an idea with no offer", () => {

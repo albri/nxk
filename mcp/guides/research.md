@@ -75,6 +75,12 @@ in marked `own: true`: its lead is who wants it, and that leads the findings.
   alone sends nothing). Still running: say so, with when to ask again, and
   start nothing new.
 
+Every scan has one version that is how people get the job done today without
+buying anything on the list (by hand, a spreadsheet, a free template, asking
+someone), marked `now: true`, with its cost (often nothing). Never going
+without: people who would go without do not want the job done. Who nobody
+serves is read from it, and with none it is not read.
+
 ## Scan, then explore
 
 `ideas_scan` with the versions, within the budget research_start names; with
@@ -112,7 +118,12 @@ reply), then `note_check` on them:
 - **Or plainly nothing.** When nothing is strong, say so in one line: nothing
   else stood out, so the choice rests on what the owner can test with real
   buyers. Never dress a faint lead up as a finding.
-- **The groups no version serves,** and what else marks them.
+- **The groups nobody serves,** as the scan prints them: keener than most
+  on doing it themselves, and every offer misses them, with what else marks
+  them. When the scan found none, say so in one line ("where people do it
+  themselves most, the offers do as well or better"). When it was not read
+  (no version marked now), say that, and never put forward a group cold on
+  every offer as one nobody serves.
 - **The owner's figures.** When they gave a target, a margin or a price,
   `sums`: how many paying customers that takes, beside the counted payers.
   When they did not, name what would sharpen the findings (their margin, who

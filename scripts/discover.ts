@@ -108,6 +108,7 @@ export interface GivenIdea {
   fields?: unknown;
   buying_category?: unknown;
   own?: unknown;
+  now?: unknown;
 }
 
 /** An idea as ideasOf reads it: its key safe for file names, and the fields named for it ([] for none). */
@@ -138,6 +139,10 @@ export function ideasOf(json: GivenIdea[] | Record<string, unknown>): Idea[] {
     if (seen.has(key)) throw new Error(`Two ideas share the key "${key}"`);
     seen.add(key);
     const category = idea.buying_category ? String(idea.buying_category).trim().toLowerCase() : null;
+    if (idea.own === true && idea.now === true)
+      throw new Error(
+        `${key}: the owner's own offer (own) is not the way people do it now (now): mark one or the other`,
+      );
     if (category && category !== "household" && !CATEGORIES.includes(category))
       throw new Error(`${key}: buying_category is "household" or one of ${CATEGORIES.join(", ")}, not "${category}"`);
     return {
@@ -147,6 +152,9 @@ export function ideasOf(json: GivenIdea[] | Record<string, unknown>): Idea[] {
       ...(category ? { buying_category: category } : {}),
       // The owner's own offer, as they wrote it: research reports who wants it first (printYours).
       ...(idea.own === true ? { own: true } : {}),
+      // How people do the job now without buying an offer (by hand, a spreadsheet, a free template): who wants the job
+      // done reads from it (printWhiteSpace).
+      ...(idea.now === true ? { now: true } : {}),
     };
   });
 }
@@ -861,15 +869,22 @@ interface EmptyGroup extends EmptyCorner {
  */
 function printWhiteSpace(
   log: Log,
-  { map, pool, whom, room, scored, everyIdea, sized }: Reading,
+  { map, pool, whom, room, ideas, scored, everyIdea, sized }: Reading,
   flags: Flags,
 ): { empty: EmptyGroup[]; reach: number } {
+  const now = new Set(ideas.filter((idea) => idea.now).map((idea) => idea.key));
+  const ways = scored.filter((idea) => now.has(idea.key));
   const empty: EmptyGroup[] = whiteSpace(room, scored, {
     floor: Number(flags.floor ?? 0.05),
     among: everyIdea,
+    now,
   });
   log.line(
-    "\nNothing here is for them: big groups where even the best idea does worse than its own average. Only groups named by a fact that was asked about can appear.",
+    [
+      "\nNobody serves them: big groups at least a tenth keener than average on doing it themselves",
+      `(${ways.length ? ways.map((idea) => idea.key).join(", ") : "a version marked now"}), where every offer does worse than its own average.`,
+      "Only groups named by a fact that was asked about can appear.",
+    ].join(" "),
   );
   for (const corner of empty) {
     const inGroup = new Uint8Array(room.N);
@@ -888,13 +903,22 @@ function printWhiteSpace(
       (line) => `${line.gap > 0 ? "more" : "less"} ${line.label} (${percent(line.group)} against ${percent(line.all)})`,
     );
     log.line(
-      `  ${sized(corner)} | ${named(corner)} | best idea ${corner.best} at x${corner.lift.toFixed(2)} of its own average`,
+      `  ${sized(corner)} | ${named(corner)} | ${corner.now} at x${corner.nowLift.toFixed(2)} of its own average; the best offer, ${corner.best}, at x${corner.lift.toFixed(2)}`,
       "simulated",
       { counted: [sized(corner)] },
     );
     log.line(`      ${age ? `middle age ${age.group} against ${age.all}; ` : ""}${corner.also.join("; ")}`);
   }
-  if (!empty.length) log.line(`  None of 5% of ${whom} or more.`);
+  if (!ways.length)
+    log.line(
+      [
+        "  Not read: no version is how people do it now without buying (by hand, a spreadsheet, a free template).",
+        "Without one, a group cold on every offer is most often a group that wants none of it, not one nobody serves.",
+        "Add that version marked now, and scan again: only it is sent.",
+      ].join(" "),
+    );
+  else if (!empty.length)
+    log.line(`  None of 5% of ${whom} or more: where people do it themselves most, the offers do as well or better.`);
   const reach = reached(room, scored);
   log.line(
     `\nReach: ${percent(reach)} of ${whom === "all adults" ? "adults" : whom} are at least a fifth keener than average on at least one idea.`,
@@ -903,7 +927,7 @@ function printWhiteSpace(
     [
       "\nHow to use this:",
       "- An idea with no corner of its own is competing for the people who like everything. Change it or drop it.",
-      "- Write the next ideas for the groups nothing is for, as those people would meet them, add them to the file and run again; only the new ideas are sent.",
+      "- Write the next ideas for the groups nobody serves, as those people would meet them, add them to the file and run again; only the new ideas are sent.",
       "- Do not rank the ideas by how many would take them, and do not use these scores for price: the order of ideas changed when the question was reworded, and the model barely reacts to price.",
       "- Before spending on a corner, work out how many customers the idea needs (the sums tool) and compare that with the corner's counted size. Then go and talk to people in it.",
     ].join("\n"),

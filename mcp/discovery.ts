@@ -204,7 +204,7 @@ export const DISCOVERY: NxkTool[] = [
       "through a decision model, and prints who wants the owner's own offer",
       "(own: true: the people keenest on it against everyone, and how keen by age and gender),",
       "each offer's own corner (the people who prefer it most to the others, with its counted size)",
-      "and the big groups none of them serves.",
+      "and the big groups nobody serves: keener than most on the way they do it now (now: true), and cold on every offer.",
       "Use for a product with no audience (the product beside two or more alternatives),",
       "a rough idea (written three to eight ways), or no product (ideas from ideas_deal).",
       "PAID, on the user's decision-model key: max_usd is required and the cost is printed before anything is sent.",
@@ -243,6 +243,15 @@ export const DISCOVERY: NxkTool[] = [
                   "true for the owner's own offer, as they described it.",
                   "Its lead is who wants it (the people keenest on it against everyone,",
                   "and how keen by age and gender), not the group that prefers it to the versions you wrote.",
+                ].join(" "),
+              },
+              now: {
+                type: "boolean",
+                description: [
+                  "true for the way people do it now without buying an offer: by hand, a spreadsheet, a free template,",
+                  "asking someone. Never going without: people who would go without do not want the job done.",
+                  "Who nobody serves is read from it (people keener than most on doing it themselves, whom every offer",
+                  "misses); with no version marked now, it is not read.",
                 ].join(" "),
               },
             },
@@ -408,6 +417,7 @@ export const DISCOVERY: NxkTool[] = [
         label: groupLabel(c),
         share: c.share,
         best: c.best,
+        now: c.now,
       }));
       // A scan belongs to the research question it was started for, which may not be the one open now.
       const study = (finished ? run?.study : undefined) ?? studyOf(product)?.id ?? null;
@@ -422,6 +432,7 @@ export const DISCOVERY: NxkTool[] = [
           ...(i.fields?.length ? { fields: i.fields } : {}),
           ...(i.buying_category ? { buying_category: i.buying_category } : {}),
           ...(i.own ? { own: true } : {}),
+          ...(i.now ? { now: true } : {}),
         })),
         max_usd: args.max_usd,
         likeness: result.likeness,

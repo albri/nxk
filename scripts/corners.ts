@@ -3,7 +3,7 @@
 //
 //   alike        are the ideas wanted by the same people?
 //   ownCorners   for each idea, the corner of the room that prefers it most to the other ideas
-//   whiteSpace   the big corners where even the best idea does worse than its own average
+//   whiteSpace   the big corners keen on doing the job themselves, where every offer does worse than its own average
 //
 // A corner is a combination of up to three facts held by at least `minShare` of adults. Its size is counted on the
 // people. How keen it is comes from the decision model and is simulated.
@@ -287,8 +287,13 @@ export interface OwnCorner extends KeenCorner {
   keenest: KeenCorner;
 }
 
-/** A big corner nothing is for (whiteSpace): the best idea there, its lift, and the ideas' average lift. */
+/**
+ * A big group nobody serves (whiteSpace): the way of doing it now they are keenest on, and how many times its own
+ * average (`nowLift`); the best offer there, and its lift (under 1); and the offers' average lift.
+ */
 export interface EmptyCorner extends Corner {
+  now: string;
+  nowLift: number;
   best: string;
   lift: number;
   average: number;
@@ -420,24 +425,42 @@ export function ownCorners(room: Room, ideas: ScoredIdea[], options: SearchOptio
   };
 }
 
-/** A group whiteSpace finds, by its facts: the best idea there, its lift, and the ideas' average lift. */
+/** A group whiteSpace finds, by its facts: the strongest way of doing it now there, and the best offer there. */
 interface ColdGroup {
   parts: Fact[];
+  now: string;
+  nowLift: number;
   best: string;
   lift: number;
   average: number;
 }
 
 /**
- * The big corners nothing is for: one fact, or two together, held by `floor` of adults or more, where even the best
- * idea does worse than its own average across the room. Returns up to `keep` corners that are not mostly the same
- * people as one already kept, coldest first.
+ * The big groups nobody serves: people who want the job done but whom no offer suits. One fact, or two together, held
+ * by `floor` of adults or more, where a way of doing it now (an idea in `now`: by hand, a spreadsheet, a free
+ * template) is at least `demand` times its own average, and every other idea, the offers, does worse than its own
+ * average. Returns up to `keep` groups that are not mostly the same people as one already kept, those the offers miss
+ * by most first.
+ *
+ * With no way of doing it now on the list, nothing can be read, and none are returned: a group cold on every offer is
+ * then most often a group that wants none of it (older adults, out of work, with a long-term condition, cold on
+ * whatever is put to them), not one nobody serves. Going without is not a way of doing it now: people who would rather
+ * go without do not want the job done.
  */
 export function whiteSpace(
   room: Room,
   ideas: Pick<ScoredIdea, "key" | "p" | "mean">[],
-  { floor = 0.05, keep = 5, among = null }: { floor?: number; keep?: number; among?: Set<string> | null } = {},
+  {
+    floor = 0.05,
+    keep = 5,
+    among = null,
+    now = new Set<string>(),
+    demand = 1.1,
+  }: { floor?: number; keep?: number; among?: Set<string> | null; now?: Set<string>; demand?: number } = {},
 ): EmptyCorner[] {
+  const ways = ideas.filter((idea) => now.has(idea.key)),
+    offers = ideas.filter((idea) => !now.has(idea.key));
+  if (!ways.length || !offers.length) return [];
   // `among` limits the groups to facts of those fields: the ones every idea was asked about. A group defined by a
   // fact that some idea was never asked about would look average for that idea whatever the truth.
   const N = room.N,
@@ -445,24 +468,39 @@ export function whiteSpace(
     big = room.facts.filter((fact) => fact.list.length >= min && (!among || among.has(fact.field)));
   // Each group is scored as it is found and kept without its people: keeping a list for every pair of facts, with every
   // field asked about, ran out of memory. The lists of the few groups shown are made again at the end.
-  const K = ideas.length,
+  const order = [...ways, ...offers],
+    K = order.length,
+    W = ways.length,
     sums = new Float64Array(K),
     scored: ColdGroup[] = [];
   // Each person's answers to every idea side by side, so the inner loop reads memory in order.
   const P = new Float64Array(N * K);
   for (let k = 0; k < K; k++) {
-    const p = ideas[k].p;
+    const p = order[k].p;
     for (let i = 0; i < N; i++) P[i * K + k] = p[i];
   }
   const score = (parts: Fact[], n: number) => {
-    let best: { key: string; lift: number } | null = null;
-    let total = 0;
+    let way = { key: "", lift: -Infinity },
+      best = { key: "", lift: -Infinity },
+      total = 0;
     for (let k = 0; k < K; k++) {
-      const lift = sums[k] / n / ideas[k].mean;
+      const lift = sums[k] / n / order[k].mean;
+      if (k < W) {
+        if (lift > way.lift) way = { key: order[k].key, lift };
+        continue;
+      }
       total += lift;
-      if (!best || lift > best.lift) best = { key: ideas[k].key, lift };
+      if (lift > best.lift) best = { key: order[k].key, lift };
     }
-    if (best && best.lift < 1) scored.push({ parts, best: best.key, lift: best.lift, average: total / K });
+    if (way.lift >= demand && best.lift < 1)
+      scored.push({
+        parts,
+        now: way.key,
+        nowLift: way.lift,
+        best: best.key,
+        lift: best.lift,
+        average: total / (K - W),
+      });
   };
   for (const fact of big) {
     sums.fill(0);
@@ -483,7 +521,7 @@ export function whiteSpace(
         }
       if (n >= min) score([big[a], big[b]], n);
     }
-  scored.sort((x, y) => x.lift - y.lift);
+  scored.sort((x, y) => y.nowLift / y.lift - x.nowLift / x.lift);
   const listOf = (parts: Fact[]) => {
     if (parts.length === 1) return parts[0].list;
     const [small, other] = parts[0].list.length <= parts[1].list.length ? parts : [parts[1], parts[0]];
@@ -499,7 +537,13 @@ export function whiteSpace(
     if (kept.length >= keep) break;
   }
   return kept.map((corner) =>
-    cornerOut(room, corner, { best: corner.best, lift: corner.lift, average: corner.average }),
+    cornerOut(room, corner, {
+      now: corner.now,
+      nowLift: corner.nowLift,
+      best: corner.best,
+      lift: corner.lift,
+      average: corner.average,
+    }),
   );
 }
 
