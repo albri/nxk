@@ -1,13 +1,5 @@
 {
-  "_about": "The words of the header and the opening figure. Every number in both comes from idea-counts.json (node assets/src/count.ts, every command and its output in idea-counts.txt), rounded to 100 in the figure code so the parts add up to the whole.",
-  "header": {
-    "line": "Research for Claude: who would want it, how many, where, and every breakdown.",
-    "install": "/plugin install nxk --marketplace albri/nxk",
-    "facts": { "age": "age", "work": "work", "signup": "app sign-up" },
-    "labels": {
-      "signup": { "phone": "Suits", "out": "Left out:", "other": "No smartphone", "none": "Offline" }
-    }
-  },
+  "_about": "The words of the opening figure. Every number in it comes from idea-counts.json (node assets/src/count.ts, every command and its output in idea-counts.txt), rounded to 100 in the figure code so the parts add up to the whole.",
   "context": "One choice on a sign-up page, counted for adults in the UK",
   "choice": "“You can only sign up in our app, on a smartphone.”",
   "suits": "it suits",

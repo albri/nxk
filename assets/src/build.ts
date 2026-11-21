@@ -2,7 +2,7 @@
 // Draws the README figures from the data in assets/src/data/:
 //
 //   node assets/src/build.ts                    # all of them
-//   node assets/src/build.ts header idea        # some: header, idea, how-it-works, evidence, icons
+//   node assets/src/build.ts logo idea          # some: logo, idea, how-it-works, evidence, icons
 //   node assets/src/build.ts --png=/some/dir    # also a PNG of each, at twice the size, in that folder
 //   node assets/src/build.ts --data=/a --out=/b # data from another folder, SVGs to another folder (to try a data file)
 //
@@ -19,14 +19,15 @@
 //   PLAYWRIGHT_CORE=~/some-project/node_modules/playwright-core \
 //   CHROMIUM="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" node assets/src/build.ts
 //
-// The numbers in the header and the opening figure come from data/idea-counts.json, which node assets/src/count.ts
+// The numbers in the opening figure come from data/idea-counts.json, which node assets/src/count.ts
 // counts on the shipped people. A figure whose data is not ready yet is skipped with a note, never drawn with made-up
 // values.
 
 /// <reference lib="dom" />
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
+import { launch, loadChromium, type Browser } from "./browser.ts";
 import { W, themes, kit, svgDoc, fontCss, type Drawn, type Kit, type Measure, type Theme } from "./kit.ts";
 import { ICONS, iconFile } from "./icons.ts";
 import type { EvidenceWords } from "./evidence.ts";
@@ -48,79 +49,14 @@ interface Figure {
   notReady?(data: FigureData): string | null;
 }
 
-// The part of Playwright the build uses: Chromium launched, pages opened, text measured and pictures taken. The
-// callbacks given to evaluate run in the page, with the dom lib's globals.
-interface Chromium {
-  launch(options: { executablePath?: string; headless: boolean }): Promise<Browser>;
-}
-interface Browser {
-  newPage(): Promise<Page>;
-  newContext(options: { viewport: { width: number; height: number }; deviceScaleFactor: number }): Promise<Context>;
-  close(): Promise<void>;
-}
-interface Context {
-  newPage(): Promise<Page>;
-  close(): Promise<void>;
-}
-interface Page {
-  setContent(html: string): Promise<void>;
-  evaluate<R>(callback: () => R | Promise<R>): Promise<R>;
-  evaluate<R, A>(callback: (arg: A) => R | Promise<R>, arg: A): Promise<R>;
-  locator(selector: string): Locator;
-  waitForTimeout(ms: number): Promise<void>;
-  screenshot(options: { path: string; fullPage?: boolean }): Promise<Buffer>;
-}
-interface Locator {
-  evaluate<E extends Element, R>(callback: (element: E) => R | Promise<R>): Promise<R>;
-  screenshot(options: { path: string; omitBackground?: boolean }): Promise<Buffer>;
-}
-
 const FIGURES: Record<string, string> = {
-  header: "header.ts",
+  logo: "logo.ts",
   idea: "idea.ts",
   "how-it-works": "how.ts",
   evidence: "evidence.ts",
 };
 const SRC = new URL("./", import.meta.url);
 const OUT = new URL("../", import.meta.url);
-
-async function loadChromium(): Promise<Chromium> {
-  const tries: string[] = [];
-  if (process.env.PLAYWRIGHT_CORE)
-    for (const f of ["index.ts", "index.js"]) tries.push(pathToFileURL(join(process.env.PLAYWRIGHT_CORE, f)).href);
-  tries.push("playwright-core", "playwright");
-  for (const name of tries)
-    try {
-      const m: { chromium?: Chromium; default?: { chromium?: Chromium } } = await import(name);
-      const c = m.chromium ?? m.default?.chromium;
-      if (c) return c;
-    } catch {
-      /* the next */
-    }
-  throw new Error("Needs playwright-core: install it, or set PLAYWRIGHT_CORE to its folder.");
-}
-
-async function launch(chromium: Chromium): Promise<Browser> {
-  const candidates = process.env.CHROMIUM
-    ? [process.env.CHROMIUM]
-    : [
-        undefined,
-        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
-        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-        "/Applications/Chromium.app/Contents/MacOS/Chromium",
-        "/usr/bin/brave-browser",
-        "/usr/bin/google-chrome",
-        "/usr/bin/chromium",
-        "/usr/bin/chromium-browser",
-      ].filter((p) => p === undefined || existsSync(p));
-  for (const executablePath of candidates)
-    try {
-      return await chromium.launch({ executablePath, headless: true });
-    } catch {
-      /* the next */
-    }
-  throw new Error("No Chromium found: set CHROMIUM to a Chromium, Chrome or Brave binary.");
-}
 
 async function measurer(browser: Browser): Promise<Measure> {
   const page = await browser.newPage();
@@ -204,8 +140,8 @@ try {
       const svg = svgDoc({ ...fig, fill: fig.fill ?? t.card, fonts: k.used });
       const base = `${name}-${theme}`;
       writeFileSync(join(outDir, `${base}.svg`), svg);
-      if (pngDir) await png(browser, svg, W, Math.ceil(fig.height), join(pngDir, `${base}.png`));
-      console.log(`${base}: ${W}x${Math.ceil(fig.height)}, svg ${(svg.length / 1024).toFixed(0)} KB`);
+      if (pngDir) await png(browser, svg, fig.width ?? W, Math.ceil(fig.height), join(pngDir, `${base}.png`));
+      console.log(`${base}: ${fig.width ?? W}x${Math.ceil(fig.height)}, svg ${(svg.length / 1024).toFixed(0)} KB`);
     }
   }
   // the icons, as their own files for the README's text, and a sheet of them to look at

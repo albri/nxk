@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Counts the people behind the header and the opening figure, with nxk's own people tool, and keeps every command
+// Counts the people behind the opening figure and the launch video, with nxk's own people tool, and keeps every command
 // with its output:
 //
 //   node assets/src/count.ts

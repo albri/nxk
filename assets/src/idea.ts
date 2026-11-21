@@ -1,7 +1,6 @@
 // The opening figure: one choice, and 100 adults split into the people it suits and the people it leaves out, with
 // who they are. Every number comes from data/idea-counts.json through hundred.ts.
 import { W, PAD, squares, hline, wordmark, plain, type Drawn, type Font, type Kit, type Theme } from "./kit.ts";
-import type { HeaderWords } from "./header.ts";
 import { hundred, type IdeaCounts } from "./hundred.ts";
 
 /** A group the choice leaves out: how it goes online, its colour, who it is, and one more fact about it. */
@@ -14,10 +13,9 @@ interface LeftOutGroup {
   detail_ages: string[];
 }
 
-/** data/idea.json: the words of the header and the opening figure. */
+/** data/idea.json: the words of the opening figure. */
 export interface IdeaWords {
   _about: string;
-  header: HeaderWords;
   context: string;
   choice: string;
   suits: string;

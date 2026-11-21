@@ -88,7 +88,7 @@ interface Face {
 
 // The nxk colours, as on public main and the nxk page: a cool light grey (Paper) or near-black (Night) ground, Aurora
 // green for nxk and for the people a figure picks out, Marigold amber as the second tone, and greys for everyone else.
-// `card` is the ground of a figure; the header sits on `ground`.
+// `card` is the ground of a figure; the logo and the launch video sit on `ground`.
 export const themes: Record<"light" | "dark", Theme> = {
   light: {
     ground: "#f4f5f8",

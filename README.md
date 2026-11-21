@@ -1,7 +1,7 @@
 <h1 align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
-    <img src="assets/header-light.svg" alt="nxk. Research for Claude: who would want it, how many, where, and every breakdown. Install it in Claude Code with /plugin install nxk --marketplace albri/nxk. Beside the words, 100 adults in the UK are drawn as lines through their age and their work to a sign-up that works only in a smartphone app. It suits 84. The 16 it leaves out are in colour: 8 with no smartphone and 8 offline.">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
+    <img src="assets/logo-light.svg" alt="nxk" width="160">
   </picture>
 </h1>
 
@@ -368,7 +368,7 @@ the newest Node 22.
 | `hooks/` | The Claude Code hooks |
 | `maps/` | The made-up people, built by `scripts/build-maps.ts` |
 | `evals/` | The cases, the runner, and the checks against published figures |
-| `assets/src/` | Draws the figures and icons on this page, and keeps the counts behind them |
+| `assets/src/` | Draws the logo, figures and icons on this page, and keeps the counts behind them |
 | `docs/` | How nxk is built |
 
 The evals run real Claude Code sessions on your own Claude account, and their
@@ -376,8 +376,8 @@ scans on your own key, so they cost money; `--plan` prices a run first, and
 the runner starts no case past `--max-usd`.
 [evals/README.md](evals/README.md) has the options.
 
-The figures and icons are drawn by `assets/src/build.ts` from
-`assets/src/data/`. The opening figures' numbers come from
+The logo, figures and icons are drawn by `assets/src/build.ts` from
+`assets/src/data/`. The opening figure's numbers come from
 `node assets/src/count.ts`, which keeps every command with its output in
 `assets/src/data/idea-counts.txt`, and the evidence figure's from the checks'
 own results in `evals/`. The build measures text in a headless browser; the

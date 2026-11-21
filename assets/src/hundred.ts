@@ -1,4 +1,4 @@
-// The 100 people behind the header and the opening figure, from the counts in data/idea-counts.json. The counts are
+// The 100 people behind the opening figure and the launch video, from the counts in data/idea-counts.json. The counts are
 // rounded to 100 one level at a time (how a person goes online, then age within that, then work within that), so every
 // total the figures print is the rounded share of its own count, and the parts add up to it.
 import { shares } from "./kit.ts";
