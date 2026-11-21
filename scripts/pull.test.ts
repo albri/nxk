@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import type { PeopleMap } from "./population.ts";
-import { filtersOf, pull, rowOf, type Persona } from "./pull.ts";
+import { filtersOf, pull, refusal, rowOf, type Persona } from "./pull.ts";
 
 // A real persona, as PersonaGen 4.0 returns it (the example shipped on main), and the US map.
 const persona: Persona = JSON.parse(
@@ -16,6 +16,18 @@ test("filtersOf turns the tools' conditions into PersonaGen filters", () => {
     age_years: { min: 25, max: 34 },
   });
   assert.throws(() => filtersOf("home_tenure"), /field=value/);
+});
+
+test("a filter PersonaGen cannot pull by is named, with the way round it; any other refusal is passed on", () => {
+  const body = {
+    success: false,
+    error: { code: "invalid_filters", issues: [{ field: "interests", message: "is not a filter field for UK" }] },
+  };
+  assert.equal(
+    refusal(400, JSON.stringify(body)),
+    "PersonaGen cannot pull by this: interests is not a filter field for UK. Pull by the other facts, and count this one among them with the people tool.",
+  );
+  assert.equal(refusal(503, "Service Unavailable"), "PersonaGen 503: Service Unavailable");
 });
 
 test("rowOf puts a persona into the map's form, value by value", () => {

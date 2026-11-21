@@ -6,7 +6,7 @@ import test from "node:test";
 import type { LogRecord } from "../scripts/log.ts";
 import { readLog } from "../scripts/records.ts";
 import { logText, run as scriptRun } from "../scripts/testing.ts";
-import { background, minutesLeft, runningScan, runScript, waitForScan } from "./common.ts";
+import { background, folderOf, minutesLeft, runningScan, runScript, waitForScan } from "./common.ts";
 
 const script = (dir: string, name: string, body: string): string => {
   const file = join(dir, name);
@@ -183,4 +183,19 @@ test("scripts run in the server at once, in different folders, each print and lo
   } finally {
     for (const dir of [a, b]) rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test("a tool's folder may be new inside the project; one outside it that does not exist is a slip, refused", () => {
+  const project = mkdtempSync(join(tmpdir(), "nxk-folder-"));
+  const env = { CLAUDE_PROJECT_DIR: project };
+  assert.equal(folderOf({}, env), project);
+  assert.equal(folderOf({ folder: "work" }, env), join(project, "work"));
+  assert.ok(existsSync(join(project, "work")));
+  // A path with a "/" copied as "-" is outside the project, and nothing is made there.
+  const slip = `${project}-copy/uat`;
+  assert.throws(() => folderOf({ folder: slip }, env), /^Error: No folder .*-copy\/uat\. Give the project folder, /);
+  assert.ok(!existsSync(slip));
+  // A folder outside the project that is there is used as it is.
+  assert.equal(folderOf({ folder: tmpdir() }, env), tmpdir());
+  rmSync(project, { recursive: true });
 });

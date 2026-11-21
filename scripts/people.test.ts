@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import type { LogRecord } from "./log.ts";
-import { findLines, likeForLike, type RowCondition } from "./people.ts";
+import { findLines, likeForLike, placeLine, type RowCondition } from "./people.ts";
 import type { Field, Row } from "./population.ts";
 
 const fields = [
@@ -35,6 +35,34 @@ test("find says when no fact mentions the word, and not to count a stand-in unde
   assert.match(lines[0], /list all 2 with action fields/);
   assert.match(lines[1], /nothing here counts it/);
   assert.match(lines[1], /stand-in/);
+});
+
+test("a word that misses as written is tried by its root, and the reply says so", () => {
+  const lines = findLines(fields, "renting");
+  assert.equal(lines[0], 'Nothing mentions "renting" as written; these mention its root "rent":');
+  assert.match(lines[2], /home_tenure=rented_privately/);
+  // Only one word has a root: a phrase that misses is not cut down to one of its words.
+  assert.match(findLines(fields, "sole renting")[0], /^No fact about people mentions/);
+});
+
+test("a card says each part of a place once: a US place loses the state its region gives, and its census type", () => {
+  assert.deepEqual(placeLine(["Livonia city, Michigan", "Wayne County, Michigan", "Michigan"]), [
+    "Livonia",
+    "Wayne County",
+    "Michigan",
+  ]);
+  assert.deepEqual(placeLine(["Pasadena CDP, Maryland", "Anne Arundel County, Maryland", "Maryland"]), [
+    "Pasadena",
+    "Anne Arundel County",
+    "Maryland",
+  ]);
+  // A UK place is said as it was, a part named twice once.
+  assert.deepEqual(placeLine(["London", "Tower Hamlets", "London"]), ["London", "Tower Hamlets"]);
+  assert.deepEqual(placeLine(["Brough", "East Riding of Yorkshire", "Yorkshire and the Humber"]), [
+    "Brough",
+    "East Riding of Yorkshire",
+    "Yorkshire and the Humber",
+  ]);
 });
 
 test("a match on a word is not always the fact meant: gas finds the gas industry", () => {

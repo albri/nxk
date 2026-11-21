@@ -127,10 +127,13 @@ the fair way to the same goal.
 
 ## 4. Check
 
-`note_check` on what you return, with every file the work delivered in
-`delivered`. In `pays`, say what the work asks a person to pay over time, each
-with the words that tell them (`[]` when none). Fix every FAIL in your note;
-read every WARN, which are often wrong. You do not end until it passes.
+`note_check` on what you return, with every file this conversation wrote for
+the owner in `delivered`. A file the owner wrote themselves is not delivered:
+its figures are theirs, given, and what it gets wrong is a point in your note,
+not a fix you make. In `pays`, say what the work asks a person to pay over
+time, each with the words that tell them (`[]` when none). Fix every FAIL in
+your note; read every WARN, which are often wrong. You do not end until it
+passes.
 
 ## 5. Later
 

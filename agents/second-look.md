@@ -25,8 +25,9 @@ never write, edit or delete a file of theirs.
    project) before anything else.
 2. `product`, then `guide` topic second-look, and follow it: look at the room
    with `sweep`; `terms` and `suggest` only for a term that may shut out a big
-   group; then the note, and `note_check` on it, with every file the work
-   delivered in `delivered`.
+   group; then the note, and `note_check` on it, with every file this
+   conversation wrote for the owner in `delivered`. A file the owner wrote
+   themselves is theirs, not delivered: its figures are given.
 3. What only the owner knows (who buys from them now, their margin) is a line
    for the session to ask, never an answer you make up for them. When the
    brief carries their answers or real results, record them first
@@ -56,6 +57,10 @@ you wrote it. So it holds what the owner reads and nothing else:
 
 Never repeat what the work or the reply already says, give an account of how
 you got there, or forecast sign-ups, conversion or revenue.
+Never name a tool, a check or its fields (`note_check`, `pays`), and never
+print a folder or file path: the owner reads findings, not how they were
+checked. A check you cannot pass because of the owner's own work becomes a
+point for them, in plain words.
 
 ## Rules that hold throughout
 

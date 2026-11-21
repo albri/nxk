@@ -209,6 +209,17 @@ function main() {
     } catch {
       /* unreadable: an agent is checked on the logs alone */
     }
+  // nxk's own agent that never loaded its tools answered from what it already knew, with nothing counted: it is held
+  // once to load them and look, as its steps say.
+  if (advisor && transcript !== null && !ranAnyTool(transcript)) {
+    const reason = [
+      "nxk: you answered without nxk's tools, so nothing in it was counted.",
+      "Load them (the ToolSearch line in your steps), then product and guide, and look at the people before you answer.",
+      "End with the whole note or the whole findings: your last message is what goes back to the session.",
+    ].join(" ");
+    console.log(JSON.stringify({ decision: "block", reason }));
+    return;
+  }
   // Every reason below is about nxk's tools run in this session, so a session that ran none is let go before the
   // project is searched. The main session's is the only transcript that says so: unread, it is let go too.
   if (transcript === null ? !advisor : !ranAnyTool(transcript)) return;
@@ -240,8 +251,14 @@ function main() {
       return [];
     }
   });
+  // Where the figures were printed, said in words (the project itself is "this project", never "."), and the folder to
+  // give note_check, in full.
+  const folders = (list: { file: string }[]) => list.map(({ file }) => resolve(file, "..", ".."));
   const at = (list: { file: string }[]) =>
-    list.map(({ file }) => relative(root, resolve(file, "..", "..")) || ".").join(", ");
+    folders(list)
+      .map((folder) => relative(root, folder) || "this project")
+      .join(", ");
+  const folderOf = (list: { file: string }[]) => folders(list).join(", ");
   // A session that counted the owner's terms itself and then sized nothing is held once.
   const terms =
     transcript !== null && ranTool(transcript, "terms") && !ranSuggest(transcript)
@@ -263,7 +280,7 @@ function main() {
     reasons.push(
       [
         `the suggestions in ${at(open)} were counted (suggest) but the reply to the owner has not passed note_check since.`,
-        `Check the reply with note_check, with folder ${at(open)}, and fix what it reports,`,
+        `Check the reply with note_check, with folder ${folderOf(open)}, and fix what it reports,`,
         "or tell the user why it cannot be checked.",
       ].join(" "),
     );
@@ -275,7 +292,7 @@ function main() {
     reasons.push(
       [
         `figures were printed in ${at(quiet)} (counts, scans or sums), and the reply to the owner has not passed note_check since.`,
-        `Check the reply with note_check, with folder ${at(quiet)}: each figure needs its label,`,
+        `Check the reply with note_check, with folder ${folderOf(quiet)}: each figure needs its label,`,
         "and a simulated share is never how many would buy.",
         "Fix what it reports, or tell the user why it cannot be checked.",
       ].join(" "),

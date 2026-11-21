@@ -219,7 +219,7 @@ export function valueOf(field: ListedField, code: string): number {
  * person to belong.
  */
 export function conditionsOf(fields: Field[], texts: string[]): Condition[] {
-  return texts.map((text): Condition => {
+  const conditions = texts.map((text): Condition => {
     const not = /^[^=]+!=/.test(text);
     const [name, want = ""] = (not ? text.replace("!=", "=") : text).split("=");
     if (not) {
@@ -237,6 +237,12 @@ export function conditionsOf(fields: Field[], texts: string[]): Condition[] {
           'A sentence about whom a term suits belongs in "fits_everyone" (why it suits everyone),',
           'and why a term needs no suggestion in "no_suggestion".',
         ].join(" "),
+      );
+    // A code alone ("a,b" written for "a or b") names no field: the error says whose code it is.
+    const holder = f < 0 && !text.includes("=") ? fields.find((x) => x.values?.some((v) => v.code === name)) : null;
+    if (holder)
+      throw new Error(
+        `"${name}" is a code of ${holder.name}, not a condition: write ${holder.name}=${name}, and for either of two codes join them with |: ${holder.name}=a|b`,
       );
     if (f < 0) throw new Error(`No field "${name}" in the map. Nearest: ${nearestFields(fields, name)}`);
     const field = fields[f];
@@ -274,10 +280,21 @@ export function conditionsOf(fields: Field[], texts: string[]): Condition[] {
     if (want.includes("..")) {
       if (!field.order) throw new Error(`${field.name} is not a scale: name its codes joined by |`);
       const [from, to] = want.split("..").map((code) => field.order!.indexOf(code));
-      if (from < 0 || to < 0)
+      if (from < 0 || to < 0) {
+        // Numbers given for a scale of bands (income=20000..80000) are matched to the bands that hold them, and said.
+        const [low, high] = want
+          .split("..")
+          .map((end) =>
+            field.order!.includes(end) ? end : /^\d+$/.test(end) ? bandHolding(field.order!, Number(end)) : null,
+          );
+        const bands =
+          low && high
+            ? ` ${field.name}=${want} names numbers: ${field.name}=${low}..${high} counts the bands that hold them.`
+            : "";
         throw new Error(
-          `For a range of ${field.name}, give two codes of its scale, lowest or first first: ${field.order.join(" < ")}`,
+          `For a range of ${field.name}, give two codes of its scale, the lower first: ${field.order.join(" < ")}.${bands}`,
         );
+      }
       return conditionsOf(fields, [
         `${name}=${field.order.slice(Math.min(from, to), Math.max(from, to) + 1).join("|")}`,
       ])[0];
@@ -307,6 +324,29 @@ export function conditionsOf(fields: Field[], texts: string[]): Condition[] {
       codes: wanted.map((v) => field.values[v].code),
       test: (row) => wanted.some((v) => holds(field, row, f, v)),
     };
+  });
+  // A person holds one value of a field that is not a list, so two conditions on it that share no code hold nobody:
+  // a count of 0 there is a slip in the asking ("a, b" for "a or b"), never a finding.
+  conditions.forEach((a, i) => {
+    const b = conditions.slice(i + 1).find((c) => c.path === a.path && c.codes && a.codes);
+    const field = b && fields.find((x) => x.path === a.path);
+    if (!b || !field || field.kind === "list" || a.codes!.some((code) => b.codes!.includes(code))) return;
+    throw new Error(
+      `A person has one ${field.name}, so "${a.text}" and "${b.text}" together hold nobody. For either, join the codes with |: ${field.name}=${[...a.codes!, ...b.codes!].join("|")}`,
+    );
+  });
+  return conditions;
+}
+
+/** The band of a scale whose code holds a number: 25000 is in 20000_to_29999_gbp, 9000 in under_12570_gbp. */
+export function bandHolding(codes: string[], n: number): string | undefined {
+  return codes.find((code) => {
+    const [lo, hi] = (code.match(/\d+/g) ?? []).map(Number);
+    if (lo === undefined) return false;
+    if (/^\d+$/.test(code)) return n === lo;
+    if (/^(under|less_than|below)_/.test(code)) return n < lo;
+    if (/_(or_more|or_over|and_over|plus)(_|$)/.test(code)) return n >= lo;
+    return hi !== undefined && n >= lo && n <= hi;
   });
 }
 

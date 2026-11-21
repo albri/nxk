@@ -167,6 +167,35 @@ const FIND_MOST = 25,
  * counts it, so that a stand-in is not counted under its name.
  */
 export function findLines(fields: Field[], word: string): string[] {
+  const lines = mentionLines(fields, word);
+  if (lines.length) return lines;
+  // A word as written may miss its own fact ("renting" is in no code, "rented" is): its root is tried, and said.
+  const root = rootOf(word);
+  const nearer = root ? mentionLines(fields, root) : [];
+  if (nearer.length) return [`Nothing mentions "${word}" as written; these mention its root "${root}":`, ...nearer];
+  return [
+    `No fact about people mentions "${word}". Try another word, or list all ${fields.length} with action fields`,
+    [
+      "If it is not among them, nothing here counts it, and the scan cannot say how many have it.",
+      "Do not count a stand-in under its name: if you count homeowners, call them homeowners.",
+      "A group put forward still needs its size: look up a published count (guide topic look_up),",
+      "open it with source_check and label it sourced, or ask the owner.",
+      "With none found, say so, and do not put the group forward on a size you do not have.",
+    ].join(" "),
+  ];
+}
+
+/** A one-word search term with its ending taken off (renting, renters, rented: rent), or null when none comes off. */
+export function rootOf(word: string): string | null {
+  if (/\s/.test(word.trim())) return null;
+  const ending = ["ers", "ing", "er", "ed", "es", "s"].find(
+    (end) => word.endsWith(end) && word.length - end.length >= 4,
+  );
+  return ending ? word.slice(0, -ending.length) : null;
+}
+
+/** The lines for each field whose name, meaning, codes or labels hold a word. */
+function mentionLines(fields: Field[], word: string): string[] {
   const lines: string[] = [];
   for (const field of fields) {
     const all = field.values ?? [];
@@ -185,17 +214,7 @@ export function findLines(fields: Field[], word: string): string[] {
       lines.push(`    and ${more} more of its ${all.length.toLocaleString("en-GB")} values mention "${word}": ${how}`);
     }
   }
-  if (lines.length) return lines;
-  return [
-    `No fact about people mentions "${word}". Try another word, or list all ${fields.length} with action fields`,
-    [
-      "If it is not among them, nothing here counts it, and the scan cannot say how many have it.",
-      "Do not count a stand-in under its name: if you count homeowners, call them homeowners.",
-      "A group put forward still needs its size: look up a published count (guide topic look_up),",
-      "open it with source_check and label it sourced, or ask the owner.",
-      "With none found, say so, and do not put the group forward on a size you do not have.",
-    ].join(" "),
-  ];
+  return lines;
 }
 
 /**
@@ -822,6 +841,23 @@ function inline(text: string) {
     : text;
 }
 
+/**
+ * A card's place, from its settlement, county and region, each said once. A US place and county carry their state
+ * ("Livonia city, Michigan", "Wayne County, Michigan"), which the region says again, and a census type ("city",
+ * "CDP"): each part loses a name a later part gives, and its type. Livonia, Wayne County, Michigan.
+ */
+export function placeLine(parts: string[]): string[] {
+  const key = (t: string) => t.toLowerCase().replace(/[^a-z]/g, "");
+  return parts
+    .map((part, j) => {
+      let text = part;
+      for (const later of parts.slice(j + 1))
+        if (text.endsWith(`, ${later}`)) text = text.slice(0, -(later.length + 2));
+      return text.replace(/ (city|town|village|CDP|borough|township|municipality)$/, "");
+    })
+    .filter((t, j, all) => all.findIndex((u) => key(u) === key(t)) === j);
+}
+
 /** People to meet: drawn at random from inside the group, each as a card of their own facts. Colour, not evidence. */
 function printMeet(log: Log, fields: Field[], { among, base, all }: Audience, group: Group, flags: Flags) {
   const within = group.conditions.length ? group.members : all;
@@ -844,10 +880,7 @@ function printMeet(log: Log, fields: Field[], { among, base, all }: Audience, gr
   picked.forEach((i, k) => {
     const row = base[i];
     const head = texts(row, ["gender", "age_years"]).map((e) => e.text);
-    const key = (t: string) => t.toLowerCase().replace(/[^a-z]/g, "");
-    const place = texts(row, ["settlement_name", "county_or_local_authority", "region"])
-      .map((e) => e.text)
-      .filter((t, j, all) => all.findIndex((u) => key(u) === key(t)) === j);
+    const place = placeLine(texts(row, ["settlement_name", "county_or_local_authority", "region"]).map((e) => e.text));
     log.line(`${k + 1}. ${head.join(", ")}. ${place.join(", ")}.`);
     for (const [title, names] of CARD) {
       const seen: Record<string, number> = {};

@@ -8,12 +8,12 @@ import { countryOf, legendFor } from "./legend.ts";
 
 const legendFails = (reply: string, runs: LogRun[] | null = null) =>
   check(reply, runs).filter((f) => f.check === "legend" && f.level === "FAIL");
-const LINE_UK = "counted: on 200,000 made-up UK adults that match official statistics, a rough guide";
+const LINE_UK = "Counted: on 200,000 made-up UK adults that match official statistics, a rough guide";
 
 test("a counted figure with no word on what counted means fails with the line to add", () => {
   const [f] = legendFails("About 18.3 in every 100 of adults (counted) are left out.\n£12 is the price.");
   assert.ok(
-    f.message.includes(`"counted: on 200,000 made-up UK adults that match official statistics, a rough guide"`),
+    f.message.includes(`"Counted: on 200,000 made-up UK adults that match official statistics, a rough guide"`),
     f.message,
   );
 });
@@ -22,7 +22,7 @@ test("the line says what each label used means, and only those", () => {
   const [f] = legendFails(
     "18.3 in every 100 of adults (counted).\nAbout 40% (simulated) lean towards it.\n£90 (computed).",
   );
-  assert.ok(f.message.includes("counted: on 200,000"));
+  assert.ok(f.message.includes("Counted: on 200,000"));
   assert.ok(
     f.message.includes("simulated: from a scan, which says who is more likely to want something, not how many will"),
   );
@@ -72,7 +72,7 @@ test("the line is built for the country: a tool's --country, else the reply's ow
   assert.equal(countryOf({ runs: null, text: "Nothing says where." }), null);
   assert.equal(
     legendFor(["counted"], null),
-    "counted: on 200,000 made-up adults that match official statistics, a rough guide",
+    "Counted: on 200,000 made-up adults that match official statistics, a rough guide",
   );
   const [f] = legendFails("12 in every 100 of adults (counted).", us);
   assert.ok(f.message.includes("made-up US adults"));
