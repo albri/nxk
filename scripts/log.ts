@@ -154,10 +154,11 @@ export interface PacedRecord extends RecordBase {
   minutes: number;
 }
 
-/** scan: what it spent, in US dollars (printed when it finished sending). */
+/** scan: what this scan spent, in US dollars, and the spec's total with answers saved earlier (printed when it finished sending). */
 export interface SpentRecord extends RecordBase {
   type: "spent";
   usd: number;
+  total: number;
 }
 
 /** scan: a fact that matters, with its two ends as printed. */
