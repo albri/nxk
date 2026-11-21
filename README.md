@@ -5,6 +5,15 @@
   </picture>
 </h1>
 
+<!--
+  THE LAUNCH VIDEO: replace the placeholder line below with the URL GitHub gives the uploaded video
+  (https://github.com/user-attachments/assets/...), on its own line with a blank line either side.
+  GitHub plays a video in a README only when it is an uploaded attachment, never a file in the repository.
+  To get the URL: build out/nxk-launch.mp4 with `node assets/src/video.ts`, drag it into a comment box on
+  any issue or pull request in albri/nxk, wait for the link to appear, post the comment, and copy the link.
+-->
+VIDEO_URL_PLACEHOLDER
+
 <p align="center">
   <a href="https://github.com/albri/nxk/actions/workflows/test.yml"><img src="https://github.com/albri/nxk/actions/workflows/test.yml/badge.svg?branch=main" alt="Tests on main"></a>
 </p>
@@ -368,7 +377,7 @@ the newest Node 22.
 | `hooks/` | The Claude Code hooks |
 | `maps/` | The made-up people, built by `scripts/build-maps.ts` |
 | `evals/` | The cases, the runner, and the checks against published figures |
-| `assets/src/` | Draws the logo, figures and icons on this page, and keeps the counts behind them |
+| `assets/src/` | Draws the logo, figures and icons on this page, renders the launch video, and keeps the counts behind them |
 | `docs/` | How nxk is built |
 
 The evals run real Claude Code sessions on your own Claude account, and their
@@ -381,7 +390,9 @@ The logo, figures and icons are drawn by `assets/src/build.ts` from
 `node assets/src/count.ts`, which keeps every command with its output in
 `assets/src/data/idea-counts.txt`, and the evidence figure's from the checks'
 own results in `evals/`. The build measures text in a headless browser; the
-top of `build.ts` says what it needs.
+top of `build.ts` says what it needs. The launch video is rendered by
+`node assets/src/video.ts` from the same counts and results, with its sound
+synthesised in code; the top of `video.ts` says how.
 
 ## Licence
 
