@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "node"],
+  "categories": { "correctness": "error" },
+  "env": { "node": true, "es2024": true },
+  "rules": {
+    // A name taken out of an object with `...rest` is a way of leaving it out, not an unused variable.
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "unicorn/prefer-string-starts-ends-with": "error",
+    "unicorn/no-useless-spread": "error",
+    "unicorn/no-useless-fallback-in-spread": "error",
+    "unicorn/no-new-array": "error",
+    "unicorn/prefer-array-find": "error",
+    "import/no-cycle": "error"
+  },
+  "overrides": [
+    // The figure build measures text in a headless browser: its page.evaluate callbacks run there, not in Node.
+    { "files": ["assets/src/build.ts"], "env": { "browser": true } }
+  ],
+  // Of the eval folders, only the check runners and each case's seed script (answers.ts) are code: the rest of a case is
+  // data, and so are the derive scripts, kept as they were run. A later pattern wins.
+  "ignorePatterns": [
+    "examples/",
+    "maps/",
+    ".nxk/",
+    "evals/*/*",
+    "!evals/*/answers.ts",
+    "!evals/real-us/*",
+    "!evals/surveys/*",
+    "!evals/products/*",
+    "evals/*/derive/"
+  ]
+}

@@ -7,4 +7,8 @@ out/
 *.log
 .DS_Store
 
-benchmarks/.cache/
+# What the tools write in a project they run in (the log, scans, pages opened).
+.nxk/
+
+# Eval run output (claude plugin eval).
+evals/results/

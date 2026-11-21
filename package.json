@@ -1,0 +1,26 @@
+{
+  "name": "nxk",
+  "version": "0.10.0",
+  "private": true,
+  "description": "A plugin for Claude that gives it 200,000 made-up adults for the UK and 200,000 for the US, and tools to count them and put questions to them.",
+  "license": "MIT",
+  "repository": "https://github.com/albri/nxk",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "test": "node --test \"scripts/**/*.test.ts\" \"mcp/*.test.ts\" \"hooks/*.test.ts\" \"evals/*.test.ts\" \"evals/surveys/*.test.ts\" \"evals/products/*.test.ts\"",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint --deny-warnings",
+    "typecheck": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "oxfmt": "0.78.0",
+    "oxlint": "1.93.0",
+    "typescript": "7.0.2"
+  }
+}

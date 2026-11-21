@@ -1,0 +1,29 @@
+{
+  // TypeScript that Node runs as it is (22.18 and later strip the types), so there is no build step: tsc only checks.
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "ES2024",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2024"],
+    "types": ["node"],
+    "strict": true,
+    // What Node can run without compiling: imports name the .ts file, type-only imports say so, and no syntax that
+    // would compile to code (enums, namespaces, parameter properties).
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "scripts",
+    "mcp",
+    "hooks",
+    "assets/src",
+    "evals/*.ts",
+    "evals/*/answers.ts",
+    "evals/real-us/*.ts",
+    "evals/surveys/*.ts",
+    "evals/products/*.ts"
+  ]
+}
