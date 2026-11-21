@@ -1,0 +1,615 @@
+{
+ "source": {
+  "name": "Food and You 2: Wave 11 (2025), all-country tables",
+  "file": {
+   "file": "W11_allCountry_pub_251217.xlsx",
+   "sha": "22867c92a4fedb417e9f0432382a3d77b3de60dc10691a29f9efbeada723e536",
+   "url": "https://fsaopendata.blob.core.windows.net/opendatacatalog/W11_allCountry_pub_251217.xlsx"
+  },
+  "min_group_n": 100
+ },
+ "group_definitions": {
+  "sex": {
+   "female": {
+    "field": "sex_at_birth",
+    "in": [
+     "female"
+    ]
+   },
+   "male": {
+    "field": "sex_at_birth",
+    "in": [
+     "male"
+    ]
+   }
+  },
+  "age": {
+   "16_24": {
+    "field": "age_years",
+    "min": 18,
+    "max": 24
+   },
+   "25_34": {
+    "field": "age_years",
+    "min": 25,
+    "max": 34
+   },
+   "35_44": {
+    "field": "age_years",
+    "min": 35,
+    "max": 44
+   },
+   "45_54": {
+    "field": "age_years",
+    "min": 45,
+    "max": 54
+   },
+   "55_64": {
+    "field": "age_years",
+    "min": 55,
+    "max": 64
+   },
+   "65_74": {
+    "field": "age_years",
+    "min": 65,
+    "max": 74
+   },
+   "75_plus": {
+    "field": "age_years",
+    "min": 75,
+    "max": 100
+   }
+  },
+  "household_size": {
+   "1": {
+    "field": "people_in_household",
+    "in": [
+     "1"
+    ]
+   },
+   "2": {
+    "field": "people_in_household",
+    "in": [
+     "2"
+    ]
+   },
+   "3": {
+    "field": "people_in_household",
+    "in": [
+     "3"
+    ]
+   },
+   "4": {
+    "field": "people_in_household",
+    "in": [
+     "4"
+    ]
+   },
+   "5_plus": {
+    "field": "people_in_household",
+    "in": [
+     "5",
+     "6",
+     "7",
+     "8_or_more"
+    ]
+   }
+  },
+  "long_term_condition": {
+   "yes": {
+    "field": "day_to_day_activities_limited_by_health",
+    "in": [
+     "limited_a_lot",
+     "limited_a_little",
+     "has_a_long_term_condition_not_limiting"
+    ]
+   },
+   "no": {
+    "field": "day_to_day_activities_limited_by_health",
+    "in": [
+     "no_long_term_condition"
+    ]
+   }
+  }
+ },
+ "studies": {
+  "fsa-worried-food-would-run-out": {
+   "real": [
+    9.2,
+    18.4,
+    72.4
+   ],
+   "n": 5872,
+   "groups": {
+    "sex": {
+     "female": {
+      "real": [
+       8.4,
+       20.7,
+       70.9
+      ],
+      "n": 3425
+     },
+     "male": {
+      "real": [
+       9.7,
+       16.0,
+       74.3
+      ],
+      "n": 2357
+     }
+    },
+    "age": {
+     "16_24": {
+      "real": [
+       14.5,
+       21.5,
+       64.0
+      ],
+      "n": 301
+     },
+     "25_34": {
+      "real": [
+       16.7,
+       27.0,
+       56.3
+      ],
+      "n": 679
+     },
+     "35_44": {
+      "real": [
+       11.3,
+       21.4,
+       67.3
+      ],
+      "n": 863
+     },
+     "45_54": {
+      "real": [
+       7.2,
+       20.9,
+       71.9
+      ],
+      "n": 904
+     },
+     "55_64": {
+      "real": [
+       4.2,
+       14.7,
+       81.1
+      ],
+      "n": 1128
+     },
+     "65_74": {
+      "real": [
+       5.6,
+       9.4,
+       85.0
+      ],
+      "n": 1108
+     },
+     "75_plus": {
+      "real": [
+       2.8,
+       8.5,
+       88.7
+      ],
+      "n": 820
+     }
+    },
+    "household_size": {
+     "1": {
+      "real": [
+       8.5,
+       14.0,
+       77.5
+      ],
+      "n": 933
+     },
+     "2": {
+      "real": [
+       5.4,
+       15.7,
+       78.9
+      ],
+      "n": 2681
+     },
+     "3": {
+      "real": [
+       10.0,
+       18.2,
+       71.8
+      ],
+      "n": 948
+     },
+     "4": {
+      "real": [
+       9.7,
+       22.8,
+       67.5
+      ],
+      "n": 728
+     },
+     "5_plus": {
+      "real": [
+       19.5,
+       22.8,
+       57.7
+      ],
+      "n": 362
+     }
+    },
+    "long_term_condition": {
+     "yes": {
+      "real": [
+       15.4,
+       22.9,
+       61.7
+      ],
+      "n": 1738
+     },
+     "no": {
+      "real": [
+       6.6,
+       15.8,
+       77.6
+      ],
+      "n": 3798
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "table": {
+    "question": "FOODSEC1 Please say whether the statement below was often true, sometimes true or never true for you / people in your household in the last 12 months: I / we worried whether our food would run out before we got money to buy more",
+    "base": "Base: All respondents (answering)",
+    "workbook": "W11_allCountry_pub_251217.xlsx",
+    "sheet": "T217",
+    "published_total": {
+     "Often true (%)": 8.76534905895234,
+     "Sometimes true (%)": 17.4089403308657,
+     "Never true (%)": 68.740912607066,
+     "Don't know or prefer not to say (%)": 5.084798003116
+    }
+   }
+  },
+  "fsa-food-bank-12-months": {
+   "real": [
+    4.8,
+    95.2
+   ],
+   "n": 5887,
+   "groups": {
+    "sex": {
+     "female": {
+      "real": [
+       4.6,
+       95.4
+      ],
+      "n": 3437
+     },
+     "male": {
+      "real": [
+       5.1,
+       94.9
+      ],
+      "n": 2360
+     }
+    },
+    "age": {
+     "16_24": {
+      "real": [
+       7.8,
+       92.2
+      ],
+      "n": 301
+     },
+     "25_34": {
+      "real": [
+       8.8,
+       91.2
+      ],
+      "n": 679
+     },
+     "35_44": {
+      "real": [
+       5.5,
+       94.5
+      ],
+      "n": 864
+     },
+     "45_54": {
+      "real": [
+       3.8,
+       96.2
+      ],
+      "n": 904
+     },
+     "55_64": {
+      "real": [
+       2.8,
+       97.2
+      ],
+      "n": 1129
+     },
+     "65_74": {
+      "real": [
+       2.5,
+       97.5
+      ],
+      "n": 1111
+     },
+     "75_plus": {
+      "real": [
+       1.6,
+       98.4
+      ],
+      "n": 828
+     }
+    },
+    "household_size": {
+     "1": {
+      "real": [
+       3.3,
+       96.7
+      ],
+      "n": 938
+     },
+     "2": {
+      "real": [
+       2.5,
+       97.5
+      ],
+      "n": 2688
+     },
+     "3": {
+      "real": [
+       7.4,
+       92.6
+      ],
+      "n": 949
+     },
+     "4": {
+      "real": [
+       6.4,
+       93.6
+      ],
+      "n": 729
+     },
+     "5_plus": {
+      "real": [
+       6.7,
+       93.3
+      ],
+      "n": 362
+     }
+    },
+    "long_term_condition": {
+     "yes": {
+      "real": [
+       8.1,
+       91.9
+      ],
+      "n": 1747
+     },
+     "no": {
+      "real": [
+       3.3,
+       96.7
+      ],
+      "n": 3800
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "table": {
+    "question": "FOODBANK In the last 12 months, have you, or anyone else in your household, received a free parcel of food from a food bank or other emergency food provider?",
+    "base": "Base: All respondents (answering)",
+    "workbook": "W11_allCountry_pub_251217.xlsx",
+    "sheet": "T227",
+    "published_total": {
+     "Yes (%)": 4.69039964665999,
+     "No (%)": 92.5782548477969,
+     "Prefer not to say (%)": 2.73134550554308
+    }
+   }
+  },
+  "fsa-checks-animal-welfare-info": {
+   "real": [
+    14.2,
+    18.2,
+    9.6,
+    23.2,
+    34.8
+   ],
+   "n": 5880,
+   "groups": {
+    "sex": {
+     "female": {
+      "real": [
+       15.8,
+       21.1,
+       11.1,
+       21.7,
+       30.3
+      ],
+      "n": 3431
+     },
+     "male": {
+      "real": [
+       12.2,
+       15.4,
+       8.0,
+       24.6,
+       39.8
+      ],
+      "n": 2360
+     }
+    },
+    "age": {
+     "16_24": {
+      "real": [
+       14.8,
+       19.5,
+       13.2,
+       15.4,
+       37.1
+      ],
+      "n": 300
+     },
+     "25_34": {
+      "real": [
+       18.5,
+       14.1,
+       7.3,
+       22.4,
+       37.7
+      ],
+      "n": 678
+     },
+     "35_44": {
+      "real": [
+       15.4,
+       16.0,
+       11.0,
+       20.1,
+       37.5
+      ],
+      "n": 865
+     },
+     "45_54": {
+      "real": [
+       13.6,
+       16.6,
+       14.1,
+       28.2,
+       27.5
+      ],
+      "n": 901
+     },
+     "55_64": {
+      "real": [
+       12.6,
+       25.4,
+       8.4,
+       24.3,
+       29.3
+      ],
+      "n": 1129
+     },
+     "65_74": {
+      "real": [
+       11.9,
+       21.4,
+       6.8,
+       27.6,
+       32.3
+      ],
+      "n": 1112
+     },
+     "75_plus": {
+      "real": [
+       10.6,
+       15.0,
+       5.8,
+       25.0,
+       43.6
+      ],
+      "n": 826
+     }
+    },
+    "household_size": {
+     "1": {
+      "real": [
+       13.7,
+       16.1,
+       6.4,
+       26.9,
+       36.9
+      ],
+      "n": 936
+     },
+     "2": {
+      "real": [
+       11.5,
+       21.1,
+       9.5,
+       24.0,
+       33.9
+      ],
+      "n": 2685
+     },
+     "3": {
+      "real": [
+       18.5,
+       16.0,
+       9.9,
+       20.5,
+       35.1
+      ],
+      "n": 948
+     },
+     "4": {
+      "real": [
+       14.2,
+       16.5,
+       11.9,
+       23.2,
+       34.2
+      ],
+      "n": 728
+     },
+     "5_plus": {
+      "real": [
+       16.8,
+       19.1,
+       8.5,
+       21.9,
+       33.7
+      ],
+      "n": 362
+     }
+    },
+    "long_term_condition": {
+     "yes": {
+      "real": [
+       15.2,
+       17.4,
+       9.5,
+       22.7,
+       35.2
+      ],
+      "n": 1742
+     },
+     "no": {
+      "real": [
+       13.5,
+       19.1,
+       9.3,
+       23.6,
+       34.5
+      ],
+      "n": 3799
+     }
+    }
+   },
+   "groups_dropped_for_n": {},
+   "table": {
+    "question": "DEFRA4_1 When purchasing food, how often do you...? Check for information on animal welfare",
+    "base": "Base: All respondents (answering)",
+    "workbook": "W11_allCountry_pub_251217.xlsx",
+    "sheet": "T236",
+    "published_total": {
+     "Always (%)": 13.5006230779416,
+     "Most of the time (%)": 17.3914545123366,
+     "About half the time (%)": 9.15233519149306,
+     "Occasionally (%)": 22.1484851458723,
+     "Never (%)": 33.1573371074827,
+     "Don't know (%)": 4.64976496487369,
+     "Net - Always / Most of the time (%)": 30.8920775902783,
+     "Net - Less often (%)": 31.3008203373653,
+     "Net - Never (%)": 33.1573371074827
+    }
+   }
+  }
+ }
+}

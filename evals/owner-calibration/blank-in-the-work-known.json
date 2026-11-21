@@ -1,0 +1,14 @@
+{
+  "request": "write the booking terms for the cottage",
+  "goals": "Ruth Evans lets a holiday cottage in Pembrokeshire and wants fewer late cancellations.",
+  "knows": "- A deposit of 25% is taken at booking; the rest is due 6 weeks before arrival.",
+  "reply": "The booking terms are in terms.md. I've left the deposit for you to fill in.",
+  "placeholders": [
+    "deposit amount"
+  ],
+  "expect": {
+    "known": [
+      "deposit"
+    ]
+  }
+}

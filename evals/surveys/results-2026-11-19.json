@@ -1,0 +1,267 @@
+{
+ "what": "The scan against 22 official surveys: one fact known about a person, each value of each published dimension, two option orders averaged (evals/surveys/README.md).",
+ "model": [
+  "gemini-decision-1"
+ ],
+ "route": "Google's Decisions API",
+ "answers": 1970,
+ "requests": 174,
+ "tokens": 325973,
+ "usd": 0.0326,
+ "total": {
+  "studies": 22,
+  "groups": 393,
+  "gaps": 345,
+  "right": 327,
+  "size": 0.882,
+  "errorAnswered": 9.95,
+  "errorDifferences": 3.46,
+  "noise": 5.07
+ },
+ "nothingKnown": 11.55,
+ "studies": [
+  {
+   "id": "shed-emergency-savings-3-months",
+   "country": "us",
+   "groups": 20,
+   "gaps": 36,
+   "right": 36,
+   "size": 0.934,
+   "errorAnswered": 3.84,
+   "errorDifferences": 2.65,
+   "noise": 4.36
+  },
+  {
+   "id": "shed-went-without-medical-care-cost",
+   "country": "us",
+   "groups": 20,
+   "gaps": 26,
+   "right": 26,
+   "size": 1.164,
+   "errorAnswered": 10,
+   "errorDifferences": 3.83,
+   "noise": 3.91
+  },
+  {
+   "id": "shed-buy-now-pay-later",
+   "country": "us",
+   "groups": 20,
+   "gaps": 6,
+   "right": 6,
+   "size": 2.667,
+   "errorAnswered": 20.27,
+   "errorDifferences": 5.34,
+   "noise": 7.29
+  },
+  {
+   "id": "shed-retirement-savings-on-track",
+   "country": "us",
+   "groups": 18,
+   "gaps": 28,
+   "right": 26,
+   "size": 0.8,
+   "errorAnswered": 5.71,
+   "errorDifferences": 3.58,
+   "noise": 4.98
+  },
+  {
+   "id": "shed-food-sufficiency",
+   "country": "us",
+   "groups": 20,
+   "gaps": 25,
+   "right": 25,
+   "size": 0.57,
+   "errorAnswered": 3.27,
+   "errorDifferences": 1.89,
+   "noise": 2.81
+  },
+  {
+   "id": "shed-price-changes-effect",
+   "country": "us",
+   "groups": 20,
+   "gaps": 9,
+   "right": 7,
+   "size": 1.289,
+   "errorAnswered": 7.34,
+   "errorDifferences": 2.4,
+   "noise": 2.61
+  },
+  {
+   "id": "nhis-flu-vaccine-12-months",
+   "country": "us",
+   "groups": 20,
+   "gaps": 26,
+   "right": 24,
+   "size": 0.813,
+   "errorAnswered": 10.03,
+   "errorDifferences": 4.89,
+   "noise": 8.58
+  },
+  {
+   "id": "nhis-worry-paying-medical-bills",
+   "country": "us",
+   "groups": 20,
+   "gaps": 15,
+   "right": 15,
+   "size": 0.972,
+   "errorAnswered": 17.85,
+   "errorDifferences": 3.28,
+   "noise": 4.19
+  },
+  {
+   "id": "nhis-virtual-appointment-12-months",
+   "country": "us",
+   "groups": 20,
+   "gaps": 2,
+   "right": 2,
+   "size": 1.55,
+   "errorAnswered": 26.01,
+   "errorDifferences": 2.62,
+   "noise": 7.79
+  },
+  {
+   "id": "nhis-loneliness-frequency",
+   "country": "us",
+   "groups": 20,
+   "gaps": 2,
+   "right": 2,
+   "size": 0.939,
+   "errorAnswered": 10.83,
+   "errorDifferences": 1.89,
+   "noise": 2.7
+  },
+  {
+   "id": "nhis-volunteered-12-months",
+   "country": "us",
+   "groups": 20,
+   "gaps": 10,
+   "right": 10,
+   "size": 1.456,
+   "errorAnswered": 21.54,
+   "errorDifferences": 3.14,
+   "noise": 8.12
+  },
+  {
+   "id": "nhis-e-cigarette-use",
+   "country": "us",
+   "groups": 20,
+   "gaps": 19,
+   "right": 19,
+   "size": 0.9,
+   "errorAnswered": 3.25,
+   "errorDifferences": 2.41,
+   "noise": 4.65
+  },
+  {
+   "id": "ons-loneliness-frequency",
+   "country": "uk",
+   "groups": 19,
+   "gaps": 25,
+   "right": 25,
+   "size": 0.983,
+   "errorAnswered": 4.63,
+   "errorDifferences": 2.02,
+   "noise": 3.67
+  },
+  {
+   "id": "ons-able-to-save-next-12-months",
+   "country": "uk",
+   "groups": 19,
+   "gaps": 24,
+   "right": 22,
+   "size": 0.913,
+   "errorAnswered": 3.63,
+   "errorDifferences": 3.03,
+   "noise": 4.8
+  },
+  {
+   "id": "ons-borrowed-more-than-usual",
+   "country": "uk",
+   "groups": 19,
+   "gaps": 22,
+   "right": 20,
+   "size": 1.652,
+   "errorAnswered": 9.59,
+   "errorDifferences": 8.41,
+   "noise": 6.39
+  },
+  {
+   "id": "ons-afford-rent-or-mortgage",
+   "country": "uk",
+   "groups": 16,
+   "gaps": 9,
+   "right": 5,
+   "size": 0.606,
+   "errorAnswered": 10.38,
+   "errorDifferences": 5.76,
+   "noise": 3.1
+  },
+  {
+   "id": "ons-kept-comfortably-warm",
+   "country": "uk",
+   "groups": 19,
+   "gaps": 12,
+   "right": 12,
+   "size": 1.036,
+   "errorAnswered": 7.61,
+   "errorDifferences": 3.04,
+   "noise": 5.06
+  },
+  {
+   "id": "fsa-worried-food-would-run-out",
+   "country": "uk",
+   "groups": 15,
+   "gaps": 28,
+   "right": 28,
+   "size": 0.701,
+   "errorAnswered": 2.74,
+   "errorDifferences": 1.98,
+   "noise": 3.74
+  },
+  {
+   "id": "fsa-checks-animal-welfare-info",
+   "country": "uk",
+   "groups": 15,
+   "gaps": 7,
+   "right": 6,
+   "size": 0.399,
+   "errorAnswered": 8.21,
+   "errorDifferences": 2.29,
+   "noise": 2.44
+  },
+  {
+   "id": "desnz-worry-paying-energy-bills",
+   "country": "uk",
+   "groups": 9,
+   "gaps": 5,
+   "right": 2,
+   "size": 0.185,
+   "errorAnswered": 7.17,
+   "errorDifferences": 2.88,
+   "noise": 4.32
+  },
+  {
+   "id": "desnz-concern-about-climate-change",
+   "country": "uk",
+   "groups": 9,
+   "gaps": 1,
+   "right": 1,
+   "size": 1.13,
+   "errorAnswered": 4.98,
+   "errorDifferences": 3.14,
+   "noise": 3.57
+  },
+  {
+   "id": "ces-formal-volunteering-12-months",
+   "country": "uk",
+   "groups": 15,
+   "gaps": 8,
+   "right": 8,
+   "size": 1.798,
+   "errorAnswered": 13.24,
+   "errorDifferences": 5.65,
+   "noise": 8.84
+  }
+ ],
+ "unanswered": []
+}

@@ -1,0 +1,11 @@
+{
+  "request": "write our returns policy page, keep it short",
+  "goals": "Sam Okafor sells refurbished laptops online from Bristol and wants fewer support emails about returns.",
+  "knows": "- Returns are accepted within 30 days of delivery.",
+  "reply": "The returns page is in site/returns.html, with your 30 days. Do you offer exchanges for a different model, or refunds only?",
+  "expect": {
+    "unknown": [
+      "exchange"
+    ]
+  }
+}

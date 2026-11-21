@@ -1,0 +1,11 @@
+{
+  "request": "can you update the timetable page with the two new daytime classes from January?",
+  "goals": "Lou Brennan owns Saltwind Pilates, a small mat Pilates studio in Worthing. Her evenings are full, and her daytime is empty apart from four 60+ classes, all full with 38 people on the waiting list, who come through the U3A newsletter and GP social prescribing. She is adding two 60+ daytime classes in January to take the waiting list, and each needs 8 people by the end of February to pay its teacher and the room.",
+  "knows": "- Evening classes have their own waiting list; she has no teacher for more evenings.",
+  "reply": "The timetable page now lists the two new 60+ classes on Tuesday and Thursday at 11am.\n\nWorth considering:\n- Young professionals working from home: about 1 in 5 adults in Worthing, the largest group the page doesn't speak to (counted). Say yes and I'll add an evening 'after-work reset' class to the timetable and a banner for it.",
+  "expect": {
+    "no": [
+      "after-work reset"
+    ]
+  }
+}

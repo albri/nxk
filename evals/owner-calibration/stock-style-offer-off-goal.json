@@ -1,0 +1,11 @@
+{
+  "request": "write the launch email for the bread round",
+  "goals": "Ella Marsh runs Larkfield Bakehouse in Eastbourne and is launching a doorstep bread round in February. The van lease needs 150 households on the round by the end of March.",
+  "knows": "- She has no time for social media and doesn't post.",
+  "reply": "The email is in emails/2026-02-bread-round.md. Want me to also write a month of Instagram posts to go with it?",
+  "expect": {
+    "no": [
+      "instagram"
+    ]
+  }
+}

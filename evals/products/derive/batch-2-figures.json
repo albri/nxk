@@ -1,0 +1,1561 @@
+[
+ {
+  "id": "lottery_draw",
+  "what": "Tickets for National Lottery draws i",
+  "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+  "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+  "population": "adults 18+ in Great Britain",
+  "measure": "took part in the past four weeks",
+  "all": 30.8,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "All males",
+    "percent": 33.5
+   },
+   {
+    "dimension": "sex",
+    "group": "All females",
+    "percent": 28.2
+   },
+   {
+    "dimension": "age",
+    "group": "18 to 24",
+    "percent": 10.9
+   },
+   {
+    "dimension": "age",
+    "group": "25 to 34",
+    "percent": 22.8
+   },
+   {
+    "dimension": "age",
+    "group": "35 to 44",
+    "percent": 31.4
+   },
+   {
+    "dimension": "age",
+    "group": "45 to 54",
+    "percent": 39.9
+   },
+   {
+    "dimension": "age",
+    "group": "55 to 64",
+    "percent": 38.9
+   },
+   {
+    "dimension": "age",
+    "group": "65 to 74",
+    "percent": 35.5
+   },
+   {
+    "dimension": "age",
+    "group": "75 plus",
+    "percent": 30.0
+   }
+  ]
+ },
+ {
+  "id": "charity_lottery",
+  "what": "Tickets for other charity lottery draws i",
+  "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+  "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+  "population": "adults 18+ in Great Britain",
+  "measure": "took part in the past four weeks",
+  "all": 15.7,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "All males",
+    "percent": 14.4
+   },
+   {
+    "dimension": "sex",
+    "group": "All females",
+    "percent": 16.9
+   },
+   {
+    "dimension": "age",
+    "group": "18 to 24",
+    "percent": 5.4
+   },
+   {
+    "dimension": "age",
+    "group": "25 to 34",
+    "percent": 9.8
+   },
+   {
+    "dimension": "age",
+    "group": "35 to 44",
+    "percent": 12.9
+   },
+   {
+    "dimension": "age",
+    "group": "45 to 54",
+    "percent": 19.8
+   },
+   {
+    "dimension": "age",
+    "group": "55 to 64",
+    "percent": 21.0
+   },
+   {
+    "dimension": "age",
+    "group": "65 to 74",
+    "percent": 20.7
+   },
+   {
+    "dimension": "age",
+    "group": "75 plus",
+    "percent": 19.7
+   }
+  ]
+ },
+ {
+  "id": "scratchcards",
+  "what": "Scratchcards",
+  "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+  "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+  "population": "adults 18+ in Great Britain",
+  "measure": "took part in the past four weeks",
+  "all": 12.8,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "All males",
+    "percent": 11.8
+   },
+   {
+    "dimension": "sex",
+    "group": "All females",
+    "percent": 13.6
+   },
+   {
+    "dimension": "age",
+    "group": "18 to 24",
+    "percent": 14.0
+   },
+   {
+    "dimension": "age",
+    "group": "25 to 34",
+    "percent": 17.0
+   },
+   {
+    "dimension": "age",
+    "group": "35 to 44",
+    "percent": 17.0
+   },
+   {
+    "dimension": "age",
+    "group": "45 to 54",
+    "percent": 14.8
+   },
+   {
+    "dimension": "age",
+    "group": "55 to 64",
+    "percent": 9.4
+   },
+   {
+    "dimension": "age",
+    "group": "65 to 74",
+    "percent": 7.3
+   },
+   {
+    "dimension": "age",
+    "group": "75 plus",
+    "percent": 6.7
+   }
+  ]
+ },
+ {
+  "id": "online_instant_win",
+  "what": "Online instant win games",
+  "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+  "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+  "population": "adults 18+ in Great Britain",
+  "measure": "took part in the past four weeks",
+  "all": 7.5,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "All males",
+    "percent": 8.1
+   },
+   {
+    "dimension": "sex",
+    "group": "All females",
+    "percent": 6.9
+   },
+   {
+    "dimension": "age",
+    "group": "18 to 24",
+    "percent": 9.6
+   },
+   {
+    "dimension": "age",
+    "group": "25 to 34",
+    "percent": 11.3
+   },
+   {
+    "dimension": "age",
+    "group": "35 to 44",
+    "percent": 10.7
+   },
+   {
+    "dimension": "age",
+    "group": "45 to 54",
+    "percent": 9.2
+   },
+   {
+    "dimension": "age",
+    "group": "55 to 64",
+    "percent": 4.8
+   },
+   {
+    "dimension": "age",
+    "group": "65 to 74",
+    "percent": 2.7
+   },
+   {
+    "dimension": "age",
+    "group": "75 plus",
+    "percent": 1.6
+   }
+  ]
+ },
+ {
+  "id": "sports_betting_online",
+  "what": "Betting on sports and racing online/via an app",
+  "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+  "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+  "population": "adults 18+ in Great Britain",
+  "measure": "took part in the past four weeks",
+  "all": 9.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "All males",
+    "percent": 14.2
+   },
+   {
+    "dimension": "sex",
+    "group": "All females",
+    "percent": 4.0
+   },
+   {
+    "dimension": "age",
+    "group": "18 to 24",
+    "percent": 13.7
+   },
+   {
+    "dimension": "age",
+    "group": "25 to 34",
+    "percent": 13.8
+   },
+   {
+    "dimension": "age",
+    "group": "35 to 44",
+    "percent": 10.7
+   },
+   {
+    "dimension": "age",
+    "group": "45 to 54",
+    "percent": 9.1
+   },
+   {
+    "dimension": "age",
+    "group": "55 to 64",
+    "percent": 7.7
+   },
+   {
+    "dimension": "age",
+    "group": "65 to 74",
+    "percent": 3.5
+   },
+   {
+    "dimension": "age",
+    "group": "75 plus",
+    "percent": 1.6
+   }
+  ]
+ },
+ {
+  "id": "bingo_venue",
+  "what": "Bingo played at a venue e.g. bingo hall, social club",
+  "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+  "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+  "population": "adults 18+ in Great Britain",
+  "measure": "took part in the past four weeks",
+  "all": 3.3,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "All males",
+    "percent": 2.2
+   },
+   {
+    "dimension": "sex",
+    "group": "All females",
+    "percent": 4.4
+   },
+   {
+    "dimension": "age",
+    "group": "18 to 24",
+    "percent": 4.3
+   },
+   {
+    "dimension": "age",
+    "group": "25 to 34",
+    "percent": 4.1
+   },
+   {
+    "dimension": "age",
+    "group": "35 to 44",
+    "percent": 2.8
+   },
+   {
+    "dimension": "age",
+    "group": "45 to 54",
+    "percent": 3.6
+   },
+   {
+    "dimension": "age",
+    "group": "55 to 64",
+    "percent": 2.2
+   },
+   {
+    "dimension": "age",
+    "group": "65 to 74",
+    "percent": 3.1
+   },
+   {
+    "dimension": "age",
+    "group": "75 plus",
+    "percent": 3.4
+   }
+  ]
+ },
+ {
+  "id": "online_casino",
+  "what": "Casino games played online/via an app",
+  "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+  "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+  "population": "adults 18+ in Great Britain",
+  "measure": "took part in the past four weeks",
+  "all": 2.8,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "All males",
+    "percent": 4.3
+   },
+   {
+    "dimension": "sex",
+    "group": "All females",
+    "percent": 1.4
+   },
+   {
+    "dimension": "age",
+    "group": "18 to 24",
+    "percent": 6.4
+   },
+   {
+    "dimension": "age",
+    "group": "25 to 34",
+    "percent": 4.5
+   },
+   {
+    "dimension": "age",
+    "group": "35 to 44",
+    "percent": 3.8
+   },
+   {
+    "dimension": "age",
+    "group": "45 to 54",
+    "percent": 2.5
+   },
+   {
+    "dimension": "age",
+    "group": "55 to 64",
+    "percent": 1.3
+   },
+   {
+    "dimension": "age",
+    "group": "65 to 74",
+    "percent": 0.3
+   },
+   {
+    "dimension": "age",
+    "group": "75 plus",
+    "percent": 0.0
+   }
+  ]
+ },
+ {
+  "id": "football_pools",
+  "what": "Football pools i",
+  "source": "Gambling Survey for Great Britain, annual report 2024, data tables, Table B.9 (Gambling Commission)",
+  "url": "https://assets.ctfassets.net/j16ev64qyf6l/2e5AG2TZseBH7X0fQf9iiD/50415e98f606e641a3efa206a5f0f422/GSGB_Y2_2024__Annual_Data_Tables_Correction.xlsx",
+  "population": "adults 18+ in Great Britain",
+  "measure": "took part in the past four weeks",
+  "all": 1.9,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "All males",
+    "percent": 2.9
+   },
+   {
+    "dimension": "sex",
+    "group": "All females",
+    "percent": 0.9
+   },
+   {
+    "dimension": "age",
+    "group": "18 to 24",
+    "percent": 3.4
+   },
+   {
+    "dimension": "age",
+    "group": "25 to 34",
+    "percent": 3.5
+   },
+   {
+    "dimension": "age",
+    "group": "35 to 44",
+    "percent": 2.2
+   },
+   {
+    "dimension": "age",
+    "group": "45 to 54",
+    "percent": 1.2
+   },
+   {
+    "dimension": "age",
+    "group": "55 to 64",
+    "percent": 0.8
+   },
+   {
+    "dimension": "age",
+    "group": "65 to 74",
+    "percent": 0.9
+   },
+   {
+    "dimension": "age",
+    "group": "75 plus",
+    "percent": 1.0
+   }
+  ]
+ },
+ {
+  "id": "premium_bonds",
+  "what": "Premium bonds",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "holds it",
+  "all": 26.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 27.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 26.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 11.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 12.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 15.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 24.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 35.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 44.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 48.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 49.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 26.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 11.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 17.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 24.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 29.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 30.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 30.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 33.0
+   }
+  ]
+ },
+ {
+  "id": "stocks_shares_isa",
+  "what": "Stocks and shares ISA",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "holds it",
+  "all": 17.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 22.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 13.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 9.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 12.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 12.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 16.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 20.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 25.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 29.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 32.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 18.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 7.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 5.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 12.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 18.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 22.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 29.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 36.0
+   }
+  ]
+ },
+ {
+  "id": "crypto",
+  "what": "Cryptocurrencies or cryptoassets",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "holds it",
+  "all": 4.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 7.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 2.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 5.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 7.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 7.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 5.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 3.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 1.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 1.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 2.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 7.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 5.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 2.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 3.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 3.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 7.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 9.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 10.0
+   }
+  ]
+ },
+ {
+  "id": "bnpl",
+  "what": "Deferred payment credit",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "has it now or used it in the last 12 months",
+  "all": 20.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 18.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 23.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 23.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 30.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 28.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 24.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 15.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 9.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 5.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 7.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 24.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 29.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 21.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 23.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 22.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 26.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 21.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 18.0
+   }
+  ]
+ },
+ {
+  "id": "catalogue_credit",
+  "what": "Catalogue credit or shopping accounts",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "has it now or used it in the last 12 months",
+  "all": 11.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 6.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 16.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 5.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 10.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 15.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 17.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 13.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 8.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 6.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 7.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 12.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 15.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 14.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 14.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 13.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 12.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 10.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 8.0
+   }
+  ]
+ },
+ {
+  "id": "high_cost_credit",
+  "what": "Any high-cost credit or loan",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "has it now or used it in the last 12 months",
+  "all": 6.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 6.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 6.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 12.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 9.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 8.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 6.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 4.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 2.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 2.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 2.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 5.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 10.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 10.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 8.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 7.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 6.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 5.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 3.0
+   }
+  ]
+ },
+ {
+  "id": "pet_insurance",
+  "what": "Pet insurance",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "holds it",
+  "all": 16.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 14.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 19.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 7.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 19.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 19.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 24.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 19.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 13.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 7.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 14.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 28.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 12.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 9.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 13.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 20.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 24.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 25.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 25.0
+   }
+  ]
+ },
+ {
+  "id": "phone_insurance",
+  "what": "Mobile phone insurance",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "holds it",
+  "all": 15.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 16.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 15.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 15.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 16.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 16.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 16.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 15.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 15.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 11.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 15.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 20.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 13.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 8.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 13.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 16.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 20.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 21.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 22.0
+   }
+  ]
+ },
+ {
+  "id": "annual_travel_insurance",
+  "what": "Multi-trip (annual) travel insurance",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "holds it",
+  "all": 27.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 28.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 26.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 11.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 19.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 26.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 31.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 34.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 36.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 25.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 39.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 37.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 12.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 10.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 18.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 28.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 35.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 43.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 52.0
+   }
+  ]
+ },
+ {
+  "id": "private_medical",
+  "what": "Private medical insurance",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "holds it",
+  "all": 14.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 16.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 12.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 8.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 16.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 18.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 19.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 12.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 9.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 12.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 14.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 22.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 10.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 4.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 7.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 12.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 17.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 26.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 42.0
+   }
+  ]
+ },
+ {
+  "id": "emoney_account",
+  "what": "Current account with a payment services institution or an e-money provider",
+  "source": "Financial Lives 2024 survey, data tables volume 3: product ownership (FCA)",
+  "url": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-tables-volume-3-product-ownership.xlsx",
+  "population": "UK adults 18+",
+  "measure": "holds it",
+  "all": 12.0,
+  "figures": [
+   {
+    "dimension": "sex",
+    "group": "Male",
+    "percent": 15.0
+   },
+   {
+    "dimension": "sex",
+    "group": "Female",
+    "percent": 9.0
+   },
+   {
+    "dimension": "age",
+    "group": "18-24",
+    "percent": 16.0
+   },
+   {
+    "dimension": "age",
+    "group": "25-34",
+    "percent": 21.0
+   },
+   {
+    "dimension": "age",
+    "group": "35-44",
+    "percent": 18.0
+   },
+   {
+    "dimension": "age",
+    "group": "45-54",
+    "percent": 11.0
+   },
+   {
+    "dimension": "age",
+    "group": "55-64",
+    "percent": 7.0
+   },
+   {
+    "dimension": "age",
+    "group": "65-74",
+    "percent": 4.0
+   },
+   {
+    "dimension": "age",
+    "group": "75+",
+    "percent": 2.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Own outright",
+    "percent": 5.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Mortgage",
+    "percent": 13.0
+   },
+   {
+    "dimension": "tenure",
+    "group": "Renting",
+    "percent": 17.0
+   },
+   {
+    "dimension": "household income",
+    "group": "Less than £15k",
+    "percent": 8.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£15k - <£30k",
+    "percent": 9.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£30k - <£50k",
+    "percent": 12.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£50k - <£70k",
+    "percent": 16.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£70k - <£100k",
+    "percent": 17.0
+   },
+   {
+    "dimension": "household income",
+    "group": "£100k - <£250k",
+    "percent": 20.0
+   }
+  ]
+ }
+]

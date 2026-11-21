@@ -1,0 +1,14 @@
+{
+  "request": "write the page for the new evening pottery course, 8 weeks, £160",
+  "goals": "Jo Hart runs a pottery studio in Norwich. Her new evening course needs 10 people by the start of March, and she would like more people who have never touched clay.",
+  "knows": "- She can't run daytime courses: the studio is let to a school in the day.",
+  "reply": "The course page is in site/evening-course.html, with 8 weeks and £160.\n\nWorth considering:\n- People who have never tried a craft class: about 6 in 10 adults in Norwich (counted). Say yes and I'll add a 'never touched clay? start here' line and a free taster evening to the page.\n- Retired people free in the day: about 1 in 5 (counted). Say yes and I'll add a daytime version of the course.",
+  "expect": {
+    "yes": [
+      "taster"
+    ],
+    "no": [
+      "daytime"
+    ]
+  }
+}

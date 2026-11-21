@@ -1,0 +1,12 @@
+{
+  "request": "make the sign-up page for the gym, 12 months at £29.99 a month by direct debit",
+  "goals": "Rhian Price runs an independent gym in Swansea and wants 80 new members on the 12-month plan by March.",
+  "knows": "",
+  "reply": "The sign-up page is in site/join.html, with 12 months at £29.99 by direct debit. Two things only you can tell me: what's the gym's name and address, and on which day of the month is the payment taken?",
+  "expect": {
+    "fill": [
+      "name",
+      "day"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "request": "can you write the launch email for the bread round? it's all in notes/bread-round.md",
+  "goals": "Ella Marsh runs Larkfield Bakehouse in Eastbourne and is launching a doorstep bread round in February, ordered and paid for by card on the website. The van lease needs 150 households on the round by the end of March; under 100 by then and she stops it. She pictures the round for commuters who want bread before the train and families on the school run.",
+  "knows": "- The round runs Tuesday and Friday mornings, 6.30am to 9am.\n- Most shop regulars on weekdays are retired people from the streets around Grove Road.",
+  "reply": "I've written the launch email in emails/2026-02-bread-round.md, with your days, prices and how to order near the top.\n\nWorth considering:\n- People 65 and over living alone, at home in the mornings: about 1 in 4 adults in Eastbourne (counted). The email speaks to commuters and school-run families only. Say yes and I'll add a line for people at home in the mornings who'd like fresh bread on the step.",
+  "expect": {
+    "yes": [
+      "at home in the mornings"
+    ]
+  }
+}

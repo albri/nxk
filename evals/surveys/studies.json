@@ -1,0 +1,9113 @@
+{
+ "about": "22 official surveys: each question's published answer, overall and by group, with the PersonaGen field and values that define each group. real: weighted shares in percent. n: unweighted respondents. drawn: of the 300 PersonaGen people drawn for the study's population in the original benchmark, how many fell in the group; a group is scored when 30 or more did, and drawn weights the groups of a dimension.",
+ "from": "benchmarks/v4/studies.json (version v4-1) at commit a2cfa03, built by benchmarks/v4/derive/build.py; drawn from benchmarks/results-v4-jev-latest.json at the same commit. Downloads, licences and checksums: git show a2cfa03:benchmarks/v4/sources.md",
+ "studies": [
+  {
+   "id": "shed-emergency-savings-3-months",
+   "title": "Three months of emergency savings",
+   "source": {
+    "name": "Survey of Household Economics and Decisionmaking 2024 (public use data)",
+    "organisation": "Board of Governors of the Federal Reserve System",
+    "url": "https://www.federalreserve.gov/consumerscommunities/shed_data.htm",
+    "variables": [
+     "EF1"
+    ]
+   },
+   "country": "us",
+   "population": "US adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    }
+   ],
+   "surveyed": "October 2024",
+   "context": "",
+   "question": "Have you set aside emergency or rainy day funds that would cover your expenses for 3 months in case of sickness, job loss, economic downturn, or other emergencies?",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    55,
+    45
+   ],
+   "n": 12295,
+   "excluded": [
+    "Refused"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        36.3,
+        63.7
+       ],
+       "n": 1887,
+       "drawn": 58
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        50.1,
+        49.9
+       ],
+       "n": 2813,
+       "drawn": 75
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        57.2,
+        42.8
+       ],
+       "n": 4076,
+       "drawn": 91
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        74,
+        26
+       ],
+       "n": 3519,
+       "drawn": 76
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        53.1,
+        46.9
+       ],
+       "n": 6065,
+       "drawn": 146
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        57,
+        43
+       ],
+       "n": 6230,
+       "drawn": 154
+      }
+     ]
+    },
+    {
+     "dimension": "Household income",
+     "buckets": [
+      {
+       "label": "Under $25,000",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "under_25000_usd"
+        ]
+       },
+       "real": [
+        20.4,
+        79.6
+       ],
+       "n": 1308,
+       "drawn": 26
+      },
+      {
+       "label": "$25,000 to $49,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "25000_to_49999_usd"
+        ]
+       },
+       "real": [
+        34.4,
+        65.6
+       ],
+       "n": 1845,
+       "drawn": 41
+      },
+      {
+       "label": "$50,000 to $99,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "50000_to_74999_usd",
+         "75000_to_99999_usd"
+        ]
+       },
+       "real": [
+        51,
+        49
+       ],
+       "n": 3457,
+       "drawn": 76
+      },
+      {
+       "label": "$100,000 to $149,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "100000_to_149999_usd"
+        ]
+       },
+       "real": [
+        62.6,
+        37.4
+       ],
+       "n": 2375,
+       "drawn": 53
+      },
+      {
+       "label": "$150,000 or more",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "150000_to_199999_usd",
+         "200000_usd_or_more"
+        ]
+       },
+       "real": [
+        75.5,
+        24.5
+       ],
+       "n": 3310,
+       "drawn": 104
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        62.6,
+        37.4
+       ],
+       "n": 9013,
+       "drawn": 219
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        35.5,
+        64.5
+       ],
+       "n": 3092,
+       "drawn": 77
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        37.2,
+        62.8
+       ],
+       "n": 2878,
+       "drawn": 108
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        49.8,
+        50.2
+       ],
+       "n": 4135,
+       "drawn": 87
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        73.8,
+        26.2
+       ],
+       "n": 5282,
+       "drawn": 105
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        55.8,
+        44.2
+       ],
+       "n": 7066,
+       "drawn": 192
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        70.1,
+        29.9
+       ],
+       "n": 3483,
+       "drawn": 68
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        31.6,
+        68.4
+       ],
+       "n": 1746,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        57.2,
+        42.8
+       ],
+       "n": 9511,
+       "drawn": 231
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        48.7,
+        51.3
+       ],
+       "n": 2784,
+       "drawn": 69
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shed-went-without-medical-care-cost",
+   "title": "Went without medical care because of cost",
+   "source": {
+    "name": "Survey of Household Economics and Decisionmaking 2024 (public use data)",
+    "organisation": "Board of Governors of the Federal Reserve System",
+    "url": "https://www.federalreserve.gov/consumerscommunities/shed_data.htm",
+    "variables": [
+     "E1_a",
+     "E1_b",
+     "E1_c",
+     "E1_d",
+     "E1_e"
+    ]
+   },
+   "country": "us",
+   "population": "US adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    }
+   ],
+   "surveyed": "October 2024",
+   "context": "",
+   "question": "During the past 12 months, was there a time when you needed any of the following, but went without because you couldn't afford it: prescription medicine, seeing a doctor or specialist, mental health care or counseling, dental care, or follow-up care?",
+   "options": [
+    "Yes, went without at least one of these",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    27.7,
+    72.3
+   ],
+   "n": 12295,
+   "excluded": [
+    "Refused"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        36.1,
+        63.9
+       ],
+       "n": 1887,
+       "drawn": 58
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        33.3,
+        66.7
+       ],
+       "n": 2813,
+       "drawn": 75
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        26.8,
+        73.2
+       ],
+       "n": 4076,
+       "drawn": 91
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        15,
+        85
+       ],
+       "n": 3519,
+       "drawn": 76
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        31,
+        69
+       ],
+       "n": 6065,
+       "drawn": 146
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        24.2,
+        75.8
+       ],
+       "n": 6230,
+       "drawn": 154
+      }
+     ]
+    },
+    {
+     "dimension": "Household income",
+     "buckets": [
+      {
+       "label": "Under $25,000",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "under_25000_usd"
+        ]
+       },
+       "real": [
+        49.1,
+        50.9
+       ],
+       "n": 1308,
+       "drawn": 26
+      },
+      {
+       "label": "$25,000 to $49,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "25000_to_49999_usd"
+        ]
+       },
+       "real": [
+        42.5,
+        57.5
+       ],
+       "n": 1845,
+       "drawn": 41
+      },
+      {
+       "label": "$50,000 to $99,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "50000_to_74999_usd",
+         "75000_to_99999_usd"
+        ]
+       },
+       "real": [
+        32,
+        68
+       ],
+       "n": 3457,
+       "drawn": 76
+      },
+      {
+       "label": "$100,000 to $149,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "100000_to_149999_usd"
+        ]
+       },
+       "real": [
+        21.2,
+        78.8
+       ],
+       "n": 2375,
+       "drawn": 53
+      },
+      {
+       "label": "$150,000 or more",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "150000_to_199999_usd",
+         "200000_usd_or_more"
+        ]
+       },
+       "real": [
+        13.5,
+        86.5
+       ],
+       "n": 3310,
+       "drawn": 104
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        22.6,
+        77.4
+       ],
+       "n": 9013,
+       "drawn": 219
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        40.9,
+        59.1
+       ],
+       "n": 3092,
+       "drawn": 77
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        33.3,
+        66.7
+       ],
+       "n": 2878,
+       "drawn": 108
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        32.4,
+        67.6
+       ],
+       "n": 4135,
+       "drawn": 87
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        18.9,
+        81.1
+       ],
+       "n": 5282,
+       "drawn": 105
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        28.7,
+        71.3
+       ],
+       "n": 7066,
+       "drawn": 192
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        18.1,
+        81.9
+       ],
+       "n": 3483,
+       "drawn": 68
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        37.3,
+        62.7
+       ],
+       "n": 1746,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        25.5,
+        74.5
+       ],
+       "n": 9511,
+       "drawn": 231
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        34,
+        66
+       ],
+       "n": 2784,
+       "drawn": 69
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shed-buy-now-pay-later",
+   "title": "Used buy now, pay later",
+   "source": {
+    "name": "Survey of Household Economics and Decisionmaking 2024 (public use data)",
+    "organisation": "Board of Governors of the Federal Reserve System",
+    "url": "https://www.federalreserve.gov/consumerscommunities/shed_data.htm",
+    "variables": [
+     "BNPL1"
+    ]
+   },
+   "country": "us",
+   "population": "US adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    }
+   ],
+   "surveyed": "October 2024",
+   "context": "",
+   "question": "In the past year, have you used a \"Buy Now Pay Later\" service to buy something?",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    14.7,
+    85.3
+   ],
+   "n": 12295,
+   "excluded": [
+    "Refused"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        18.9,
+        81.1
+       ],
+       "n": 1887,
+       "drawn": 58
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        18.8,
+        81.2
+       ],
+       "n": 2813,
+       "drawn": 75
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        14.3,
+        85.7
+       ],
+       "n": 4076,
+       "drawn": 91
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        6.8,
+        93.2
+       ],
+       "n": 3519,
+       "drawn": 76
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        17,
+        83
+       ],
+       "n": 6065,
+       "drawn": 146
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        12.3,
+        87.7
+       ],
+       "n": 6230,
+       "drawn": 154
+      }
+     ]
+    },
+    {
+     "dimension": "Household income",
+     "buckets": [
+      {
+       "label": "Under $25,000",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "under_25000_usd"
+        ]
+       },
+       "real": [
+        17.5,
+        82.5
+       ],
+       "n": 1308,
+       "drawn": 26
+      },
+      {
+       "label": "$25,000 to $49,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "25000_to_49999_usd"
+        ]
+       },
+       "real": [
+        20,
+        80
+       ],
+       "n": 1845,
+       "drawn": 41
+      },
+      {
+       "label": "$50,000 to $99,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "50000_to_74999_usd",
+         "75000_to_99999_usd"
+        ]
+       },
+       "real": [
+        16.4,
+        83.6
+       ],
+       "n": 3457,
+       "drawn": 76
+      },
+      {
+       "label": "$100,000 to $149,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "100000_to_149999_usd"
+        ]
+       },
+       "real": [
+        14,
+        86
+       ],
+       "n": 2375,
+       "drawn": 53
+      },
+      {
+       "label": "$150,000 or more",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "150000_to_199999_usd",
+         "200000_usd_or_more"
+        ]
+       },
+       "real": [
+        10,
+        90
+       ],
+       "n": 3310,
+       "drawn": 104
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        12,
+        88
+       ],
+       "n": 9013,
+       "drawn": 219
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        21.5,
+        78.5
+       ],
+       "n": 3092,
+       "drawn": 77
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        15.2,
+        84.8
+       ],
+       "n": 2878,
+       "drawn": 108
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        18.3,
+        81.7
+       ],
+       "n": 4135,
+       "drawn": 87
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        11,
+        89
+       ],
+       "n": 5282,
+       "drawn": 105
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        16.7,
+        83.3
+       ],
+       "n": 7066,
+       "drawn": 192
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        8.6,
+        91.4
+       ],
+       "n": 3483,
+       "drawn": 68
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        15.9,
+        84.1
+       ],
+       "n": 1746,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        13.3,
+        86.7
+       ],
+       "n": 9511,
+       "drawn": 231
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        18.7,
+        81.3
+       ],
+       "n": 2784,
+       "drawn": 69
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shed-retirement-savings-on-track",
+   "title": "Retirement savings on track",
+   "source": {
+    "name": "Survey of Household Economics and Decisionmaking 2024 (public use data)",
+    "organisation": "Board of Governors of the Federal Reserve System",
+    "url": "https://www.federalreserve.gov/consumerscommunities/shed_data.htm",
+    "variables": [
+     "K0",
+     "D1I"
+    ]
+   },
+   "country": "us",
+   "population": "US adults 18 and over living in households who do not consider themselves retired",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "economic_activity_status",
+     "in": [
+      "in_employment",
+      "unemployed_and_looking_for_work",
+      "student_not_in_employment",
+      "looking_after_home_or_family",
+      "long_term_sick_or_disabled",
+      "other_not_working"
+     ]
+    }
+   ],
+   "surveyed": "October 2024",
+   "context": "",
+   "question": "Do you think that your retirement savings plan is currently on track?",
+   "options": [
+    "Yes",
+    "No",
+    "Not sure"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    35.5,
+    44.3,
+    20.2
+   ],
+   "n": 8247,
+   "excluded": [
+    "Refused"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        23.1,
+        47.8,
+        29.1
+       ],
+       "n": 1855,
+       "drawn": 74
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        35.4,
+        45.3,
+        19.3
+       ],
+       "n": 2745,
+       "drawn": 90
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        43.3,
+        41.8,
+        14.9
+       ],
+       "n": 3187,
+       "drawn": 112
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        49.8,
+        35.3,
+        14.9
+       ],
+       "n": 460,
+       "drawn": 24
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        32.3,
+        45.7,
+        22
+       ],
+       "n": 4014,
+       "drawn": 150
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        38.6,
+        43.1,
+        18.3
+       ],
+       "n": 4233,
+       "drawn": 150
+      }
+     ]
+    },
+    {
+     "dimension": "Household income",
+     "buckets": [
+      {
+       "label": "Under $25,000",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "under_25000_usd"
+        ]
+       },
+       "real": [
+        5.1,
+        66,
+        28.9
+       ],
+       "n": 865,
+       "drawn": 25
+      },
+      {
+       "label": "$25,000 to $49,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "25000_to_49999_usd"
+        ]
+       },
+       "real": [
+        12.8,
+        63.2,
+        24
+       ],
+       "n": 1095,
+       "drawn": 31
+      },
+      {
+       "label": "$50,000 to $99,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "50000_to_74999_usd",
+         "75000_to_99999_usd"
+        ]
+       },
+       "real": [
+        25.5,
+        51.1,
+        23.4
+       ],
+       "n": 2194,
+       "drawn": 87
+      },
+      {
+       "label": "$100,000 to $149,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "100000_to_149999_usd"
+        ]
+       },
+       "real": [
+        41.4,
+        38.6,
+        20
+       ],
+       "n": 1691,
+       "drawn": 59
+      },
+      {
+       "label": "$150,000 or more",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "150000_to_199999_usd",
+         "200000_usd_or_more"
+        ]
+       },
+       "real": [
+        59.6,
+        27.3,
+        13.1
+       ],
+       "n": 2402,
+       "drawn": 98
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        42.1,
+        38.5,
+        19.4
+       ],
+       "n": 5628,
+       "drawn": 199
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        21.8,
+        56.7,
+        21.5
+       ],
+       "n": 2493,
+       "drawn": 99
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        17.7,
+        56.8,
+        25.5
+       ],
+       "n": 1835,
+       "drawn": 100
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        27.7,
+        50.5,
+        21.8
+       ],
+       "n": 2711,
+       "drawn": 103
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        55.3,
+        29.8,
+        14.9
+       ],
+       "n": 3701,
+       "drawn": 97
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        41.3,
+        41.2,
+        17.5
+       ],
+       "n": 6456,
+       "drawn": 250
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        16.8,
+        54.5,
+        28.7
+       ],
+       "n": 1746,
+       "drawn": 50
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        35.5,
+        43.9,
+        20.6
+       ],
+       "n": 5612,
+       "drawn": 224
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        35.3,
+        45.3,
+        19.4
+       ],
+       "n": 2635,
+       "drawn": 76
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shed-food-sufficiency",
+   "title": "Enough food in the household",
+   "source": {
+    "name": "Survey of Household Economics and Decisionmaking 2024 (public use data)",
+    "organisation": "Board of Governors of the Federal Reserve System",
+    "url": "https://www.federalreserve.gov/consumerscommunities/shed_data.htm",
+    "variables": [
+     "FD3"
+    ]
+   },
+   "country": "us",
+   "population": "US adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    }
+   ],
+   "surveyed": "October 2024",
+   "context": "",
+   "question": "In the past month, which of these statements best describes the food eaten in your household?",
+   "options": [
+    "Enough of the kinds of food we wanted to eat",
+    "Enough, but not always the kinds of food we wanted to eat",
+    "Sometimes not enough to eat",
+    "Often not enough to eat"
+   ],
+   "orderedLevels": 4,
+   "real": [
+    65.9,
+    26.8,
+    5,
+    2.3
+   ],
+   "n": 12295,
+   "excluded": [
+    "Refused"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        54.5,
+        34.2,
+        7.7,
+        3.6
+       ],
+       "n": 1887,
+       "drawn": 58
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        59.3,
+        30.7,
+        6.4,
+        3.6
+       ],
+       "n": 2813,
+       "drawn": 75
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        67.5,
+        26.2,
+        4.5,
+        1.8
+       ],
+       "n": 4076,
+       "drawn": 91
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        81.3,
+        16.7,
+        1.7,
+        0.3
+       ],
+       "n": 3519,
+       "drawn": 76
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        64.2,
+        28.1,
+        5.4,
+        2.3
+       ],
+       "n": 6065,
+       "drawn": 146
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        67.7,
+        25.4,
+        4.6,
+        2.3
+       ],
+       "n": 6230,
+       "drawn": 154
+      }
+     ]
+    },
+    {
+     "dimension": "Household income",
+     "buckets": [
+      {
+       "label": "Under $25,000",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "under_25000_usd"
+        ]
+       },
+       "real": [
+        33.7,
+        40.7,
+        17,
+        8.6
+       ],
+       "n": 1308,
+       "drawn": 26
+      },
+      {
+       "label": "$25,000 to $49,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "25000_to_49999_usd"
+        ]
+       },
+       "real": [
+        45.9,
+        41.9,
+        8.4,
+        3.8
+       ],
+       "n": 1845,
+       "drawn": 41
+      },
+      {
+       "label": "$50,000 to $99,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "50000_to_74999_usd",
+         "75000_to_99999_usd"
+        ]
+       },
+       "real": [
+        62,
+        31.8,
+        4.4,
+        1.8
+       ],
+       "n": 3457,
+       "drawn": 76
+      },
+      {
+       "label": "$100,000 to $149,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "100000_to_149999_usd"
+        ]
+       },
+       "real": [
+        74.5,
+        21.9,
+        2.5,
+        1.1
+       ],
+       "n": 2375,
+       "drawn": 53
+      },
+      {
+       "label": "$150,000 or more",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "150000_to_199999_usd",
+         "200000_usd_or_more"
+        ]
+       },
+       "real": [
+        84.4,
+        13.3,
+        1.6,
+        0.7
+       ],
+       "n": 3310,
+       "drawn": 104
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        72.4,
+        23.3,
+        3,
+        1.3
+       ],
+       "n": 9013,
+       "drawn": 219
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        49.2,
+        35.8,
+        10.1,
+        4.9
+       ],
+       "n": 3092,
+       "drawn": 77
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        53.1,
+        34,
+        8.7,
+        4.2
+       ],
+       "n": 2878,
+       "drawn": 108
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        60.6,
+        31.3,
+        5.7,
+        2.4
+       ],
+       "n": 4135,
+       "drawn": 87
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        80.9,
+        16.9,
+        1.5,
+        0.7
+       ],
+       "n": 5282,
+       "drawn": 105
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        67,
+        27.3,
+        4.1,
+        1.6
+       ],
+       "n": 7066,
+       "drawn": 192
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        76.8,
+        19.1,
+        3.2,
+        0.9
+       ],
+       "n": 3483,
+       "drawn": 68
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        47.2,
+        35.4,
+        10.7,
+        6.7
+       ],
+       "n": 1746,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        68.6,
+        24.6,
+        4.6,
+        2.2
+       ],
+       "n": 9511,
+       "drawn": 231
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        57.9,
+        33.2,
+        6.1,
+        2.8
+       ],
+       "n": 2784,
+       "drawn": 69
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shed-price-changes-effect",
+   "title": "Effect of price changes on finances",
+   "source": {
+    "name": "Survey of Household Economics and Decisionmaking 2024 (public use data)",
+    "organisation": "Board of Governors of the Federal Reserve System",
+    "url": "https://www.federalreserve.gov/consumerscommunities/shed_data.htm",
+    "variables": [
+     "INF4"
+    ]
+   },
+   "country": "us",
+   "population": "US adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    }
+   ],
+   "surveyed": "October 2024",
+   "context": "",
+   "question": "Overall, have changes in the prices you pay compared to last year made your financial situation worse, better, or had little to no effect?",
+   "options": [
+    "Much worse",
+    "Somewhat worse",
+    "Little or no effect",
+    "Better"
+   ],
+   "orderedLevels": 4,
+   "real": [
+    17,
+    42.6,
+    35.6,
+    4.8
+   ],
+   "n": 12295,
+   "excluded": [
+    "Refused"
+   ],
+   "note": "\"Better\" joins the survey's \"Somewhat better\" (417 respondents) and \"Much better\" (115).",
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        16.4,
+        39.5,
+        36.4,
+        7.7
+       ],
+       "n": 1887,
+       "drawn": 58
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        19.2,
+        43.1,
+        32,
+        5.7
+       ],
+       "n": 2813,
+       "drawn": 75
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        19.6,
+        44.5,
+        32.2,
+        3.7
+       ],
+       "n": 4076,
+       "drawn": 91
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        11.4,
+        42.1,
+        43.6,
+        2.9
+       ],
+       "n": 3519,
+       "drawn": 76
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        17.1,
+        43.9,
+        34.3,
+        4.7
+       ],
+       "n": 6065,
+       "drawn": 146
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        17,
+        41.2,
+        36.8,
+        5
+       ],
+       "n": 6230,
+       "drawn": 154
+      }
+     ]
+    },
+    {
+     "dimension": "Household income",
+     "buckets": [
+      {
+       "label": "Under $25,000",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "under_25000_usd"
+        ]
+       },
+       "real": [
+        27.8,
+        36.4,
+        28.4,
+        7.4
+       ],
+       "n": 1308,
+       "drawn": 26
+      },
+      {
+       "label": "$25,000 to $49,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "25000_to_49999_usd"
+        ]
+       },
+       "real": [
+        24.7,
+        43.6,
+        26.4,
+        5.3
+       ],
+       "n": 1845,
+       "drawn": 41
+      },
+      {
+       "label": "$50,000 to $99,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "50000_to_74999_usd",
+         "75000_to_99999_usd"
+        ]
+       },
+       "real": [
+        17.4,
+        45.4,
+        32.6,
+        4.6
+       ],
+       "n": 3457,
+       "drawn": 76
+      },
+      {
+       "label": "$100,000 to $149,999",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "100000_to_149999_usd"
+        ]
+       },
+       "real": [
+        13.8,
+        43.4,
+        38.3,
+        4.5
+       ],
+       "n": 2375,
+       "drawn": 53
+      },
+      {
+       "label": "$150,000 or more",
+       "match": {
+        "field": "household_income_before_tax_per_year",
+        "in": [
+         "150000_to_199999_usd",
+         "200000_usd_or_more"
+        ]
+       },
+       "real": [
+        11.4,
+        41.1,
+        43.4,
+        4.1
+       ],
+       "n": 3310,
+       "drawn": 104
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        15.3,
+        43.8,
+        37.2,
+        3.7
+       ],
+       "n": 9013,
+       "drawn": 219
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        21.4,
+        40.1,
+        30.7,
+        7.8
+       ],
+       "n": 3092,
+       "drawn": 77
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        21.9,
+        41.2,
+        31.6,
+        5.3
+       ],
+       "n": 2878,
+       "drawn": 108
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        19.6,
+        43.4,
+        32.3,
+        4.7
+       ],
+       "n": 4135,
+       "drawn": 87
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        10.8,
+        42.9,
+        41.8,
+        4.5
+       ],
+       "n": 5282,
+       "drawn": 105
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        16.7,
+        44.9,
+        33.8,
+        4.6
+       ],
+       "n": 7066,
+       "drawn": 192
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        13.9,
+        41.2,
+        41.7,
+        3.2
+       ],
+       "n": 3483,
+       "drawn": 68
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        22.5,
+        36.5,
+        33.3,
+        7.7
+       ],
+       "n": 1746,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        15.7,
+        42.1,
+        37.6,
+        4.6
+       ],
+       "n": 9511,
+       "drawn": 231
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        20.8,
+        44.2,
+        29.4,
+        5.6
+       ],
+       "n": 2784,
+       "drawn": 69
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nhis-flu-vaccine-12-months",
+   "title": "Flu vaccination in the past year",
+   "source": {
+    "name": "National Health Interview Survey 2024 (sample adult file)",
+    "organisation": "National Center for Health Statistics (CDC)",
+    "url": "https://www.cdc.gov/nchs/nhis/documentation/2024-nhis.html",
+    "variables": [
+     "SHTFLU12M_A"
+    ]
+   },
+   "country": "us",
+   "population": "US civilian adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "employer_sector",
+     "in": [
+      "private_for_profit_company",
+      "private_non_profit_organization",
+      "local_government",
+      "state_government",
+      "federal_government_civilian",
+      "self_employed_or_family_business",
+      "not_in_employment"
+     ]
+    }
+   ],
+   "surveyed": "January to December 2024",
+   "context": "There are two types of flu vaccinations. One is a shot and the other is a spray, mist, or drop in the nose.",
+   "question": "During the past 12 months, have you had a flu vaccination?",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    43,
+    57
+   ],
+   "n": 32132,
+   "excluded": [
+    "Refused",
+    "Not ascertained",
+    "Don't know"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        28.8,
+        71.2
+       ],
+       "n": 4025,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        32.7,
+        67.3
+       ],
+       "n": 7529,
+       "drawn": 90
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        42.8,
+        57.2
+       ],
+       "n": 9768,
+       "drawn": 83
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        67.1,
+        32.9
+       ],
+       "n": 10765,
+       "drawn": 71
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        46.3,
+        53.7
+       ],
+       "n": 17386,
+       "drawn": 162
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        39.6,
+        60.4
+       ],
+       "n": 14741,
+       "drawn": 138
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        47.1,
+        52.9
+       ],
+       "n": 21085,
+       "drawn": 209
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        34.2,
+        65.8
+       ],
+       "n": 9404,
+       "drawn": 87
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        34.8,
+        65.2
+       ],
+       "n": 10892,
+       "drawn": 101
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        40.4,
+        59.6
+       ],
+       "n": 8922,
+       "drawn": 85
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        54.6,
+        45.4
+       ],
+       "n": 12180,
+       "drawn": 114
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        37.4,
+        62.6
+       ],
+       "n": 17969,
+       "drawn": 194
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        67.4,
+        32.6
+       ],
+       "n": 8940,
+       "drawn": 66
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        35.9,
+        64.1
+       ],
+       "n": 4339,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        45.8,
+        54.2
+       ],
+       "n": 25255,
+       "drawn": 228
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        34.9,
+        65.1
+       ],
+       "n": 6721,
+       "drawn": 72
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "A lot of difficulty with a basic activity, or cannot do it",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot"
+        ]
+       },
+       "real": [
+        53.4,
+        46.6
+       ],
+       "n": 3672,
+       "drawn": 26
+      },
+      {
+       "label": "No such difficulty",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_little",
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        41.9,
+        58.1
+       ],
+       "n": 28459,
+       "drawn": 274
+      }
+     ]
+    },
+    {
+     "dimension": "Health insurance",
+     "buckets": [
+      {
+       "label": "Uninsured",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "no_health_insurance"
+        ]
+       },
+       "real": [
+        13.3,
+        86.7
+       ],
+       "n": 2288,
+       "drawn": 21
+      },
+      {
+       "label": "Private only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "employer_only",
+         "direct_purchase_only",
+         "multiple_private_types"
+        ]
+       },
+       "real": [
+        40.2,
+        59.8
+       ],
+       "n": 14747,
+       "drawn": 169
+      },
+      {
+       "label": "Medicaid or other public only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicaid_or_other_public_only"
+        ]
+       },
+       "real": [
+        30.3,
+        69.7
+       ],
+       "n": 2786,
+       "drawn": 30
+      },
+      {
+       "label": "Medicare, alone or with private or Medicaid",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicare_only",
+         "employer_and_medicare",
+         "direct_purchase_and_medicare",
+         "medicare_and_medicaid"
+        ]
+       },
+       "real": [
+        65.1,
+        34.9
+       ],
+       "n": 10032,
+       "drawn": 57
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nhis-worry-paying-medical-bills",
+   "title": "Worry about paying medical bills",
+   "source": {
+    "name": "National Health Interview Survey 2024 (sample adult file)",
+    "organisation": "National Center for Health Statistics (CDC)",
+    "url": "https://www.cdc.gov/nchs/nhis/documentation/2024-nhis.html",
+    "variables": [
+     "PAYWORRY_A"
+    ]
+   },
+   "country": "us",
+   "population": "US civilian adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "employer_sector",
+     "in": [
+      "private_for_profit_company",
+      "private_non_profit_organization",
+      "local_government",
+      "state_government",
+      "federal_government_civilian",
+      "self_employed_or_family_business",
+      "not_in_employment"
+     ]
+    }
+   ],
+   "surveyed": "January to December 2024",
+   "context": "",
+   "question": "If you get sick or have an accident, how worried are you that you will be able to pay your medical bills?",
+   "options": [
+    "Very worried",
+    "Somewhat worried",
+    "Not at all worried"
+   ],
+   "orderedLevels": 3,
+   "real": [
+    14.1,
+    30.5,
+    55.4
+   ],
+   "n": 32431,
+   "excluded": [
+    "Refused",
+    "Not ascertained",
+    "Don't know"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        13,
+        34.6,
+        52.4
+       ],
+       "n": 4073,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        16.8,
+        33,
+        50.2
+       ],
+       "n": 7612,
+       "drawn": 90
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        17.4,
+        31.4,
+        51.2
+       ],
+       "n": 9849,
+       "drawn": 83
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        7.5,
+        23.2,
+        69.3
+       ],
+       "n": 10850,
+       "drawn": 71
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        15.8,
+        32.2,
+        52
+       ],
+       "n": 17539,
+       "drawn": 162
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        12.3,
+        28.8,
+        58.9
+       ],
+       "n": 14887,
+       "drawn": 138
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        10.8,
+        30.2,
+        59
+       ],
+       "n": 21143,
+       "drawn": 209
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        21.3,
+        31.7,
+        47
+       ],
+       "n": 9435,
+       "drawn": 87
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        19.2,
+        30.1,
+        50.7
+       ],
+       "n": 10991,
+       "drawn": 101
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        13.8,
+        31.3,
+        54.9
+       ],
+       "n": 8994,
+       "drawn": 85
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        8.6,
+        30.4,
+        61
+       ],
+       "n": 12307,
+       "drawn": 114
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        14.6,
+        33.7,
+        51.7
+       ],
+       "n": 18024,
+       "drawn": 194
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        6.8,
+        23.4,
+        69.8
+       ],
+       "n": 8965,
+       "drawn": 66
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        20.4,
+        27.5,
+        52.1
+       ],
+       "n": 4355,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        13,
+        29.7,
+        57.3
+       ],
+       "n": 25485,
+       "drawn": 228
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        17.2,
+        33.2,
+        49.6
+       ],
+       "n": 6789,
+       "drawn": 72
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "A lot of difficulty with a basic activity, or cannot do it",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot"
+        ]
+       },
+       "real": [
+        21.7,
+        26.3,
+        52
+       ],
+       "n": 3707,
+       "drawn": 26
+      },
+      {
+       "label": "No such difficulty",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_little",
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        13.3,
+        31,
+        55.7
+       ],
+       "n": 28723,
+       "drawn": 274
+      }
+     ]
+    },
+    {
+     "dimension": "Health insurance",
+     "buckets": [
+      {
+       "label": "Uninsured",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "no_health_insurance"
+        ]
+       },
+       "real": [
+        42.5,
+        31.9,
+        25.6
+       ],
+       "n": 2302,
+       "drawn": 21
+      },
+      {
+       "label": "Private only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "employer_only",
+         "direct_purchase_only",
+         "multiple_private_types"
+        ]
+       },
+       "real": [
+        11.8,
+        34.5,
+        53.7
+       ],
+       "n": 14890,
+       "drawn": 169
+      },
+      {
+       "label": "Medicaid or other public only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicaid_or_other_public_only"
+        ]
+       },
+       "real": [
+        16.1,
+        28,
+        55.9
+       ],
+       "n": 2835,
+       "drawn": 30
+      },
+      {
+       "label": "Medicare, alone or with private or Medicaid",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicare_only",
+         "employer_and_medicare",
+         "direct_purchase_and_medicare",
+         "medicare_and_medicaid"
+        ]
+       },
+       "real": [
+        8.3,
+        24.5,
+        67.2
+       ],
+       "n": 10110,
+       "drawn": 57
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nhis-virtual-appointment-12-months",
+   "title": "Video or phone medical appointment in the past year",
+   "source": {
+    "name": "National Health Interview Survey 2024 (sample adult file)",
+    "organisation": "National Center for Health Statistics (CDC)",
+    "url": "https://www.cdc.gov/nchs/nhis/documentation/2024-nhis.html",
+    "variables": [
+     "VIRAPP12M_A"
+    ]
+   },
+   "country": "us",
+   "population": "US civilian adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "employer_sector",
+     "in": [
+      "private_for_profit_company",
+      "private_non_profit_organization",
+      "local_government",
+      "state_government",
+      "federal_government_civilian",
+      "self_employed_or_family_business",
+      "not_in_employment"
+     ]
+    }
+   ],
+   "surveyed": "January to December 2024",
+   "context": "",
+   "question": "During the past 12 months, have you had an appointment with a doctor, nurse, or other health professional by video or by phone?",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    25,
+    75
+   ],
+   "n": 32324,
+   "excluded": [
+    "Refused",
+    "Not ascertained",
+    "Don't know"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        21.4,
+        78.6
+       ],
+       "n": 4053,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        26.9,
+        73.1
+       ],
+       "n": 7584,
+       "drawn": 90
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        26.4,
+        73.6
+       ],
+       "n": 9824,
+       "drawn": 83
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        24.2,
+        75.8
+       ],
+       "n": 10816,
+       "drawn": 71
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        28.7,
+        71.3
+       ],
+       "n": 17484,
+       "drawn": 162
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        21.1,
+        78.9
+       ],
+       "n": 14835,
+       "drawn": 138
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        25.2,
+        74.8
+       ],
+       "n": 21164,
+       "drawn": 209
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        24.8,
+        75.2
+       ],
+       "n": 9433,
+       "drawn": 87
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        17.9,
+        82.1
+       ],
+       "n": 10947,
+       "drawn": 101
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        25.9,
+        74.1
+       ],
+       "n": 8971,
+       "drawn": 85
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        32.3,
+        67.7
+       ],
+       "n": 12265,
+       "drawn": 114
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        24.6,
+        75.4
+       ],
+       "n": 18037,
+       "drawn": 194
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        24.9,
+        75.1
+       ],
+       "n": 8967,
+       "drawn": 66
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        27,
+        73
+       ],
+       "n": 4358,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        24.8,
+        75.2
+       ],
+       "n": 25397,
+       "drawn": 228
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        25.3,
+        74.7
+       ],
+       "n": 6771,
+       "drawn": 72
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "A lot of difficulty with a basic activity, or cannot do it",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot"
+        ]
+       },
+       "real": [
+        35.5,
+        64.5
+       ],
+       "n": 3700,
+       "drawn": 26
+      },
+      {
+       "label": "No such difficulty",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_little",
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        23.9,
+        76.1
+       ],
+       "n": 28623,
+       "drawn": 274
+      }
+     ]
+    },
+    {
+     "dimension": "Health insurance",
+     "buckets": [
+      {
+       "label": "Uninsured",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "no_health_insurance"
+        ]
+       },
+       "real": [
+        11.5,
+        88.5
+       ],
+       "n": 2292,
+       "drawn": 21
+      },
+      {
+       "label": "Private only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "employer_only",
+         "direct_purchase_only",
+         "multiple_private_types"
+        ]
+       },
+       "real": [
+        26.6,
+        73.4
+       ],
+       "n": 14844,
+       "drawn": 169
+      },
+      {
+       "label": "Medicaid or other public only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicaid_or_other_public_only"
+        ]
+       },
+       "real": [
+        23.1,
+        76.9
+       ],
+       "n": 2816,
+       "drawn": 30
+      },
+      {
+       "label": "Medicare, alone or with private or Medicaid",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicare_only",
+         "employer_and_medicare",
+         "direct_purchase_and_medicare",
+         "medicare_and_medicaid"
+        ]
+       },
+       "real": [
+        25,
+        75
+       ],
+       "n": 10080,
+       "drawn": 57
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nhis-loneliness-frequency",
+   "title": "How often lonely",
+   "source": {
+    "name": "National Health Interview Survey 2024 (sample adult file)",
+    "organisation": "National Center for Health Statistics (CDC)",
+    "url": "https://www.cdc.gov/nchs/nhis/documentation/2024-nhis.html",
+    "variables": [
+     "LONELY_A"
+    ]
+   },
+   "country": "us",
+   "population": "US civilian adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "employer_sector",
+     "in": [
+      "private_for_profit_company",
+      "private_non_profit_organization",
+      "local_government",
+      "state_government",
+      "federal_government_civilian",
+      "self_employed_or_family_business",
+      "not_in_employment"
+     ]
+    }
+   ],
+   "surveyed": "January to December 2024",
+   "context": "",
+   "question": "How often do you feel lonely?",
+   "options": [
+    "Always",
+    "Usually",
+    "Sometimes",
+    "Rarely",
+    "Never"
+   ],
+   "orderedLevels": 5,
+   "real": [
+    2.5,
+    2.4,
+    18.8,
+    25.7,
+    50.6
+   ],
+   "n": 31470,
+   "excluded": [
+    "Refused",
+    "Not ascertained",
+    "Don't know"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        2.4,
+        3.9,
+        22.8,
+        27.9,
+        43
+       ],
+       "n": 3951,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        2.5,
+        2.1,
+        18.2,
+        26.8,
+        50.4
+       ],
+       "n": 7374,
+       "drawn": 90
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        2.7,
+        2.2,
+        16.8,
+        24.5,
+        53.8
+       ],
+       "n": 9553,
+       "drawn": 83
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        2.2,
+        1.8,
+        18.9,
+        24.3,
+        52.8
+       ],
+       "n": 10548,
+       "drawn": 71
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        2.6,
+        2.5,
+        21.4,
+        27.6,
+        45.9
+       ],
+       "n": 17039,
+       "drawn": 162
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        2.4,
+        2.3,
+        16.1,
+        23.7,
+        55.5
+       ],
+       "n": 14426,
+       "drawn": 138
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        1.9,
+        2,
+        16.8,
+        26.4,
+        52.9
+       ],
+       "n": 21104,
+       "drawn": 209
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        3.5,
+        3.4,
+        23.3,
+        24.7,
+        45.1
+       ],
+       "n": 9419,
+       "drawn": 87
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        3.7,
+        2.4,
+        19.3,
+        19.9,
+        54.7
+       ],
+       "n": 10589,
+       "drawn": 101
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        2.2,
+        2.9,
+        19.6,
+        26.6,
+        48.7
+       ],
+       "n": 8759,
+       "drawn": 85
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        1.2,
+        2,
+        17.7,
+        31.5,
+        47.6
+       ],
+       "n": 11993,
+       "drawn": 114
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        1.9,
+        2.2,
+        17.5,
+        26.6,
+        51.8
+       ],
+       "n": 17978,
+       "drawn": 194
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        2,
+        1.8,
+        19,
+        24.8,
+        52.4
+       ],
+       "n": 8964,
+       "drawn": 66
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        5.5,
+        3.9,
+        24.1,
+        23.4,
+        43.1
+       ],
+       "n": 4348,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        2.7,
+        2.6,
+        20.1,
+        26.2,
+        48.4
+       ],
+       "n": 24759,
+       "drawn": 228
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        1.8,
+        1.7,
+        15.2,
+        24.5,
+        56.8
+       ],
+       "n": 6561,
+       "drawn": 72
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "A lot of difficulty with a basic activity, or cannot do it",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot"
+        ]
+       },
+       "real": [
+        7.4,
+        6.2,
+        29,
+        21.7,
+        35.7
+       ],
+       "n": 3583,
+       "drawn": 26
+      },
+      {
+       "label": "No such difficulty",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_little",
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        2,
+        2,
+        17.7,
+        26.2,
+        52.1
+       ],
+       "n": 27886,
+       "drawn": 274
+      }
+     ]
+    },
+    {
+     "dimension": "Health insurance",
+     "buckets": [
+      {
+       "label": "Uninsured",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "no_health_insurance"
+        ]
+       },
+       "real": [
+        3.5,
+        2.7,
+        22.4,
+        20.4,
+        51
+       ],
+       "n": 2229,
+       "drawn": 21
+      },
+      {
+       "label": "Private only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "employer_only",
+         "direct_purchase_only",
+         "multiple_private_types"
+        ]
+       },
+       "real": [
+        1.6,
+        2.2,
+        16.9,
+        28.4,
+        50.9
+       ],
+       "n": 14479,
+       "drawn": 169
+      },
+      {
+       "label": "Medicaid or other public only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicaid_or_other_public_only"
+        ]
+       },
+       "real": [
+        5.4,
+        3.2,
+        23.5,
+        20.8,
+        47.1
+       ],
+       "n": 2701,
+       "drawn": 30
+      },
+      {
+       "label": "Medicare, alone or with private or Medicaid",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicare_only",
+         "employer_and_medicare",
+         "direct_purchase_and_medicare",
+         "medicare_and_medicaid"
+        ]
+       },
+       "real": [
+        2.7,
+        2.1,
+        19.3,
+        24,
+        51.9
+       ],
+       "n": 9831,
+       "drawn": 57
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nhis-volunteered-12-months",
+   "title": "Volunteered for an organisation in the past year",
+   "source": {
+    "name": "National Health Interview Survey 2024 (sample adult file)",
+    "organisation": "National Center for Health Statistics (CDC)",
+    "url": "https://www.cdc.gov/nchs/nhis/documentation/2024-nhis.html",
+    "variables": [
+     "CEVOLUN1_A"
+    ]
+   },
+   "country": "us",
+   "population": "US civilian adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "employer_sector",
+     "in": [
+      "private_for_profit_company",
+      "private_non_profit_organization",
+      "local_government",
+      "state_government",
+      "federal_government_civilian",
+      "self_employed_or_family_business",
+      "not_in_employment"
+     ]
+    }
+   ],
+   "surveyed": "January to December 2024",
+   "context": "",
+   "question": "During the past 12 months, did you spend any time volunteering for any organization or association?",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    23.6,
+    76.4
+   ],
+   "n": 31333,
+   "excluded": [
+    "Refused",
+    "Not ascertained",
+    "Don't know"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        19.9,
+        80.1
+       ],
+       "n": 3929,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        22.8,
+        77.2
+       ],
+       "n": 7331,
+       "drawn": 90
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        26.3,
+        73.7
+       ],
+       "n": 9512,
+       "drawn": 83
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        24,
+        76
+       ],
+       "n": 10519,
+       "drawn": 71
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        25.3,
+        74.7
+       ],
+       "n": 16946,
+       "drawn": 162
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        21.8,
+        78.2
+       ],
+       "n": 14382,
+       "drawn": 138
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        26.6,
+        73.4
+       ],
+       "n": 21141,
+       "drawn": 209
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        16.8,
+        83.2
+       ],
+       "n": 9423,
+       "drawn": 87
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        12.2,
+        87.8
+       ],
+       "n": 10531,
+       "drawn": 101
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        22.7,
+        77.3
+       ],
+       "n": 8724,
+       "drawn": 85
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        37.1,
+        62.9
+       ],
+       "n": 11951,
+       "drawn": 114
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        24.8,
+        75.2
+       ],
+       "n": 17964,
+       "drawn": 194
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        24.3,
+        75.7
+       ],
+       "n": 8980,
+       "drawn": 66
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        18,
+        82
+       ],
+       "n": 4357,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        22.5,
+        77.5
+       ],
+       "n": 24673,
+       "drawn": 228
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        26.9,
+        73.1
+       ],
+       "n": 6511,
+       "drawn": 72
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "A lot of difficulty with a basic activity, or cannot do it",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot"
+        ]
+       },
+       "real": [
+        15.3,
+        84.7
+       ],
+       "n": 3581,
+       "drawn": 26
+      },
+      {
+       "label": "No such difficulty",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_little",
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        24.5,
+        75.5
+       ],
+       "n": 27752,
+       "drawn": 274
+      }
+     ]
+    },
+    {
+     "dimension": "Health insurance",
+     "buckets": [
+      {
+       "label": "Uninsured",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "no_health_insurance"
+        ]
+       },
+       "real": [
+        12.6,
+        87.4
+       ],
+       "n": 2218,
+       "drawn": 21
+      },
+      {
+       "label": "Private only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "employer_only",
+         "direct_purchase_only",
+         "multiple_private_types"
+        ]
+       },
+       "real": [
+        27.8,
+        72.2
+       ],
+       "n": 14413,
+       "drawn": 169
+      },
+      {
+       "label": "Medicaid or other public only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicaid_or_other_public_only"
+        ]
+       },
+       "real": [
+        12.8,
+        87.2
+       ],
+       "n": 2674,
+       "drawn": 30
+      },
+      {
+       "label": "Medicare, alone or with private or Medicaid",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicare_only",
+         "employer_and_medicare",
+         "direct_purchase_and_medicare",
+         "medicare_and_medicaid"
+        ]
+       },
+       "real": [
+        23,
+        77
+       ],
+       "n": 9797,
+       "drawn": 57
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nhis-e-cigarette-use",
+   "title": "E-cigarette use",
+   "source": {
+    "name": "National Health Interview Survey 2024 (sample adult file)",
+    "organisation": "National Center for Health Statistics (CDC)",
+    "url": "https://www.cdc.gov/nchs/nhis/documentation/2024-nhis.html",
+    "variables": [
+     "SMKECIGST_A",
+     "ECIGEV_A",
+     "ECIGNOW_A"
+    ]
+   },
+   "country": "us",
+   "population": "US civilian adults 18 and over living in households",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "employer_sector",
+     "in": [
+      "private_for_profit_company",
+      "private_non_profit_organization",
+      "local_government",
+      "state_government",
+      "federal_government_civilian",
+      "self_employed_or_family_business",
+      "not_in_employment"
+     ]
+    }
+   ],
+   "surveyed": "January to December 2024",
+   "context": "These questions are about electronic vaping products for nicotine, such as vape pens and JUULs; not marijuana.",
+   "question": "Have you ever used an e-cigarette or other electronic vaping product, and do you use them now?",
+   "options": [
+    "Use them now, every day or some days",
+    "Used them before, not now",
+    "Never used them"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    7,
+    13.3,
+    79.7
+   ],
+   "n": 31889,
+   "excluded": [
+    "Unknown if ever used"
+   ],
+   "note": "NCHS recode SMKECIGST_A of ECIGEV_A (ever used) and ECIGNOW_A (every day, some days, not at all).",
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "18 to 29",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        14.7,
+        21.7,
+        63.6
+       ],
+       "n": 4005,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 44
+       },
+       "real": [
+        10,
+        18.6,
+        71.4
+       ],
+       "n": 7475,
+       "drawn": 90
+      },
+      {
+       "label": "45 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 64
+       },
+       "real": [
+        4.1,
+        10.5,
+        85.4
+       ],
+       "n": 9694,
+       "drawn": 83
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        0.9,
+        4.1,
+        95
+       ],
+       "n": 10671,
+       "drawn": 71
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        6.4,
+        11.7,
+        81.9
+       ],
+       "n": 17269,
+       "drawn": 162
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        7.7,
+        15,
+        77.3
+       ],
+       "n": 14615,
+       "drawn": 138
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan",
+         "owned_free_and_clear"
+        ]
+       },
+       "real": [
+        5.4,
+        11.6,
+        83
+       ],
+       "n": 21154,
+       "drawn": 209
+      },
+      {
+       "label": "Renters",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_without_government_housing_assistance",
+         "rented_with_government_housing_assistance"
+        ]
+       },
+       "real": [
+        10.8,
+        17.5,
+        71.7
+       ],
+       "n": 9432,
+       "drawn": 87
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "High school or less",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "less_than_high_school_diploma",
+         "high_school_diploma_or_ged"
+        ]
+       },
+       "real": [
+        9,
+        13.6,
+        77.4
+       ],
+       "n": 10770,
+       "drawn": 101
+      },
+      {
+       "label": "Some college or associate degree",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "some_college_no_degree",
+         "associate_degree"
+        ]
+       },
+       "real": [
+        8.3,
+        14.7,
+        77
+       ],
+       "n": 8854,
+       "drawn": 85
+      },
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "bachelors_degree",
+         "masters_degree",
+         "professional_degree_beyond_a_bachelors",
+         "doctorate_degree"
+        ]
+       },
+       "real": [
+        3.7,
+        11.9,
+        84.4
+       ],
+       "n": 12129,
+       "drawn": 114
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        8.4,
+        15.7,
+        75.9
+       ],
+       "n": 18023,
+       "drawn": 194
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        1.1,
+        4.3,
+        94.6
+       ],
+       "n": 8978,
+       "drawn": 66
+      },
+      {
+       "label": "Not working, not retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        8.8,
+        15.3,
+        75.9
+       ],
+       "n": 4353,
+       "drawn": 40
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        6.5,
+        12.7,
+        80.8
+       ],
+       "n": 25074,
+       "drawn": 228
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        8.5,
+        14.9,
+        76.6
+       ],
+       "n": 6662,
+       "drawn": 72
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "A lot of difficulty with a basic activity, or cannot do it",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot"
+        ]
+       },
+       "real": [
+        7.4,
+        12.5,
+        80.1
+       ],
+       "n": 3642,
+       "drawn": 26
+      },
+      {
+       "label": "No such difficulty",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_little",
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        7,
+        13.4,
+        79.6
+       ],
+       "n": 28246,
+       "drawn": 274
+      }
+     ]
+    },
+    {
+     "dimension": "Health insurance",
+     "buckets": [
+      {
+       "label": "Uninsured",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "no_health_insurance"
+        ]
+       },
+       "real": [
+        12.3,
+        15.5,
+        72.2
+       ],
+       "n": 2260,
+       "drawn": 21
+      },
+      {
+       "label": "Private only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "employer_only",
+         "direct_purchase_only",
+         "multiple_private_types"
+        ]
+       },
+       "real": [
+        7.3,
+        15.4,
+        77.3
+       ],
+       "n": 14662,
+       "drawn": 169
+      },
+      {
+       "label": "Medicaid or other public only",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicaid_or_other_public_only"
+        ]
+       },
+       "real": [
+        13.1,
+        17.2,
+        69.7
+       ],
+       "n": 2759,
+       "drawn": 30
+      },
+      {
+       "label": "Medicare, alone or with private or Medicaid",
+       "match": {
+        "field": "health_insurance",
+        "in": [
+         "medicare_only",
+         "employer_and_medicare",
+         "direct_purchase_and_medicare",
+         "medicare_and_medicaid"
+        ]
+       },
+       "real": [
+        1.6,
+        5.3,
+        93.1
+       ],
+       "n": 9946,
+       "drawn": 57
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ons-loneliness-frequency",
+   "title": "How often lonely",
+   "source": {
+    "name": "Opinions and Lifestyle Survey: Public opinions and social trends, Great Britain: personal well-being and loneliness (personal characteristics), July to September 2026",
+    "organisation": "Office for National Statistics",
+    "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/datasets/publicopinionsandsocialtrendsgreatbritainpersonalwellbeingandlonelinessbypersonalcharacteristics",
+    "variables": [
+     "Wellbeing, Table 11"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in Great Britain",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "region",
+     "in": [
+      "north_east_england",
+      "north_west_england",
+      "yorkshire_and_the_humber",
+      "east_midlands",
+      "west_midlands",
+      "east_of_england",
+      "london",
+      "south_east_england",
+      "south_west_england",
+      "wales",
+      "scotland"
+     ]
+    }
+   ],
+   "surveyed": "1 July to 27 September 2026",
+   "context": "",
+   "question": "How often do you feel lonely?",
+   "options": [
+    "Often or always",
+    "Some of the time",
+    "Occasionally",
+    "Hardly ever",
+    "Never"
+   ],
+   "orderedLevels": 5,
+   "real": [
+    6.2,
+    19.6,
+    26.8,
+    29.9,
+    17.5
+   ],
+   "n": 10680,
+   "excluded": [
+    "Don't know",
+    "Prefer not to say"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 29 (survey band; personas 18 to 29)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        8.4,
+        27.4,
+        33.7,
+        22.1,
+        8.4
+       ],
+       "n": 870,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 49",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 49
+       },
+       "real": [
+        8.1,
+        18.2,
+        28.3,
+        31.3,
+        14.1
+       ],
+       "n": 1560,
+       "drawn": 96
+      },
+      {
+       "label": "50 to 69",
+       "match": {
+        "field": "age_years",
+        "min": 50,
+        "max": 69
+       },
+       "real": [
+        6.1,
+        16.3,
+        22.5,
+        32.7,
+        22.4
+       ],
+       "n": 3660,
+       "drawn": 95
+      },
+      {
+       "label": "70 and over",
+       "match": {
+        "field": "age_years",
+        "min": 70,
+        "max": 100
+       },
+       "real": [
+        4,
+        15.2,
+        22.2,
+        30.3,
+        28.3
+       ],
+       "n": 4590,
+       "drawn": 53
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        6.2,
+        21.6,
+        28.9,
+        28.9,
+        14.4
+       ],
+       "n": 5410,
+       "drawn": 167
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        6.1,
+        16.3,
+        25.5,
+        30.6,
+        21.5
+       ],
+       "n": 5280,
+       "drawn": 133
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Own outright",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_outright"
+        ]
+       },
+       "real": [
+        4.1,
+        15.3,
+        24.5,
+        30.6,
+        25.5
+       ],
+       "n": 6630,
+       "drawn": 94
+      },
+      {
+       "label": "Own with a mortgage or loan",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan"
+        ]
+       },
+       "real": [
+        5.1,
+        18.3,
+        28.6,
+        33.7,
+        14.3
+       ],
+       "n": 1980,
+       "drawn": 98
+      },
+      {
+       "label": "Rent from a council or housing association",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_council_or_local_authority",
+         "rented_from_a_housing_association_or_other_social_landlord"
+        ]
+       },
+       "real": [
+        15.8,
+        27.4,
+        26.3,
+        18.9,
+        11.6
+       ],
+       "n": 890,
+       "drawn": 39
+      },
+      {
+       "label": "Rent from a private landlord",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_private_landlord_or_letting_agency"
+        ]
+       },
+       "real": [
+        12.4,
+        23.7,
+        27.8,
+        23.7,
+        12.4
+       ],
+       "n": 810,
+       "drawn": 63
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "higher_education_qualification",
+        "in": [
+         "bachelors_degree_or_equivalent",
+         "masters_degree_or_postgraduate_diploma",
+         "doctorate"
+        ]
+       },
+       "real": [
+        6.1,
+        17.2,
+        29.3,
+        33.3,
+        14.1
+       ],
+       "n": 4320,
+       "drawn": 92
+      },
+      {
+       "label": "No qualifications",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "no_qualifications"
+        ]
+       },
+       "real": [
+        6.3,
+        18.9,
+        23.2,
+        24.2,
+        27.4
+       ],
+       "n": 1190,
+       "drawn": 56
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        6.2,
+        19.6,
+        27.8,
+        30.9,
+        15.5
+       ],
+       "n": 3970,
+       "drawn": 167
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        3.1,
+        13.3,
+        21.4,
+        32.6,
+        29.6
+       ],
+       "n": 5630,
+       "drawn": 67
+      },
+      {
+       "label": "Unemployed",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work"
+        ]
+       },
+       "real": [
+        9.4,
+        27.1,
+        34.4,
+        21.8,
+        7.3
+       ],
+       "n": 220,
+       "drawn": 10
+      },
+      {
+       "label": "Not working, not retired, not looking for work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        14.9,
+        27.7,
+        27.6,
+        20.2,
+        9.6
+       ],
+       "n": 870,
+       "drawn": 56
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        7.1,
+        19.4,
+        27.6,
+        28.6,
+        17.3
+       ],
+       "n": 9830,
+       "drawn": 226
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        5.1,
+        18.6,
+        23.7,
+        34,
+        18.6
+       ],
+       "n": 850,
+       "drawn": 74
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "Disabled: a long-term condition that reduces day-to-day activities",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot",
+         "limited_a_little"
+        ]
+       },
+       "real": [
+        13.1,
+        24.3,
+        25.3,
+        24.2,
+        13.1
+       ],
+       "n": 3980,
+       "drawn": 58
+      },
+      {
+       "label": "Not disabled",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        3,
+        15.2,
+        27.3,
+        33.3,
+        21.2
+       ],
+       "n": 6210,
+       "drawn": 242
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ons-able-to-save-next-12-months",
+   "title": "Expects to save in the next 12 months",
+   "source": {
+    "name": "Opinions and Lifestyle Survey: Public opinions and social trends, Great Britain: household finances (personal characteristics), July to September 2026",
+    "organisation": "Office for National Statistics",
+    "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/debt/datasets/publicopinionsandsocialtrendsgreatbritainhouseholdfinancesbypersonalcharacteristics",
+    "variables": [
+     "Household finances, Table 1"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in Great Britain",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "region",
+     "in": [
+      "north_east_england",
+      "north_west_england",
+      "yorkshire_and_the_humber",
+      "east_midlands",
+      "west_midlands",
+      "east_of_england",
+      "london",
+      "south_east_england",
+      "south_west_england",
+      "wales",
+      "scotland"
+     ]
+    }
+   ],
+   "surveyed": "1 July to 27 September 2026",
+   "context": "",
+   "question": "In view of the general economic situation, do you think you will be able to save any money in the next 12 months?",
+   "options": [
+    "Yes",
+    "No",
+    "Don't know"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    47.4,
+    35.1,
+    17.5
+   ],
+   "n": 10680,
+   "excluded": [
+    "Prefer not to say"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 29 (survey band; personas 18 to 29)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        54.5,
+        26.3,
+        19.2
+       ],
+       "n": 870,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 49",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 49
+       },
+       "real": [
+        50,
+        33.7,
+        16.3
+       ],
+       "n": 1560,
+       "drawn": 96
+      },
+      {
+       "label": "50 to 69",
+       "match": {
+        "field": "age_years",
+        "min": 50,
+        "max": 69
+       },
+       "real": [
+        42.3,
+        41.2,
+        16.5
+       ],
+       "n": 3660,
+       "drawn": 95
+      },
+      {
+       "label": "70 and over",
+       "match": {
+        "field": "age_years",
+        "min": 70,
+        "max": 100
+       },
+       "real": [
+        41.2,
+        38.2,
+        20.6
+       ],
+       "n": 4590,
+       "drawn": 53
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        42.9,
+        37.7,
+        19.4
+       ],
+       "n": 5410,
+       "drawn": 167
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        52,
+        32.7,
+        15.3
+       ],
+       "n": 5280,
+       "drawn": 133
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Own outright",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_outright"
+        ]
+       },
+       "real": [
+        50.5,
+        32,
+        17.5
+       ],
+       "n": 6630,
+       "drawn": 94
+      },
+      {
+       "label": "Own with a mortgage or loan",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan"
+        ]
+       },
+       "real": [
+        54.6,
+        31.3,
+        14.1
+       ],
+       "n": 1980,
+       "drawn": 98
+      },
+      {
+       "label": "Rent from a council or housing association",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_council_or_local_authority",
+         "rented_from_a_housing_association_or_other_social_landlord"
+        ]
+       },
+       "real": [
+        22.9,
+        51.1,
+        26
+       ],
+       "n": 890,
+       "drawn": 39
+      },
+      {
+       "label": "Rent from a private landlord",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_private_landlord_or_letting_agency"
+        ]
+       },
+       "real": [
+        37.7,
+        43.9,
+        18.4
+       ],
+       "n": 810,
+       "drawn": 63
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "higher_education_qualification",
+        "in": [
+         "bachelors_degree_or_equivalent",
+         "masters_degree_or_postgraduate_diploma",
+         "doctorate"
+        ]
+       },
+       "real": [
+        61.6,
+        26.3,
+        12.1
+       ],
+       "n": 4320,
+       "drawn": 92
+      },
+      {
+       "label": "No qualifications",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "no_qualifications"
+        ]
+       },
+       "real": [
+        24.5,
+        50,
+        25.5
+       ],
+       "n": 1190,
+       "drawn": 56
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        54.5,
+        30.3,
+        15.2
+       ],
+       "n": 3970,
+       "drawn": 167
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        41.2,
+        40.2,
+        18.6
+       ],
+       "n": 5630,
+       "drawn": 67
+      },
+      {
+       "label": "Unemployed",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work"
+        ]
+       },
+       "real": [
+        30.3,
+        42.4,
+        27.3
+       ],
+       "n": 220,
+       "drawn": 10
+      },
+      {
+       "label": "Not working, not retired, not looking for work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        27.1,
+        46.9,
+        26
+       ],
+       "n": 870,
+       "drawn": 56
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        48.5,
+        34,
+        17.5
+       ],
+       "n": 9830,
+       "drawn": 226
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        44.9,
+        39.8,
+        15.3
+       ],
+       "n": 850,
+       "drawn": 74
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "Disabled: a long-term condition that reduces day-to-day activities",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot",
+         "limited_a_little"
+        ]
+       },
+       "real": [
+        35,
+        46.4,
+        18.6
+       ],
+       "n": 3980,
+       "drawn": 58
+      },
+      {
+       "label": "Not disabled",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        54.1,
+        29.6,
+        16.3
+       ],
+       "n": 6210,
+       "drawn": 242
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ons-borrowed-more-than-usual",
+   "title": "Borrowed more than usual in the last month",
+   "source": {
+    "name": "Opinions and Lifestyle Survey: Public opinions and social trends, Great Britain: household finances (personal characteristics), July to September 2026",
+    "organisation": "Office for National Statistics",
+    "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/debt/datasets/publicopinionsandsocialtrendsgreatbritainhouseholdfinancesbypersonalcharacteristics",
+    "variables": [
+     "Household finances, Table 3"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in Great Britain",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "region",
+     "in": [
+      "north_east_england",
+      "north_west_england",
+      "yorkshire_and_the_humber",
+      "east_midlands",
+      "west_midlands",
+      "east_of_england",
+      "london",
+      "south_east_england",
+      "south_west_england",
+      "wales",
+      "scotland"
+     ]
+    }
+   ],
+   "surveyed": "1 July to 27 September 2026",
+   "context": "Borrowing or using credit includes credit cards, overdrafts, or taking out loans, borrowing from friends, family, neighbours or other personal connections.",
+   "question": "Have you had to borrow more money or use more credit than usual in the last month, compared to a year ago?",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    22.3,
+    77.7
+   ],
+   "n": 10680,
+   "excluded": [
+    "Don't know",
+    "Prefer not to say"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 29 (survey band; personas 18 to 29)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        22.2,
+        77.8
+       ],
+       "n": 870,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 49",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 49
+       },
+       "real": [
+        33,
+        67
+       ],
+       "n": 1560,
+       "drawn": 96
+      },
+      {
+       "label": "50 to 69",
+       "match": {
+        "field": "age_years",
+        "min": 50,
+        "max": 69
+       },
+       "real": [
+        18.8,
+        81.2
+       ],
+       "n": 3660,
+       "drawn": 95
+      },
+      {
+       "label": "70 and over",
+       "match": {
+        "field": "age_years",
+        "min": 70,
+        "max": 100
+       },
+       "real": [
+        11.5,
+        88.5
+       ],
+       "n": 4590,
+       "drawn": 53
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        24.5,
+        75.5
+       ],
+       "n": 5410,
+       "drawn": 167
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        20.2,
+        79.8
+       ],
+       "n": 5280,
+       "drawn": 133
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Own outright",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_outright"
+        ]
+       },
+       "real": [
+        11.5,
+        88.5
+       ],
+       "n": 6630,
+       "drawn": 94
+      },
+      {
+       "label": "Own with a mortgage or loan",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan"
+        ]
+       },
+       "real": [
+        27.4,
+        72.6
+       ],
+       "n": 1980,
+       "drawn": 98
+      },
+      {
+       "label": "Rent from a council or housing association",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_council_or_local_authority",
+         "rented_from_a_housing_association_or_other_social_landlord"
+        ]
+       },
+       "real": [
+        35.2,
+        64.8
+       ],
+       "n": 890,
+       "drawn": 39
+      },
+      {
+       "label": "Rent from a private landlord",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_private_landlord_or_letting_agency"
+        ]
+       },
+       "real": [
+        38,
+        62
+       ],
+       "n": 810,
+       "drawn": 63
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "higher_education_qualification",
+        "in": [
+         "bachelors_degree_or_equivalent",
+         "masters_degree_or_postgraduate_diploma",
+         "doctorate"
+        ]
+       },
+       "real": [
+        23.7,
+        76.3
+       ],
+       "n": 4320,
+       "drawn": 92
+      },
+      {
+       "label": "No qualifications",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "no_qualifications"
+        ]
+       },
+       "real": [
+        17.8,
+        82.2
+       ],
+       "n": 1190,
+       "drawn": 56
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        27.4,
+        72.6
+       ],
+       "n": 3970,
+       "drawn": 167
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        10.3,
+        89.7
+       ],
+       "n": 5630,
+       "drawn": 67
+      },
+      {
+       "label": "Unemployed",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work"
+        ]
+       },
+       "real": [
+        20.5,
+        79.5
+       ],
+       "n": 220,
+       "drawn": 10
+      },
+      {
+       "label": "Not working, not retired, not looking for work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        24.2,
+        75.8
+       ],
+       "n": 870,
+       "drawn": 56
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        19.1,
+        80.9
+       ],
+       "n": 9830,
+       "drawn": 226
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        37.2,
+        62.8
+       ],
+       "n": 850,
+       "drawn": 74
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "Disabled: a long-term condition that reduces day-to-day activities",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot",
+         "limited_a_little"
+        ]
+       },
+       "real": [
+        27.4,
+        72.6
+       ],
+       "n": 3980,
+       "drawn": 58
+      },
+      {
+       "label": "Not disabled",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        20,
+        80
+       ],
+       "n": 6210,
+       "drawn": 242
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ons-afford-rent-or-mortgage",
+   "title": "Affording rent or mortgage payments",
+   "source": {
+    "name": "Opinions and Lifestyle Survey: Public opinions and social trends, Great Britain: household finances (personal characteristics), July to September 2026",
+    "organisation": "Office for National Statistics",
+    "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/debt/datasets/publicopinionsandsocialtrendsgreatbritainhouseholdfinancesbypersonalcharacteristics",
+    "variables": [
+     "Household finances, Table 10"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in Great Britain who are currently paying rent or mortgage payments",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "region",
+     "in": [
+      "north_east_england",
+      "north_west_england",
+      "yorkshire_and_the_humber",
+      "east_midlands",
+      "west_midlands",
+      "east_of_england",
+      "london",
+      "south_east_england",
+      "south_west_england",
+      "wales",
+      "scotland"
+     ]
+    },
+    {
+     "field": "home_tenure",
+     "in": [
+      "owned_with_a_mortgage_or_loan",
+      "shared_ownership",
+      "rented_from_a_council_or_local_authority",
+      "rented_from_a_housing_association_or_other_social_landlord",
+      "rented_from_a_private_landlord_or_letting_agency",
+      "rented_from_a_relative_friend_or_employer_or_other_private_rented"
+     ]
+    },
+    {
+     "field": "position_in_household",
+     "in": [
+      "householder_or_partner_of_householder"
+     ]
+    }
+   ],
+   "surveyed": "1 July to 27 September 2026",
+   "context": "",
+   "question": "How easy or difficult is it to afford your rent or mortgage payments?",
+   "options": [
+    "Very easy",
+    "Somewhat easy",
+    "Somewhat difficult",
+    "Very difficult"
+   ],
+   "orderedLevels": 4,
+   "real": [
+    16,
+    48.9,
+    29.8,
+    5.3
+   ],
+   "n": 3320,
+   "excluded": [
+    "Don't know",
+    "Prefer not to say"
+   ],
+   "note": "ONS asks people who currently pay rent or a mortgage; the universe approximates them as householders and partners in mortgaged, shared-ownership or rented homes.",
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 29 (survey band; personas 18 to 29)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        16.1,
+        54.8,
+        22.6,
+        6.5
+       ],
+       "n": 250,
+       "drawn": 37
+      },
+      {
+       "label": "30 to 49",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 49
+       },
+       "real": [
+        15.8,
+        49.5,
+        29.5,
+        5.2
+       ],
+       "n": 1270,
+       "drawn": 142
+      },
+      {
+       "label": "50 to 69",
+       "match": {
+        "field": "age_years",
+        "min": 50,
+        "max": 69
+       },
+       "real": [
+        15.2,
+        45.7,
+        33.7,
+        5.4
+       ],
+       "n": 1190,
+       "drawn": 94
+      },
+      {
+       "label": "70 and over",
+       "match": {
+        "field": "age_years",
+        "min": 70,
+        "max": 100
+       },
+       "real": [
+        15.7,
+        49.4,
+        30.1,
+        4.8
+       ],
+       "n": 620,
+       "drawn": 27
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        13.8,
+        47.9,
+        31.9,
+        6.4
+       ],
+       "n": 1710,
+       "drawn": 158
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        17.2,
+        49.5,
+        27.9,
+        5.4
+       ],
+       "n": 1610,
+       "drawn": 142
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Own with a mortgage or loan",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan"
+        ]
+       },
+       "real": [
+        17.9,
+        54.7,
+        24.2,
+        3.2
+       ],
+       "n": 1680,
+       "drawn": 147
+      },
+      {
+       "label": "Rent from a council or housing association",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_council_or_local_authority",
+         "rented_from_a_housing_association_or_other_social_landlord"
+        ]
+       },
+       "real": [
+        12.7,
+        40.2,
+        37.9,
+        9.2
+       ],
+       "n": 770,
+       "drawn": 61
+      },
+      {
+       "label": "Rent from a private landlord",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_private_landlord_or_letting_agency"
+        ]
+       },
+       "real": [
+        11.8,
+        40.9,
+        36.6,
+        10.7
+       ],
+       "n": 750,
+       "drawn": 74
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "higher_education_qualification",
+        "in": [
+         "bachelors_degree_or_equivalent",
+         "masters_degree_or_postgraduate_diploma",
+         "doctorate"
+        ]
+       },
+       "real": [
+        17.5,
+        53.6,
+        24.8,
+        4.1
+       ],
+       "n": 1600,
+       "drawn": 110
+      },
+      {
+       "label": "No qualifications",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "no_qualifications"
+        ]
+       },
+       "real": [
+        15.7,
+        39.8,
+        37.3,
+        7.2
+       ],
+       "n": 310,
+       "drawn": 58
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        15.6,
+        51.1,
+        28.1,
+        5.2
+       ],
+       "n": 2190,
+       "drawn": 212
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        16.3,
+        46.5,
+        31.4,
+        5.8
+       ],
+       "n": 740,
+       "drawn": 26
+      },
+      {
+       "label": "Not working, not retired, not looking for work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        17.1,
+        35.4,
+        40.2,
+        7.3
+       ],
+       "n": 330,
+       "drawn": 53
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        17.4,
+        48.9,
+        28.3,
+        5.4
+       ],
+       "n": 2630,
+       "drawn": 185
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        11.7,
+        50,
+        31.9,
+        6.4
+       ],
+       "n": 690,
+       "drawn": 115
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "Disabled: a long-term condition that reduces day-to-day activities",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot",
+         "limited_a_little"
+        ]
+       },
+       "real": [
+        11,
+        46.1,
+        36.3,
+        6.6
+       ],
+       "n": 1190,
+       "drawn": 60
+      },
+      {
+       "label": "Not disabled",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        17.9,
+        51.6,
+        26.3,
+        4.2
+       ],
+       "n": 1980,
+       "drawn": 240
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ons-kept-comfortably-warm",
+   "title": "Kept comfortably warm at home",
+   "source": {
+    "name": "Opinions and Lifestyle Survey: Public opinions and social trends, Great Britain: winter pressures (personal characteristics), October 2025 to January 2026",
+    "organisation": "Office for National Statistics",
+    "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/debt/datasets/publicopinionsandsocialtrendsgreatbritainwinterpressuresbypersonalcharacteristics",
+    "variables": [
+     "Winter pressures, Table 2"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in Great Britain",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "region",
+     "in": [
+      "north_east_england",
+      "north_west_england",
+      "yorkshire_and_the_humber",
+      "east_midlands",
+      "west_midlands",
+      "east_of_england",
+      "london",
+      "south_east_england",
+      "south_west_england",
+      "wales",
+      "scotland"
+     ]
+    }
+   ],
+   "surveyed": "1 October 2025 to 4 January 2026",
+   "context": "",
+   "question": "In the past two weeks, how often were you able to keep comfortably warm in your home?",
+   "options": [
+    "Often or always",
+    "Some of the time",
+    "Occasionally",
+    "Hardly ever or never"
+   ],
+   "orderedLevels": 4,
+   "real": [
+    57.1,
+    25.5,
+    13.3,
+    4.1
+   ],
+   "n": 10070,
+   "excluded": [
+    "Don't know",
+    "Prefer not to say"
+   ],
+   "note": "\"Hardly ever or never\" joins two published options (3% and 1%).",
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 29 (survey band; personas 18 to 29)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 29
+       },
+       "real": [
+        59.6,
+        23.4,
+        12.8,
+        4.2
+       ],
+       "n": 560,
+       "drawn": 56
+      },
+      {
+       "label": "30 to 49",
+       "match": {
+        "field": "age_years",
+        "min": 30,
+        "max": 49
+       },
+       "real": [
+        56.1,
+        22.5,
+        16.3,
+        5.1
+       ],
+       "n": 1370,
+       "drawn": 96
+      },
+      {
+       "label": "50 to 69",
+       "match": {
+        "field": "age_years",
+        "min": 50,
+        "max": 69
+       },
+       "real": [
+        57.1,
+        25.5,
+        12.3,
+        5.1
+       ],
+       "n": 3570,
+       "drawn": 95
+      },
+      {
+       "label": "70 and over",
+       "match": {
+        "field": "age_years",
+        "min": 70,
+        "max": 100
+       },
+       "real": [
+        57.9,
+        31.5,
+        8.1,
+        2.5
+       ],
+       "n": 4580,
+       "drawn": 53
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        53.6,
+        27.8,
+        13.4,
+        5.2
+       ],
+       "n": 4930,
+       "drawn": 167
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        61.8,
+        22.7,
+        12.4,
+        3.1
+       ],
+       "n": 5150,
+       "drawn": 133
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Own outright",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_outright"
+        ]
+       },
+       "real": [
+        62.2,
+        25.5,
+        9.2,
+        3.1
+       ],
+       "n": 6550,
+       "drawn": 94
+      },
+      {
+       "label": "Own with a mortgage or loan",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_with_a_mortgage_or_loan"
+        ]
+       },
+       "real": [
+        60.8,
+        23.7,
+        12.4,
+        3.1
+       ],
+       "n": 1800,
+       "drawn": 98
+      },
+      {
+       "label": "Rent from a council or housing association",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_council_or_local_authority",
+         "rented_from_a_housing_association_or_other_social_landlord"
+        ]
+       },
+       "real": [
+        41.2,
+        24.7,
+        25.8,
+        8.3
+       ],
+       "n": 720,
+       "drawn": 39
+      },
+      {
+       "label": "Rent from a private landlord",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_private_landlord_or_letting_agency"
+        ]
+       },
+       "real": [
+        44.8,
+        27.1,
+        18.7,
+        9.4
+       ],
+       "n": 680,
+       "drawn": 63
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "higher_education_qualification",
+        "in": [
+         "bachelors_degree_or_equivalent",
+         "masters_degree_or_postgraduate_diploma",
+         "doctorate"
+        ]
+       },
+       "real": [
+        63.6,
+        22.2,
+        10.1,
+        4.1
+       ],
+       "n": 4100,
+       "drawn": 92
+      },
+      {
+       "label": "No qualifications",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "no_qualifications"
+        ]
+       },
+       "real": [
+        42.5,
+        34.2,
+        17.6,
+        5.7
+       ],
+       "n": 1150,
+       "drawn": 56
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        58.8,
+        23.7,
+        13.4,
+        4.1
+       ],
+       "n": 3510,
+       "drawn": 167
+      },
+      {
+       "label": "Retired",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "retired"
+        ]
+       },
+       "real": [
+        60.3,
+        29.2,
+        8,
+        2.5
+       ],
+       "n": 5660,
+       "drawn": 67
+      },
+      {
+       "label": "Unemployed",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work"
+        ]
+       },
+       "real": [
+        54.8,
+        15.2,
+        20.3,
+        9.7
+       ],
+       "n": 170,
+       "drawn": 10
+      },
+      {
+       "label": "Not working, not retired, not looking for work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        47.9,
+        26.6,
+        18.1,
+        7.4
+       ],
+       "n": 730,
+       "drawn": 56
+      }
+     ]
+    },
+    {
+     "dimension": "Own dependent children at home",
+     "buckets": [
+      {
+       "label": "None",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "0"
+        ]
+       },
+       "real": [
+        57.1,
+        25.5,
+        13.3,
+        4.1
+       ],
+       "n": 9260,
+       "drawn": 226
+      },
+      {
+       "label": "One or more",
+       "match": {
+        "field": "own_dependent_children_at_home",
+        "in": [
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6_or_more"
+        ]
+       },
+       "real": [
+        58.2,
+        24.5,
+        14.3,
+        3
+       ],
+       "n": 810,
+       "drawn": 74
+      }
+     ]
+    },
+    {
+     "dimension": "Disability",
+     "buckets": [
+      {
+       "label": "Disabled: a long-term condition that reduces day-to-day activities",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot",
+         "limited_a_little"
+        ]
+       },
+       "real": [
+        48.5,
+        27.8,
+        17.5,
+        6.2
+       ],
+       "n": 3700,
+       "drawn": 58
+      },
+      {
+       "label": "Not disabled",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "has_a_long_term_condition_not_limiting",
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        62.2,
+        23.5,
+        11.2,
+        3.1
+       ],
+       "n": 5970,
+       "drawn": 242
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fsa-worried-food-would-run-out",
+   "title": "Worried food would run out",
+   "source": {
+    "name": "Food and You 2: Wave 11 (all-country tables)",
+    "organisation": "Food Standards Agency",
+    "url": "https://data.food.gov.uk/catalog/datasets/a6ba60ff-c9c6-4d13-9891-f9282e919cec",
+    "variables": [
+     "FOODSEC1 (table 217)"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in England, Wales and Northern Ireland",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "region",
+     "in": [
+      "north_east_england",
+      "north_west_england",
+      "yorkshire_and_the_humber",
+      "east_midlands",
+      "west_midlands",
+      "east_of_england",
+      "london",
+      "south_east_england",
+      "south_west_england",
+      "wales",
+      "northern_ireland"
+     ]
+    }
+   ],
+   "surveyed": "9 May to 7 August 2025",
+   "context": "Please say whether the statement below was often true, sometimes true or never true for you or people in your household in the last 12 months.",
+   "question": "\"I / we worried whether our food would run out before we got money to buy more.\"",
+   "options": [
+    "Often true",
+    "Sometimes true",
+    "Never true"
+   ],
+   "orderedLevels": 3,
+   "real": [
+    9.2,
+    18.4,
+    72.4
+   ],
+   "n": 5872,
+   "excluded": [
+    "Don't know or prefer not to say"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 24 (survey band; personas 18 to 24)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 24
+       },
+       "real": [
+        14.5,
+        21.5,
+        64
+       ],
+       "n": 301,
+       "drawn": 28
+      },
+      {
+       "label": "25 to 34",
+       "match": {
+        "field": "age_years",
+        "min": 25,
+        "max": 34
+       },
+       "real": [
+        16.7,
+        27,
+        56.3
+       ],
+       "n": 679,
+       "drawn": 55
+      },
+      {
+       "label": "35 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 35,
+        "max": 44
+       },
+       "real": [
+        11.3,
+        21.4,
+        67.3
+       ],
+       "n": 863,
+       "drawn": 53
+      },
+      {
+       "label": "45 to 54",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 54
+       },
+       "real": [
+        7.2,
+        20.9,
+        71.9
+       ],
+       "n": 904,
+       "drawn": 47
+      },
+      {
+       "label": "55 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 55,
+        "max": 64
+       },
+       "real": [
+        4.2,
+        14.7,
+        81.1
+       ],
+       "n": 1128,
+       "drawn": 37
+      },
+      {
+       "label": "65 to 74",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 74
+       },
+       "real": [
+        5.6,
+        9.4,
+        85
+       ],
+       "n": 1108,
+       "drawn": 37
+      },
+      {
+       "label": "75 and over",
+       "match": {
+        "field": "age_years",
+        "min": 75,
+        "max": 100
+       },
+       "real": [
+        2.8,
+        8.5,
+        88.7
+       ],
+       "n": 820,
+       "drawn": 43
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        8.4,
+        20.7,
+        70.9
+       ],
+       "n": 3425,
+       "drawn": 148
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        9.7,
+        16,
+        74.3
+       ],
+       "n": 2357,
+       "drawn": 152
+      }
+     ]
+    },
+    {
+     "dimension": "People in household",
+     "buckets": [
+      {
+       "label": "1",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "1"
+        ]
+       },
+       "real": [
+        8.5,
+        14,
+        77.5
+       ],
+       "n": 933,
+       "drawn": 44
+      },
+      {
+       "label": "2",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "2"
+        ]
+       },
+       "real": [
+        5.4,
+        15.7,
+        78.9
+       ],
+       "n": 2681,
+       "drawn": 119
+      },
+      {
+       "label": "3",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "3"
+        ]
+       },
+       "real": [
+        10,
+        18.2,
+        71.8
+       ],
+       "n": 948,
+       "drawn": 50
+      },
+      {
+       "label": "4",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "4"
+        ]
+       },
+       "real": [
+        9.7,
+        22.8,
+        67.5
+       ],
+       "n": 728,
+       "drawn": 52
+      },
+      {
+       "label": "5 or more",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "5",
+         "6",
+         "7",
+         "8_or_more"
+        ]
+       },
+       "real": [
+        19.5,
+        22.8,
+        57.7
+       ],
+       "n": 362,
+       "drawn": 35
+      }
+     ]
+    },
+    {
+     "dimension": "Long-term health condition",
+     "buckets": [
+      {
+       "label": "Has a condition lasting 12 months or more",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot",
+         "limited_a_little",
+         "has_a_long_term_condition_not_limiting"
+        ]
+       },
+       "real": [
+        15.4,
+        22.9,
+        61.7
+       ],
+       "n": 1738,
+       "drawn": 162
+      },
+      {
+       "label": "No long-term condition",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        6.6,
+        15.8,
+        77.6
+       ],
+       "n": 3798,
+       "drawn": 138
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fsa-checks-animal-welfare-info",
+   "title": "Checks animal welfare information when buying food",
+   "source": {
+    "name": "Food and You 2: Wave 11 (all-country tables)",
+    "organisation": "Food Standards Agency",
+    "url": "https://data.food.gov.uk/catalog/datasets/a6ba60ff-c9c6-4d13-9891-f9282e919cec",
+    "variables": [
+     "DEFRA4_1 (table 236)"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in England, Wales and Northern Ireland",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "region",
+     "in": [
+      "north_east_england",
+      "north_west_england",
+      "yorkshire_and_the_humber",
+      "east_midlands",
+      "west_midlands",
+      "east_of_england",
+      "london",
+      "south_east_england",
+      "south_west_england",
+      "wales",
+      "northern_ireland"
+     ]
+    }
+   ],
+   "surveyed": "9 May to 7 August 2025",
+   "context": "",
+   "question": "When purchasing food, how often do you check for information on animal welfare?",
+   "options": [
+    "Always",
+    "Most of the time",
+    "About half the time",
+    "Occasionally",
+    "Never"
+   ],
+   "orderedLevels": 5,
+   "real": [
+    14.2,
+    18.2,
+    9.6,
+    23.2,
+    34.8
+   ],
+   "n": 5880,
+   "excluded": [
+    "Don't know"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 24 (survey band; personas 18 to 24)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 24
+       },
+       "real": [
+        14.8,
+        19.5,
+        13.2,
+        15.4,
+        37.1
+       ],
+       "n": 300,
+       "drawn": 28
+      },
+      {
+       "label": "25 to 34",
+       "match": {
+        "field": "age_years",
+        "min": 25,
+        "max": 34
+       },
+       "real": [
+        18.5,
+        14.1,
+        7.3,
+        22.4,
+        37.7
+       ],
+       "n": 678,
+       "drawn": 55
+      },
+      {
+       "label": "35 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 35,
+        "max": 44
+       },
+       "real": [
+        15.4,
+        16,
+        11,
+        20.1,
+        37.5
+       ],
+       "n": 865,
+       "drawn": 53
+      },
+      {
+       "label": "45 to 54",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 54
+       },
+       "real": [
+        13.6,
+        16.6,
+        14.1,
+        28.2,
+        27.5
+       ],
+       "n": 901,
+       "drawn": 47
+      },
+      {
+       "label": "55 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 55,
+        "max": 64
+       },
+       "real": [
+        12.6,
+        25.4,
+        8.4,
+        24.3,
+        29.3
+       ],
+       "n": 1129,
+       "drawn": 37
+      },
+      {
+       "label": "65 to 74",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 74
+       },
+       "real": [
+        11.9,
+        21.4,
+        6.8,
+        27.6,
+        32.3
+       ],
+       "n": 1112,
+       "drawn": 37
+      },
+      {
+       "label": "75 and over",
+       "match": {
+        "field": "age_years",
+        "min": 75,
+        "max": 100
+       },
+       "real": [
+        10.6,
+        15,
+        5.8,
+        25,
+        43.6
+       ],
+       "n": 826,
+       "drawn": 43
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        15.8,
+        21.1,
+        11.1,
+        21.7,
+        30.3
+       ],
+       "n": 3431,
+       "drawn": 148
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        12.2,
+        15.4,
+        8,
+        24.6,
+        39.8
+       ],
+       "n": 2360,
+       "drawn": 152
+      }
+     ]
+    },
+    {
+     "dimension": "People in household",
+     "buckets": [
+      {
+       "label": "1",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "1"
+        ]
+       },
+       "real": [
+        13.7,
+        16.1,
+        6.4,
+        26.9,
+        36.9
+       ],
+       "n": 936,
+       "drawn": 44
+      },
+      {
+       "label": "2",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "2"
+        ]
+       },
+       "real": [
+        11.5,
+        21.1,
+        9.5,
+        24,
+        33.9
+       ],
+       "n": 2685,
+       "drawn": 119
+      },
+      {
+       "label": "3",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "3"
+        ]
+       },
+       "real": [
+        18.5,
+        16,
+        9.9,
+        20.5,
+        35.1
+       ],
+       "n": 948,
+       "drawn": 50
+      },
+      {
+       "label": "4",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "4"
+        ]
+       },
+       "real": [
+        14.2,
+        16.5,
+        11.9,
+        23.2,
+        34.2
+       ],
+       "n": 728,
+       "drawn": 52
+      },
+      {
+       "label": "5 or more",
+       "match": {
+        "field": "people_in_household",
+        "in": [
+         "5",
+         "6",
+         "7",
+         "8_or_more"
+        ]
+       },
+       "real": [
+        16.8,
+        19.1,
+        8.5,
+        21.9,
+        33.7
+       ],
+       "n": 362,
+       "drawn": 35
+      }
+     ]
+    },
+    {
+     "dimension": "Long-term health condition",
+     "buckets": [
+      {
+       "label": "Has a condition lasting 12 months or more",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "limited_a_lot",
+         "limited_a_little",
+         "has_a_long_term_condition_not_limiting"
+        ]
+       },
+       "real": [
+        15.2,
+        17.4,
+        9.5,
+        22.7,
+        35.2
+       ],
+       "n": 1742,
+       "drawn": 162
+      },
+      {
+       "label": "No long-term condition",
+       "match": {
+        "field": "day_to_day_activities_limited_by_health",
+        "in": [
+         "no_long_term_condition"
+        ]
+       },
+       "real": [
+        13.5,
+        19.1,
+        9.3,
+        23.6,
+        34.5
+       ],
+       "n": 3799,
+       "drawn": 138
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "desnz-worry-paying-energy-bills",
+   "title": "Worry about paying energy bills",
+   "source": {
+    "name": "Public Attitudes Tracker: Spring 2026 (crosstabulations)",
+    "organisation": "Department for Energy Security and Net Zero",
+    "url": "https://www.gov.uk/government/statistics/desnz-public-attitudes-tracker-spring-2026",
+    "variables": [
+     "PAYBILLEN"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in the UK",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    }
+   ],
+   "surveyed": "16 March to 21 April 2026",
+   "context": "",
+   "question": "Over the last three months, how worried, if at all, have you been about paying for energy bills (gas/electricity)?",
+   "options": [
+    "Very worried",
+    "Fairly worried",
+    "Not very worried",
+    "Not at all worried",
+    "Not applicable (I don't pay them) or don't know"
+   ],
+   "orderedLevels": 4,
+   "real": [
+    20.2,
+    35.7,
+    24.5,
+    12.2,
+    7.4
+   ],
+   "n": 3388,
+   "excluded": [
+    "Prefer not to say"
+   ],
+   "note": "The survey's \"Not applicable/Don't know\" is kept as an option: most of it is people who do not pay the bills (45% of 16 to 24 year olds).",
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 24 (survey band; personas 18 to 24)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 24
+       },
+       "real": [
+        11.2,
+        23.7,
+        12,
+        7.7,
+        45.4
+       ],
+       "n": 177,
+       "drawn": 29
+      },
+      {
+       "label": "25 to 34",
+       "match": {
+        "field": "age_years",
+        "min": 25,
+        "max": 34
+       },
+       "real": [
+        20.9,
+        40.7,
+        23.2,
+        11.1,
+        4.1
+       ],
+       "n": 326,
+       "drawn": 38
+      },
+      {
+       "label": "35 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 35,
+        "max": 44
+       },
+       "real": [
+        31.4,
+        36.2,
+        22.8,
+        8.5,
+        1.1
+       ],
+       "n": 475,
+       "drawn": 50
+      },
+      {
+       "label": "45 to 54",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 54
+       },
+       "real": [
+        24.5,
+        39.6,
+        23.3,
+        12.6,
+        0
+       ],
+       "n": 467,
+       "drawn": 58
+      },
+      {
+       "label": "55 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 55,
+        "max": 64
+       },
+       "real": [
+        19.7,
+        38.2,
+        27.1,
+        14.7,
+        0.3
+       ],
+       "n": 659,
+       "drawn": 40
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        14.2,
+        34.3,
+        32.9,
+        16.9,
+        1.7
+       ],
+       "n": 1212,
+       "drawn": 85
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        22.3,
+        37.9,
+        23.6,
+        9.8,
+        6.4
+       ],
+       "n": 1665,
+       "drawn": 146
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        17.5,
+        33.2,
+        25.9,
+        15.1,
+        8.3
+       ],
+       "n": 1658,
+       "drawn": 154
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "higher_education_qualification",
+        "in": [
+         "bachelors_degree_or_equivalent",
+         "masters_degree_or_postgraduate_diploma",
+         "doctorate"
+        ]
+       },
+       "real": [
+        16.9,
+        38,
+        28.3,
+        14.6,
+        2.2
+       ],
+       "n": 1677,
+       "drawn": 105
+      },
+      {
+       "label": "No qualifications",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "no_qualifications"
+        ]
+       },
+       "real": [
+        25.5,
+        31.3,
+        21,
+        10.9,
+        11.3
+       ],
+       "n": 342,
+       "drawn": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "desnz-concern-about-climate-change",
+   "title": "Concern about climate change",
+   "source": {
+    "name": "Public Attitudes Tracker: Spring 2026 (crosstabulations)",
+    "organisation": "Department for Energy Security and Net Zero",
+    "url": "https://www.gov.uk/government/statistics/desnz-public-attitudes-tracker-spring-2026",
+    "variables": [
+     "CLIMCONCERN"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in the UK",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    }
+   ],
+   "surveyed": "16 March to 21 April 2026",
+   "context": "",
+   "question": "How concerned, if at all, are you about climate change, sometimes referred to as 'global warming'?",
+   "options": [
+    "Very concerned",
+    "Fairly concerned",
+    "Not very concerned",
+    "Not at all concerned"
+   ],
+   "orderedLevels": 4,
+   "real": [
+    34,
+    44.7,
+    16.4,
+    4.9
+   ],
+   "n": 3386,
+   "excluded": [
+    "Don't know"
+   ],
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 24 (survey band; personas 18 to 24)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 24
+       },
+       "real": [
+        33.6,
+        46.7,
+        16.5,
+        3.2
+       ],
+       "n": 177,
+       "drawn": 29
+      },
+      {
+       "label": "25 to 34",
+       "match": {
+        "field": "age_years",
+        "min": 25,
+        "max": 34
+       },
+       "real": [
+        31,
+        48.9,
+        16.4,
+        3.7
+       ],
+       "n": 326,
+       "drawn": 38
+      },
+      {
+       "label": "35 to 44",
+       "match": {
+        "field": "age_years",
+        "min": 35,
+        "max": 44
+       },
+       "real": [
+        32.9,
+        42.8,
+        19.6,
+        4.7
+       ],
+       "n": 475,
+       "drawn": 50
+      },
+      {
+       "label": "45 to 54",
+       "match": {
+        "field": "age_years",
+        "min": 45,
+        "max": 54
+       },
+       "real": [
+        38.1,
+        42,
+        16.7,
+        3.2
+       ],
+       "n": 467,
+       "drawn": 58
+      },
+      {
+       "label": "55 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 55,
+        "max": 64
+       },
+       "real": [
+        34.3,
+        45.6,
+        14.6,
+        5.5
+       ],
+       "n": 658,
+       "drawn": 40
+      },
+      {
+       "label": "65 and over",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 100
+       },
+       "real": [
+        34.6,
+        44.3,
+        14.5,
+        6.6
+       ],
+       "n": 1211,
+       "drawn": 85
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        36.1,
+        48,
+        12.8,
+        3.1
+       ],
+       "n": 1664,
+       "drawn": 146
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        32,
+        41.2,
+        20,
+        6.8
+       ],
+       "n": 1658,
+       "drawn": 154
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "higher_education_qualification",
+        "in": [
+         "bachelors_degree_or_equivalent",
+         "masters_degree_or_postgraduate_diploma",
+         "doctorate"
+        ]
+       },
+       "real": [
+        44.4,
+        41.9,
+        11,
+        2.7
+       ],
+       "n": 1674,
+       "drawn": 105
+      },
+      {
+       "label": "No qualifications",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "no_qualifications"
+        ]
+       },
+       "real": [
+        25.9,
+        49,
+        17.3,
+        7.8
+       ],
+       "n": 342,
+       "drawn": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ces-formal-volunteering-12-months",
+   "title": "Formal volunteering in the last 12 months",
+   "source": {
+    "name": "Community and Engagement Survey 2025/26: volunteering and charitable giving (data tables)",
+    "organisation": "Department for Culture, Media and Sport",
+    "url": "https://www.gov.uk/government/statistics/community-and-engagement-survey-202526-volunteering",
+    "variables": [
+     "ForvolTotal_DV (table G4)"
+    ]
+   },
+   "country": "uk",
+   "population": "Adults 16 and over in England",
+   "universe": [
+    {
+     "field": "household_type",
+     "in": [
+      "one_person_household",
+      "couple_household_without_children",
+      "couple_household_with_dependent_children",
+      "couple_household_with_only_adult_children",
+      "lone_parent_household_with_dependent_children",
+      "lone_parent_household_with_only_adult_children",
+      "other_household_with_dependent_children",
+      "other_household_with_adults_only"
+     ]
+    },
+    {
+     "field": "region",
+     "in": [
+      "north_east_england",
+      "north_west_england",
+      "yorkshire_and_the_humber",
+      "east_midlands",
+      "west_midlands",
+      "east_of_england",
+      "london",
+      "south_east_england",
+      "south_west_england"
+     ]
+    }
+   ],
+   "surveyed": "15 October 2025 to March 2026",
+   "context": "Groups, clubs and organisations include, for example, children's education or schools, youth activities, sport or exercise, religion, politics, older people, health or social welfare, the environment or animals, local community groups, hobbies or social clubs, and trade unions.",
+   "question": "In the last 12 months, have you given any unpaid help to any groups, clubs or organisations: for example raising money, leading a group or being on a committee, organising or helping to run an activity or event, visiting or befriending people, giving advice, admin work, providing transport, or other practical help?",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "orderedLevels": 0,
+   "real": [
+    30.2,
+    69.8
+   ],
+   "n": 192244,
+   "excluded": [],
+   "note": "DCMS's derived measure (formal volunteering in the last 12 months): involved in a group, club or organisation and gave it unpaid help in any of 13 listed ways. The question joins the survey's two steps; the examples are the survey's own lists (table G18).",
+   "groups": [
+    {
+     "dimension": "Age",
+     "buckets": [
+      {
+       "label": "16 to 24 (survey band; personas 18 to 24)",
+       "match": {
+        "field": "age_years",
+        "min": 18,
+        "max": 24
+       },
+       "real": [
+        29.4,
+        70.6
+       ],
+       "n": 16821,
+       "drawn": 40
+      },
+      {
+       "label": "25 to 34",
+       "match": {
+        "field": "age_years",
+        "min": 25,
+        "max": 34
+       },
+       "real": [
+        22.5,
+        77.5
+       ],
+       "n": 26844,
+       "drawn": 53
+      },
+      {
+       "label": "35 to 49",
+       "match": {
+        "field": "age_years",
+        "min": 35,
+        "max": 49
+       },
+       "real": [
+        33.1,
+        66.9
+       ],
+       "n": 44922,
+       "drawn": 73
+      },
+      {
+       "label": "50 to 64",
+       "match": {
+        "field": "age_years",
+        "min": 50,
+        "max": 64
+       },
+       "real": [
+        31.4,
+        68.6
+       ],
+       "n": 46898,
+       "drawn": 72
+      },
+      {
+       "label": "65 to 74",
+       "match": {
+        "field": "age_years",
+        "min": 65,
+        "max": 74
+       },
+       "real": [
+        34.3,
+        65.7
+       ],
+       "n": 30984,
+       "drawn": 32
+      },
+      {
+       "label": "75 and over",
+       "match": {
+        "field": "age_years",
+        "min": 75,
+        "max": 100
+       },
+       "real": [
+        32.2,
+        67.8
+       ],
+       "n": 21675,
+       "drawn": 30
+      }
+     ]
+    },
+    {
+     "dimension": "Sex",
+     "buckets": [
+      {
+       "label": "Women",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "female"
+        ]
+       },
+       "real": [
+        31,
+        69
+       ],
+       "n": 103690,
+       "drawn": 152
+      },
+      {
+       "label": "Men",
+       "match": {
+        "field": "sex_at_birth",
+        "in": [
+         "male"
+        ]
+       },
+       "real": [
+        30.1,
+        69.9
+       ],
+       "n": 83771,
+       "drawn": 148
+      }
+     ]
+    },
+    {
+     "dimension": "Home tenure",
+     "buckets": [
+      {
+       "label": "Owners",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "owned_outright",
+         "owned_with_a_mortgage_or_loan"
+        ]
+       },
+       "real": [
+        34.1,
+        65.9
+       ],
+       "n": 135152,
+       "drawn": 200
+      },
+      {
+       "label": "Rent from a council or housing association",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_council_or_local_authority",
+         "rented_from_a_housing_association_or_other_social_landlord"
+        ]
+       },
+       "real": [
+        19.6,
+        80.4
+       ],
+       "n": 22138,
+       "drawn": 39
+      },
+      {
+       "label": "Rent from a private landlord",
+       "match": {
+        "field": "home_tenure",
+        "in": [
+         "rented_from_a_private_landlord_or_letting_agency"
+        ]
+       },
+       "real": [
+        26.3,
+        73.7
+       ],
+       "n": 34425,
+       "drawn": 55
+      }
+     ]
+    },
+    {
+     "dimension": "Education",
+     "buckets": [
+      {
+       "label": "Bachelor's degree or higher",
+       "match": {
+        "field": "higher_education_qualification",
+        "in": [
+         "bachelors_degree_or_equivalent",
+         "masters_degree_or_postgraduate_diploma",
+         "doctorate"
+        ]
+       },
+       "real": [
+        40.6,
+        59.4
+       ],
+       "n": 74259,
+       "drawn": 87
+      },
+      {
+       "label": "No qualifications",
+       "match": {
+        "field": "highest_qualification",
+        "in": [
+         "no_qualifications"
+        ]
+       },
+       "real": [
+        14.9,
+        85.1
+       ],
+       "n": 13464,
+       "drawn": 48
+      }
+     ]
+    },
+    {
+     "dimension": "Work status",
+     "buckets": [
+      {
+       "label": "In work",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "in_employment"
+        ]
+       },
+       "real": [
+        31,
+        69
+       ],
+       "n": 102006,
+       "drawn": 190
+      },
+      {
+       "label": "Not in work (retired included)",
+       "match": {
+        "field": "economic_activity_status",
+        "in": [
+         "unemployed_and_looking_for_work",
+         "retired",
+         "student_not_in_employment",
+         "looking_after_home_or_family",
+         "long_term_sick_or_disabled",
+         "other_not_working"
+        ]
+       },
+       "real": [
+        31.6,
+        68.4
+       ],
+       "n": 79847,
+       "drawn": 110
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

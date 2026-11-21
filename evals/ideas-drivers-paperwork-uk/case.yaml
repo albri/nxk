@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: ideas-drivers-paperwork-uk
+context:
+  scaffold_script: seed.sh

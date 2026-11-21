@@ -1,0 +1,5 @@
+- We have 14 branches in Yorkshire and Lancashire, and we sell savings online across the UK.
+- We have about 90,000 members.
+- The prizes would be paid from what we'd otherwise pay as interest.
+- The minimum to open the account would be £1, and the most anyone could hold in it would be £50,000.
+- We'd want about £20 million saved in it by the end of the first year.

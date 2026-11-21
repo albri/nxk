@@ -1,0 +1,52 @@
+{
+ "surveyed": "November 2026",
+ "versions": {
+  "tiktok_use": "You see an advert for a phone app that shows an endless stream of short videos made by other users, chosen for you from what you watch. You can post your own videos too. It is free to use.",
+  "snapchat_use": "You see an advert for a phone app for sending photos and short videos to friends, which disappear after they are seen, with filters that change how you look. It is free to use.",
+  "facebook_use": "You see an advert for an online service where you connect with friends and family, share photos and news, join groups for your interests and your local area, and buy and sell things locally. It comes with a messaging app and is free to use.",
+  "instagram_use": "You see an advert for a phone app for sharing photos and short videos, and for following friends, celebrities and brands. It is free to use.",
+  "x_twitter_use": "You see an advert for an online service where people post short public messages about news, politics, sport and entertainment as things happen, and you follow the accounts that interest you. It is free to use.",
+  "linkedin_use": "You see an advert for an online service where you keep a profile of your career, connect with colleagues and people in your line of work, and look for jobs. It is free to use.",
+  "pinterest_use": "You see an advert for an online service for collecting and browsing pictures of ideas: home decoration, recipes, outfits, crafts and party planning. It is free to use.",
+  "reddit_use": "You see an advert for an online service made up of thousands of discussion forums, each on one subject, where people post under made-up names and vote the best answers to the top. It is free to use.",
+  "ai_apps_ever_used": "You see an advert for an AI assistant that you type questions to in plain English. It answers them, writes and rewrites text, and summarises documents. It is free to use.",
+  "ev_hybrid": "You see an advert for an electric or hybrid car to replace your current car, on a monthly finance plan.",
+  "solar_pv": "You see an advert for solar panels fitted to the roof of your home, which generate electricity and cut your bills. They cost several thousand pounds to install.",
+  "heat_pump": "You see an advert for a heat pump to replace your home's boiler, heating your home with electricity. It costs several thousand pounds to install, with a government grant towards it.",
+  "mobile_wallet": "You see an advert for a way to pay in shops by holding your phone to the card reader, with your bank card stored in the phone. It is free to use.",
+  "lottery_draw": "You see an advert for tickets for a national lottery draw. You pick six numbers for £2 and the jackpot is several million pounds. Draws are twice a week, and you can play in a shop or online.",
+  "charity_lottery": "You see an advert for a charity lottery. You pay £1 a week by Direct Debit, part of it goes to a charity such as a hospice or an air ambulance, and there is a weekly draw with a top prize of a few thousand pounds.",
+  "scratchcards": "You see an advert for scratchcards sold at shop tills for £1 to £5 each. You scratch off the panel and see at once whether you have won a cash prize.",
+  "online_instant_win": "You see an advert for instant win games that you play on your phone for 50p to £5 a go. You tap to reveal the symbols and see at once whether you have won a cash prize.",
+  "sports_betting_online": "You see an advert for a phone app for betting on football, horse racing and other sports, including bets placed while a match is being played.",
+  "bingo_venue": "You see an advert for an evening at a bingo hall near you, with games through the night, cash prizes, and food and drink brought to your table.",
+  "online_casino": "You see an advert for an online casino where you play roulette, blackjack and other casino games for money on your phone or computer.",
+  "football_pools": "You see an advert for the football pools. You pay a small stake each week and pick the matches you think will end in a draw, with cash prizes every week.",
+  "premium_bonds": "You see an advert for a government-backed savings product that pays no interest. Each £1 you put in is entered into a monthly prize draw, with tax-free prizes from £25 to £1 million, and you can take your money out at any time.",
+  "stocks_shares_isa": "You see an advert for an account for investing in shares and funds, in which any gains are free of tax. The value of what you put in can go down as well as up.",
+  "crypto": "You see an advert for an app for buying and holding cryptocurrencies, digital coins whose price can rise or fall sharply.",
+  "bnpl": "You see an advert for a way to pay for online shopping in three interest-free instalments, or a month later, offered at the checkout. There is no fee if you pay on time.",
+  "catalogue_credit": "You see an advert for a shopping catalogue account. You order clothes and household goods from it and spread the cost over weekly or monthly payments, with interest.",
+  "high_cost_credit": "You see an advert for a short-term loan of a few hundred pounds, paid into your account the same day and repaid over a few weeks or months at a high rate of interest.",
+  "pet_insurance": "You see an advert for insurance that pays the vet's bills if your pet is ill or injured, for a monthly premium.",
+  "phone_insurance": "You see an advert for insurance that repairs or replaces your mobile phone if it is lost, stolen or damaged, for a monthly premium.",
+  "annual_travel_insurance": "You see an advert for travel insurance that covers every trip abroad you take in a year under one policy.",
+  "private_medical": "You see an advert for private medical insurance. It pays for treatment in private hospitals so that you can avoid waiting lists, for a monthly premium.",
+  "emoney_account": "You see an advert for a current account run entirely through a phone app by a company that is not a traditional bank, with instant notifications when you spend and no fees for spending abroad."
+ },
+ "questions": {
+  "act": {
+   "type": "choice",
+   "text": "What would you do?",
+   "options": [
+    "Take it up",
+    "Look into it further, but not take it up yet",
+    "Ignore it"
+   ]
+  }
+ },
+ "watch": [
+  "act",
+  "Take it up"
+ ]
+}
