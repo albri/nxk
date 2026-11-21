@@ -46,6 +46,7 @@ import {
   profile,
   reach,
   sheet,
+  sheetText,
   split,
   type Condition,
   type ProfileLine,
@@ -858,6 +859,32 @@ export function placeLine(parts: string[]): string[] {
     .filter((t, j, all) => all.findIndex((u) => key(u) === key(t)) === j);
 }
 
+/**
+ * The values a group is drawn on, by field name, as a card writes them: interest_families=team_racket_and_social_sports
+ * gives interest_families → {"Team racket and social sports"}. A range or a "not" names no value, and gives none.
+ */
+export function groupReasons(fields: Field[], conditions: Condition[]): Map<string, Set<string>> {
+  const reasons = new Map<string, Set<string>>();
+  const add = (name: string, value: { code: string; label?: string }) => {
+    const texts = reasons.get(name) ?? new Set<string>();
+    texts.add(sheetText(value.label ?? value.code));
+    reasons.set(name, texts);
+  };
+  const interests = fields.find((f) => f.name === "interests");
+  for (const condition of conditions) {
+    const field = fields.find((f) => f.path === condition.path);
+    const codes = condition.codes ?? [];
+    if (!field?.values || !codes.length) continue;
+    for (const value of field.values) if (codes.includes(value.code)) add(field.name, value);
+    // A family of interests holds specific ones (football playing, ten pin bowling): theirs come first among them.
+    if (/^interest_(families|participation)$/.test(field.name))
+      for (const value of interests?.values ?? [])
+        if (Array.isArray(value.as) && value.as.some((a) => "family" in a && codes.includes(a.family ?? "")))
+          add("interests", value);
+  }
+  return reasons;
+}
+
 /** People to meet: drawn at random from inside the group, each as a card of their own facts. Colour, not evidence. */
 function printMeet(log: Log, fields: Field[], { among, base, all }: Audience, group: Group, flags: Flags) {
   const within = group.conditions.length ? group.members : all;
@@ -877,16 +904,27 @@ function printMeet(log: Log, fields: Field[], { among, base, all }: Audience, gr
     ].join(" "),
   );
   const texts = (row: Row, names: string[]) => sheet(fields, row, { always: names }).always;
+  const reasons = groupReasons(fields, group.conditions);
+  const onCard = new Set(CARD.flatMap(([, names]) => names));
   picked.forEach((i, k) => {
     const row = base[i];
     const head = texts(row, ["gender", "age_years"]).map((e) => e.text);
     const place = placeLine(texts(row, ["settlement_name", "county_or_local_authority", "region"]).map((e) => e.text));
     log.line(`${k + 1}. ${head.join(", ")}. ${place.join(", ")}.`);
+    // What put the person in the group comes first in its section and is never cut (a card shows five interests),
+    // or has a line of its own when the card has no section for it (a family of interests), so every card shows it.
+    const why = (e: { name: string; text: string }) => reasons.get(e.name)?.has(e.text) ?? false;
+    const elsewhere = texts(
+      row,
+      [...reasons.keys()].filter((name) => !onCard.has(name)),
+    ).filter(why);
+    if (elsewhere.length) log.line(`   In the group for: ${elsewhere.map((e) => inline(e.text)).join("; ")}.`);
     for (const [title, names] of CARD) {
       const seen: Record<string, number> = {};
       const parts = texts(row, names)
-        .filter((e) => !EMPTY.test(e.text) && !QUINTILE.test(e.text))
-        .filter((e) => (seen[e.name] = (seen[e.name] ?? 0) + 1) <= (MOST[e.name] ?? 99))
+        .sort((a, b) => names.indexOf(a.name) - names.indexOf(b.name) || Number(why(b)) - Number(why(a)))
+        .filter((e) => why(e) || (!EMPTY.test(e.text) && !QUINTILE.test(e.text)))
+        .filter((e) => (seen[e.name] = (seen[e.name] ?? 0) + 1) <= (MOST[e.name] ?? 99) || why(e))
         .map((e) => {
           const text = inline(e.text);
           return ABOUT[e.name] && !/^no\b/i.test(text) && !text.startsWith(ABOUT[e.name].trim())
