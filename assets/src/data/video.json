@@ -54,26 +54,51 @@
     "fixes": "Two groups, with *two different fixes.*"
   },
   "scan": {
-    "head": "Who would want it? nxk runs a *scan.*",
-    "idea": "Your idea, written a few ways",
-    "one": "A decision model is asked about one fact at a time.",
-    "all": "Each of the 200,000 gets an answer built from all their facts.",
+    "how": "A count says *how many.*",
+    "who": ["Who would *want* it?", "For that, nxk runs a *scan.*"],
+    "model": "A scan asks a *decision model.*",
+    "model_what": "An AI model that, given a question and its possible answers, says how likely each answer is.",
+    "someone": "Someone who",
+    "question": "sees your sign-up page. What do they do next?",
+    "answers": ["sign up", "look around first", "leave"],
+    "one": "It asks about *one fact at a time.*",
     "facts": ["rents their home", "25 to 34", "works shifts", "no car"],
-    "cost": "About 2 US cents a version, on your own key.",
+    "all": "Then each of the 200,000 gets an answer built from *all their facts.*",
+    "counted": "So who leans in is *counted and broken down,* like any count.",
     "note": "A sketch of how a scan works. No result is shown."
   },
-  "commands": {
+  "research": {
     "kicker": "In Claude Code",
-    "rows": [
-      { "icon": "research", "command": "/nxk:research", "ask": " who would want this?", "back": "*Findings:* strong leads first, each sized and broken down" },
-      { "icon": "look", "command": "/nxk:look", "ask": " at the sign-up page", "back": "*At most three points,* or one line saying none" },
-      { "icon": "meet", "command": "/nxk:meet", "ask": " private renters in Manchester", "back": "*The group counted,* and a few of its people as cards" }
-    ],
-    "close": "Each runs in its own context, *only when you ask.*"
+    "command": "/nxk:research",
+    "ask": " who would want this?",
+    "steps": ["Writes your idea a few ways", "Finds which groups lean in to each", "Counts them where you sell", "Follows the strongest leads"],
+    "cost": "Counts are free, on your computer. Scans are about 2 US cents a version, on your own key.",
+    "findings": "It comes back with *findings:*",
+    "parts": ["Strong leads first, each sized and broken down", "The groups nothing serves", "The cheapest real test that would tell the leading two apart"]
+  },
+  "look": {
+    "command": "/nxk:look",
+    "ask": " at our membership contract",
+    "reply_head": "Worth considering:",
+    "point": "A way out of the twelve months: a year's contract with no way out is harder for *about 40 in every 100 adults in Cardiff,* who find money hard or are just getting by",
+    "label": "counted",
+    "what": "*A second look:* at most three points, or one line saying none."
+  },
+  "meet": {
+    "command": "/nxk:meet",
+    "ask": " private renters in Manchester under 35",
+    "rows": ["Work", "Home", "Money", "Online", "Shopping"],
+    "what": "*A panel* puts faces to a count.",
+    "sub": "The group counted, and a few of its people drawn at random, each a card of their own facts."
+  },
+  "context": {
+    "head": "Each runs in its own context, *only when you ask.*",
+    "sub": "Until you ask, Claude works, and costs, exactly as it would without nxk."
   },
   "checked": {
     "labels_head": "Every figure says *where it came from.*",
     "labels": ["given", "measured", "counted", "computed", "sourced", "simulated", "guess", "imagined"],
+    "from": "From a count: *counted.* From a scan: *simulated.*",
     "head": "Checked against published figures",
     "rows": [
       { "big": "{matched} of {counted}", "text": "counts on nxk's made-up US adults came within 2 points of real adults in the Census Bureau's 2024 survey" },

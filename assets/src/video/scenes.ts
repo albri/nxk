@@ -44,9 +44,33 @@ export interface VideoWords {
     groups: { online: string; tone: "aurora" | "look"; who: string; detail: string; ages: string[] }[];
     fixes: string;
   };
-  scan: { head: string; idea: string; one: string; all: string; facts: string[]; cost: string; note: string };
-  commands: { kicker: string; rows: { icon: string; command: string; ask: string; back: string }[]; close: string };
-  checked: { labels_head: string; labels: string[]; head: string; rows: { big: string; text: string }[] };
+  scan: {
+    how: string;
+    who: string[];
+    model: string;
+    model_what: string;
+    someone: string;
+    question: string;
+    answers: string[];
+    one: string;
+    facts: string[];
+    all: string;
+    counted: string;
+    note: string;
+  };
+  research: {
+    kicker: string;
+    command: string;
+    ask: string;
+    steps: string[];
+    cost: string;
+    findings: string;
+    parts: string[];
+  };
+  look: { command: string; ask: string; reply_head: string; point: string; label: string; what: string };
+  meet: { command: string; ask: string; rows: string[]; what: string; sub: string };
+  context: { head: string; sub: string };
+  checked: { labels_head: string; labels: string[]; from: string; head: string; rows: { big: string; text: string }[] };
   end: { line: string; install: string };
 }
 
@@ -110,7 +134,9 @@ export interface Video {
   stills: number[];
 }
 
-// The scenes, in order, and how long each runs.
+// The scenes, in order, and how long each runs. From the scan on, each scene carries one idea, at about the pace of
+// the first minute: what a scan is for, the decision model, one fact at a time, every person answering, then each
+// command on its own, and the checks one by one.
 const SCENES = {
   title: 4.5,
   questions: 6.5,
@@ -119,10 +145,18 @@ const SCENES = {
   matched: 11.5,
   count: 10,
   breakdown: 8,
-  scan: 11,
-  commands: 10,
-  checked: 12.5,
-  end: 6,
+  scan: 6,
+  model: 8,
+  facts: 7.5,
+  everyone: 9,
+  research: 10,
+  findings: 8,
+  look: 8.5,
+  meet: 8,
+  context: 6,
+  labels: 6.5,
+  checks: 13,
+  end: 6.5,
 };
 type Scene = keyof typeof SCENES;
 const T = {} as Record<Scene, number>;
@@ -175,6 +209,7 @@ body{font-kerning:normal;font-variant-numeric:tabular-nums;-webkit-font-smoothin
 .sq{position:absolute;border-radius:20%}
 .caret{display:inline-block;width:0.55em;height:1.05em;margin-left:4px;vertical-align:-0.18em;background:${t.aurora}}
 .row{position:absolute;display:flex;align-items:baseline;gap:22px}
+.bal{text-wrap:balance}
 `;
 
 /** An icon from icons.ts, drawn `size` px across in the theme's colours. */
@@ -216,7 +251,7 @@ export function video(words: VideoWords, counts: IdeaCounts, factNames: string[]
   const A = { s: 1, at: "center" as const, sx: center.x, sy: center.y };
   const TITLE = { s: 0.92, at: "center" as const, sx: 1400, sy: 560 };
   const B = { s: 0.8, at: "center" as const, sx: 1360, sy: 640 };
-  const C = { s: 0.78, at: "center" as const, sx: 1430, sy: 650 };
+  const C = { s: 0.72, at: "center" as const, sx: 1470, sy: 640 };
   const camera: CameraKey[] = [{ t: 0, dur: 0, ...TITLE }];
   const colours: CrowdPlan["colours"] = [{ t: 0, dur: 0, mode: "leftout" }];
   const alpha: CrowdPlan["alpha"] = [{ t: 0, dur: 0, a: 0.9 }];
@@ -502,148 +537,336 @@ export function video(words: VideoWords, counts: IdeaCounts, factNames: string[]
     cue(at("breakdown", 4.6), "resolve");
   }
 
-  // ---------- 8. a scan: one fact at a time, then each person answers from all of theirs ----------
+  // a headline at the top of the screen, across the width
+  const head = (text: string, a: number, b: number, size = 76, top = 120) =>
+    `<div class="abs display bal" style="left:${M}px;top:${top}px;width:${W - 2 * M}px;font-size:${size}px;color:${t.ink}" ${fade(a, b)}>${rich(text)}</div>`;
+
+  // ---------- 8. what a scan is for: a count says how many; who would want it is a scan ----------
   {
     const s = words.scan;
     const start = at("scan", 0),
       out = exit("scan");
     moves.push({ t: start, dur: 0, to: "field", stagger: 0, by: "x" });
     camera.push({ t: start, dur: 0, ...C });
-    colours.push({ t: start, dur: 0, mode: "crowd" });
-    alpha.push({ t: at("scan", 1.1), dur: 0.6, a: 1 });
+    // the crowd comes back as the count left it, the people the sign-up leaves out still lit
+    colours.push({ t: start, dur: 0, mode: "leftout" });
+    alpha.push({ t: at("scan", 0.2), dur: 0.7, a: 1 });
+    const how = at("scan", 0.4),
+      who = at("scan", 2.6);
     add(
-      `<div class="abs display" style="left:${M}px;top:130px;font-size:84px;color:${t.ink}" ${fade(at("scan", 0.3), out)}>${rich(s.head)}</div>`,
+      `<div class="abs display" style="left:${M}px;top:300px;font-size:76px;color:${t.ink}" ${fade(how, out)} ${tw([who, 0.4, "o", 1, 0.38])}>${rich(s.how)}</div>`,
     );
-    const one = at("scan", 1.5),
-      all = at("scan", 5.1);
-    add(`<div class="abs sans lead" style="left:${M}px;top:250px" ${fade(one, all - 0.2)}>${rich(s.one)}</div>`);
-    add(`<div class="abs sans lead" style="left:${M}px;top:250px" ${fade(all, out)}>${rich(s.all)}</div>`);
-    // the idea, written a few ways: three tabs over lines that stand for its words
-    const tabAt = [one - 0.6, one + 0.15, one + 0.7];
-    const tabs = ["A", "B", "C"]
-      .map(
-        (l, i) =>
-          `<span class="mono" style="position:relative;display:inline-block;width:62px;text-align:center;font-size:30px;padding:6px 0;border-radius:10px;color:${t.ink3}"><span style="position:absolute;inset:0;border-radius:10px;background:${t.line}" data-tw='${JSON.stringify(
-            [[n2(tabAt[i]), 0.2, "o", 0, 1], ...(tabAt[i + 1] ? [[n2(tabAt[i + 1]), 0.2, "o", 1, 0]] : [])],
-          )}' ></span><span style="position:relative">${l}</span></span>`,
-      )
-      .join("");
-    const bars = [92, 78, 86, 54]
-      .map(
-        (w, i) =>
-          `<div style="height:16px;width:${w}%;margin-top:${i ? 20 : 34}px;border-radius:8px;background:${t.line}"></div>`,
-      )
-      .join("");
+    s.who.forEach((line, i) =>
+      add(
+        `<div class="abs display" style="left:${M}px;top:${430 + i * 96}px;font-size:76px;color:${t.ink}" ${fade(who + i * 0.6, out)}>${rich(line)}</div>`,
+      ),
+    );
+    colours.push({ t: who, dur: 0.8, mode: "crowd" });
+    cue(how, "wood", { i: 1 });
+    cue(who, "wood", { i: 2 });
+    cue(who + 0.6, "swell", { dur: 2.8 });
+  }
+
+  // ---------- 9. the decision model, asked one question ----------
+  const s = words.scan;
+  const widths = [
+    [58, 30, 12],
+    [66, 24, 10],
+    [40, 38, 22],
+    [47, 33, 20],
+  ]; // how long each answer's bar is, for each fact: a sketch, no result
+  const swaps = [0, 1.2, 3.0, 4.8].map((o) => at("facts", o)); // when the card's fact changes
+  const fillAt = at("model", 3.7);
+  const cardOut = at("everyone", 0.4);
+  {
+    const out = exit("model");
+    alpha.push({ t: at("model", 0.2), dur: 0.8, a: 0.22 });
+    add(head(s.model, at("model", 0.3), out));
     add(
-      `<div class="abs card" style="left:${M}px;top:400px;width:420px;padding:30px 34px 38px" ${fade(at("scan", 0.9), out)}><div class="sans" style="font-size:30px;color:${t.ink2};margin-bottom:22px">${esc(s.idea)}</div><div style="display:flex;gap:10px">${tabs}</div>${bars}</div>`,
+      `<div class="abs sans lead bal" style="left:${M}px;top:228px;width:${W - 2 * M}px;font-size:42px" ${fade(at("model", 1.3), out)}>${rich(s.model_what)}</div>`,
     );
-    cue(at("scan", 0.9), "tick", { i: 1 });
-    tabAt.slice(1).forEach((x) => cue(x, "key", { i: 2 }));
-    // one fact at a time, each with a bar for how likely each answer is (a sketch: no values)
-    const fly = all + 0.25;
-    s.facts.forEach((f, i) => {
-      const when = one + 0.45 + i * 0.62;
-      const w = [64, 38, 80, 47][i];
-      add(`<div class="abs" style="left:610px;top:${420 + i * 92}px;display:flex;align-items:center;gap:18px" ${fade(when, out)} ${tw([fly + i * 0.07, 0.55, "x", 0, 430, "in"], [fly + i * 0.07 + 0.25, 0.3, "o", 1, 0])}>
-        <span class="pill" style="font-size:28px">${esc(f)}</span>
-        <span style="display:block;width:120px;height:12px;border-radius:6px;background:${t.hair};overflow:hidden"><span style="display:block;height:100%;border-radius:6px;background:${t.aurora};width:0" ${tw([when + 0.15, 0.6, "w", 0, w])}></span></span></div>`);
-      cue(when, "ping", { i });
+    // the fact in the question, one at a time, in a pill wide enough for the longest
+    const facts = s.facts
+      .map((f, k) => {
+        const shown: Tween[] = [];
+        if (k > 0) shown.push([swaps[k] + 0.1, 0.25, "o", 0, 1]);
+        if (k < s.facts.length - 1) shown.push([swaps[k + 1], 0.2, "o", 1, 0]);
+        return `<span style="position:absolute;left:22px;top:7px;white-space:nowrap" ${tw(...shown)}>${esc(f)}</span>`;
+      })
+      .join("");
+    const pill = `<span class="pill" style="position:relative;display:block;width:340px;height:54px;padding:0;font-size:28px;color:${t.ink}">${facts}</span>`;
+    const answers = s.answers
+      .map((a, j) => {
+        const bar: Tween[] = [[fillAt + j * 0.15, 0.6, "w", 0, widths[0][j]]];
+        for (let k = 1; k < widths.length; k++)
+          bar.push([swaps[k] + 0.25, 0.6, "w", widths[k - 1][j], widths[k][j], "inout"]);
+        return `<div style="display:flex;align-items:center;gap:24px;margin-top:${j ? 20 : 0}px"><span class="sans" style="flex:0 0 270px;font-size:32px;color:${t.ink2}">${esc(a)}</span><span style="display:block;flex:0 0 420px;height:14px;border-radius:7px;background:${t.hair};overflow:hidden"><span style="display:block;height:100%;border-radius:7px;background:${t.aurora};width:0" ${tw(...bar)}></span></span></div>`;
+      })
+      .join("");
+    const cardIn = at("model", 2.5);
+    add(
+      `<div class="abs card" style="left:${M}px;top:400px;width:880px;padding:32px 40px 40px;transform-origin:0 50%" ${fade(cardIn, Infinity, 16)} ${tw([cardOut, 0.35, "s", 1, 0.96, "in"], [cardOut, 0.3, "o", 1, 0])}>
+      <div style="display:flex;align-items:center;gap:20px"><span class="mono" style="font-size:28px;color:${t.ink3}">${esc(s.someone)}</span>${pill}</div>
+      <div class="sans" style="font-size:34px;line-height:1.3;color:${t.ink};margin:20px 0 26px">${esc(s.question)}</div>
+      <div style="height:1.5px;background:${t.line};margin-bottom:28px"></div>${answers}</div>`,
+    );
+    add(`<div class="abs note" style="left:${M}px;top:1000px" ${fade(fillAt, exit("everyone"))}>${esc(s.note)}</div>`);
+    cue(at("model", 0.3), "swish");
+    cue(cardIn, "slide");
+    cue(fillAt, "ping", { i: 0 });
+  }
+
+  // ---------- 10. one fact at a time: the card's fact changes, and each one asked drops below it ----------
+  const fly = at("everyone", 0.7);
+  {
+    add(head(s.one, at("facts", 0.3), exit("facts")));
+    const dropAt = [1.2, 3.0, 4.8, 6.3].map((o) => at("facts", o));
+    let x = M;
+    s.facts.forEach((f, k) => {
+      const w = f.length * 15.6 + 44; // Plex Mono at 26 px, and the pill's padding
+      const dx = Math.round(C.sx - (x + w / 2));
+      add(
+        `<div class="abs pill" style="left:${x.toFixed(0)}px;top:862px;font-size:26px" ${fade(dropAt[k], Infinity, -26, 0.4)} ${tw([fly + k * 0.08, 0.6, "x", 0, dx, "in"], [fly + k * 0.08 + 0.3, 0.3, "o", 1, 0])}>${esc(f)}</div>`,
+      );
+      x += w + 14;
+      if (k > 0) cue(swaps[k] + 0.25, "ping", { i: k });
+      cue(dropAt[k] + 0.3, "drop", { i: k + 2 });
     });
-    // the sweep: each person's answer, from all their facts
+  }
+
+  // ---------- 11. every person answers from all their facts, so the answers are counted like any count ----------
+  {
+    const out = exit("everyone");
+    add(head(s.all, at("everyone", 0.3), out, 64));
+    alpha.push({ t: at("everyone", 0.5), dur: 0.7, a: 1 });
     const fw = field.cols * field.pitch * C.s,
       fh = field.rows * field.pitch * C.s;
     const x0 = C.sx - fw / 2,
       x1 = C.sx + fw / 2;
-    const sweep = { t0: n2(fly + 0.45), t1: n2(fly + 2.45), x0, x1 };
+    const sweep = { t0: at("everyone", 1.5), t1: at("everyone", 3.7), x0, x1 };
     colours.push({ t: sweep.t0, dur: 0, mode: "scan" });
     add(
       `<div class="abs" style="left:${x0 - 2}px;top:${C.sy - fh / 2 - 20}px;width:3px;height:${fh + 40}px;background:${t.aurora};box-shadow:0 0 18px ${t.aurora};z-index:3" ${fade(sweep.t0, sweep.t1, 0, 0.15)} ${tw([sweep.t0, sweep.t1 - sweep.t0, "x", 0, fw + 2, "inout"])}></div>`,
     );
+    sweepPlan = sweep;
+    const counted = at("everyone", 4.7),
+      sortAt = at("everyone", 5.3);
     add(
-      `<div class="abs sans" style="left:${M}px;top:910px;font-size:44px;color:${t.ink}" ${fade(at("scan", 8.4), out)}>${rich(s.cost)}</div>`,
+      `<div class="abs sans" style="left:${M}px;top:292px;font-size:44px;color:${t.ink}" ${fade(counted, out)}>${rich(s.counted)}</div>`,
     );
-    add(`<div class="abs note" style="left:${M}px;top:1000px" ${fade(sweep.t0, out)}>${esc(s.note)}</div>`);
-    cue(fly, "whoosh", { dur: 0.7, to: 1, gain: 0.5 });
+    moves.push({ t: sortAt, dur: 1.0, to: "bands:age", stagger: 0.3, by: "x" });
+    words.matched.bands.age.forEach((label, i) =>
+      add(
+        `<div class="abs mono" data-band="age,${i},${sortAt}" style="right:${(W - x0 + 30).toFixed(0)}px;font-size:30px;color:${t.ink2};text-align:right" ${fade(sortAt + 0.6, out, 0, 0.3)}>${esc(label)}</div>`,
+      ),
+    );
+    cue(cardOut, "whoosh", { dur: 0.6, to: -1, gain: 0.4 });
+    cue(fly, "whoosh", { dur: 0.8, to: 1, gain: 0.5 });
     cue(sweep.t0, "sweep", { dur: sweep.t1 - sweep.t0 });
     cue(sweep.t0 + 0.3, "shimmer", { dur: 2.2, gain: 0.5 });
-    cue(at("scan", 8.4), "tick", { i: 1 });
-    sweepPlan = sweep;
+    cue(counted, "tick", { i: 1 });
+    cue(sortAt, "flow", { dur: 1.5, pan: -0.4, to: 0.4 });
+    cue(sortAt + 0.05, "pluck", { i: 5 });
   }
 
-  // ---------- 9. three ways in ----------
+  // the commands are typed into one terminal line, kept on screen from research to the panel
+  const term = 170;
+  add(
+    `<div class="abs mono" style="left:${M}px;top:110px;font-size:30px;color:${t.ink3}" ${fade(at("research", 0.2), exit("meet"))}>${esc(words.research.kicker)}</div>`,
+  );
+  add(
+    `<div class="abs card" style="left:${M}px;top:${term}px;width:${W - 2 * M}px;height:116px;background:${t.inset}" ${fade(at("research", 0.3), exit("meet"), 10)}></div>`,
+  );
+  /** A command typed into the terminal line; returns when the typing ends. */
+  const command = (cmd: string, ask: string, start: number, out: number, cps: number) => {
+    const end = typingEnds(cmd + ask, start, cps);
+    add(
+      `<div class="abs mono" style="left:${M + 48}px;top:${term + 28}px;font-size:46px;color:${t.ink3}" ${fade(start - 0.3, out, 0)}>›</div>`,
+    );
+    add(
+      `<div class="abs mono" style="left:${M + 100}px;top:${term + 28}px;font-size:46px;white-space:pre" ${fade(start - 0.3, out, 0)}>${typed(
+        [
+          [cmd, t.aurora],
+          [ask, t.ink],
+        ],
+        start,
+        cps,
+        end + 0.4,
+      )}</div>`,
+    );
+    keys(cmd + ask, start, cps);
+    cue(end + 0.15, "enter");
+    return end;
+  };
+
+  // ---------- 12. research: the main way in, and what it does, step by step ----------
   {
-    const c = words.commands;
-    const out = exit("commands");
-    alpha.push({ t: at("commands", 0) - 0.4, dur: 0.4, a: 0 });
+    const r = words.research;
+    const out = exit("research");
+    alpha.push({ t: at("research", 0) - 0.4, dur: 0.4, a: 0 });
+    const end = command(r.command, r.ask, at("research", 0.9), exit("findings"), 26);
+    r.steps.forEach((step, j) => {
+      const when = n2(end + 0.7 + j * 1.35);
+      add(
+        `<div class="abs" style="left:${M}px;top:${372 + j * 112}px;display:flex;align-items:center;gap:30px" ${fade(when, out)}><span class="mono" style="width:60px;height:60px;border-radius:50%;border:2px solid ${t.aurora};color:${t.aurora};font-size:28px;display:flex;align-items:center;justify-content:center">${j + 1}</span><span class="sans" style="font-size:50px;color:${t.ink}">${esc(step)}</span></div>`,
+      );
+      cue(when, "tick", { i: j });
+    });
+    add(`<div class="abs note" style="left:${M}px;top:880px" ${fade(at("research", 8.3), out)}>${esc(r.cost)}</div>`);
+  }
+
+  // ---------- 13. findings: what research hands back, one part at a time ----------
+  {
+    const r = words.research;
+    const out = exit("findings");
     add(
-      `<div class="abs mono" style="left:${M}px;top:140px;font-size:32px;color:${t.ink3}" ${fade(at("commands", 0.2), out)}>${esc(c.kicker)}</div>`,
+      `<div class="abs display" style="left:${M}px;top:338px;font-size:62px;color:${t.ink}" ${fade(at("findings", 0.3), out)}>${rich(r.findings)}</div>`,
+    );
+    const colW = 520,
+      top = 452;
+    const bar = (w: number, colour: string, h: number, gap: number, when: number) =>
+      `<div style="height:${h}px;width:${w}%;margin-top:${gap}px;border-radius:${h / 2}px;background:${colour}" ${fade(when, Infinity, 6, 0.3)}></div>`;
+    r.parts.forEach((part, j) => {
+      const when = at("findings", 1.1 + j * 2.0);
+      const x = M + j * (colW + 60);
+      let rows = "";
+      if (j === 0)
+        [
+          [70, 92],
+          [55, 74],
+          [62, 58],
+        ].forEach(([lw, sw], k) => {
+          rows +=
+            bar(lw, t.line, 12, k ? 30 : 8, when + 0.35 + k * 0.18) + bar(sw, t.aurora, 16, 12, when + 0.4 + k * 0.18);
+        });
+      else if (j === 1)
+        [
+          [64, 66],
+          [50, 48],
+        ].forEach(([lw, sw], k) => {
+          rows +=
+            bar(lw, t.line, 12, k ? 30 : 8, when + 0.35 + k * 0.18) + bar(sw, t.look, 16, 12, when + 0.4 + k * 0.18);
+        });
+      else
+        rows += `<div style="display:flex;gap:14px;margin-top:8px" ${fade(when + 0.35, Infinity, 6, 0.3)}><span class="pill" style="font-size:26px">A</span><span class="pill" style="font-size:26px">B</span></div>${bar(80, t.line, 12, 26, when + 0.5)}${bar(56, t.line, 12, 16, when + 0.6)}`;
+      add(
+        `<div class="abs card" style="left:${x}px;top:${top}px;width:${colW}px;height:372px;padding:30px 32px" ${fade(when, out, 16)}><div class="sans" style="font-size:32px;line-height:1.3;color:${t.ink};height:132px">${esc(part)}</div>${rows}</div>`,
+      );
+      cue(when, "slide", { pan: -0.5 + j * 0.5 });
+      cue(when + 0.35, "pluck", { i: 5 + j });
+    });
+  }
+
+  // ---------- 14. a second look: the command, a real point from the README, and what it hands back ----------
+  {
+    const l = words.look;
+    const out = exit("look");
+    const end = command(l.command, l.ask, at("look", 0.5), out, 28);
+    const reply = n2(end + 0.6);
+    add(
+      `<div class="abs card" style="left:${M}px;top:338px;width:${W - 2 * M}px;padding:36px 48px 42px" ${fade(reply, out, 16)}><div class="mono" style="font-size:30px;color:${t.ink3}">${esc(l.reply_head)}</div><div class="sans" style="font-size:40px;line-height:1.4;color:${t.ink};margin-top:18px;max-width:1560px" ${fade(reply + 0.4, Infinity, 8)}>– ${rich(l.point)} <span class="pill" style="font-size:26px;vertical-align:5px">${esc(l.label)}</span></div></div>`,
     );
     add(
-      `<div class="abs card" style="left:${M}px;top:200px;width:${W - 2 * M}px;height:640px" ${fade(at("commands", 0.3), out, 10)}></div>`,
+      `<div class="abs display" style="left:${M}px;top:730px;font-size:58px;color:${t.ink}" ${fade(at("look", 5.4), out)}>${rich(l.what)}</div>`,
     );
-    const cps = 30;
-    c.rows.forEach((r, i) => {
-      const start = at("commands", 0.8 + i * 2.6);
-      const end = typingEnds(r.command + r.ask, start, cps);
-      const top = 262 + i * 196;
+    cue(reply, "slide");
+    cue(reply + 0.4, "chime", { i: 1, gain: 0.5 });
+    cue(at("look", 5.4), "tick", { i: 2 });
+  }
+
+  // ---------- 15. the panel: the command, a few people as cards, and what it hands back ----------
+  {
+    const m = words.meet;
+    const out = exit("meet");
+    const end = command(m.command, m.ask, at("meet", 0.5), out, 30);
+    [0, 1, 2].forEach((k) => {
+      const when = n2(end + 0.5 + k * 0.3);
+      const rows = m.rows
+        .map(
+          (r, j) =>
+            `<div style="display:flex;align-items:center;gap:18px;margin-top:${j ? 18 : 0}px"><span class="mono" style="flex:0 0 140px;font-size:24px;color:${t.ink3}">${esc(r)}</span><span style="display:block;height:12px;width:${[78, 64, 70, 84, 58][(j + k * 2) % 5]}%;border-radius:6px;background:${t.line}"></span></div>`,
+        )
+        .join("");
       add(
-        `<div class="abs mono" style="left:${M + 60}px;top:${top}px;font-size:46px;color:${t.ink3}" ${fade(start - 0.3, out, 6)}>›</div>`,
+        `<div class="abs card" style="left:${M + k * 580}px;top:338px;width:520px;padding:30px 32px 34px" ${fade(when, out, 30, 0.45)}><div style="height:24px;width:${[62, 70, 56][k]}%;border-radius:8px;background:${t.ink3};opacity:0.55;margin-bottom:26px"></div>${rows}</div>`,
       );
-      add(
-        `<div class="abs mono" style="left:${M + 112}px;top:${top}px;font-size:46px;white-space:pre" ${fade(start - 0.3, out, 6)}>${typed(
-          [
-            [r.command, t.aurora],
-            [r.ask, t.ink],
-          ],
-          start,
-          cps,
-          end + 0.35,
-        )}</div>`,
-      );
-      add(
-        `<div class="abs" style="left:${M + 112}px;top:${top + 80}px;display:flex;align-items:center;gap:20px" ${fade(end + 0.4, out, 10)}>${iconSvg(r.icon, 38, t)}<span class="sans" style="font-size:40px;color:${t.ink}">${rich(r.back)}</span></div>`,
-      );
-      keys(r.command + r.ask, start, cps);
-      cue(end + 0.15, "enter");
-      cue(end + 0.4, "chime", { i: 1, gain: 0.45 });
+      cue(when, "slide", { pan: -0.5 + k * 0.5, gain: 0.8 });
     });
     add(
-      `<div class="abs sans" style="left:${M}px;top:892px;font-size:50px;color:${t.ink}" ${fade(at("commands", 8.6), out)}>${rich(c.close)}</div>`,
+      `<div class="abs display" style="left:${M}px;top:700px;font-size:62px;color:${t.ink}" ${fade(at("meet", 4.4), out)}>${rich(m.what)}</div>`,
     );
-    cue(at("commands", 8.6), "tick", { i: 0 });
+    add(
+      `<div class="abs sans" style="left:${M}px;top:790px;width:${W - 2 * M}px;font-size:40px;line-height:1.3;color:${t.ink2}" ${fade(at("meet", 5.0), out)}>${rich(m.sub)}</div>`,
+    );
+    cue(at("meet", 4.4), "tick", { i: 3 });
   }
 
-  // ---------- 10. checked: every figure's label, then the three checks against published figures ----------
+  // ---------- 16. each in its own context, only when asked ----------
+  {
+    const c = words.context;
+    const out = exit("context");
+    add(head(c.head, at("context", 0.3), out, 72, 200));
+    (
+      [
+        ["research", words.research.command],
+        ["look", words.look.command],
+        ["meet", words.meet.command],
+      ] as const
+    ).forEach(([icon, cmd], k) => {
+      const when = at("context", 1.3 + k * 0.3);
+      add(
+        `<div class="abs card" style="left:${M + k * 580}px;top:430px;width:520px;height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px" ${fade(when, out, 16)}>${iconSvg(icon, 64, t)}<span class="mono" style="font-size:36px;color:${t.aurora}">${esc(cmd)}</span></div>`,
+      );
+      cue(when, "tick", { i: k, gain: 0.6 });
+    });
+    add(
+      `<div class="abs sans" style="left:${M}px;top:690px;width:${W - 2 * M}px;font-size:44px;line-height:1.3;color:${t.ink2}" ${fade(at("context", 2.8), out)}>${rich(c.sub)}</div>`,
+    );
+    cue(at("context", 2.8), "swell", { dur: 2.6 });
+  }
+
+  // ---------- 17. every figure's label, and the two the video has shown ----------
   {
     const c = words.checked;
-    const out = exit("checked"),
-      split = at("checked", 2.6);
+    const out = exit("labels");
     add(
-      `<div class="abs display" style="left:${M}px;top:360px;font-size:92px;color:${t.ink}" ${fade(at("checked", 0.3), split)}>${rich(c.labels_head)}</div>`,
+      `<div class="abs display" style="left:${M}px;top:280px;font-size:88px;color:${t.ink}" ${fade(at("labels", 0.3), out)}>${rich(c.labels_head)}</div>`,
     );
+    const lit = at("labels", 3.4);
     const pills = c.labels
-      .map(
-        (l, i) =>
-          `<span class="pill" style="font-size:34px" ${fade(at("checked", 0.9) + i * 0.11, Infinity, 10, 0.25)}>${esc(l)}</span>`,
-      )
+      .map((l, i) => {
+        const shown = l === "counted" || l === "simulated";
+        return `<span class="pill" style="font-size:32px" ${fade(at("labels", 1.0) + i * 0.16, Infinity, 10, 0.25)} ${shown ? tw([lit, 0.4, "c", t.ink2, t.aurora]) : tw([lit, 0.4, "o", 1, 0.35])}>${esc(l)}</span>`;
+      })
       .join("");
     add(
-      `<div class="abs" style="left:${M}px;top:520px;width:1680px;display:flex;flex-wrap:wrap;gap:18px" ${fade(at("checked", 0.85), split, 0)}>${pills}</div>`,
+      `<div class="abs" style="left:${M}px;top:440px;width:${W - 2 * M}px;display:flex;flex-wrap:wrap;gap:18px" ${fade(at("labels", 0.95), out, 0)}>${pills}</div>`,
     );
-    c.labels.forEach((_, i) => cue(at("checked", 0.9) + i * 0.11, "tick", { i: i % 5, gain: 0.5 }));
+    c.labels.forEach((_, i) => cue(at("labels", 1.0) + i * 0.16, "tick", { i: i % 5, gain: 0.45 }));
     add(
-      `<div class="abs display" style="left:${M}px;top:110px;font-size:76px;color:${t.ink}" ${fade(split + 0.2, out)}>${rich(c.head)}</div>`,
+      `<div class="abs sans" style="left:${M}px;top:610px;font-size:50px;color:${t.ink}" ${fade(lit + 0.3, out)}>${rich(c.from)}</div>`,
+    );
+    cue(lit, "glint", { i: 0 });
+    cue(lit + 0.15, "glint", { i: 1 });
+  }
+
+  // ---------- 18. checked: the three checks against published figures, one at a time ----------
+  {
+    const c = words.checked;
+    const out = exit("checks");
+    add(
+      `<div class="abs display" style="left:${M}px;top:110px;font-size:76px;color:${t.ink}" ${fade(at("checks", 0.2), out)}>${rich(c.head)}</div>`,
     );
     const values: Record<string, unknown>[] = [ev.census, ev.surveys, ev.products];
-    const fill = (s: string, v: Record<string, unknown>) =>
-      s.replace(/\{(\w+)\}/g, (_, k: string) => {
+    const fill = (str: string, v: Record<string, unknown>) =>
+      str.replace(/\{(\w+)\}/g, (_, k: string) => {
         if (v[k] === undefined) throw new Error(`video: no value for {${k}}`);
         return String(v[k]);
       });
     const CH = 196;
     c.rows.forEach((r, i) => {
       const top = 240 + i * 262,
-        when = split + 0.5 + i * 3.2;
+        when = at("checks", 0.7 + i * 4.0);
       let chart = "";
       if (i === 0) {
         chart += `<div class="abs" style="left:${M}px;top:${top}px;width:${CH}px;height:${CH}px;border-radius:10px;background:${t.inset};border:1.5px solid ${t.hair}" ${fade(when, out, 0)}></div>`;
@@ -676,7 +899,7 @@ export function video(words: VideoWords, counts: IdeaCounts, factNames: string[]
     });
   }
 
-  // ---------- 11. the end: the wordmark and the install line, held ----------
+  // ---------- 19. the end: the wordmark and the install line, held ----------
   {
     const e = words.end;
     const start = at("end", 0.3);
@@ -732,8 +955,11 @@ export function video(words: VideoWords, counts: IdeaCounts, factNames: string[]
     ["Gmaj9", at("matched")],
     ["Em9", at("count")],
     ["A7sus", at("scan")],
-    ["Gmaj9", at("commands")],
-    ["D/Fs", at("checked")],
+    ["Bm9", at("everyone")],
+    ["Gmaj9", at("research")],
+    ["Em9", at("look")],
+    ["A7sus", at("context")],
+    ["D/Fs", at("labels")],
     ["Dmaj9", at("end")],
   ];
   const html = `<!doctype html><html><head><meta charset="utf-8"><style>${css(t)}</style></head><body><canvas id="crowd" width="${W}" height="${H}"></canvas>${parts.join("\n")}</body></html>`;
@@ -746,10 +972,18 @@ export function video(words: VideoWords, counts: IdeaCounts, factNames: string[]
     at("matched", 11),
     at("count", 8),
     at("breakdown", 7),
-    at("scan", 9.5),
-    at("commands", 9.5),
-    at("checked", 1.9),
-    at("checked", 12),
+    at("scan", 5.5),
+    at("model", 7.5),
+    at("facts", 7),
+    at("everyone", 3),
+    at("everyone", 8.5),
+    at("research", 9.5),
+    at("findings", 7.5),
+    at("look", 8),
+    at("meet", 7.5),
+    at("context", 5.5),
+    at("labels", 6),
+    at("checks", 12.5),
     at("end", 5),
   ];
   return { html, plan, cues: [...CUES].sort((a, b) => a.t - b.t), sections, duration: DURATION, stills };

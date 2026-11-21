@@ -1,8 +1,13 @@
 // The launch video's sound, synthesised here from the cue sheet scenes.ts writes: no samples, no recordings and no
-// one else's audio. Every effect is built from sines, noise, filters and a plucked string, and a seeded random number
-// generator makes every build the same. Under the effects, a quiet held chord for each act of the story, in D major,
-// moves with the cuts and comes home at the end. It is restrained on purpose: GitHub starts the video muted, the words
-// carry every idea, and the sound only follows what is already on screen.
+// one else's audio. A seeded random number generator makes every build the same.
+//
+// The palette is warm and low on purpose, the way a small studio chain would make it: a soft electric piano (two
+// sines, one bending the other, as a Rhodes tine does), felt mallets, wooden knocks, a darkened plucked string and
+// breathy noise, all in the middle of the range. Nothing is a bare high sine. Under the effects, a quiet held chord
+// for each act of the story, in D major, moves with the cuts and comes home at the end. The whole mix then goes
+// through a dark room, a gentle high shelf and a tape stage (soft saturation and a slow wobble of a few cents), so the
+// top end sits well under the body, as in a calm mix, with nothing sharp in the 2 to 5 kHz band where harshness lives.
+// It is restrained: GitHub starts the video muted, the words carry every idea, and the sound only follows the screen.
 //
 // soundtrack({ cues, sections, duration }) returns a 48 kHz stereo 16-bit WAV as a Buffer. video.ts evens out its
 // loudness when it puts it with the frames.
@@ -14,12 +19,12 @@ const TAU = Math.PI * 2;
 // notes as MIDI numbers, and their frequencies
 const hz = (midi: number) => 440 * 2 ** ((midi - 69) / 12);
 const N = {
+  D2: 38,
+  E2: 40,
   Fs2: 42,
   G2: 43,
   A2: 45,
   B2: 47,
-  D2: 38,
-  E2: 40,
   Cs3: 49,
   D3: 50,
   E3: 52,
@@ -34,18 +39,10 @@ const N = {
   G4: 67,
   A4: 69,
   B4: 71,
-  Cs5: 73,
   D5: 74,
   E5: 76,
   Fs5: 78,
   A5: 81,
-  B5: 83,
-  D6: 86,
-  E6: 88,
-  Fs6: 90,
-  A6: 93,
-  B6: 95,
-  D7: 98,
 };
 // the chords, voiced low and open; scenes.ts says which plays from when
 const CHORDS: Record<string, number[]> = {
@@ -56,8 +53,9 @@ const CHORDS: Record<string, number[]> = {
   A7sus: [N.A2, N.E3, N.G3, N.Cs4, N.D4],
   "D/Fs": [N.Fs2, N.D3, N.A3, N.E4, N.Fs4],
 };
-// D major pentatonic, for anything with a pitch that climbs
-const SCALE = [N.D4, N.E4, N.Fs4, N.A4, N.B4, N.D5, N.E5, N.Fs5, N.A5, N.B5, N.D6, N.E6, N.Fs6, N.A6];
+// D major pentatonic from D3, for anything with a pitch: index 5 is D4, index 10 is D5
+const SCALE = [N.D3, N.E3, N.Fs3, N.A3, N.B3, N.D4, N.E4, N.Fs4, N.A4, N.B4, N.D5, N.E5, N.Fs5, N.A5];
+const note = (i: number) => hz(SCALE[Math.max(0, Math.min(SCALE.length - 1, i))]);
 
 /** mulberry32: fixed random numbers. */
 function rng(seed: number): () => number {
@@ -91,6 +89,8 @@ function svf() {
 }
 
 const samples = (seconds: number) => new Float32Array(Math.max(1, Math.round(seconds * RATE)));
+/** A raised-cosine rise over `a` seconds, so nothing starts with a click. */
+const rise = (t: number, a: number) => (t >= a ? 1 : 0.5 - 0.5 * Math.cos((Math.PI * t) / a));
 
 export function soundtrack({
   cues,
@@ -125,80 +125,119 @@ export function soundtrack({
       sendR[j] += v * r * wet;
     }
   }
+  /** A voice made twice, a hair apart in pitch and placed either side of `pan`: the width a chorus gives. */
+  function wide(t: number, make: (detune: number) => Float32Array, gain: number, pan = 0, wet = 0.4): void {
+    add(t, make(0.9985), gain * 0.62, Math.max(-1, pan - 0.35), wet);
+    add(t + 0.004, make(1.0015), gain * 0.62, Math.min(1, pan + 0.35), wet);
+  }
 
   // ---------- voices: each returns mono samples ----------
 
-  /** A bell: inharmonic partials that ring and fade, the upper ones first. */
-  function bell(f: number, decay = 2.4): Float32Array {
-    const parts = [
-      [1, 1, 1],
-      [2.0, 0.42, 0.62],
-      [2.76, 0.3, 0.45],
-      [4.07, 0.14, 0.3],
-      [5.43, 0.08, 0.2],
-    ];
-    const out = samples(decay * 3);
+  /**
+   * An electric piano: one sine bending another at the same pitch, the bend fading fast, so a note opens with a soft
+   * bark and settles to a round tone, and a faint tine above it that dies in a few hundredths of a second. A low-pass
+   * that closes as it rings keeps it warm.
+   */
+  function ep(f: number, vel = 0.7, decay = 1.3): Float32Array {
+    const len = decay * 3.2,
+      out = samples(len),
+      lp = svf();
+    let ph = 0;
     for (let i = 0; i < out.length; i++) {
-      const t = i / RATE,
-        a = Math.min(1, t / 0.004);
-      let s = 0;
-      for (const [k, amp, d] of parts) s += amp * Math.sin(TAU * f * k * t) * Math.exp(-t / (decay * d));
-      out[i] = a * s * 0.45;
+      const t = i / RATE;
+      ph += (TAU * f) / RATE;
+      const index = 0.5 + 3.2 * vel * Math.exp(-t / 0.07) + 0.6 * vel * Math.exp(-t / 0.4);
+      const v =
+        Math.sin(ph + index * Math.sin(ph)) +
+        0.18 * Math.sin(2 * ph) * Math.exp(-t / 0.5) +
+        0.08 * vel * Math.sin(7.02 * ph) * Math.exp(-t / 0.035);
+      const env = Math.exp(-t / decay) * rise(t, 0.003) * Math.min(1, (len - t) / 0.08);
+      out[i] = lp(v * env, 2800 + 6000 * vel * Math.exp(-t / 0.25), 0.6).low;
     }
     return out;
   }
 
-  /** A mallet: a sine and a quieter partial near the fourth harmonic, as a marimba bar has, and a quick fall. */
-  function mallet(f: number, decay = 0.5): Float32Array {
-    const out = samples(decay * 4);
+  /**
+   * A felt mallet: a struck string's partials, each quieter and shorter-lived than the one below, so the attack has
+   * some grain and the tail is round; a soft breath of felt on the string at the start.
+   */
+  function felt(f: number, decay = 0.4, bright = 0.4): Float32Array {
+    const len = decay * 4,
+      out = samples(len),
+      bp = svf();
+    const parts: [number, number, number][] = [];
+    for (let k = 1; k <= 8; k++) {
+      const ratio = k * (1 + 0.0004 * k * k); // a little stretched, as a real string is
+      if (f * ratio > 6000) break;
+      parts.push([ratio, k === 1 ? 1 : (bright * 1.6) / k ** 1.5, decay / k ** 0.9]);
+    }
     for (let i = 0; i < out.length; i++) {
-      const t = i / RATE,
-        a = Math.min(1, t / 0.002);
-      out[i] =
-        a *
-        (Math.sin(TAU * f * t) * Math.exp(-t / decay) +
-          0.25 * Math.sin(TAU * f * 3.93 * t) * Math.exp(-t / (decay * 0.15)));
+      const t = i / RATE;
+      let v = 0;
+      for (const [r, a, d] of parts) v += a * Math.sin(TAU * f * r * t) * Math.exp(-t / d);
+      const contact = bp(noise(), 1800, 1.1).band * Math.exp(-t / 0.005) * 0.5 * bright;
+      out[i] = (v + contact) * rise(t, 0.003);
     }
     return out;
   }
 
-  /** A short burst of filtered noise: a click, the attack of something struck. */
-  function click(len: number, fc: number, q = 1.4): Float32Array {
-    const out = samples(len),
-      f = svf();
-    for (let i = 0; i < out.length; i++) {
-      const p = i / out.length;
-      out[i] = f(noise(), fc, q).band * (1 - p) ** 3;
-    }
-    return out;
-  }
-
-  /** A sine that falls in pitch and fades: the body of a knock or a thud. */
-  function body(f0: number, f1: number, decay: number, glide = 0.06): Float32Array {
+  /** A sine that falls in pitch and fades: the body of a knock or a thump. */
+  function body(f0: number, f1: number, decay: number, glide = 0.06, attack = 0.002): Float32Array {
     const out = samples(decay * 5);
     let ph = 0;
     for (let i = 0; i < out.length; i++) {
       const t = i / RATE,
         f = f1 + (f0 - f1) * Math.exp(-t / glide);
       ph += (TAU * f) / RATE;
-      out[i] = Math.sin(ph) * Math.exp(-t / decay) * Math.min(1, t / 0.0015);
+      out[i] = Math.sin(ph) * Math.exp(-t / decay) * rise(t, attack);
     }
     return out;
   }
 
-  /** A plucked string (Karplus-Strong): a burst of noise in a delay line that loses its brightness as it rings. */
-  function pluck(f: number, decay = 0.997, len = 1.4): Float32Array {
+  /** A short breath of band-passed noise: the scuff of a felt or a fingertip, never a sharp click. */
+  function scuff(len: number, fc: number, q = 0.8): Float32Array {
     const out = samples(len),
-      n = Math.round(RATE / f),
+      f = svf();
+    for (let i = 0; i < out.length; i++) {
+      const p = i / out.length;
+      out[i] = f(noise(), fc, q).band * Math.sin(Math.PI * Math.min(1, p * 4)) * (1 - p) ** 2 * 1.6;
+    }
+    return out;
+  }
+
+  /** A knock on wood, as on a fence post: a low body, two upper modes and the tok of the knuckle, little above 3 kHz. */
+  function knock(f: number, decay = 0.07): Float32Array {
+    const a = body(f * 1.04, f, decay, 0.006, 0.001),
+      b = body(f * 2.32, f * 2.3, decay * 0.45, 0.004, 0.001),
+      c = body(f * 4.1, f * 4.05, decay * 0.22, 0.003, 0.001),
+      d = scuff(0.014, 1700, 1.1);
+    const out = samples(decay * 5);
+    for (let i = 0; i < out.length; i++)
+      out[i] = (a[i] ?? 0) + 0.4 * (b[i] ?? 0) + 0.18 * (c[i] ?? 0) + 0.45 * (d[i] ?? 0);
+    return out;
+  }
+
+  /**
+   * A plucked string (Karplus-Strong), as a nylon string: the burst of noise is softened, and a low-pass in the loop
+   * takes the brightness away as it rings.
+   */
+  function pluck(f: number, len = 1.6, dark = 0.35): Float32Array {
+    // the loop's own filter delays it by about dark / (1 - dark) samples, so the line is that much shorter
+    const out = samples(len),
+      n = Math.max(2, Math.round(RATE / f - dark / (1 - dark) - 0.5)),
       line = new Float32Array(n);
     const lp = svf();
-    for (let i = 0; i < n; i++) line[i] = lp(noise(), f * 6, 0.7).low;
-    let at = 0;
+    for (let i = 0; i < n; i++) line[i] = lp(noise(), f * 6, 0.6).low * 1.2;
+    const tone = svf();
+    let at = 0,
+      z = 0;
     for (let i = 0; i < out.length; i++) {
       const next = (at + 1) % n;
       const v = line[at];
-      line[at] = decay * 0.5 * (line[at] + line[next]);
-      out[i] = v * Math.min(1, (out.length - i) / (RATE * 0.05));
+      // the two neighbours averaged, then a one-pole low-pass: the larger `dark`, the duller the string
+      z += (1 - dark) * (0.5 * (line[at] + line[next]) - z);
+      line[at] = 0.996 * z;
+      out[i] = tone(v, 4200, 0.6).low * Math.min(1, (out.length - i) / (RATE * 0.06)) * rise(i / RATE, 0.002);
       at = next;
     }
     return out;
@@ -207,20 +246,29 @@ export function soundtrack({
   /** Noise through a band-pass whose centre moves from f0 to f1, shaped by an envelope of how far through it is. */
   function moving(len: number, f0: number, f1: number, q: number, env: (p: number) => number): Float32Array {
     const out = samples(len),
-      f = svf();
+      f = svf(),
+      lp = svf();
     let pink = 0;
     for (let i = 0; i < out.length; i++) {
       const p = i / out.length;
       pink = 0.97 * pink + 0.03 * noise() * 6;
       const fc = f0 * (f1 / f0) ** p;
-      out[i] = f(0.5 * noise() + 0.5 * pink, fc, q).band * env(p);
+      const v = f(0.4 * noise() + 0.6 * pink, fc, q).band;
+      out[i] = lp(v, Math.max(fc * 2.2, 900), 0.6).low * env(p);
     }
     return out;
   }
 
-  /** Many tiny high grains, as glints of light, at a density that follows `density` (0 to 1) through the length. */
-  function grains(t: number, len: number, count: number, density: (p: number) => number, gain: number, low = 10): void {
-    // place the grains by the density, so they gather where it is high
+  /** Soft felt notes scattered through `len`, at a density that follows `density` (0 to 1): rain on a felt roof. */
+  function drops(
+    t: number,
+    len: number,
+    count: number,
+    density: (p: number) => number,
+    gain: number,
+    low = 5,
+    high = 12,
+  ): void {
     const steps = 400,
       cdf: number[] = [0];
     for (let k = 1; k <= steps; k++) cdf.push(cdf[k - 1] + density(k / steps));
@@ -229,16 +277,8 @@ export function soundtrack({
       let k = 0;
       while (cdf[k + 1] < u) k++;
       const at = t + ((k + random()) / steps) * len;
-      const f =
-        hz(SCALE[low + Math.floor(random() * (SCALE.length - low))] + 12 * Math.floor(random() * 2)) *
-        (1 + (random() - 0.5) * 0.006);
-      const dur = 0.04 + random() * 0.06,
-        s = samples(dur);
-      for (let i = 0; i < s.length; i++) {
-        const p = i / s.length;
-        s[i] = Math.sin((TAU * f * i) / RATE) * Math.sin(Math.PI * p) ** 2 * Math.exp(-p * 2);
-      }
-      add(at, s, gain * (0.5 + random() * 0.5), (random() - 0.5) * 1.6, 0.55);
+      const f = note(low + Math.floor(random() * (high - low + 1))) * (1 + (random() - 0.5) * 0.004);
+      add(at, felt(f, 0.12 + random() * 0.1, 0.15), gain * (0.45 + random() * 0.55), (random() - 0.5) * 1.4, 0.5);
     }
   }
 
@@ -253,13 +293,15 @@ export function soundtrack({
   function pad(t: number, len: number, gain: number, octave = 12): void {
     for (const [k, m] of chordAt(t).entries()) {
       const f = hz(m + octave),
-        s = samples(len);
+        s = samples(len),
+        lp = svf();
       for (let i = 0; i < s.length; i++) {
         const p = i / s.length,
           tt = i / RATE;
         const env =
           p < 0.55 ? Math.sin((p / 0.55) * (Math.PI / 2)) ** 2 : Math.cos(((p - 0.55) / 0.45) * (Math.PI / 2)) ** 2;
-        s[i] = env * (Math.sin(TAU * f * tt) + 0.5 * Math.sin(TAU * f * 1.0015 * tt + k));
+        const v = Math.sin(TAU * f * tt) + 0.5 * Math.sin(TAU * f * 1.0015 * tt + k) + 0.2 * Math.sin(TAU * f * 2 * tt);
+        s[i] = lp(v * env, 1400, 0.6).low;
       }
       add(t, s, gain / 5, (k / 4 - 0.5) * 0.8, 0.8);
     }
@@ -267,188 +309,185 @@ export function soundtrack({
 
   // ---------- the effects, one for each kind of cue ----------
   const EFFECTS: Record<string, (c: Cue) => void> = {
-    // the title's soft low bell, and the end's three notes
+    // the title's chord, rolled on the piano over a low note; i=1 the end's three notes rising
     bell: (c) => {
       const g = c.gain ?? 1;
-      if (c.i === 1)
-        [N.D5, N.Fs5, N.A5].forEach((m, k) => add(c.t + k * 0.09, bell(hz(m), 2.6), 0.16 * g, (k - 1) * 0.35, 0.6));
-      else {
-        add(c.t, bell(hz(N.D4), 3.2), 0.2 * g, -0.1, 0.6);
-        add(c.t + 0.02, bell(hz(N.A4), 2.6), 0.08 * g, 0.2, 0.6);
+      if (c.i === 1) {
+        [N.D4, N.Fs4, N.A4, N.D5].forEach((m, k) =>
+          wide(c.t + k * 0.11, (d) => ep(hz(m) * d, 0.6 - k * 0.06, 2.4), 0.12 * g, (k - 1.5) * 0.25, 0.6),
+        );
+        add(c.t, felt(hz(N.D2), 1.6, 0.2), 0.18 * g, 0, 0.4);
+      } else {
+        [N.D3, N.A3, N.E4, N.Fs4].forEach((m, k) =>
+          wide(c.t + k * 0.05, (d) => ep(hz(m) * d, 0.55, 2.6), 0.11 * g, (k - 1.5) * 0.2, 0.6),
+        );
+        add(c.t, felt(hz(N.D2), 1.8, 0.2), 0.16 * g, 0, 0.4);
       }
     },
     air: (c) =>
       add(
         c.t,
-        moving(c.dur ?? 0.8, 900, 3200, 0.6, (p) => Math.sin(Math.PI * p) ** 2),
-        0.05,
+        moving(c.dur ?? 0.8, 400, 1800, 0.6, (p) => Math.sin(Math.PI * p) ** 2),
+        0.07,
         (p) => -0.3 + 0.6 * p,
-        0.4,
+        0.5,
       ),
-    // a wooden tick, climbing a step with each question
+    // a knock on wood, a step higher with each question
     wood: (c) => {
-      const f = hz([N.E5, N.Fs5, N.A5][c.i ?? 0]);
-      add(c.t, body(f * 1.05, f, 0.05, 0.004), 0.22, -0.15 + 0.15 * (c.i ?? 0), 0.25);
-      add(c.t, body(f * 2.71, f * 2.7, 0.012, 0.002), 0.06, 0, 0.2);
-      add(c.t, click(0.006, 3800, 2), 0.08, 0, 0.1);
+      const f = note(5 + [0, 1, 3][c.i ?? 0]) / 2;
+      add(c.t, knock(f, 0.09), 0.3, -0.15 + 0.15 * (c.i ?? 0), 0.3);
+      add(c.t + 0.002, felt(f * 2, 0.25, 0.1), 0.08, -0.15 + 0.15 * (c.i ?? 0), 0.4);
     },
-    swell: (c) => pad(c.t, c.dur ?? 2, 0.09),
+    swell: (c) => pad(c.t, c.dur ?? 2, 0.1),
     whoosh: (c) => {
       const len = c.dur ?? 1,
         up = (c.to ?? 1) > 0;
-      const env = up ? (p: number) => p ** 2.2 * (1 - p) ** 0.35 * 2.2 : (p: number) => (1 - p) ** 2 * p ** 0.3 * 2.4;
+      const env = up ? (p: number) => p ** 2 * (1 - p) ** 0.4 * 2.2 : (p: number) => (1 - p) ** 2 * p ** 0.3 * 2.4;
       add(
         c.t,
-        moving(len, up ? 280 : 2600, up ? 3200 : 260, 1.1, env),
-        0.12 * (c.gain ?? 1),
+        moving(len, up ? 200 : 2000, up ? 2000 : 200, 0.9, env),
+        0.16 * (c.gain ?? 1),
         (p) => (up ? -0.4 + 0.8 * p : 0.4 - 0.8 * p),
-        0.35,
+        0.4,
       );
     },
-    // the crowd arriving: glints that gather as the dots do
+    // the crowd arriving: a murmur that grows, and soft notes falling like rain as the dots land
     shimmer: (c) => {
-      const len = c.dur ?? 2;
-      grains(
-        c.t,
-        len,
-        Math.round(150 * len),
-        (p) => Math.sin(Math.PI * Math.min(1, p * 1.1)) ** 0.8,
-        0.05 * (c.gain ?? 1),
-      );
+      const len = c.dur ?? 2,
+        g = c.gain ?? 1;
+      drops(c.t, len, Math.round(26 * len), (p) => Math.sin(Math.PI * Math.min(1, p * 1.1)) ** 0.8, 0.07 * g);
       add(
         c.t,
-        moving(len, 2000, 5000, 0.5, (p) => Math.sin(Math.PI * p) ** 2),
-        0.03 * (c.gain ?? 1),
+        moving(len, 300, 1500, 0.5, (p) => Math.sin(Math.PI * p) ** 2),
+        0.08 * g,
         0,
         0.6,
       );
     },
-    // the counter counting
+    // the counter counting: soft wooden ticks under the murmur
     ticker: (c) => {
       const len = c.dur ?? 2,
-        n = 44;
+        n = 22;
       for (let k = 0; k < n; k++) {
         const p = k / n,
           at = c.t + len * (p + ((random() - 0.5) * 0.4) / n);
-        add(at, click(0.004, 5200, 3), 0.05 * (0.4 + 0.6 * Math.sin(Math.PI * p)), (random() - 0.5) * 0.3, 0.1);
+        add(at, knock(note(5 + (k % 2)) * 1.5, 0.025), 0.05 * (0.4 + 0.6 * Math.sin(Math.PI * p)), 0.15, 0.15);
       }
     },
-    // a big number landing: a low thud, and with i=1 a high ping over it
+    // a big number landing: a low, soft thump; with i=1 a piano note over it
     thud: (c) => {
       const g = c.gain ?? 1;
-      add(c.t, body(95, 46, 0.3, 0.05), 0.16 * g, 0, 0.15);
-      add(c.t, body(190, 92, 0.08, 0.03), 0.05 * g, 0, 0.15);
-      add(c.t, click(0.012, 900, 1), 0.08 * g, 0, 0.15);
-      if (c.i === 1) add(c.t + 0.01, bell(hz(N.A6), 0.9), 0.05 * g, 0.2, 0.6);
+      add(c.t, body(78, 44, 0.26, 0.05, 0.004), 0.24 * g, 0, 0.2);
+      add(c.t, body(150, 96, 0.06, 0.03, 0.003), 0.06 * g, 0, 0.2);
+      add(c.t, scuff(0.02, 700), 0.1 * g, 0, 0.2);
+      if (c.i === 1) wide(c.t + 0.01, (d) => ep(hz(N.A4) * d, 0.5, 1.4), 0.1 * g, 0.1, 0.6);
     },
-    tick: (c) => {
-      const f = hz(SCALE[9 + ((c.i ?? 0) % 5)]);
-      add(c.t, mallet(f, 0.06), 0.07 * (c.gain ?? 1), 0.1, 0.3);
-      add(c.t, click(0.003, 6000, 2), 0.03 * (c.gain ?? 1), 0.1, 0.1);
-    },
-    // the card landing
+    tick: (c) => add(c.t, felt(note(5 + ((c.i ?? 0) % 5)), 0.22, 0.25), 0.11 * (c.gain ?? 1), 0.1, 0.35),
+    // a card landing: a knock and a low thump, like a book set down
     snap: (c) => {
-      add(c.t, click(0.03, 2200, 1.6), 0.2, 0, 0.25);
-      add(c.t, body(170, 120, 0.05, 0.01), 0.22, 0, 0.2);
-      add(c.t + 0.004, click(0.004, 7000, 3), 0.05, 0.1, 0.2);
+      add(c.t, knock(hz(N.D3) * 1.3, 0.06), 0.24 * (c.gain ?? 1), 0, 0.25);
+      add(c.t, body(110, 70, 0.08, 0.02, 0.003), 0.18 * (c.gain ?? 1), 0, 0.2);
+      add(c.t, scuff(0.05, 1200), 0.08 * (c.gain ?? 1), 0, 0.25);
     },
-    pluck: (c) => add(c.t, pluck(hz(SCALE[c.i ?? 0]), 0.996, 1.2), 0.2, -0.2 + 0.06 * (c.i ?? 0), 0.35),
+    // a string plucked, low in the range
+    pluck: (c) => add(c.t, pluck(note(c.i ?? 0)), 0.3 * (c.gain ?? 1), -0.2 + 0.06 * (c.i ?? 0), 0.35),
     wash: (c) => {
       const len = c.dur ?? 3;
       add(
         c.t,
-        moving(len, 500, 1400, 0.5, (p) => Math.sin(Math.PI * p) ** 2),
-        0.035,
+        moving(len, 300, 700, 0.5, (p) => Math.sin(Math.PI * p) ** 2),
+        0.05,
         0,
         0.8,
       );
-      grains(c.t, len, Math.round(20 * len), () => 1, 0.015, 8);
+      drops(c.t, len, Math.round(5 * len), () => 1, 0.03, 7, 12);
     },
-    // the crowd sorting itself: sand pouring across, with fine grains in it
+    // the crowd sorting itself: sand pouring across, low and soft
     flow: (c) => {
       const len = c.dur ?? 1.4,
         a = c.pan ?? -0.4,
         b = c.to ?? 0.4;
       const s = samples(len),
         f = svf(),
-        lp = svf();
+        lp = svf(),
+        dark = svf();
       let grain = 0;
       for (let i = 0; i < s.length; i++) {
         const p = i / s.length;
-        if (random() < 0.012) grain = 1;
-        grain *= 0.993;
+        if (random() < 0.01) grain = 1;
+        grain *= 0.994;
         const env = p ** 0.6 * (1 - p) ** 1.6 * 3.2;
-        const sand = f(noise(), 2400 + 1600 * Math.sin(Math.PI * p), 0.9).band * (0.35 + 0.65 * grain);
-        const low = lp(noise(), 240, 0.7).low * 0.6;
-        s[i] = (sand + low) * env;
+        const sand = f(noise(), 900 + 600 * Math.sin(Math.PI * p), 0.8).band * (0.4 + 0.6 * grain);
+        const low = lp(noise(), 180, 0.7).low * 0.8;
+        s[i] = dark(sand + low, 1800, 0.6).low * env;
       }
-      add(c.t, s, 0.11, (p) => a + (b - a) * p, 0.3);
+      add(c.t, s, 0.16 * (c.gain ?? 1), (p) => a + (b - a) * p, 0.3);
     },
-    // two notes, a fifth apart, for a figure that lands; i=1 a softer single one for a reply
+    // two piano notes, a fifth apart, for a figure that lands; i=1 a softer pair for a reply
     chime: (c) => {
       const g = c.gain ?? 1;
       if (c.i === 1) {
-        add(c.t, bell(hz(N.A5), 1.2), 0.07 * g, 0.25, 0.5);
-        add(c.t + 0.06, bell(hz(N.D6), 1.0), 0.04 * g, 0.3, 0.5);
+        wide(c.t, (d) => ep(hz(N.A4) * d, 0.45, 1.2), 0.11 * g, 0.2, 0.5);
+        wide(c.t + 0.07, (d) => ep(hz(N.D5) * d, 0.4, 1.0), 0.07 * g, 0.25, 0.5);
       } else {
-        add(c.t, bell(hz(N.D5), 1.6), 0.1 * g, -0.15, 0.55);
-        add(c.t + 0.11, bell(hz(N.A5), 1.8), 0.09 * g, 0.15, 0.55);
+        wide(c.t, (d) => ep(hz(N.D4) * d, 0.55, 1.6), 0.12 * g, -0.1, 0.55);
+        wide(c.t + 0.11, (d) => ep(hz(N.A4) * d, 0.5, 1.8), 0.1 * g, 0.1, 0.55);
       }
     },
     swish: (c) =>
       add(
         c.t,
-        moving(0.4, 600, 4200, 0.8, (p) => Math.sin(Math.PI * p ** 0.7) ** 2),
-        0.07,
+        moving(0.45, 250, 1200, 0.8, (p) => Math.sin(Math.PI * p ** 0.7) ** 2),
+        0.1 * (c.gain ?? 1),
         (p) => -0.2 + 0.4 * p,
-        0.3,
+        0.35,
       ),
-    // the groups lighting: green high, amber a little lower
+    // the groups lighting: a piano note each, the second a little lower
     glint: (c) => {
-      const f = hz(c.i === 1 ? N.Fs6 : N.A6);
-      add(c.t, bell(f, 0.8), 0.07, c.i === 1 ? 0.3 : -0.3, 0.6);
-      grains(c.t, 0.4, 14, (p) => 1 - p, 0.02, 11);
+      const f = hz(c.i === 1 ? N.Fs4 : N.A4);
+      wide(c.t, (d) => ep(f * d, 0.45, 1.1), 0.1, c.i === 1 ? 0.3 : -0.3, 0.6);
     },
-    // squares forming: a quick run of tiny clicks, sweeping across; i=1 climbs in pitch
+    // squares forming: a quick run of soft felt notes, sweeping across; i=1 climbs
     ripple: (c) => {
       const n = c.n ?? 100,
         len = c.dur ?? 0.4,
         g = c.gain ?? 1;
-      const every = Math.max(1, Math.round(n / 28));
+      const every = Math.max(1, Math.round(n / 20));
       for (let k = 0; k < n; k += every) {
         const p = k / n;
-        const f = c.i === 1 ? hz(N.D6) * 2 ** p : hz(SCALE[10 + (k % 3)]);
-        add(c.t + p * len, mallet(f, 0.02), 0.035 * g, -0.6 + 1.2 * p, 0.3);
+        const f = c.i === 1 ? hz(N.D4) * 2 ** p : note(5 + (k % 3));
+        add(c.t + p * len, felt(f, 0.08, 0.1), 0.05 * g, -0.6 + 1.2 * p, 0.35);
       }
     },
     rise: (c) => {
       const len = c.dur ?? 0.9,
-        s = samples(len);
+        s = samples(len),
+        lp = svf();
       let ph = 0;
       for (let i = 0; i < s.length; i++) {
         const p = i / s.length,
-          f = hz(N.D5) * 2 ** p;
+          f = hz(N.D4) * 2 ** p;
         ph += (TAU * f) / RATE;
-        s[i] = Math.sin(ph) * Math.sin(Math.PI * p) ** 2;
+        s[i] = lp(Math.sin(ph + 0.6 * Math.sin(ph)), 1500, 0.6).low * Math.sin(Math.PI * p) ** 2;
       }
-      add(c.t, s, 0.035, 0.1, 0.6);
+      add(c.t, s, 0.05, 0.1, 0.6);
       add(
         c.t,
-        moving(len, 800, 4000, 0.7, (p) => Math.sin(Math.PI * p) ** 2),
-        0.03,
+        moving(len, 300, 1200, 0.7, (p) => Math.sin(Math.PI * p) ** 2),
+        0.05,
         0,
         0.5,
       );
     },
     resolve: (c) => {
-      pad(c.t, 2.4, 0.11, 0);
-      add(c.t + 0.05, bell(hz(N.D5), 1.8), 0.06, 0, 0.6);
+      pad(c.t, 2.4, 0.12, 0);
+      wide(c.t + 0.05, (d) => ep(hz(N.D4) * d, 0.5, 1.8), 0.1, 0, 0.6);
     },
-    // a fact put to the decision model: a soft ping that echoes
+    // a fact put to the decision model: a piano note that echoes softly
     ping: (c) => {
-      const f = hz(SCALE[7 + (c.i ?? 0)]);
-      const s = mallet(f, 0.16);
-      [0, 0.13, 0.26].forEach((d, k) => add(c.t + d, s, 0.09 * 0.45 ** k, k % 2 ? 0.4 : -0.2, 0.4));
+      const f = note(7 + (c.i ?? 0));
+      const s = ep(f, 0.5, 0.7);
+      [0, 0.19, 0.38].forEach((d, k) => add(c.t + d, s, 0.11 * 0.4 ** k, k % 2 ? 0.4 : -0.2, 0.45));
     },
     // the scan's sweep across the crowd, left to right as on screen
     sweep: (c) => {
@@ -456,32 +495,46 @@ export function soundtrack({
       const e = (p: number) => (p < 0.5 ? 4 * p * p * p : 1 - (-2 * p + 2) ** 3 / 2);
       add(
         c.t,
-        moving(len, 900, 2600, 2.2, (p) => Math.sin(Math.PI * p) ** 0.7),
-        0.09,
+        moving(len, 260, 1000, 1.4, (p) => Math.sin(Math.PI * p) ** 0.7),
+        0.12,
         (p) => -0.8 + 1.6 * e(p),
-        0.4,
+        0.45,
       );
-      const s = samples(len);
+      const s = samples(len),
+        lp = svf();
       for (let i = 0; i < s.length; i++) {
         const p = i / s.length,
           t = i / RATE;
-        s[i] = Math.sin(TAU * hz(N.A4) * t) * (0.6 + 0.4 * Math.sin(TAU * 6 * t)) * Math.sin(Math.PI * p) ** 2;
+        const v = Math.sin(TAU * hz(N.A3) * t) + 0.3 * Math.sin(TAU * hz(N.E4) * t);
+        s[i] = lp(v, 900, 0.6).low * (0.7 + 0.3 * Math.sin(TAU * 4 * t)) * Math.sin(Math.PI * p) ** 2;
       }
-      add(c.t, s, 0.02, (p) => -0.8 + 1.6 * e(p), 0.6);
+      add(c.t, s, 0.035, (p) => -0.8 + 1.6 * e(p), 0.6);
     },
-    // a key pressed, and Enter
+    // a key pressed, as on a quiet keyboard, and Enter
     key: (c) => {
-      const v = 0.85 + random() * 0.3;
-      add(c.t, click(0.005, 3800 + (c.i ?? 0) * 300, 1.8), 0.09 * v, 0.15, 0.08);
-      add(c.t, body(260 + (c.i ?? 0) * 18, 200, 0.018, 0.004), 0.06 * v, 0.15, 0.08);
+      const v = 0.8 + random() * 0.4;
+      add(c.t, scuff(0.012, 2200 + (c.i ?? 0) * 120), 0.07 * v, 0.15, 0.1);
+      add(c.t, body(230 + (c.i ?? 0) * 14, 170, 0.014, 0.004, 0.001), 0.06 * v, 0.15, 0.1);
     },
     enter: (c) => {
       const g = c.gain ?? 1;
-      add(c.t, click(0.012, 1800, 1.4), 0.16 * g, 0.15, 0.1);
-      add(c.t, body(150, 105, 0.06, 0.01), 0.2 * g, 0.15, 0.1);
+      add(c.t, knock(150, 0.05), 0.2 * g, 0.15, 0.15);
+      add(c.t, scuff(0.025, 1100), 0.09 * g, 0.15, 0.15);
     },
     // a census point dropping onto the line
-    drop: (c) => add(c.t, mallet(hz(SCALE[5 + ((c.i ?? 0) % 9)]), 0.08), 0.06, -0.4 + 0.04 * (c.i ?? 0), 0.4),
+    drop: (c) => add(c.t, felt(note(5 + ((c.i ?? 0) % 8)), 0.14, 0.15), 0.07, -0.4 + 0.04 * (c.i ?? 0), 0.4),
+    // a card sliding into place: a short breath of air that ends in a soft knock
+    slide: (c) => {
+      const g = c.gain ?? 1;
+      add(
+        c.t,
+        moving(0.32, 400, 900, 0.7, (p) => Math.sin(Math.PI * p) ** 2),
+        0.08 * g,
+        (c.pan ?? 0) - 0.15,
+        0.3,
+      );
+      add(c.t + 0.26, knock(hz(N.D3) * 1.5, 0.04), 0.1 * g, c.pan ?? 0, 0.3);
+    },
   };
 
   for (const c of cues) {
@@ -513,21 +566,25 @@ export function soundtrack({
         const breathe = 0.8 + 0.2 * Math.sin(TAU * 0.07 * t + n);
         const end2 = Math.min(1, Math.max(0, (duration - 0.2 - t) / 2.2));
         s[i] =
-          lp(v, 900, 0.6).low *
+          lp(v, 700, 0.6).low *
           Math.sin((Math.PI / 2) * Math.max(0, Math.min(1, fadeIn))) *
           Math.sin((Math.PI / 2) * Math.max(0, fadeOut)) *
           breathe *
           end2;
       }
-      add(from, s, 0.0038, 0, 0.7);
+      add(from, s, 0.006, 0, 0.7);
     }
   }
 
-  // ---------- the room: a small Freeverb on everything sent to it ----------
+  // ---------- the room: a dark Freeverb on everything sent to it ----------
   const scale = RATE / 44100;
   const combs = [1116, 1188, 1277, 1356, 1422, 1491, 1557, 1617].map((d) => Math.round(d * scale));
   const allpasses = [556, 441, 341, 225].map((d) => Math.round(d * scale));
   const room = (input: Float32Array, spread: number) => {
+    // darken what goes in first, so the tail is warm
+    const pre = svf(),
+      dry = new Float32Array(length);
+    for (let i = 0; i < length; i++) dry[i] = pre(input[i], 5000, 0.6).low;
     const out = new Float32Array(length);
     for (const d of combs) {
       const buf = new Float32Array(d + spread);
@@ -535,8 +592,8 @@ export function soundtrack({
         store = 0;
       for (let i = 0; i < length; i++) {
         const y = buf[at];
-        store = y * 0.75 + store * 0.25;
-        buf[at] = input[i] * 0.015 + store * 0.86;
+        store = y * 0.65 + store * 0.35;
+        buf[at] = dry[i] * 0.015 + store * 0.88;
         out[i] += y;
         at = (at + 1) % buf.length;
       }
@@ -555,15 +612,24 @@ export function soundtrack({
   };
   const wetL = room(sendL, 0),
     wetR = room(sendR, 23);
-
-  // ---------- out: dry and wet together, as 16-bit PCM ----------
   for (let i = 0; i < length; i++) {
     L[i] += wetL[i] * 0.9;
     R[i] += wetR[i] * 0.9;
   }
+
+  // ---------- the tone: a little air, a high shelf up about 5 dB from 2 kHz, and a roll-off above 16 kHz ----------
+  for (const ch of [L, R]) {
+    const shelf = svf(),
+      top = svf();
+    for (let i = 0; i < length; i++) {
+      const s = shelf(ch[i], 2000, 0.7);
+      ch[i] = top(ch[i] + 1.1 * s.high, 16000, 0.7).low;
+    }
+  }
+
   // A look-ahead limiter keeps the sharpest attacks within 14 dB of the louder passages (the 90th percentile of the
   // level over 0.4 s windows), so video.ts can bring the whole up to its loudness without a peak clipping. It only
-  // touches the attacks of the knocks and thuds.
+  // touches the attacks of the knocks and thumps.
   {
     const win = Math.round(0.4 * RATE),
       levels: number[] = [];
@@ -601,6 +667,31 @@ export function soundtrack({
       R[i] *= g;
     }
   }
+
+  // ---------- the tape: soft saturation on the loudest moments, and a slow wobble of a few cents ----------
+  {
+    let peak = 0;
+    for (let i = 0; i < length; i++) peak = Math.max(peak, Math.abs(L[i]), Math.abs(R[i]));
+    const drive = 1.4,
+      norm = Math.tanh(drive);
+    const delay = Math.round(0.004 * RATE),
+      depth = 0.0005 * RATE;
+    for (const ch of [L, R]) {
+      const src = Float32Array.from(ch, (v) => Math.tanh((drive * v) / (peak || 1)) / norm);
+      for (let i = 0; i < length; i++) {
+        const t = i / RATE;
+        const d = delay + depth * Math.sin(TAU * 0.35 * t) + depth * 0.12 * Math.sin(TAU * 5.2 * t + 1);
+        const x = i - d,
+          k = Math.floor(x),
+          u = x - k;
+        const a = k >= 0 && k < length ? src[k] : 0,
+          b = k + 1 >= 0 && k + 1 < length ? src[k + 1] : 0;
+        ch[i] = a + (b - a) * u;
+      }
+    }
+  }
+
+  // ---------- out: as 16-bit PCM ----------
   let peak = 0;
   for (let i = 0; i < length; i++) peak = Math.max(peak, Math.abs(L[i]), Math.abs(R[i]));
   const gain = peak > 0 ? 0.89 / peak : 1; // to just under full scale; video.ts sets the loudness

@@ -32,6 +32,7 @@ const read = (path: string) => JSON.parse(readFileSync(new URL(path, ROOT), "utf
 const MP4 = fileURLToPath(new URL("out/nxk-launch.mp4", ROOT));
 const POSTER = fileURLToPath(new URL("assets/nxk-launch-poster.png", ROOT));
 const LIMIT = 9.5 * 1024 * 1024; // under GitHub's 10 MB for a video attached on a free plan
+const AUDIO = 112; // kb/s of AAC: the sound is soft and warm, so this is plenty, and leaves the picture more
 const FFMPEG = process.env.FFMPEG || "ffmpeg";
 
 const args = process.argv.slice(2);
@@ -141,7 +142,7 @@ try {
         "-c:a",
         "aac",
         "-b:a",
-        "128k",
+        `${AUDIO}k`,
         "-shortest",
         "-movflags",
         "+faststart",
@@ -151,7 +152,7 @@ try {
     let size = statSync(MP4).size;
     if (size > LIMIT) {
       // too big at that quality: two passes at the bit rate that fits, less the sound's share
-      const kbps = Math.floor(((LIMIT * 8) / v.duration - 128_000) / 1000 / 1.03);
+      const kbps = Math.floor(((LIMIT * 8) / v.duration - AUDIO * 1000) / 1000 / 1.03);
       console.log(`${(size / 1048576).toFixed(1)} MB at CRF 20; encoding again at ${kbps} kb/s`);
       const pass = ["-c:v", "libx264", "-preset", "veryslow", "-tune", "animation", "-g", "300", "-b:v", `${kbps}k`];
       execFileSync(FFMPEG, [
