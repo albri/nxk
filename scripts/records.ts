@@ -14,7 +14,7 @@
 //             { type: "close_call" }          a count close to the figure in its rule
 //   note      { type: "verdict", ready, pays } note_check's verdict, with what the reply was declared to ask people to pay
 //   scan      { type: "paced", minutes }      how long the scan is paced to take
-//             { type: "spent", usd }          what it spent (printed when it finished sending)
+//             { type: "spent", usd, total }   what this scan spent, and the spec's total (printed when it finished sending)
 //             { type: "fact", field, low, high } a fact that matters, with its two ends as printed
 //   discover  { type: "no_corner", ideas }    offers with no corner of their own
 //             { type: "at_work", ideas }      offers asked at work
