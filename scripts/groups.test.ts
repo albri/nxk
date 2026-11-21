@@ -6,6 +6,7 @@ import {
   draw,
   margin,
   marked,
+  matches,
   nearestFields,
   profile,
   reach,
@@ -120,6 +121,64 @@ test("a range of codes on a scale takes the codes between them, either way round
   assert.ok(up.test([2, 0]) && up.test([3, 1]) && !up.test([1, 0]) && !up.test([4, 0]));
   assert.throws(() => conditionsOf(SCALED, ["tenure=owned..rented"]), /not a scale/);
   assert.throws(() => conditionsOf(SCALED, ["income=under_10k..not_known"]), /two codes of its scale/);
+});
+
+test("numbers given for a scale of bands name the bands that hold them, in the error", () => {
+  const order = [
+    "under_12570_gbp",
+    "12570_to_19999_gbp",
+    "20000_to_29999_gbp",
+    "70000_to_99999_gbp",
+    "150000_gbp_or_more",
+  ];
+  const income = [
+    {
+      name: "income",
+      path: "money.income",
+      kind: "categorical",
+      order,
+      values: order.map((code) => ({ code, label: code })),
+    },
+  ] as Field[];
+  assert.throws(
+    () => conditionsOf(income, ["income=20000..80000"]),
+    /income=20000\.\.80000 names numbers: income=20000_to_29999_gbp\.\.70000_to_99999_gbp counts the bands that hold them/,
+  );
+  assert.throws(() => conditionsOf(income, ["income=9000..200000"]), /income=under_12570_gbp\.\.150000_gbp_or_more/);
+  // A count of children is a scale of plain numbers with an open top: 1..9 is 1 to 6 or more.
+  const kids = ["0", "1", "2", "6_or_more"];
+  const children = [
+    {
+      name: "children",
+      path: "home.children",
+      kind: "categorical",
+      order: kids,
+      values: kids.map((code) => ({ code, label: code })),
+    },
+  ] as Field[];
+  assert.throws(() => conditionsOf(children, ["children=1..9"]), /children=1\.\.6_or_more counts the bands/);
+  assert.throws(
+    () => conditionsOf(income, ["income=cheap..dear"]),
+    /the lower first: under_12570_gbp < .*gbp_or_more\.$/,
+  );
+});
+
+test("two values of a field a person holds one of hold nobody together: the error says to join them with |", () => {
+  assert.throws(
+    () => conditionsOf(FIELDS, ["tenure=owns", "age=18..34", "tenure=rents"]),
+    /A person has one tenure, so "Owns" and "Rents" together hold nobody\. For either, join the codes with \|: tenure=owns\|rents/,
+  );
+  // "tenure=owns,rents" splits into a code alone, which is said to be tenure's.
+  assert.throws(
+    () => conditionsOf(FIELDS, ["tenure=owns", "rents"]),
+    /"rents" is a code of tenure, not a condition: write tenure=rents/,
+  );
+  // Values that overlap narrow the group, and a list field holds several values at once.
+  assert.equal(conditionsOf(FIELDS, ["tenure=owns|rents", "tenure=owns"]).length, 2);
+  assert.equal(
+    PEOPLE.filter((row) => matches(conditionsOf(FIELDS, ["hobbies=golf", "hobbies=chess"]), row)).length,
+    13,
+  );
 });
 
 test("a value written as its label, or as the start of one, is that value; two that start alike match neither", () => {

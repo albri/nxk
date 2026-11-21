@@ -84,6 +84,23 @@ export function rowOf(fields: Field[], person: Persona): JsonRow {
   });
 }
 
+/**
+ * PersonaGen's refusal, said plainly. A filter it cannot pull by ("interests is not a filter field for UK") is named,
+ * with the way round it, rather than passed on as the API's JSON.
+ */
+export function refusal(status: number, text: string): string {
+  let issues: { field?: string; message?: string }[] = [];
+  try {
+    issues = JSON.parse(text)?.error?.issues ?? [];
+  } catch {
+    // Not JSON: the text is passed on as it came.
+  }
+  const said = issues.map((i) => [i.field, i.message].filter(Boolean).join(" ")).filter(Boolean);
+  return said.length
+    ? `PersonaGen cannot pull by this: ${said.join("; ")}. Pull by the other facts, and count this one among them with the people tool.`
+    : `PersonaGen ${status}: ${text.slice(0, 300)}`;
+}
+
 /** Ask PersonaGen, waiting when it says to. `send` is fetch, or a stand-in for testing. Its answer is read as T. */
 async function ask<T>(send: Send, url: string, body: object, key: string | undefined): Promise<T> {
   for (let attempt = 0; attempt < 30; attempt++) {
@@ -99,7 +116,7 @@ async function ask<T>(send: Send, url: string, body: object, key: string | undef
       await new Promise((done) => setTimeout(done, (seconds + 1) * 1000));
       continue;
     }
-    if (!response.ok) throw new Error(`PersonaGen ${response.status}: ${(await response.text()).slice(0, 300)}`);
+    if (!response.ok) throw new Error(refusal(response.status, await response.text()));
     return response.json() as Promise<T>;
   }
   throw new Error("PersonaGen kept asking to wait");
