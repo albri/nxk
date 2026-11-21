@@ -3,6 +3,8 @@
 .env.*
 
 node_modules/
+# Never committed: with one, Claude Code installs the development tools into every owner's copy (.npmrc).
+package-lock.json
 out/
 *.log
 .DS_Store

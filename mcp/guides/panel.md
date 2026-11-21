@@ -14,6 +14,11 @@ Look up their own words as well as the topic ("getting by", "difficult",
 "rent"), and take the field whose values say what they said: "finding money
 hard" is how people say they are managing (`managing_financially`), not their
 income or their household's resources.
+When no fact says exactly what they said (five-a-side, sole traders), take
+the nearest that does (`interests=football_playing`, self-employed without
+employees), name the group by what was counted, never by their words, say in
+one line what it leaves out, and draw from it. Only when nothing near is
+found, say so and ask the owner.
 Count it (`people` count) before anyone is drawn. When the group names a
 place, count the rest of it among that place (`among` the place, `who` the
 rest), so its share is of the adults there. Give its size in one line,

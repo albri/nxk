@@ -30,6 +30,13 @@ test("a session that stopped on one look is told to dig one more round, with the
     shallowNote(thin) ?? "",
     /^you read a scan and asked nothing after it, .* Dig one more round before you answer: Next: corner_split \{"segment":"s1"\}\. Who inside s1 is keenest\./,
   );
+  // When the tools' last move is to stop, or the owner's to make, the session is not told to dig.
+  const stopped = transcript([
+    ["people", { action: "count" }, "Counted.\n\nNext (stop): product. The research is done."],
+  ]);
+  assert.equal(shallowNote(stopped), null);
+  const owners = transcript([["people", { action: "count" }, "Counted.\n\nNext (owner): ask the budget."]]);
+  assert.equal(shallowNote(owners), null);
   // A scan still running is waited for; a session with no nxk call, or one that went on digging, is let be.
   assert.equal(shallowNote(thin, true), null);
   assert.equal(shallowNote([]), null);
