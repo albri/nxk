@@ -22,7 +22,7 @@ import {
   type Scan,
   type ScanRun,
   type Segment,
-  type Strength,
+  strengthOf,
 } from "../scripts/product.ts";
 import { pacedIn, readLog } from "../scripts/records.ts";
 
@@ -364,16 +364,21 @@ export const minutesLeft = (run: RunningScan | null): number | null =>
 export const one = (x: number): string => (Math.round(1000 * x) / 10).toFixed(1);
 /** An idea's key as discover.ts writes it in its corners: "free-ads" is free_ads. */
 export const keyOf = (key: string): string => ideasOf([{ key, offer: "-" }])[0].key;
-// discover.ts's bars for a corner: x2 or more over the group's average idea is strong, x1.15 a faint lead, below
+// discover.ts's bars for a corner (scripts/product.ts): x2 or more is strong, x1.5 a lead to test, x1.15 faint, below
 // that the idea has no corner of its own.
-export const strengthOf = (odds: number): Strength => (odds >= 2 ? "strong" : odds >= 1.15 ? "faint" : "none");
+export { strengthOf };
 /**
  * Whether a kept segment's intent holds its corner's keenness: not a group none serves, nor a group kept when its
  * scan's saved answers could not be read.
  */
 export const keenIn = (intent: Intent | null): intent is Intent & Keenness => intent?.odds !== undefined;
 export const keenness = (i: Keenness): string => {
-  const strength = strengthOf(i.odds) === "strong" ? "strong" : "faint: a lead to check";
+  const strength = {
+    strong: "strong",
+    lead: "a lead to test",
+    faint: "faint: not a lead",
+    none: "no corner of its own",
+  }[strengthOf(i.odds)];
   return [
     `they prefer ${i.idea} x${i.odds.toFixed(2)} over their average idea (${strength});`,
     `${(100 * i.keen).toFixed(0)}% keen there against`,

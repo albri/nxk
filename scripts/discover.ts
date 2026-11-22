@@ -60,7 +60,7 @@ import { percent, plural } from "./format.ts";
 import { conditionsOf, describeConditions, marked, matches, profile } from "./groups.ts";
 import { openLog, type Log } from "./log.ts";
 import { ADULTS as OFFICIAL, loadPeople, type Country, type Field, type PeopleMap, type Row } from "./population.ts";
-import type { KeenBy, ScanIdea } from "./product.ts";
+import { strengthOf, type KeenBy, type ScanIdea, type Strength } from "./product.ts";
 import { fieldsToScan, membersOf, missingAnswers, probesOf } from "./scan-answers.ts";
 import { run as scan, type SavedAnswer, type ScanSpec, type SpecQuestion } from "./scan.ts";
 
@@ -755,14 +755,21 @@ function printOwnCorners(log: Log, { scored, whom, sized }: Reading, own: OwnCor
   log.line(
     `\nEach idea's own corner: the people who prefer it most to the other ideas (how many times more than their average idea), its counted size, and how keen it is there against ${whom} (simulated).`,
   );
-  // On saved scans of every field, a corner shown at x2 or more was the full scan's corner 19 times in 22; a weaker one about two times in three.
+  // On saved scans of every field, a corner shown at x2 or more was the full scan's corner 19 times in 22; a weaker one
+  // about two times in three. On 32 products whose users are published (evals/products/strength.ts), a group read x2 or
+  // more keener than everyone was keener 26 times in 27, x1.5 to x2 30 in 37, x1.15 to x1.5 50 in 67.
+  const at = (strength: Strength) => byOdds.filter((x) => strengthOf(x.odds) === strength);
   log.line("Strong (x2 or more):");
-  for (const idea of byOdds.filter((x) => x.odds >= 2)) log.line(line(idea), "simulated", { counted: [sized(idea)] });
-  if (!byOdds.some((x) => x.odds >= 2)) log.line("  none");
-  log.line("Faint (a lead to check, not a finding):");
-  for (const idea of byOdds.filter((x) => x.odds >= 1.15 && x.odds < 2))
-    log.line(line(idea), "simulated", { counted: [sized(idea)] });
-  const none = byOdds.filter((x) => x.odds < 1.15);
+  for (const idea of at("strong")) log.line(line(idea), "simulated", { counted: [sized(idea)] });
+  if (!at("strong").length) log.line("  none");
+  log.line("Leads to test (x1.5 to x2: about 8 in 10 such readings pointed the right way, so test before acting):");
+  for (const idea of at("lead")) log.line(line(idea), "simulated", { counted: [sized(idea)] });
+  if (!at("lead").length) log.line("  none");
+  if (at("faint").length) {
+    log.line("Faint (x1.15 to x1.5: about 1 in 4 such readings pointed the wrong way; not a lead):");
+    for (const idea of at("faint")) log.line(line(idea), "simulated", { counted: [sized(idea)] });
+  }
+  const none = at("none");
   if (none.length) {
     log.line(`No corner of its own: ${none.map((idea) => idea.key).join(", ")}`);
     log.record("no_corner", { ideas: none.map((idea) => idea.key) });

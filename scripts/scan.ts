@@ -19,7 +19,8 @@
 //                     financial_risk_tolerance=not_willing_to_take_any_financial_risk,age_years=18..44
 //   --level           the real share who act today under the first version, if you know it; groups are shown around it
 //   --top, --ladders  how many lines to print
-//   --damping=0.1     how strongly a person's facts add up (guide topic scan)
+//   --damping=0.1     how strongly a person's facts add up; by default 1.2 over the square root of the fields read
+//                     (scan-answers.ts dampingFor; guide topic scan)
 //   --map, --people   another map and its people file
 //
 // The spec holds the situation in one or more versions, the question and the answer to watch. Every version is
@@ -678,18 +679,21 @@ function printPeople(
     pool: Row[] = file.people;
   // The map's fields with the packed file's lists placed (a copy: the map read once stays as it was).
   const placed = file.packed ? placeLists(map.fields, file) : map.fields;
-  const damping = Number(flags.damping ?? 0.1),
+  // With no --damping, the facts add up by how many fields are read (scan-answers.ts dampingFor).
+  const given = flags.damping === undefined ? undefined : Number(flags.damping),
     known = flags.level === undefined ? null : Number(flags.level);
   // The audience: all adults, or the people who meet --among. Everything is counted within it.
   const among = flags.among ? conditionsOf(placed, flags.among.split(",")) : [];
   const everyone = pool.map((_, i) => i).filter((i) => matches(among, pool[i]));
   if (everyone.length < 100)
     throw new Error(`Only ${everyone.length} of the ${pool.length} people fit --among: too few to count on`);
-  const one = (version: string, options: { target?: number | null; shift?: number }) =>
-    peopleAnswers(placed, pool, answers[version], { damping, over: everyone, ...options });
-  const start = one(versions[0], { target: known });
+  const one = (version: string, options: { target?: number | null; shift?: number; damping?: number }) =>
+    peopleAnswers(placed, pool, answers[version], { damping: given, over: everyone, ...options });
+  // Every version is added up as the first was, so that each keeps the same footing.
+  const start = one(versions[0], { target: known }),
+    damping = start.damping;
   const per: Record<string, PeopleAnswers> = Object.fromEntries(
-    versions.map((version, n) => [version, n ? one(version, { shift: start.shift }) : start]),
+    versions.map((version, n) => [version, n ? one(version, { shift: start.shift, damping }) : start]),
   );
   const reading: Reading = { placed, pool, everyone, among, answers, per, damping, known, versions };
   const within = among.length

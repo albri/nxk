@@ -93,7 +93,7 @@ research, which way in fits.
    and segments are that question's, so two questions in one folder never mix their leads. Versions are written to
    whoever pays (firms counted as firms when businesses pay), scanned with `ideas_scan` (`ideas_deal` for an area with
    no product yet), and explored with `explore_next` until it says report. It returns findings only: strong leads
-   first, faint ones marked faint, or plainly that nothing stood out; the groups no version serves; what your own
+   first, then at most two leads to test marked as such, or plainly that nothing stood out; the groups no version serves; what your own
    figures would sharpen; what the scans cannot say and what they cost. It records no product and picks no segment.
 3. **Panel** (started by you; `/nxk:meet`, `agents/panel.md`, guide topic `panel`). For colour: it counts the group you
    name, draws a few of its people with `people` action meet, each as a card of their own facts, and, when you ask,
@@ -119,8 +119,9 @@ and margin, computed, when you gave them). Then it names one move:
 - then report: the findings, as guide topic `research` says.
 
 Widening stops after two rounds in a row that found no strong corner. Leads are ordered by the corner's strength (x2 or
-more is strong), then by counted size. There is no single score, and nxk never chooses for you: the findings name the
-cheapest real test that would tell the leading two apart.
+more is strong, x1.5 a lead to test, of which at most two are followed; a faint corner, x1.15 to x1.5, is not), then by
+counted size. There is no single score, and nxk never chooses for you: the findings name the cheapest real test that
+would tell the leading two apart.
 
 ### Real results
 

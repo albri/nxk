@@ -196,7 +196,19 @@ test("a corner no keener on its offer than everyone is not followed, however muc
     ordered([c("cold", 0.09, 0.09), c("keen", 0.3, 0.2), c("none", 0.5, 0.2, 1.1), c("faint", 0.25, 0.2, 1.3)]).map(
       (x) => x.key,
     ),
-    ["keen", "faint"],
+    ["keen"],
+  );
+  // A lead to test (x1.5 to x2) is followed after the strong ones, two at most, the biggest first; a faint one is not.
+  const lead = (key: string, share: number) => ({ ...c(key, 0.3, 0.2, 1.7), share });
+  assert.deepEqual(
+    ordered([
+      lead("small", 0.05),
+      c("keen", 0.3, 0.2),
+      lead("big", 0.2),
+      lead("middle", 0.1),
+      c("faint", 0.3, 0.2, 1.4),
+    ]).map((x) => x.key),
+    ["keen", "big", "middle"],
   );
   // The owner's own offer leads, whatever the others' strength, and is never set aside as cold: its lead is who wants it.
   assert.deepEqual(
@@ -252,10 +264,10 @@ test("the explorer walks one research question: keep, split, rivals, budget, wid
     assert.match(await next(), /Next \(free\): corner_split \{"segment":"s1"\}/);
     assert.match(await next(), /Nothing has changed since the last call: its move \(split\) was not made/);
     const split = (await s.call("corner_split", { segment: "s1" })).content[0].text;
-    assert.match(split, /^s1 \(retired people\): .* prefer clerk x\d\.\d\d over their average offer/);
+    assert.match(split, /^s1 \(retired people\): .* prefer clerk x\d+\.\d\d over their average offer/);
     assert.match(
       split,
-      /Keenest inside it:\n {2}.*\(counted\); x\d\.\d\d, \d+% keen \(simulated\)\. among: economic_activity_status=retired,/,
+      /Keenest inside it:\n {2}.*\(counted\); x\d+\.\d\d, \d+% keen \(simulated\)\. among: economic_activity_status=retired,/,
     );
     assert.match(
       split,
@@ -314,6 +326,8 @@ test("the explorer walks one research question: keep, split, rivals, budget, wid
     text = await next();
     assert.match(text, /Next \(stop\): guide \{"topic":"research"\}/);
     assert.match(text, /2 strong lead\(s\), kept, split and looked up\. Report the findings/);
+    // The care corner, x1.1, is no lead: the report names no lead to test and nothing fainter.
+    assert.match(text, /no lead to test \(x1\.5 to x2\); nothing fainter/);
     assert.match(text, /This ends the exploring: report what the research found/);
     assert.equal(JSON.parse(readFileSync(kb, "utf8")).research[0].explore.dry, 1);
     assert.equal(exploring(JSON.parse(readFileSync(kb, "utf8"))), null);

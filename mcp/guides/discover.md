@@ -157,11 +157,14 @@ were kept when it began. Do not sleep or check its files in between.
   idea. The size of the corner is counted on the generated people. A corner
   can prefer an idea to the others and still be colder on it than adults in
   general, when it is a group cold on the whole list.
-- **Strong and faint.** A corner shown at x2 or more is worth acting on. A
-  fainter one is a lead. An idea with no corner of its own is competing for
-  the people who like everything. A corner no keener on its idea than
-  everyone is a group cold on the whole list: `explore_next` lists it as not
-  followed.
+- **Strong, leads to test, faint.** A corner shown at x2 or more is worth
+  acting on. One at x1.5 to x2 is a lead to test, not a finding. One at x1.15
+  to x1.5 is faint and not a lead. On 32 products whose users are published,
+  a group read that much keener than everyone really was 26 times in 27, 30
+  in 37 and 50 in 67 (evals/products/strength.ts). An idea with no corner of
+  its own is competing for the people who like everything. A corner no keener
+  on its idea than everyone is a group cold on the whole list: `explore_next`
+  lists it as not followed, and follows no faint corner.
 - **Nobody serves them.** Large groups, of one fact or two together, at
   least a tenth keener than average on the way people do it now (the version
   marked `now: true`), where every offer does worse than its own average:
@@ -269,8 +272,10 @@ reply): a line or two a lead.
   0.49). Which people preferred which idea did not.
 - **Set a price or forecast revenue.** The decision model barely reacts to
   price: nearly doubling it moved the answer by under a tenth.
-- **Say how many would buy.** Differences between groups come out at a
-  quarter to two-fifths of their real size.
+- **Say how many would buy.** Differences between groups are rough: on 32
+  products whose users are published they came out at two-thirds to 1.3
+  times their published size, by the fields asked about, and the level
+  itself moves with how the request is laid out.
 - **See a fact nobody named.** Name more fields when a group you care about
   is missing.
 
@@ -283,7 +288,8 @@ reply): a line or two a lead.
 - **A smaller scan finds the strong ones.** Against asking every idea about
   every field in both option orders, this mode's corners shown at x2 or more
   were the same or mostly the same people 19 times in 22. Fainter ones
-  matched about two times in three.
+  matched about two times in three. That was with one damping for every
+  scan, which read this mode's corners smaller than they are now.
 - **Unserved groups need the same questions for every idea.** When each idea
   was asked only about its own facts, the groups named as unserved were ones
   an idea did serve. Asked about the same fields, the groups matched the

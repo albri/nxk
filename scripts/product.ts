@@ -145,8 +145,19 @@ export interface NewQuestion {
   why?: string | null;
 }
 
-/** How clearly a corner prefers its offer to their average one: x2 or more is strong, x1.15 faint, below that none. */
-export type Strength = "strong" | "faint" | "none";
+/**
+ * How clearly a corner prefers its offer: x2 or more is strong, x1.5 a lead to test, x1.15 faint, below that none.
+ * On 32 products whose users are published, scanned with every field (evals/products/strength.ts), a group read x2 or
+ * more keener than everyone was keener in the published figures 26 times in 27, one read x1.5 to x2 30 times in 37
+ * (about 8 in 10), one read x1.15 to x1.5 50 times in 67 (3 in 4), and one read under that 34 times in 47.
+ */
+export type Strength = "strong" | "lead" | "faint" | "none";
+export const STRONG = 2,
+  LEAD = 1.5,
+  FAINT = 1.15;
+/** A corner's strength from its odds: how many times more it favours its offer. */
+export const strengthOf = (odds: number): Strength =>
+  odds >= STRONG ? "strong" : odds >= LEAD ? "lead" : odds >= FAINT ? "faint" : "none";
 
 /** An offer put to the people in a scan. */
 export interface ScanIdea {

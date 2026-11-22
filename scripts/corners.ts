@@ -10,7 +10,7 @@
 // people. How keen it is comes from the decision model and is simulated.
 import { numberAt, valuesAt, type Field, type Row, type Tier } from "./population.ts";
 import type { KeenBy } from "./product.ts";
-import { logOdds, membersOf, type Holders } from "./scan-answers.ts";
+import { dampingFor, logOdds, membersOf, type Holders } from "./scan-answers.ts";
 
 const expit = (x: number) => 1 / (1 + Math.exp(-x));
 const mean = (xs: ArrayLike<number>) => {
@@ -147,9 +147,11 @@ export interface ScoredIdea extends Scores {
 /**
  * One idea's scan answers as a score for every person: the same sum scan-answers.ts peopleAnswers makes (the level,
  * plus `damping` times each scanned field's effect for the value the person holds), without rebuilding the groups for
- * every idea. `answers` maps "path=code" to a probability.
+ * every idea. `answers` maps "path=code" to a probability. With no `damping` given, it is set by how many fields are
+ * read (scan-answers.ts dampingFor), so that a corner's odds mean the same whether a scan asked about every field or
+ * a few.
  */
-export function scoresOf(room: Room, answers: Map<string, number>, { damping = 0.1 } = {}): Scores {
+export function scoresOf(room: Room, answers: Map<string, number>, { damping }: { damping?: number } = {}): Scores {
   const sum = new Float64Array(room.N),
     levels: number[] = [],
     scanned: string[] = [];
@@ -176,8 +178,9 @@ export function scoresOf(room: Room, answers: Map<string, number>, { damping = 0
     for (let i = 0; i < room.N; i++) if (count[i]) sum[i] += tot[i] / count[i];
   });
   if (!levels.length) throw new Error("No field of the map has scan answers for two or more of its values");
-  const base = logOdds(mean(levels));
-  const l = Float64Array.from(sum, (s) => base + damping * s),
+  const base = logOdds(mean(levels)),
+    d = damping ?? dampingFor(levels.length);
+  const l = Float64Array.from(sum, (s) => base + d * s),
     p = Float64Array.from(l, expit);
   return { l, p, mean: mean(p), scanned };
 }
