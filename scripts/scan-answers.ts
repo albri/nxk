@@ -63,9 +63,9 @@ export interface PeopleAnswers {
  * read, about 0.1 with every field of the map (146) and 0.3 with ten general fields and six named. A person's answer
  * is a sum over the fields read, so with a fixed damping the same difference came out bigger the more fields a scan
  * asked about. On 32 products whose users are published, scanned with every field (evals/products/strength.ts), a
- * group's published difference at a fixed 0.1 was 7.95 times the reading from six of the fields, 2.58 times it from
+ * group's published difference at a fixed 0.1 was 7.96 times the reading from six of the fields, 2.58 times it from
  * ten general fields and those six, and 0.78 times it from every field: a cheaper scan never reached x1.5. Set this
- * way it is 1.62, 0.86 and 0.79 times, so the bars a corner is judged by (product.ts strengthOf) mean much the same
+ * way it is 1.62, 0.86 and 0.80 times, so the bars a corner is judged by (product.ts strengthOf) mean much the same
  * in a scan of every field and in a cheaper one.
  */
 export const dampingFor = (fields: number): number => 1.2 / Math.sqrt(Math.max(1, fields));

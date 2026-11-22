@@ -50,10 +50,11 @@ const RECORDED = {
   "2026-11-13-advert-gateway.json": 533,
   "2026-11-14-year-on-offer-google.json": 557,
   "2026-11-19-year-on-offer-google.json": 559,
+  "2026-11-22-year-on-offer-google.json": 560,
 };
 
 test("the saved answers, scored on the UK people, give the saved run exactly", () => {
-  const file = "2026-11-19-year-on-offer-google.json";
+  const file = "2026-11-22-year-on-offer-google.json";
   const run = loadRun(join(RESULTS_DIR, file));
   const { map, people } = loadPeople("uk");
   assert.equal(people.length, run.people);

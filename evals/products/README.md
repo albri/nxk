@@ -62,13 +62,15 @@ higher published figure has the higher figure in the scan.
 
 ## Result
 
-On 19 November 2026, with Google's decision model, `gemini-decision-1`,
-through Google's Decisions API: **559 of 622 pairs right (90%)**, for USD
-0.022.
+Asked on 19 November 2026, with Google's decision model, `gemini-decision-1`,
+through Google's Decisions API, for USD 0.022, and scored on 22 November on
+the people nxk ships now (PersonaGen 4.0.4): **560 of 622 pairs right
+(90%)**. On the people of 18 November the same answers gave 559: one age pair
+changed.
 
 | Breakdown | Right |
 | --- | ---: |
-| Age | 379 of 435 |
+| Age | 380 of 435 |
 | Household income | 112 of 113 |
 | Tenure | 28 of 32 |
 | Social grade | 23 of 24 |
@@ -76,7 +78,7 @@ through Google's Decisions API: **559 of 622 pairs right (90%)**, for USD
 | Rural or urban | 2 of 3 |
 
 Every pair is in
-[results/2026-11-19-year-on-offer-google.json](results/2026-11-19-year-on-offer-google.json),
+[results/2026-11-22-year-on-offer-google.json](results/2026-11-22-year-on-offer-google.json),
 and every answer the decision model gave is in [answers/](answers/).
 
 **Asked again, it holds.** A run on 14 November, on the 20,000 made-up adults
@@ -106,10 +108,10 @@ reads as keener is keener in the published figures.
 
 | Reading, every field | Keener | Colder | Pairs the right way |
 | --- | ---: | ---: | ---: |
-| x2 or more (strong) | 26 of 27 | 34 of 37 | 230 of 252 |
-| x1.5 to x2 (a lead to test) | 30 of 37 | 13 of 14 | 108 of 124 |
-| x1.15 to x1.5 (faint) | 50 of 67 | 44 of 48 | 142 of 180 |
-| under x1.15 | 34 of 47 | 41 of 58 | 85 of 135 |
+| x2 or more (strong) | 26 of 27 | 33 of 36 | 229 of 251 |
+| x1.5 to x2 (a lead to test) | 30 of 37 | 13 of 14 | 109 of 125 |
+| x1.15 to x1.5 (faint) | 50 of 66 | 45 of 49 | 142 of 180 |
+| under x1.15 | 33 of 48 | 40 of 58 | 86 of 135 |
 
 nxk's bars (`scripts/product.ts` `strengthOf`) follow it: strong is a lead,
 x1.5 to x2 a lead to test, and nothing fainter is reported.
@@ -117,10 +119,10 @@ x1.5 to x2 a lead to test, and nothing fainter is reported.
 It also reads how big a reading is against its published size. A person's
 answer adds up every field asked about, so with one damping for every scan
 the same difference read bigger the more fields were asked: published
-differences were 7.95 times the reading from the six facts, 2.58 times from
+differences were 7.96 times the reading from the six facts, 2.58 times from
 the ten general fields and the six, and 0.78 times from every field. nxk now
 sets the damping by how many fields are read (`scripts/scan-answers.ts`
-`dampingFor`), and they are 1.62, 0.86 and 0.79 times.
+`dampingFor`), and they are 1.62, 0.86 and 0.80 times.
 
 ```bash
 node evals/products/strength.ts     # reads answers/every-fact; sends nothing
@@ -148,7 +150,7 @@ node evals/products/strength.ts     # reads answers/every-fact; sends nothing
 
 ```bash
 node evals/products/run.ts --score                               # scores the saved answers again on the people; sends nothing
-node evals/products/run.ts --show=2026-11-19-year-on-offer-google  # by product, and the pairs it got wrong
+node evals/products/run.ts --show=2026-11-22-year-on-offer-google  # by product, and the pairs it got wrong
 node evals/products/run.ts                                       # recounts each saved run and checks it against products.json
 node evals/products/run.ts --plan                                # the requests and cost of a new run; sends nothing
 node evals/products/run.ts --run --max-usd=0.05                  # a new run, then its score

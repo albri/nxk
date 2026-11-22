@@ -380,7 +380,7 @@ test("a segment is counted, kept and compared, and nxk never chooses one", async
       among: "current_education_enrolment=full_time_student,age_years=18..24",
       country: "uk",
     });
-    assert.match(add.content[0].text, /Kept s1: .*4\.2 in every 100 UK adults nationwide \(counted\)/);
+    assert.match(add.content[0].text, /Kept s1: .*4\.1 in every 100 UK adults nationwide \(counted\)/);
     await s.call("segment_rival", { segment: "s1", none_found: "searched 'student lets Manchester'" });
     const table = (await s.call("segments", {})).content[0].text;
     assert.match(table, /rivals: none found/);

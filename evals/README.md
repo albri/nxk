@@ -9,7 +9,8 @@ nxk runs only when the owner asks, with `/nxk:research`, `/nxk:look` or `/nxk:me
   - [`surveys/`](surveys/README.md): the scan's differences between kinds of people against what 22 official surveys
     publish. 327 of 345 point the right way (95%), on 19 November 2026.
   - [`products/`](products/README.md): the scan of 32 existing products against who regulators publish uses each.
-    559 of 622 published differences point the right way (90%), in nxk's own wording, on 19 November 2026.
+    560 of 622 published differences point the right way (90%), in nxk's own wording, asked on 19 November 2026 and
+    scored on PersonaGen 4.0.4's people on 22 November.
 - **That nxk behaves when asked.** Each case folder here sends one of nxk's commands in a real Claude Code session and
   checks what comes back: research that reads a saved scan or answers a question the way published figures do, a
   second look that comes back with at most three points and changes nothing, a panel that counts its group and marks
