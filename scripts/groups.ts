@@ -629,6 +629,12 @@ export function draw<T>(items: T[], n: number, seed: number | string = 1): T[] {
   return pool.slice(0, Math.max(0, n));
 }
 
+/** A value's label as a sheet gives it: without brackets, and up to its first comma when long. */
+export function sheetText(label: string) {
+  const text = unbracketed(label);
+  return text.length > 60 ? text.split(",")[0] : text;
+}
+
 /**
  * One person as short phrases. `always` names fields that are printed whatever the person's value. `telling` names
  * fields printed only when they set the person apart: a single value held by under three in ten adults, a listed thing
@@ -640,10 +646,6 @@ export function sheet(
   row: Row,
   { always = [], telling = [] }: { always?: string[]; telling?: string[] } = {},
 ): Sheet {
-  const short = (label: string) => {
-    const text = unbracketed(label);
-    return text.length > 60 ? text.split(",")[0] : text;
-  };
   const at = (name: string) => fields.findIndex((field) => field.name === name || field.path === name);
   const out: Sheet = { always: [], telling: [] };
   for (const name of always) {
@@ -656,7 +658,7 @@ export function sheet(
         : [String(row[f])]
       : valuesAt(field, row, f)
           .filter((v) => field.values?.[v])
-          .map((v) => short(field.values[v].label ?? field.values[v].code));
+          .map((v) => sheetText(field.values[v].label ?? field.values[v].code));
     for (const text of texts)
       if (!out.always.some((entry) => entry.text === text)) out.always.push({ name: field.name, text });
   }
@@ -668,13 +670,13 @@ export function sheet(
       values.forEach((value, v) => {
         const share = shareOf(value.share) ?? 0,
           has = holds(fields[f], row, f, v),
-          label = short(value.label ?? value.code);
+          label = sheetText(value.label ?? value.code);
         if (has && share < 0.15) out.telling.push({ name: fields[f].name, text: label });
         if (!has && share >= 0.7)
           out.telling.push({ name: fields[f].name, text: `no ${label.charAt(0).toLowerCase()}${label.slice(1)}` });
       });
     } else if (values[row[f]] && (shareOf(values[row[f]].share) ?? 0) < 0.3)
-      out.telling.push({ name: fields[f].name, text: short(values[row[f]].label ?? values[row[f]].code) });
+      out.telling.push({ name: fields[f].name, text: sheetText(values[row[f]].label ?? values[row[f]].code) });
   }
   return out;
 }

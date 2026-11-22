@@ -290,3 +290,30 @@ test("meet draws people from inside the group, each as a card of their own facts
   assert.notEqual(await ask("meet", "--country=uk", who, "--n=4", "--seed=2"), text);
   assert.match(await ask("meet", "--country=uk", who, "--n=40"), /^12 of /m);
 });
+
+test("a card shows what put the person in the group, though a card lists only five interests", async () => {
+  const { run } = await import("./people.ts");
+  const ask = async (...argv: string[]) => {
+    const printed: string[] = [];
+    await run(argv, { print: (text) => printed.push(text), sinks: [] }, { folder: "." });
+    return printed
+      .join("\n")
+      .split(/\n(?=\d+\. )/)
+      .slice(1);
+  };
+  // A family of interests has no line on a card: it gets one, and the person's interests in it come first.
+  const sporty = await ask("meet", "--country=uk", "--who=interest_families=team_racket_and_social_sports", "--n=6");
+  assert.equal(sporty.length, 6);
+  const team =
+    /football|bowling|golf|snooker|tennis|darts|badminton|cricket|netball|padel|squash|volleyball|rugby|rounders|hockey|basketball|pickleball|frisbee|lacrosse|ultimate|croquet/;
+  for (const card of sporty) {
+    assert.match(card, /^ {3}In the group for: team racket and social sports\.$/m);
+    const first = card.match(/^ {3}Interests: ([^;.]+)/m)?.[1] ?? "";
+    assert.match(first, team, `the first interest is a sport: ${first}`);
+  }
+  // An interest named outright is the first one listed, and needs no line of its own.
+  for (const card of await ask("meet", "--country=uk", "--who=interests=walking_football", "--n=4")) {
+    assert.match(card, /^ {3}Interests: walking football[;.]/m);
+    assert.doesNotMatch(card, /In the group for/);
+  }
+});

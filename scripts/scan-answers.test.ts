@@ -13,7 +13,7 @@ import {
 } from "./scan-answers.ts";
 import type { Field, ListedField, NumericField, PeopleMap } from "./population.ts";
 import type { Probe } from "./scan-answers.ts";
-import { scanResolution, type GroupRead } from "./scan.ts";
+import { scanResolution, spentNote, type GroupRead } from "./scan.ts";
 
 test("logOdds is zero at a half and bounded at the ends", () => {
   assert.equal(logOdds(0.5), 0);
@@ -280,4 +280,15 @@ test("a scan read ends with which version comes first, against the first version
   );
   // Close everywhere it was read: nothing to choose on.
   assert.equal(of([read("adults", 0.2, 0.205, 0.199, true)]).outcome, "unclear");
+});
+
+test("a scan says and records its own charge, so a folder's records add up to what was spent", () => {
+  // Answers saved by an earlier scan cost 1.7 cents; this one adds 1.1 cents.
+  const later = spentNote(0.017, 0.028, null);
+  assert.equal(later.line, "Spent $0.011 on this scan ($0.028 on this spec in all).");
+  assert.ok(Math.abs(later.record.usd - 0.011) < 1e-9);
+  assert.equal(later.record.total, 0.028);
+  const first = spentNote(0, 0.017, "The decision-model account has no credit left.");
+  assert.equal(first.line, "Spent $0.017 on this scan. Stopped: The decision-model account has no credit left.");
+  assert.ok(Math.abs(first.record.usd + later.record.usd - later.record.total) < 1e-12);
 });

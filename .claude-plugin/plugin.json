@@ -1,7 +1,7 @@
 {
   "name": "nxk",
   "displayName": "nxk",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Research on people for Claude: who would want something, how many of them there are, where they live, and every breakdown, counted on 200,000 made-up adults a country (UK and US) from PersonaGen, matched to official statistics. /nxk:research puts your question to the whole country and returns findings; /nxk:look has a second look at a page, policy, letter or plan and comes back with at most three points worth considering; /nxk:meet draws a few of the people behind a count, as cards of their own facts. Every figure says where it came from.",
   "author": {
     "name": "Alex Bristow"

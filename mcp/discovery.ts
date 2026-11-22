@@ -322,11 +322,14 @@ export const DISCOVERY: NxkTool[] = [
       const unsure = reading ? [] : undeclared(ideas);
       if (unsure.length) throw new Error(undeclaredNote(unsure));
       writeFileSync(ideasFile, `${JSON.stringify(ideas, null, 1)}\n`);
+      // Research about one place reads the scan among the people there (scripts/discover.ts --among).
+      const place = studyOf(product)?.where ?? product.where ?? null;
       const argv = [
         dir,
         ideasFile,
         `--country=${country}`,
         `--json=${out}`,
+        ...(place ? [`--among=${place.among}`] : []),
         ...(reading ? ["--read"] : [`--max-usd=${Number(args.max_usd)}`]),
       ];
       const ran = reading
@@ -370,16 +373,19 @@ export const DISCOVERY: NxkTool[] = [
         );
       if (ran.error || !existsSync(out)) return ran;
       const result: DiscoverResult = JSON.parse(readFileSync(out, "utf8"));
-      // A scan whose every offer was asked at work is read among the people in work: its groups say so, so that a group
-      // kept from it is counted among them too.
-      const inWork = result.room_of === "people in work";
+      // A scan whose every offer was asked at work is read among the people in work, and one for a place among the
+      // people there: its groups say so, so that a group kept from it is counted among them too.
+      const inWork = result.room_of.startsWith("people in work");
+      const roomed = result.room_of !== "all adults";
+      const placed = place && roomed ? place : null;
       const among = (corner: Pick<Corner, "facts">) =>
         [
           ...corner.facts.map((f) => `${f.field}=${f.code}`),
           ...(inWork ? ["organisation_size!=not_in_employment"] : []),
+          ...(placed ? [placed.among] : []),
         ].join(",");
       const groupLabel = (corner: Pick<Corner, "facts">) =>
-        `${corner.facts.map((f) => f.label).join(" + ")}${inWork ? ", in work" : ""}`;
+        `${corner.facts.map((f) => f.label).join(" + ")}${inWork ? ", in work" : ""}${placed ? `, in ${placed.text}` : ""}`;
       // The owner's own offer is led by who wants it (its keenest people against everyone); a version written beside it
       // by its corner, the people who prefer it to the other versions.
       const summary = result.ideas.map((idea): ScanCorner => {
@@ -394,7 +400,7 @@ export const DISCOVERY: NxkTool[] = [
           keen: lead.keen,
           room: lead.room,
           ...(idea.own ? { own: true, by: idea.by ?? [] } : {}),
-          ...(inWork ? { room_of: result.room_of } : {}),
+          ...(roomed ? { room_of: result.room_of } : {}),
         };
       });
       const nothing = result.nothing_for.map((c): ScanGap => ({
