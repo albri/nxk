@@ -757,7 +757,7 @@ function printOwnCorners(log: Log, { scored, whom, sized }: Reading, own: OwnCor
   );
   // On saved scans of every field, a corner shown at x2 or more was the full scan's corner 19 times in 22; a weaker one
   // about two times in three. On 32 products whose users are published (evals/products/strength.ts), a group read x2 or
-  // more keener than everyone was keener 26 times in 27, x1.5 to x2 30 in 37, x1.15 to x1.5 50 in 67.
+  // more keener than everyone was keener 26 times in 27, x1.5 to x2 30 in 37, x1.15 to x1.5 50 in 66.
   const at = (strength: Strength) => byOdds.filter((x) => strengthOf(x.odds) === strength);
   log.line("Strong (x2 or more):");
   for (const idea of at("strong")) log.line(line(idea), "simulated", { counted: [sized(idea)] });

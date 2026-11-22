@@ -218,7 +218,7 @@ each check in full, and each can be run again from this repository.
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/evidence-dark.svg">
-    <img src="assets/evidence-light.svg" alt="Checked against published figures. The people match the census: 23 of 23 counts on nxk's made-up US adults within 2 points of 200,000 real adults in the Census Bureau's 2024 survey. The largest gap: 0.7 points. The decision model knows who leans which way: 95 in 100 differences between groups in 22 official surveys put the right way round: 327 of 345. Scans point the right way on real products: 90 in 100 differences in who uses 32 existing products, from social apps to premium bonds, put the right way round in nxk's own words: 559 of 622. The census check is drawn as each count against the real one, all on the line where they agree; the other two as 100 squares, 95 and 90 of them in colour.">
+    <img src="assets/evidence-light.svg" alt="Checked against published figures. The people match the census: 23 of 23 counts on nxk's made-up US adults within 2 points of 200,000 real adults in the Census Bureau's 2024 survey. The largest gap: 0.7 points. The decision model knows who leans which way: 95 in 100 differences between groups in 22 official surveys put the right way round: 327 of 345. Scans point the right way on real products: 90 in 100 differences in who uses 32 existing products, from social apps to premium bonds, put the right way round in nxk's own words: 560 of 622. The census check is drawn as each count against the real one, all on the line where they agree; the other two as 100 squares, 95 and 90 of them in colour.">
   </picture>
 </p>
 
@@ -237,7 +237,7 @@ each check in full, and each can be run again from this repository.
   and activities, from social apps to premium bonds, described without their
   names and scanned in nxk's own words, against who regulators publish really
   uses each: 622 clear differences between groups. The scan put the group that
-  uses each more ahead in 559 of them: 90 in every 100.
+  uses each more ahead in 560 of them: 90 in every 100.
   [evals/products/](evals/products/)
 
 nxk is built to give direction and size: who leans in, and how many of them

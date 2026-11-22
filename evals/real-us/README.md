@@ -8,7 +8,7 @@ adults. This folder checks that once, for the US, on 23 counts.
 
 The made-up people are the 200,000 US adults nxk ships in
 `maps/us-people.bin.gz`. PersonaGen generated them; this check used the file
-built on 2026-11-16.
+built on 2026-11-22 from PersonaGen 4.0.4.
 
 The real people are 200,000 US adults from the
 [American Community Survey](https://www.census.gov/programs-surveys/acs/microdata.html)
@@ -50,46 +50,63 @@ Gaps are made-up minus real, in points, worked out before rounding.
 
 | Count | Made-up | Real | Gap | Verdict |
 | --- | ---: | ---: | ---: | --- |
-| Speaks English not well or not at all | 5.2 | 5.2 | -0.1 | match |
-| Speaks Spanish at home | 13.9 | 13.8 | 0.0 | match |
-| Has difficulty hearing, seeing, remembering, walking, dressing or doing errands alone | 16.3 | 16.6 | -0.2 | match |
+| Speaks English not well or not at all | 5.1 | 5.2 | -0.1 | match |
+| Speaks Spanish at home | 13.8 | 13.8 | 0.0 | match |
+| Has difficulty hearing, seeing, remembering, walking, dressing or doing errands alone | 16.3 | 16.6 | -0.3 | match |
 | Not in full-time work (works part time, or does not work) | 50.0 | 50.1 | -0.1 | match |
-| Works from home | 8.4 | 8.2 | +0.2 | match |
-| Lives in a rented home | 28.3 | 28.5 | -0.2 | match |
+| Works from home | 8.4 | 8.3 | +0.2 | match |
+| Lives in a rented home | 28.4 | 28.5 | -0.2 | match |
 | No car, van or truck in the household | 9.4 | 9.4 | 0.0 | match |
-| Household income under $25,000 a year | 12.5 | 12.2 | +0.3 | match |
+| Household income under $25,000 a year | 12.4 | 12.2 | +0.2 | match |
 | Not a US citizen | 8.2 | 8.2 | 0.0 | match |
 | Aged 65 or over | 22.9 | 22.9 | 0.0 | match |
-| Has their own children under 18 at home | 23.6 | 23.7 | -0.1 | match |
-| Lives in a lone-parent household with the parent's own children under 18 | 4.1 | 4.1 | -0.1 | match |
+| Has their own children under 18 at home | 23.7 | 23.7 | 0.0 | match |
+| Lives in a lone-parent household with the parent's own children under 18 | 3.5 | 4.1 | -0.6 | match |
 | Lives alone | 17.4 | 17.4 | 0.0 | match |
 | Self-employed | 6.2 | 6.3 | -0.1 | match |
-| Out of work and looking for work | 2.9 | 2.8 | 0.0 | match |
+| Out of work and looking for work | 2.8 | 2.8 | 0.0 | match |
 | Enrolled in school or college | 9.1 | 9.2 | -0.1 | match |
-| Aged 18 to 29 and lives in a rented home | 8.9 | 8.8 | +0.1 | match |
-| Drives alone to work, and the household has one vehicle | 8.6 | 8.4 | +0.2 | match |
+| Aged 18 to 29 and lives in a rented home | 8.9 | 8.8 | +0.2 | match |
+| Drives alone to work, and the household has one vehicle | 8.7 | 8.4 | +0.3 | match |
 | Aged 65 or over and lives alone | 6.6 | 6.6 | +0.1 | match |
 | Has their own children under 18 at home, and household income under $50,000 | 3.8 | 4.0 | -0.2 | match |
 | Aged 18 to 24 and enrolled in school or college | 5.6 | 5.6 | 0.0 | match |
 | Of all adults, has a vehicle in the household, then also speaks English well or better | 86.1 | 86.1 | 0.0 | match |
 | Of renters, household income $50,000 or more (about three times a $1,400 monthly rent), then also an employee who gets pay stubs | 46.2 | 46.9 | -0.7 | match |
 
-All 23 match. [results-2026-11-17.json](results-2026-11-17.json) has every
+All 23 match. [results-2026-11-22.json](results-2026-11-22.json) has every
 share, and for the two lines of requirements, the share left after each step.
+The first run, on 17 November against the people built on 16 November, also
+matched 23 of 23: [results-2026-11-17.json](results-2026-11-17.json). Both
+runs drew the same 200,000 real adults.
 
 ## Where the made-up people are off
 
-On these 23 counts, by 0.7 points at most. Among all adults no gap is over 0.3
-points, which is about what chance gives with 200,000 people on each side. The
-largest gap is in the rental application: of renters, 46.2 in 100 made-up
-people have a household income of $50,000 or more and work for an employer,
-against 46.9 in 100 real ones.
+On these 23 counts, by 0.7 points at most. The largest gap is in the rental
+application: of renters, 46.2 in 100 made-up people have a household income of
+$50,000 or more and work for an employer, against 46.9 in 100 real ones.
+
+Among all adults, one gap is bigger than chance. 3.5 in 100 made-up adults
+live in a lone-parent household with children under 18, against 4.1 in 100
+real ones: 0.86 times, inside the rule but 0.6 points off. The people nxk
+shipped before, built on 16 and 18 November, had 4.1. PersonaGen 4.0.4 changed
+what the value means. It was every adult in a household whose householder is a
+lone parent with their own children under 18; it is now a person in a
+lone-parent family with their own children there, so a grandparent, another
+relative or a lodger in that household now counts as another household with
+children. The real people here are still coded the old way, by the
+householder, so the gap is most likely the change of meaning, not too few lone
+parents. The real side's coding has to follow the new meaning before this line
+can say which. Adults with their own children under 18 at home, whose meaning
+did not change, still match: 23.7 against 23.7. Every other gap among all
+adults is 0.3 points or less, about what chance gives with 200,000 people on
+each side.
 
 Two gaps lean the way counts.txt said they would before the run. The ACS asks
 how a person got to work in the week of the survey, and a worker who was away
 from work that week has no answer. So real shares of travel to work run a
 little low, and the made-up people are 0.2 points higher on working from home
-and on driving alone from a one-car home.
+and 0.3 points higher on driving alone from a one-car home.
 
 ## What a match here means
 

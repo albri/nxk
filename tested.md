@@ -13,7 +13,7 @@ figures published by statistics offices and regulators.
   groups the right way round: 95% (section 2).
 - **Scans hold up on real products.** On 32 existing products and 622
   published differences, the scan put the group that uses each more ahead in
-  559: 90%. A group read twice as keen as everyone or more was keener in the
+  560: 90%. A group read twice as keen as everyone or more was keener in the
   published figures 26 times in 27, one read 1.5 to 2 times 30 in 37
   (section 3).
 - **What a scan finds holds when it is asked again.** With the ideas
@@ -32,18 +32,23 @@ figures published by statistics offices and regulators.
 
 ## 1. The people match the census
 
-On 17 November 2026, 23 of nxk's counts were run twice with nxk's own
-command. One run used the 200,000 made-up US adults that nxk ships. The other
-used 200,000 real US adults from the Census Bureau's American Community Survey
-2024, each drawn with a chance in proportion to their survey weight. The counts
+On 22 November 2026, 23 of nxk's counts were run twice with nxk's own
+command. One run used the 200,000 made-up US adults that nxk ships, from
+PersonaGen 4.0.4. The other used 200,000 real US adults from the Census
+Bureau's American Community Survey 2024, each drawn with a chance in
+proportion to their survey weight. The counts
 were the groups nxk counts when a choice leaves people out, five pairs of
 facts, and two lists of requirements applied one after another. The bar for a
 match was set before the run: within 2 points.
 
 All 23 matched. The largest gap was 0.7 points, in a count among renters.
-Among all adults, no gap was over 0.3 points. PersonaGen fits these facts to
-the same survey, so this checks that the fit holds, count by count and in
-combination, in the people nxk ships.
+Among all adults, one gap was over 0.3 points: lone-parent households with
+children under 18, 3.5 in 100 made-up adults against 4.1 real, where the
+people nxk shipped before had 4.1. PersonaGen 4.0.4 changed that value from
+the householder's family to the person's own, and the real people are still
+coded by the householder, which most likely explains it. PersonaGen fits these
+facts to the same survey, so this checks that the fit holds, count by count
+and in combination, in the people nxk ships.
 
 [evals/real-us/](evals/real-us/) has the counts, the shares and how to run the
 check again.
@@ -81,12 +86,13 @@ the other).
 
 Each was scanned in nxk's own words, "This has been on offer where you live
 for the past year", asking about the six facts the published groups are
-defined by, and read on the 200,000 made-up UK adults nxk ships. On 19
-November 2026, through Google, the scan put the group that uses a thing more
-above the group that uses it less in 559 of the 622 pairs (90%), for 2 US
-cents. By age it was 379 of 435, by household income 112 of 113, and by sex 15
-of 15. A run on 14 November, on the 20,000 made-up adults nxk had then, gave
-the same verdict on 616 of the 622.
+defined by, and read on the 200,000 made-up UK adults nxk ships. Asked on 19
+November 2026 through Google, for 2 US cents, and read on PersonaGen 4.0.4's
+people on 22 November, the scan put the group that uses a thing more above the
+group that uses it less in 560 of the 622 pairs (90%). By age it was 380 of
+435, by household income 112 of 113, and by sex 15 of 15. On the people of 18
+November the same answers gave 559. A run on 14 November, on the 20,000
+made-up adults nxk had then, gave the same verdict on 616 of the 622.
 
 The wording matters, and this check is why nxk's scans use this one. Told
 "You see an advert for …" and asked what they would do, the same model leaned
@@ -100,8 +106,8 @@ published group in a breakdown that covers everyone (age, sex, social grade,
 tenure: 335 groups) was read as nxk reads a lead, its odds against
 everyone's. A group read twice as keen or more was keener in the published
 figures 26 times in 27. One read 1.5 to 2 times as keen was 30 times in 37,
-one read 1.15 to 1.5 times 50 in 67, and one read keener by less than that 34
-in 47. So nxk reports twice as keen as a lead, 1.5 to 2 times as a lead to
+one read 1.15 to 1.5 times 50 in 66, and one read keener by less than that 33
+in 48. So nxk reports twice as keen as a lead, 1.5 to 2 times as a lead to
 test, and nothing fainter.
 
 The same answers showed why that bar had meant different things in different

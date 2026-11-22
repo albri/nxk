@@ -157,7 +157,7 @@ test("the shipped maps keep the ties, each fact and code one the map lists", () 
     const codes = (name: string) => new Set(shipped.fields.find((f) => f.name === name)?.values?.map((v) => v.code));
     const facts = Object.entries(shipped.occupation_ties.facts);
     assert.ok(
-      facts.some(([name]) => name === "shift_work"),
+      facts.some(([name]) => name === "job_level"),
       country,
     );
     for (const [name, tie] of facts) {
@@ -169,22 +169,31 @@ test("the shipped maps keep the ties, each fact and code one the map lists", () 
   }
 });
 
-test("the eval's count of East Midlands nurses on shifts says it is the professionals' rate", () => {
-  // In the eval refine-meal-prep-uk, the second look counted these and wrote "about 28,000 against roughly
-  // 2,800", where far more nurses work shifts. The count is the same; what it is now says so beside it.
-  const out = execFileSync(
+const countUk = (among: string, who: string) =>
+  execFileSync(
     process.execPath,
-    [
-      new URL("./people.ts", import.meta.url).pathname,
-      "count",
-      "--country=uk",
-      "--among=region=east_midlands",
-      "--who=region=east_midlands,shift_work=shift_work_most_of_the_time,current_occupation_group=223; region=east_midlands,shift_work=shift_work_most_of_the_time,current_occupation_group=613",
-    ],
+    [new URL("./people.ts", import.meta.url).pathname, "count", "--country=uk", `--among=${among}`, `--who=${who}`],
     { encoding: "utf8", env: { ...process.env, NXK_LOG: "off" } },
   );
-  assert.match(out, /Works shifts most of the time, and Nursing Professionals: 10 people/);
-  assert.match(out, /Rough for these occupations: PersonaGen ties shift work to occupation only by broad group/);
+
+test("the eval's count of East Midlands nurses on shifts is the nurses' own rate", () => {
+  // In the eval refine-meal-prep-uk, the second look counted these and wrote "about 28,000 against roughly
+  // 2,800", where far more nurses work shifts. PersonaGen then gave shift work by broad group of jobs, so nurses had
+  // the professionals' rate (10 people here). From 4.0.4 it is tied to the occupation itself, and no warning is due.
+  const out = countUk(
+    "region=east_midlands",
+    "region=east_midlands,shift_work=shift_work_most_of_the_time,current_occupation_group=223; region=east_midlands,shift_work=shift_work_most_of_the_time,current_occupation_group=613",
+  );
+  assert.match(out, /Works shifts most of the time, and Nursing Professionals: 76 people/);
+  assert.doesNotMatch(out, /Rough for these occupations/);
+});
+
+test("a count of a fact still tied by broad group, for one occupation, says it is the group's rate", () => {
+  const out = countUk(
+    "region=east_midlands",
+    "region=east_midlands,job_level=senior_or_lead,current_occupation_group=223; region=east_midlands,job_level=senior_or_lead,current_occupation_group=613",
+  );
+  assert.match(out, /Rough for these occupations: PersonaGen ties job level to occupation only by broad group/);
   assert.match(
     out,
     /Nursing Professionals: Professional occupations; Caring Personal Services: Caring, leisure and other service occupations/,

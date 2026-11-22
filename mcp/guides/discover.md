@@ -161,7 +161,7 @@ were kept when it began. Do not sleep or check its files in between.
   acting on. One at x1.5 to x2 is a lead to test, not a finding. One at x1.15
   to x1.5 is faint and not a lead. On 32 products whose users are published,
   a group read that much keener than everyone really was 26 times in 27, 30
-  in 37 and 50 in 67 (evals/products/strength.ts). An idea with no corner of
+  in 37 and 50 in 66 (evals/products/strength.ts). An idea with no corner of
   its own is competing for the people who like everything. A corner no keener
   on its idea than everyone is a group cold on the whole list: `explore_next`
   lists it as not followed, and follows no faint corner.

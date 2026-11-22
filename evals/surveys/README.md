@@ -82,7 +82,10 @@ missing. The run stops before it would pass `--max-usd`.
 Run on 19 November 2026: Gemini Decision 1 through Google's Decisions API.
 1,970 questions in 174 requests, 325,973 tokens, USD 0.033 (Google reports
 tokens, not cost: tokens at the published USD 0.10 a million). Scores are in
-[results-2026-11-19.json](results-2026-11-19.json).
+[results-2026-11-22.json](results-2026-11-22.json), read with each group's
+values weighted by their share of PersonaGen 4.0.4's people. On the people of
+18 November ([results-2026-11-19.json](results-2026-11-19.json)) every total
+was the same.
 
 | | |
 | --- | ---: |
@@ -102,7 +105,7 @@ would be 11.6.
 | shed-buy-now-pay-later | 20 | 6 of 6 | 2.67 | 20.3 | 5.3 | 7.3 |
 | shed-retirement-savings-on-track | 18 | 26 of 28 | 0.80 | 5.7 | 3.6 | 5.0 |
 | shed-food-sufficiency | 20 | 25 of 25 | 0.57 | 3.3 | 1.9 | 2.8 |
-| shed-price-changes-effect | 20 | 7 of 9 | 1.29 | 7.3 | 2.4 | 2.6 |
+| shed-price-changes-effect | 20 | 7 of 9 | 1.29 | 7.4 | 2.4 | 2.6 |
 | nhis-flu-vaccine-12-months | 20 | 24 of 26 | 0.81 | 10.0 | 4.9 | 8.6 |
 | nhis-worry-paying-medical-bills | 20 | 15 of 15 | 0.97 | 17.8 | 3.3 | 4.2 |
 | nhis-virtual-appointment-12-months | 20 | 2 of 2 | 1.55 | 26.0 | 2.6 | 7.8 |
@@ -160,4 +163,5 @@ saved answers were not kept, so it cannot be scored again here.
 | [run.ts](run.ts) | Plans, sends, saves and scores. |
 | [run.test.ts](run.test.ts) | The scoring on a toy study, the request form, and the plan's counts. |
 | [answers.jsonl](answers.jsonl) | Every answer: study, fact, option order, probabilities in the study's option order, model, and cost on each request's first line. |
-| [results-2026-11-19.json](results-2026-11-19.json) | The scores of the run above. |
+| [results-2026-11-22.json](results-2026-11-22.json) | The scores of the run above, on the people nxk ships. |
+| [results-2026-11-19.json](results-2026-11-19.json) | The same answers scored on the people of 18 November. |
