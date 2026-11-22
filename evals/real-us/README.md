@@ -123,9 +123,12 @@ more likely to be off, and the ACS does not ask about them.
   does not use.
 - Facts the ACS does not ask about: attitudes, interests, devices, money
   worries, driving licences, shift work and each person's own internet use.
-  Internet use is known to be off: about 15 in 100 made-up US adults do not go
-  online, against about 5 in 100 in the Pew Research Center's 2024 figures.
-  PersonaGen is fixing this.
+  Internet use was off in the people built on 16 November: about 16 in 100
+  made-up US adults did not go online, against about 5 in 100 in the Pew
+  Research Center's 2024 figures. PersonaGen fixed it from the people of 18
+  November. In the people nxk ships now, about 3.5 in 100 have not used the
+  internet in the last three months or never have: a little low, against
+  Pew's 5.
 - The ACS asks about internet access and computers in the home. The made-up
   people hold each person's own internet use and devices instead, which is a
   different fact, so the two are not compared.
