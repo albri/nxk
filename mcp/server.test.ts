@@ -107,7 +107,7 @@ test("the server says what it is and lists its tools; the three ways in are agen
     assert.match(research, /## Who pays, first[\s\S]*unit `firms`/);
     assert.match(
       research,
-      /Who wants their offer,\*\* first[\s\S]*Other versions, strong leads only[\s\S]*Or plainly nothing/,
+      /Who wants their offer,\*\* first[\s\S]*Other versions, strong leads[\s\S]*at most two leads to test[\s\S]*Or plainly nothing/,
     );
     assert.match(research, /in marked `own: true`/);
     assert.match(research, /never a choice made for\s+the owner/);
@@ -486,7 +486,7 @@ test("a scan's corner is kept only when the scan found one; its keenness is read
     );
     assert.match(
       (await s.call("segment_add", { label: "young adults", from_scan: "scan1", idea: "b" })).content[0].text,
-      /x1\.50 over their average idea \(faint: a lead to check\)/,
+      /x1\.50 over their average idea \(a lead to test\)/,
     );
     const again = (await s.call("segment_add", { label: "18 to 24s", among: " age_years=18..24" })).content[0].text;
     assert.match(again, /The same group was kept as s2 \("young adults"\); updated\. Kept s2: 18 to 24s/);

@@ -425,15 +425,24 @@ export function leadsOf(product: Product): Leads {
  */
 export const flat = (c: Ranked): boolean => !c.own && c.strength !== "none" && c.keen < 1.25 * c.room;
 
-/** The corners worth following: the owner's own offer first, then strong before faint, then the bigger first. */
+/** How many leads to test (x1.5 to x2) research follows and reports, the biggest first. */
+export const TESTS = 2;
+
+/**
+ * The corners worth following: the owner's own offer first (whatever its strength, unless it has no corner at all),
+ * then the strong ones, then up to TESTS leads to test, the bigger first. A faint corner (x1.15 to x1.5) is not
+ * followed: on published figures about one in four pointed the wrong way, so it is not a lead.
+ */
 export function ordered<C extends Ranked>(corners: C[]): C[] {
-  const rank: Record<string, number> = { strong: 0, faint: 1 };
-  return corners
-    .filter((c) => c.strength !== "none" && !flat(c))
+  const rank: Record<string, number> = { strong: 0, lead: 1, faint: 2 };
+  const sorted = corners
+    .filter((c) => (c.own ? c.strength !== "none" : (c.strength === "strong" || c.strength === "lead") && !flat(c)))
     .sort(
       (a, b) =>
         Number(Boolean(b.own)) - Number(Boolean(a.own)) || rank[a.strength] - rank[b.strength] || b.share - a.share,
     );
+  const leads = sorted.filter((c) => !c.own && c.strength === "lead").slice(0, TESTS);
+  return sorted.filter((c) => c.own || c.strength === "strong" || leads.includes(c));
 }
 
 /** Whether anyone has looked for a segment's rivals: some recorded, or none found with what was searched. */
@@ -494,7 +503,7 @@ export function nextMove({
         step: "keep",
         tool: "segment_add",
         inputs: { from_scan: c.scan, idea: c.key, label: "<how the owner would say it>" },
-        why: `${c.key}'s corner (${c.label}) is ${c.strength}: ${one(c.share)} in every 100 adults (counted). Keep it to size it, split it and look for rivals.`,
+        why: `${c.key}'s corner (${c.label}) is ${c.strength === "lead" ? "a lead to test" : c.strength}: ${one(c.share)} in every 100 adults (counted). Keep it to size it, split it and look for rivals.`,
         figures: { counted: [`${one(c.share)} in every 100 adults`] },
       };
   for (const c of kept)
@@ -567,12 +576,17 @@ export function nextMove({
         figures: { counted: [`${one(gap.share)} in every 100 adults, about ${people_(gap.share, country)}`] },
       };
   }
-  const strong = promising.filter((c) => c.strength === "strong");
+  const strong = promising.filter((c) => c.strength === "strong"),
+    tests = promising.filter((c) => !c.own && c.strength === "lead");
   // Who wants the owner's own offer leads the findings, whatever its strength (guide topic research).
   const yours = leads.corners.some((c) => c.own)
     ? "First, who wants the owner's own offer: its keenest group, sized, and which way it leans by age and gender. "
     : "";
   const skipped = skip.includes("rivals") ? " (rivals not looked up here)" : "";
+  // A lead to test is reported as one, never as a finding: on published figures about one in five pointed the wrong way.
+  const toTest = tests.length
+    ? `then the ${tests.length} lead(s) to test (${tests.map((c) => c.key).join(", ")}: x1.5 to x2), each sized and marked as a lead to test, not a finding;`
+    : "no lead to test (x1.5 to x2);";
   return {
     kind: "stop",
     step: "report",
@@ -582,15 +596,17 @@ export function nextMove({
       ? [
           `${strong.length} strong lead(s), kept, split and looked up${skipped}.`,
           'Report the findings as guide topic research says ("What you return").',
-          `${yours}Then strong leads, each sized (counted) among who pays, faint ones marked faint,`,
+          `${yours}Then strong leads, each sized (counted) among who pays; ${toTest} nothing fainter,`,
           "the groups nobody serves (or that none were found, or that it was not read), who the offers leave out",
           "in one line when the owner has not named that group, what the owner's own figures would sharpen,",
           "what the scans cannot say and what they cost. Nothing is chosen for the owner.",
         ].join(" ")
       : [
           "No version has a strong corner of its own. Report that plainly, as guide topic research says.",
-          `${yours}Then that nothing else stood out, the faint leads marked faint, the groups nobody serves`,
-          "(or that none were found, or that it was not read), who the offers leave out in one line when the owner has not named that group,",
+          tests.length
+            ? `${yours}Then the ${tests.length} lead(s) to test (${tests.map((c) => c.key).join(", ")}: x1.5 to x2), each sized and marked as a lead to test, not a finding;`
+            : `${yours}Then that nothing else stood out;`,
+          "the groups nobody serves (or that none were found, or that it was not read), who the offers leave out in one line when the owner has not named that group,",
           "and that the choice rests on what the owner can test with real buyers.",
         ].join(" "),
   };

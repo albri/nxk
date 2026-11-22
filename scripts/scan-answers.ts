@@ -47,12 +47,28 @@ export interface Holders {
   members: number[];
 }
 
-/** A scan applied to the people: each person's probability, the average level, and the shift applied to it. */
+/**
+ * A scan applied to the people: each person's probability, the average level, the shift applied to it, and how
+ * strongly their facts were added up (`damping`).
+ */
 export interface PeopleAnswers {
   p: number[];
   level: number;
   shift: number;
+  damping: number;
 }
+
+/**
+ * How strongly a person's facts add up when no damping is given: 1.2 over the square root of the number of fields
+ * read, about 0.1 with every field of the map (146) and 0.3 with ten general fields and six named. A person's answer
+ * is a sum over the fields read, so with a fixed damping the same difference came out bigger the more fields a scan
+ * asked about. On 32 products whose users are published, scanned with every field (evals/products/strength.ts), a
+ * group's published difference at a fixed 0.1 was 7.95 times the reading from six of the fields, 2.58 times it from
+ * ten general fields and those six, and 0.78 times it from every field: a cheaper scan never reached x1.5. Set this
+ * way it is 1.62, 0.86 and 0.79 times, so the bars a corner is judged by (product.ts strengthOf) mean much the same
+ * in a scan of every field and in a cheaper one.
+ */
+export const dampingFor = (fields: number): number => 1.2 / Math.sqrt(Math.max(1, fields));
 
 const mean = (xs: number[]) => xs.reduce((sum, x) => sum + x, 0) / xs.length;
 const expit = (x: number) => 1 / (1 + Math.exp(-x));
@@ -230,17 +246,18 @@ export function missingAnswers(
  * Facts overlap (a lone fact carries what usually goes with it), which is why the sum is damped. In testing, damping
  * between 0.05 and 0.15 ordered people as the decision model did when asked about them one by one, and who was
  * affected most hardly changed across that range; the size of differences did. So read who, and treat sizes as rough.
+ * With no `damping` given, it is set by how many fields are read (dampingFor).
  *
  * `answers` maps "path=code" to a probability. `target` sets the population average to a figure you know (your real
  * rate); `shift` applies a previous call's shift, so that a changed version keeps the same footing.
- * Returns { p: [per person], level, shift }.
+ * Returns { p: [per person], level, shift, damping }.
  */
 export function peopleAnswers(
   fields: Field[],
   people: Row[],
   answers: Map<string, number>,
   {
-    damping = 0.1,
+    damping: given,
     target = null,
     shift = 0,
     min = 25,
@@ -271,7 +288,8 @@ export function peopleAnswers(
     for (let i = 0; i < people.length; i++) if (count[i]) sum[i] += tot[i] / count[i];
   });
   if (!levels.length) throw new Error("No field of the map has scan answers for two or more of its values");
-  const level = mean(levels);
+  const level = mean(levels),
+    damping = given ?? dampingFor(levels.length);
   const at = (c: number) => Array.from(sum, (s) => expit(c + damping * s));
   let c = logOdds(level) + shift;
   if (target !== null) {
@@ -285,5 +303,5 @@ export function peopleAnswers(
       else high = c;
     }
   }
-  return { p: at(c), level, shift: c - logOdds(level) };
+  return { p: at(c), level, shift: c - logOdds(level), damping };
 }

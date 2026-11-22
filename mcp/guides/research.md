@@ -109,15 +109,21 @@ reply), then `note_check` on them:
   published table would ("younger adults more than older, men more than
   women"), and say when it leans no way at all. When there is no offer of
   theirs (an area, no product yet), this is the strong leads below.
-- **Other versions, strong leads only.** A version you wrote earns a line
-  only when `explore_next` marks its corner strong (x2 or more) among the
-  people who would pay and that group is clearly keener on it than everyone:
-  its size counted and its lean simulated, a line or two each. A group that
-  prefers one version to the others but wants none of them much is not a
-  finding. Never lead with a version the owner did not ask about.
-- **Or plainly nothing.** When nothing is strong, say so in one line: nothing
-  else stood out, so the choice rests on what the owner can test with real
-  buyers. Never dress a faint lead up as a finding.
+- **Other versions, strong leads.** A version you wrote earns a line when
+  `explore_next` marks its corner strong (x2 or more) among the people who
+  would pay and that group is clearly keener on it than everyone: its size
+  counted and its lean simulated, a line or two each. A group that prefers
+  one version to the others but wants none of them much is not a finding.
+  Never lead with a version the owner did not ask about.
+- **Then at most two leads to test,** the ones `explore_next` names (x1.5 to
+  x2), each in a line, sized, and called a lead to test: on published
+  figures about 8 in 10 such readings pointed the right way, against 26 in
+  27 for strong ones. Nothing fainter: at x1.15 to x1.5 about 1 in 4 pointed
+  the wrong way.
+- **Or plainly nothing.** When nothing is strong and there is no lead to
+  test, say so in one line: nothing else stood out, so the choice rests on
+  what the owner can test with real buyers. Never dress a lead to test up as
+  a finding.
 - **The groups nobody serves,** as the scan prints them: keener than most
   on doing it themselves, and every offer misses them, with what else marks
   them. When the scan found none, say so in one line ("where people do it

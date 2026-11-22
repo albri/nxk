@@ -520,7 +520,7 @@ export const DISCOVERY: NxkTool[] = [
               [
                 `${corner.key} has no corner of its own in ${scan.id}:`,
                 `the group that prefers it most does so only x${corner.odds.toFixed(2)} over their average idea`,
-                "(x1.15 is a faint lead, x2 strong). Write it differently and scan again,",
+                "(x1.15 is faint, x1.5 a lead to test, x2 strong). Write it differently and scan again,",
                 "or keep a group you name with among.",
               ].join(" "),
             );

@@ -187,18 +187,24 @@ test, in a few lines (guide topic reply: under about 400 words in all).
 - **Who, not how much.** Many facts say nearly the same thing (retired, over
   65, on a state pension). Adding all their
   effects at full strength would count the same thing many times, so the sum
-  is damped (the damping is fixed at 0.1). Who is most affected hardly changes
-  with the damping; the size of every difference does. The scan prints the
-  result at half and one and a half times the damping so you can see this.
+  is damped: 1.2 over the square root of the fields asked about, about 0.1
+  with every field and 0.3 with ten general and six named. Who is most
+  affected hardly changes with the damping; the size of every difference
+  does. The scan prints the result at half and one and a half times the
+  damping so you can see this.
   Quote who is affected and roughly how many. Do not quote a size as a
   finding. Act on the first few lines of "the fifth moved most": when the
   same question was scanned in two different forms, the strongest marks of
   that group repeated (unwilling to take financial risk, short of money) and
   the weaker ones did not.
-- **Fewer fields make every difference smaller.** A person's answer is a sum
-  over the fields asked about, so 25 fields show the same kinds of person
-  standing out less than all 146 would. One more reason to read who, not
-  how much.
+- **Fewer fields, the same scale.** A person's answer is a sum over the
+  fields asked about, so with one damping for every scan, 25 fields showed
+  the same kinds of person standing out far less than all 146 did. The
+  damping is set by how many are asked so that they do not: on 32 products
+  whose users are published, a difference read from ten general fields and
+  six named came out at 1.2 times its published size, and from every field
+  at 1.3 times it (evals/products/strength.ts). Sizes are still rough: read
+  who, not how much.
 - **A lone fact carries everything that usually goes with it.** "Retired" also
   means older and often a homeowner. The first two lists show differences
   between kinds of person, which is what you need to decide who to serve. They do not show what a fact itself does.

@@ -13,7 +13,9 @@ figures published by statistics offices and regulators.
   groups the right way round: 95% (section 2).
 - **Scans hold up on real products.** On 32 existing products and 622
   published differences, the scan put the group that uses each more ahead in
-  559: 90% (section 3).
+  559: 90%. A group read twice as keen as everyone or more was keener in the
+  published figures 26 times in 27, one read 1.5 to 2 times 30 in 37
+  (section 3).
 - **What a scan finds holds when it is asked again.** With the ideas
   reworded, 11 of 11 groups stood out again, and with a different question,
   all 16 that stood out sharply (section 4).
@@ -91,6 +93,24 @@ The wording matters, and this check is why nxk's scans use this one. Told
 to the young and put 533 pairs the right way (86%). Asked where a person stands after
 a year on offer, it put lottery draws right in 13 of 14 pairs, not 2, and
 premium bonds in 30 of 30, not 18.
+
+**How keen a reading must be.** On 21 November 2026 the same products were
+scanned asking about every fact of the map, for 60 US cents, and each
+published group in a breakdown that covers everyone (age, sex, social grade,
+tenure: 335 groups) was read as nxk reads a lead, its odds against
+everyone's. A group read twice as keen or more was keener in the published
+figures 26 times in 27. One read 1.5 to 2 times as keen was 30 times in 37,
+one read 1.15 to 1.5 times 50 in 67, and one read keener by less than that 34
+in 47. So nxk reports twice as keen as a lead, 1.5 to 2 times as a lead to
+test, and nothing fainter.
+
+The same answers showed why that bar had meant different things in different
+scans. A person's answer adds up every fact asked about, and with one damping
+for every scan, a difference read from the ten general facts and six named
+came out at two-fifths of its published size, so a cheaper scan never reached
+1.5 times. nxk now damps the sum by how many facts were asked, and the same
+difference reads at 1.2 times its published size from those sixteen facts and
+1.3 times from every one.
 
 [evals/products/](evals/products/) has the products and their sources, every
 pair and every answer, and how to score it again or run the check afresh.

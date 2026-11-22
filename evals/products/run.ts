@@ -41,7 +41,9 @@ export const SIX = [
   "household_income_before_tax_per_year",
   "settlement_size",
 ];
-export const DAMPING = 0.1; // as scripts/scan.ts reads a scan by default
+// The saved runs were scored with the six facts added up at 0.1, the fixed damping scans had then; nxk now sets it by
+// how many fields are read (scripts/scan-answers.ts dampingFor), which strength.ts checks.
+export const DAMPING = 0.1;
 
 /**
  * A product's published group: the breakdown it is in (age, tenure), its label, the share of it that uses the product,

@@ -87,7 +87,7 @@ function leadLines(
     labelled("counted", `   ${size.line}`),
     labelled(
       "simulated",
-      `   customer: ${lean} (${c.strength}); ${keen} (simulated); rivals: ${rivalsText(s, (r) => r.name, ", ")}`,
+      `   customer: ${lean} (${c.strength === "lead" ? "a lead to test" : c.strength}); ${keen} (simulated); rivals: ${rivalsText(s, (r) => r.name, ", ")}`,
     ),
     ...(c.own ? byLines(c) : []),
     // How many must buy is worked out from the owner's figures; with none, the line has no figure of nxk's.

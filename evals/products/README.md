@@ -94,6 +94,38 @@ under-35s play them most, and the decision model takes them for an older
 person's game. Catalogue credit is 16 of 27, and the stocks and shares ISA 27
 of 36.
 
+## How keen a reading must be
+
+On 21 November 2026 the 32 products were scanned again asking about every
+field of the UK map (148), for USD 0.60 in all, and saved in
+[answers/every-fact/](answers/every-fact/).
+[strength.ts](strength.ts) reads each published group in a breakdown that
+covers everyone once (age, sex, social grade and tenure: 335 groups) as nxk
+reads a lead, its odds against everyone's, and asks whether a group the scan
+reads as keener is keener in the published figures.
+
+| Reading, every field | Keener | Colder | Pairs the right way |
+| --- | ---: | ---: | ---: |
+| x2 or more (strong) | 26 of 27 | 34 of 37 | 230 of 252 |
+| x1.5 to x2 (a lead to test) | 30 of 37 | 13 of 14 | 108 of 124 |
+| x1.15 to x1.5 (faint) | 50 of 67 | 44 of 48 | 142 of 180 |
+| under x1.15 | 34 of 47 | 41 of 58 | 85 of 135 |
+
+nxk's bars (`scripts/product.ts` `strengthOf`) follow it: strong is a lead,
+x1.5 to x2 a lead to test, and nothing fainter is reported.
+
+It also reads how big a reading is against its published size. A person's
+answer adds up every field asked about, so with one damping for every scan
+the same difference read bigger the more fields were asked: published
+differences were 7.95 times the reading from the six facts, 2.58 times from
+the ten general fields and the six, and 0.78 times from every field. nxk now
+sets the damping by how many fields are read (`scripts/scan-answers.ts`
+`dampingFor`), and they are 1.62, 0.86 and 0.79 times.
+
+```bash
+node evals/products/strength.ts     # reads answers/every-fact; sends nothing
+```
+
 ## Files
 
 - [products.json](products.json): the 32 products, their sources and links,
@@ -102,7 +134,10 @@ of 36.
 - [results/](results/): one file a run, with each of the 622 pairs, its two
   published figures and the scan's.
 - [answers/](answers/): the decision model's 1,088 answers, one file a
-  product.
+  product, and in `every-fact/` the 32,896 of the scan asking about every
+  field.
+- [strength.ts](strength.ts) and `strength.test.ts`: how keen a reading must
+  be, and how big it is against its published size.
 - [derive/](derive/): the scripts that read the published tables and wrote the
   products, what they read out (`ofcom.json`, `batch-2-figures.json`), and how
   to run them.

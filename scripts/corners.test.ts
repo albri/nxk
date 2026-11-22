@@ -25,7 +25,7 @@ import {
   wordsOf,
 } from "./discover.ts";
 import type { Field } from "./population.ts";
-import { peopleAnswers } from "./scan-answers.ts";
+import { dampingFor, peopleAnswers } from "./scan-answers.ts";
 
 // A small room: 600 people with a tenure, a work status and a household, in every combination.
 const fields = [
@@ -76,7 +76,9 @@ const answers = (shifts: Shifts) =>
     ["home.household=alone", shifts.alone ?? 0.2],
     ["home.household=couple", shifts.couple ?? 0.2],
   ]);
-const idea = (key: string, shifts: Shifts) => ({ key, ...scoresOf(room, answers(shifts)) });
+// Read at the damping of a scan of every field (dampingFor(146), about 0.1), the scale these answers were chosen at:
+// by default three fields would be added up at 0.69.
+const idea = (key: string, shifts: Shifts) => ({ key, ...scoresOf(room, answers(shifts), { damping: 0.1 }) });
 
 test("roomOf lists who holds each value and leaves out values too rare or too common to name a corner", () => {
   assert.equal(room.N, 600);
@@ -137,6 +139,23 @@ test("scoresOf gives every person the score peopleAnswers gives them", () => {
     theirs = peopleAnswers(fields, people, given, { damping: 0.3 });
   for (let i = 0; i < people.length; i += 37) assert.ok(Math.abs(mine.p[i] - theirs.p[i]) < 1e-12);
   assert.deepEqual(mine.scanned, ["home_tenure", "work", "household"]);
+});
+
+test("with no damping given, the facts add up by how many fields are read: about 0.1 for every field, 0.3 for 16", () => {
+  assert.ok(Math.abs(dampingFor(146) - 0.1) < 0.001);
+  assert.equal(dampingFor(16), 0.3);
+  const given = answers({ retired: 0.5, rents: 0.1, alone: 0.35 });
+  const set = scoresOf(room, given, { damping: dampingFor(3) }),
+    left = scoresOf(room, given),
+    theirs = peopleAnswers(fields, people, given);
+  assert.equal(theirs.damping, dampingFor(3));
+  for (let i = 0; i < people.length; i += 37) {
+    assert.equal(left.p[i], set.p[i]);
+    assert.ok(Math.abs(left.p[i] - theirs.p[i]) < 1e-12);
+  }
+  // Fewer fields read count each one more: two of the three, each at 1.2 over the square root of 2.
+  const two = new Map([...given].filter(([id]) => !id.startsWith("home.household")));
+  assert.equal(peopleAnswers(fields, people, two).damping, dampingFor(2));
 });
 
 test("alike is 1 for ideas wanted by the same people and lower for ideas wanted by different people", () => {
